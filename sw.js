@@ -4,7 +4,7 @@
  * Bump CACHE_NAME version whenever files are added/changed.
  */
 
-const CACHE_NAME = 'englishpath-v10';
+const CACHE_NAME = 'englishpath-v11';
 
 const ASSETS_TO_CACHE = [
   './',
@@ -121,6 +121,11 @@ const ASSETS_TO_CACHE = [
   './pages/intermediate/reading.html',
   './pages/intermediate/listening.html',
   './components/sidebar.html',
+  './assets/css/toefl.css',
+  './assets/js/data/toefl-vocab-data.js',
+  './assets/js/pages/toefl-vocab.js',
+  './pages/toefl/index.html',
+  './pages/toefl/vocabulary.html',
 ];
 
 // ── Install: cache all assets ──────────────────────────────

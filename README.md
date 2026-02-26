@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 2.1.4 |
-| **Fase Saat Ini** | FASE 14c-2 ✅ — TOEIC: Simulasi Full Test + Halaman Hasil |
-| **Fase Berikutnya** | FASE 15a — TOEFL iBT: Hub & Vocabulary (v2.2.1) |
+| **Versi App** | 2.2.1 |
+| **Fase Saat Ini** | FASE 15a ✅ — TOEFL iBT: Hub & Vocabulary |
+| **Fase Berikutnya** | FASE 15b — TOEFL iBT: Practice Reading & Listening (v2.2.2) |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -132,7 +132,7 @@ englishpath/
 │   ├── advanced/                       🔲 Fase 17–18
 │   ├── ielts/                          ✅ Fase 13a–13c-2 (Hub + Vocab + Reading + Listening + Speaking + Writing + Simulasi + Hasil)
 │   ├── toeic/                          ✅ Fase 14a–14c-2 SELESAI (Hub + Vocab + Listening + Reading + Simulasi + Hasil)
-│   ├── toefl/                          🔲 Fase 15a–15b
+│   ├── toefl/                          ✅ Fase 15a (Hub + Vocab) — Fase 15b–15c 🔲
 │   └── cambridge/                      🔲 Fase 16a–16b
 │
 └── assets/
@@ -155,6 +155,9 @@ englishpath/
 │   └── planner.css                 ✅ Study Planner styles (Fase 12)
 │   └── ielts.css                   ✅ IELTS Hub & Vocab styles (Fase 13a)
 │   └── ielts-skill.css             ✅ IELTS Speaking & Writing styles (Fase 13c-1)
+│   └── simulation.css              ✅ Simulation styles IELTS/TOEIC (Fase 13c-2)
+│   └── toeic.css                   ✅ TOEIC Hub, Vocab, Practice styles (Fase 14a–14c-2)
+│   └── toefl.css                   ✅ TOEFL Hub & Vocabulary styles (Fase 15a)
     ├── icons/
     ├── manifest.json                   ✅ PWA manifest (Fase 10)
 ├── sw.js                           ✅ Service Worker (Fase 10)
@@ -309,6 +312,8 @@ Menghitung path relatif ke root berdasarkan kedalaman folder.
 | `toeic_vocab` | Object | {wordId: {learnedAt, mastered?}} per TOEIC Business word |
 | `toeic_listening` | Object | {results: {partN: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts} |
 | `toeic_reading` | Object | {results: {part5/part6/part7: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts} |
+| `srs_toefl_vocab` | Object | SM-2 data per TOEFL word id — {repetitions, interval, ef, nextReview, lastReview} |
+| `toefl_vocab` | Object | {wordId: {learnedAt, mastered?}} per TOEFL Academic word |
 
 ---
 
@@ -677,7 +682,7 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **14b** | TOEIC: Practice Listening (Parts 1–4) | v2.1.2 | ✅ |
 | **14c-1** | TOEIC: Practice Reading (Parts 5–7) | v2.1.3 | ✅ |
 | **14c-2** | TOEIC: Simulasi Full Test + Halaman Hasil | v2.1.4 | 🔲 |
-| **15a** | TOEFL iBT: Hub & Vocabulary | v2.2.1 | 🔲 |
+| **15a** | TOEFL iBT: Hub & Vocabulary | v2.2.1 | ✅ |
 | **15b** | TOEFL iBT: Practice Reading & Listening | v2.2.2 | 🔲 |
 | **15c** | TOEFL iBT: Practice Speaking & Writing + Simulasi Full Test | v2.2.3 | 🔲 |
 | **16a** | Cambridge: Hub & Vocabulary | v2.3.1 | 🔲 |
@@ -890,7 +895,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v2.1.2 — Fase 14b** | 2026-02-26 | TOEIC: Practice Listening Parts 1–4 (TTS, MCQ, form completion, SW v8) | ✅ |
 | **v2.1.3 — Fase 14c-1** | 2026-02-26 | TOEIC: Practice Reading Parts 5–7 (Part 5 Incomplete Sentences, Part 6 Text Completion, Part 7 Single & Double Passage) | ✅ |
 | **v2.1.4 — Fase 14c-2** | 2026-02-26 | TOEIC: Simulasi Full Test (LC 45 min: Parts 1–4 TTS + RC 75 min: Parts 5–7) + Halaman Hasil (score 10–990, part breakdown, rekomendasi, riwayat 5 sim, badge toeic_ready, SW v10) | ✅ |
-| **v2.2.1 — Fase 15a** | TBD | TOEFL iBT: Hub & Vocabulary (300+ AWL Tier 1–2, flashcard, SRS, quiz) | 🔲 |
+| **v2.2.1 — Fase 15a** | 2026-02-26 | TOEFL iBT: Hub & Vocabulary (300+ AWL Tier 1–2, 8 domain akademik, hub 4 sections, score chart 0–120, MyBest™, flashcard, SRS, quiz, toefl.css, SW v11) | ✅ |
 | **v2.2.2 — Fase 15b** | TBD | TOEFL iBT: Practice Reading & Listening (3 passage akademik + 2 lecture + 1 conversation) | 🔲 |
 | **v2.2.3 — Fase 15c** | TBD | TOEFL iBT: Practice Speaking & Writing + Simulasi Full Test (4 section timed, score 0–120) | 🔲 |
 | **v2.3.1 — Fase 16a** | TBD | Cambridge: Hub & Vocabulary (B2 First & C1 Advanced, 300+ advanced vocab, flashcard, SRS) | 🔲 |
@@ -906,7 +911,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 14c-2 ✅ TOEIC: Simulasi Full Test + Halaman Hasil → **Fase 15a** 🔲 (berikutnya: TOEFL iBT: Hub & Vocabulary)
+> **Fase saat ini:** Fase 15a ✅ TOEFL iBT: Hub & Vocabulary → **Fase 15b** 🔲 (berikutnya: TOEFL iBT: Practice Reading & Listening)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >
@@ -1071,3 +1076,48 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 **localStorage Baru/Diperbarui:**
 - `ep_user_{id}_sim_results` — Tambah entry `{type:'toeic', lc, rc, total, raw:{p1c..p7c, lcCorrect, rcCorrect...}, date, timestamp}`
+
+---
+
+### FASE 15a — TOEFL iBT: Hub & Vocabulary ✅
+**Versi:** v2.2.1 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `pages/toefl/index.html` — TOEFL iBT Hub: hero, 6 nav cards, 4 section overview, score chart 0–120, MyBest™ explanation, strategi per section, format table
+- `pages/toefl/vocabulary.html` — TOEFL Vocabulary: Browse + Flashcard + Quiz + SRS Review modes
+- `assets/js/data/toefl-vocab-data.js` — 300 kata Academic Word List Tier 1–2 + 8 domain akademik
+- `assets/css/toefl.css` — Styling TOEFL (tema hijau akademik) — hub + vocab page
+- `assets/js/pages/toefl-vocab.js` — Logic vocabulary (IIFE module)
+
+**File Diubah:**
+- `sw.js` — Bump ke `englishpath-v11`, tambah toefl.css, toefl-vocab-data.js, toefl-vocab.js, toefl/index.html, toefl/vocabulary.html
+- `README.md` — Update status fase, struktur folder, log pengerjaan, localStorage key reference
+- `MASTER_PROMPT.md` — Tidak ada perubahan (scope sudah sesuai)
+
+**Konten Vocabulary (300 kata, 8 domain):**
+1. 🎓 Akademik Inti (AWL Tier 1) — 40 kata high-frequency academic
+2. 📚 Akademik Lanjut (AWL Tier 2) — 40 kata advanced academic
+3. 🧬 Biologi & Ilmu Kehidupan — 25 kata (adaptation, biodiversity, evolution, metabolism, dll)
+4. 📈 Ekonomi & Perdagangan — 25 kata (aggregate, inflation, monopoly, scarcity, dll)
+5. 🏛️ Sejarah & Peradaban — 25 kata (civilization, colonialism, dynasty, ideology, dll)
+6. 🧠 Psikologi & Perilaku — 25 kata (cognition, empathy, resilience, trauma, dll)
+7. 🔬 Sains & Teknologi — 25 kata (algorithm, empirical, innovation, simulation, dll)
+8. 🎨 Seni & Humaniora — 25 kata (aesthetic, allegory, metaphor, rhetoric, dll)
+9. ⚖️ Hukum & Masyarakat — 25 kata (accountability, constitution, jurisdiction, legislation, dll)
+
+**Fitur yang Berfungsi:**
+- ✅ Hub TOEFL: overview 4 sections (Reading/Listening/Speaking/Writing), score chart 0–120, MyBest™ Scores explanation, strategi per section, format table lengkap
+- ✅ Mode Browse: domain grid dengan progress bar, word list dengan search, klik kata untuk modal detail + TTS
+- ✅ Mode Flashcard: pilih domain & jumlah kartu, 3D flip animation, SRS quality buttons (Susah/Ingat/Mudah)
+- ✅ Mode Quiz: 10 soal pilihan ganda (translate word → bahasa Indonesia), feedback per soal, skor + XP, bonus sempurna
+- ✅ Mode SRS Review: kartu yang jatuh tempo hari ini, reveal jawaban, quality rating (SM-2 algorithm)
+- ✅ Word Modal: klik kata → detail lengkap (IPA, terjemahan, category, contoh kalimat), TTS (en-US)
+- ✅ XP Awards: +5 vocab baru, +2 SRS review, +3 quiz benar, +20 quiz sempurna
+- ✅ ChallengeSystem.onLearnItem() + onModuleVisit() + onQuizComplete() terhubung
+- ✅ localStorage: `ep_user_{id}_toefl_vocab`, `ep_user_{id}_srs_toefl_vocab`
+- ✅ SW bump ke englishpath-v11
+- ✅ Warna tema TOEFL: hijau akademik (#0d8f6e) — beda dari IELTS (biru) dan TOEIC (biru gelap)
+
+**localStorage Baru:**
+- `ep_user_{id}_toefl_vocab` — {wordId: {learnedAt}} — progress vocabulary TOEFL
+- `ep_user_{id}_srs_toefl_vocab` — data SM-2 per word id
