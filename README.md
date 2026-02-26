@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 2.4.1 |
-| **Fase Saat Ini** | FASE 17a ✅ — Advanced: Vocabulary C1–C2 |
-| **Fase Berikutnya** | FASE 17b — Advanced: Grammar C1–C2 (v2.4.2) |
+| **Versi App** | 2.4.2 |
+| **Fase Saat Ini** | FASE 17b ✅ — Advanced: Grammar C1–C2 |
+| **Fase Berikutnya** | FASE 18 — Advanced: Reading & Listening (v2.5.0) |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -320,6 +320,9 @@ Menghitung path relatif ke root berdasarkan kedalaman folder.
 | `cambridge_listening` | Object | {results: {trackId: {best, attempts, lastScore, lastDate}}, totalAttempts} |
 | `cambridge_writing` | Object | {results: {taskId: {attempts, lastWordCount, lastSelfScore, lastDraft, lastDate}}, totalAttempts} — (Fase 16c-1) |
 | `cambridge_speaking` | Object | {results: {partId: {attempts, lastSelfScore, lastDate}}, totalAttempts} — (Fase 16c-1) |
+| `advanced_vocab` | Object | {wordId: {learnedAt}} — progress vocabulary Advanced C1–C2 (Fase 17a) |
+| `srs_advanced_vocab` | Object | SM-2 data per word id — Advanced Vocabulary (Fase 17a) |
+| `advanced_grammar` | Object | {topicsStudied[], quizResults{topicId:{best,attempts,lastScore}}, totalXP, quizzesDone} — (Fase 17b) |
 
 ---
 
@@ -697,7 +700,7 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **16c-1** | Cambridge: Practice Writing & Speaking | v2.3.3 | 🔲 |
 | **16c-2** | Cambridge: Simulasi Full Test + Halaman Hasil | v2.3.4 | ✅ |
 | **17a** | Advanced: Vocabulary C1–C2 | v2.4.1 | ✅ |
-| **17b** | Advanced: Grammar C1–C2 | v2.4.2 | 🔲 |
+| **17b** | Advanced: Grammar C1–C2 | v2.4.2 | ✅ |
 | **18** | Advanced: Reading & Listening | v2.5.0 | 🔲 |
 | **19** | Speaking & Writing Modules | v2.6.0 | 🔲 |
 | **20** | Mini Game (5 game) | v3.0.0 | 🔲 |
@@ -895,6 +898,60 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 - `ep_user_{id}_advanced_vocab` — {wordId: {learnedAt}} — progress vocabulary Advanced
 - `ep_user_{id}_srs_advanced_vocab` — data SM-2 per word id
 
+
+---
+
+### FASE 17b — Advanced: Grammar C1–C2 ✅
+**Versi:** v2.4.2 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `pages/advanced/grammar.html` — Halaman Grammar C1–C2: stats bar, level filter (C1/C2/All), topic grid 12 topik dengan progress bar dan done badge, detail view (study mode + quiz mode), back button
+- `assets/js/data/advanced-grammar-data.js` — Data 12 topik grammar C1–C2 dengan penjelasan mendalam (sections, examples, tips) dan 10 soal quiz per topik (3 tipe: MCQ, fill, transform)
+- `assets/js/pages/advanced-grammar.js` — Logic grammar page (IIFE module): overview, level filter, topic card grid, study mode dengan section rendering + TTS per contoh, quiz mode dengan 3 tipe soal, feedback per soal, result screen, XP awards, localStorage
+
+**File Diubah:**
+- `assets/css/advanced.css` — Append: agr-* prefix styles (grammar header, stats bar, level filter, topic grid, score bar, detail header, mode tabs, study panel, explanation, tip box, example rows, quiz panel: progress bar, MCQ choices, fill input, transform textarea, feedback, result screen), responsive
+- `sw.js` — Bump ke `englishpath-v20`, tambah 3 file baru (advanced-grammar-data.js, advanced-grammar.js, grammar.html)
+- `README.md` — Update status fase, versi, log pengerjaan, panduan Claude selanjutnya
+
+**12 Topik Grammar C1–C2:**
+
+*Level C1 (8 topik):*
+1. 🔄 **Inversion** — Never/Rarely/Not only + inversion; conditional inversion (Were I, Had I, Should it)
+2. ✂️ **Cleft Sentences** — It-cleft, Wh-cleft (pseudo-cleft), All-cleft
+3. 📦 **Nominal Clauses** — That-clauses, Wh-clauses (indirect questions), gerund/infinitive sebagai nomina
+4. 🔀 **Complex Conditionals** — Mixed conditionals, inverted conditionals, unless/provided/as long as/in case
+5. 🌀 **Subjunctive Mood** — Mandative subjunctive (suggest/recommend/insist+that+base form), formulaic subjunctive, past subjunctive (wish/if only/as if)
+6. 🔁 **Advanced Passive Constructions** — Reporting verb passives (It is said that / is said to have), causative have/get something done, stative vs dynamic passive
+7. 🌿 **Participle Clauses** — Present participle (-ing), past participle (V3), perfect participle (Having + V3)
+8. 💫 **Ellipsis & Substitution** — VP ellipsis, do/so/not/one sebagai substitusi, gapping, comparative ellipsis
+
+*Level C2 (4 topik):*
+9. 📌 **Advanced Articles & Determiners** — Zero article vs the, quantifiers formal (a great deal of, numerous, the majority of), generic vs specific reference, each vs every
+10. 🔗 **Discourse Markers & Cohesion** — Discourse markers per fungsi (adding, contrasting, concluding), referential cohesion (anaphora/cataphora), hedging & stance markers
+11. 🧠 **Advanced Modal Verbs** — Modal epistemik (derajat kepastian), modal deontik & dinamik (needn't have, had better), modal perfects counterfactual
+12. 🎯 **Emphasis & Focus Structures** — Do-emphasis, fronting (topicalization), appositive phrases, absolute constructions, concessive clauses dengan inversion (Try as he might, Much as I...)
+
+**Fitur yang Berfungsi:**
+- ✅ Stats bar: Total Topik, Selesai, Quiz Selesai, Rata-rata Skor, Total XP
+- ✅ Level filter: Semua / C1 / C2 — filter topik secara dinamis
+- ✅ Topic cards: icon, level badge, judul, deskripsi singkat, score bar, done badge (✅ jika skor ≥ 70%)
+- ✅ Study mode: 3 section per topik, explanation dengan bold parsing, tip box kuning, contoh kalimat + TTS en-GB
+- ✅ Quiz mode: 10 soal per topik dari pool yang di-shuffle, 3 tipe soal (MCQ/fill/transform), progress bar, live score
+- ✅ MCQ: pilihan diacak, highlight jawaban benar/salah, disabled setelah dijawab
+- ✅ Fill: input text, multi-answer support (dipisah /), enter to submit
+- ✅ Transform: textarea, flexible matching (≥75% kata cocok), feedback jawaban benar
+- ✅ Feedback per soal: warna hijau/merah, tampil jawaban benar
+- ✅ Result screen: emoji, skor, persentase, XP earned, done badge jika ≥70%
+- ✅ XP Awards: +3 per soal benar, +20 bonus sempurna (100%)
+- ✅ ChallengeSystem.onModuleVisit() + onQuizComplete() terhubung
+- ✅ Best score tersimpan per topik, tampil di topic card
+- ✅ Topik selesai (done) jika skor terbaik ≥ 70%
+- ✅ SW bump ke englishpath-v20
+
+**localStorage Baru:**
+- `ep_user_{id}_advanced_grammar` — {topicsStudied: [], quizResults: {topicId: {best, attempts, lastScore}}, totalXP, quizzesDone}
+
 ## 11. Panduan untuk Claude Selanjutnya
 
 ### Konteks Penting
@@ -905,8 +962,9 @@ Kamu sedang mengembangkan **EnglishPath** — aplikasi web belajar bahasa Inggri
 - `pages/advanced/index.html` — Hub Advanced ✅
 - `pages/advanced/vocabulary.html` — Vocab C1–C2 (200 kata, 8 domain, 5 mode) ✅
 - `assets/css/advanced.css` — sudah ada, prefix CSS `adv-`
-- **Fase berikutnya: Fase 17b** → buat `pages/advanced/grammar.html`, file JS baru: `advanced-grammar-data.js`, `advanced-grammar.js`
-- SW cache: saat ini `englishpath-v19`, bump ke v20 di Fase 17b
+- **Fase 17b sudah selesai.** Advanced Grammar C1–C2 tersedia di: `pages/advanced/grammar.html`
+- **Fase berikutnya: Fase 18** → buat `pages/advanced/reading.html` dan `pages/advanced/listening.html`
+- SW cache: `englishpath-v20` (sudah di-bump di Fase 17b)
 
 ### Stack & Aturan
 
@@ -994,7 +1052,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v2.3.3 — Fase 16c-1** | TBD | Cambridge: Practice Writing (Part 1 Essay + Part 2 pilihan: letter/email/report/review/article/story, guided planning, word count, model answers) + Speaking (4 parts, TTS prompts, timer, self-assessment rubrik 0–5) | 🔲 |
 | **v2.3.4 — Fase 16c-2** | 2026-02-26 | Cambridge: Simulasi Full Test + Halaman Hasil (4 section timed, Cambridge Scale 80–230, grade A–U, +100 XP, badge cambridge_ready) | ✅ |
 | **v2.4.1 — Fase 17a** | 2026-02-26 | Advanced: Vocabulary C1–C2 (400+ kata, 8 domain, 5 mode belajar, SRS SM-2, Word Family Explorer, hub Advanced, advanced.css, SW v19) | ✅ |
-| **v2.4.2 — Fase 17b** | TBD | Advanced: Grammar C1–C2 (12 topik: Inversion, Cleft, Nominal Clauses, Complex Conditionals, Subjunctive, dll; 3 tipe soal) | 🔲 |
+| **v2.4.2 — Fase 17b** | 2026-02-26 | Advanced: Grammar C1–C2 (12 topik C1–C2: Inversion, Cleft Sentences, Nominal Clauses, Complex Conditionals, Subjunctive, Advanced Passive, Participle Clauses, Ellipsis, Articles, Discourse Markers, Modal Verbs, Emphasis; 3 tipe soal: MCQ/fill/transform, advanced-grammar-data.js, advanced-grammar.js, grammar.html, CSS agr- prefix, SW v20) | ✅ |
 | **v2.5.0 — Fase 18** | TBD | Advanced: Reading & Listening | 🔲 |
 | **v2.6.0 — Fase 19** | TBD | Speaking & Writing Modules | 🔲 |
 | **v3.0.0 — Fase 20** | TBD | Mini Game (5 game) | 🔲 |
@@ -1004,7 +1062,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 17a ✅ Advanced: Vocabulary C1–C2 → **Fase 17b** 🔲 (berikutnya: Advanced: Grammar C1–C2)
+> **Fase saat ini:** Fase 17b ✅ Advanced: Grammar C1–C2 → **Fase 18** 🔲 (berikutnya: Advanced: Reading & Listening)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >

@@ -4,7 +4,7 @@
  * Bump CACHE_NAME version whenever files are added/changed.
  */
 
-const CACHE_NAME = 'englishpath-v19';
+const CACHE_NAME = 'englishpath-v20';
 
 const ASSETS_TO_CACHE = [
   './',
@@ -169,6 +169,9 @@ const ASSETS_TO_CACHE = [
   './assets/css/advanced.css',
   './assets/js/data/advanced-vocab-data.js',
   './assets/js/pages/advanced-vocab.js',
+  './assets/js/data/advanced-grammar-data.js',
+  './assets/js/pages/advanced-grammar.js',
+  './pages/advanced/grammar.html',
   './pages/advanced/index.html',
   './pages/advanced/vocabulary.html',
 ];

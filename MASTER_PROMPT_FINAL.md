@@ -477,7 +477,8 @@ Jangan copy-paste kode dari Lingora secara membabi buta. Ambil **pola arsitektur
 | **16b** | **Cambridge: Practice (Reading & Use of English + Listening)** | **v2.3.2** |
 | **16c-1** | **Cambridge: Practice Writing & Speaking** | **v2.3.3** |
 | **16c-2** | **Cambridge: Simulasi Full Test + Halaman Hasil** | **v2.3.4** |
-| 17 | Advanced: Vocabulary & Grammar C1–C2 | v2.4.0 |
+| 17a | Advanced: Vocabulary C1–C2 | v2.4.1 | ✅ |
+| 17b | Advanced: Grammar C1–C2 | v2.4.2 | ✅ |
 | 18 | Advanced: Reading & Listening | v2.5.0 |
 | 19 | Speaking & Writing Modules | v2.6.0 |
 | 20 | Mini Game (5 game) | v3.0.0 |
