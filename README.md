@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 2.2.1 |
-| **Fase Saat Ini** | FASE 15a ✅ — TOEFL iBT: Hub & Vocabulary |
-| **Fase Berikutnya** | FASE 15b — TOEFL iBT: Practice Reading & Listening (v2.2.2) |
+| **Versi App** | 2.2.2 |
+| **Fase Saat Ini** | FASE 15b ✅ — TOEFL iBT: Practice Reading & Listening |
+| **Fase Berikutnya** | FASE 15c-1 — TOEFL iBT: Practice Speaking & Writing (v2.2.3) |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -132,7 +132,7 @@ englishpath/
 │   ├── advanced/                       🔲 Fase 17–18
 │   ├── ielts/                          ✅ Fase 13a–13c-2 (Hub + Vocab + Reading + Listening + Speaking + Writing + Simulasi + Hasil)
 │   ├── toeic/                          ✅ Fase 14a–14c-2 SELESAI (Hub + Vocab + Listening + Reading + Simulasi + Hasil)
-│   ├── toefl/                          ✅ Fase 15a (Hub + Vocab) — Fase 15b–15c 🔲
+│   ├── toefl/                          ✅ Fase 15a–15b (Hub + Vocab + Reading + Listening) — Fase 15c-1 🔲
 │   └── cambridge/                      🔲 Fase 16a–16b
 │
 └── assets/
@@ -157,7 +157,7 @@ englishpath/
 │   └── ielts-skill.css             ✅ IELTS Speaking & Writing styles (Fase 13c-1)
 │   └── simulation.css              ✅ Simulation styles IELTS/TOEIC (Fase 13c-2)
 │   └── toeic.css                   ✅ TOEIC Hub, Vocab, Practice styles (Fase 14a–14c-2)
-│   └── toefl.css                   ✅ TOEFL Hub & Vocabulary styles (Fase 15a)
+│   └── toefl.css                   ✅ TOEFL Hub, Vocab, Reading, Listening styles (Fase 15a–15b)
     ├── icons/
     ├── manifest.json                   ✅ PWA manifest (Fase 10)
 ├── sw.js                           ✅ Service Worker (Fase 10)
@@ -684,7 +684,8 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **14c-2** | TOEIC: Simulasi Full Test + Halaman Hasil | v2.1.4 | 🔲 |
 | **15a** | TOEFL iBT: Hub & Vocabulary | v2.2.1 | ✅ |
 | **15b** | TOEFL iBT: Practice Reading & Listening | v2.2.2 | 🔲 |
-| **15c** | TOEFL iBT: Practice Speaking & Writing + Simulasi Full Test | v2.2.3 | 🔲 |
+| **15c-1** | TOEFL iBT: Practice Speaking & Writing | v2.2.3 | 🔲 |
+| **15c-2** | TOEFL iBT: Simulasi Full Test + Halaman Hasil | v2.2.4 | 🔲 |
 | **16a** | Cambridge: Hub & Vocabulary | v2.3.1 | 🔲 |
 | **16b** | Cambridge: Practice Reading & Use of English + Listening | v2.3.2 | 🔲 |
 | **16c** | Cambridge: Practice Writing & Speaking + Simulasi Full Test | v2.3.3 | 🔲 |
@@ -773,13 +774,19 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 - File baru: `toefl-reading-data.js`, `toefl-listening-data.js`, `toefl-reading.js`, `toefl-listening.js`
 - localStorage baru: `ep_user_{id}_toefl_reading`, `ep_user_{id}_toefl_listening`
 
-**Fase 15c — TOEFL iBT: Practice Speaking & Writing + Simulasi Full Test (v2.2.3)**
+**Fase 15c-1 — TOEFL iBT: Practice Speaking & Writing (v2.2.3)**
 - Halaman practice Speaking (`pages/toefl/speaking.html`) — Task 1 Independent (timer 45 det prep + 60 det bicara), Tasks 2–4 Integrated, rubrik 0–4, model answers
 - Halaman practice Writing (`pages/toefl/writing.html`) — Task 1 Integrated (baca + dengar → tulis 150–225 kata), Task 2 Academic Discussion (100+ kata), rubrik 0–5, word count tracker
-- Halaman simulasi (`pages/toefl/simulation.html`) — Reading (54 min) → Listening (41 min) → 10-min break → Speaking (17 min) → Writing (50 min)
-- Halaman hasil (`pages/toefl/result.html`) — score per section (0–30 each), total 0–120, diagnostic
-- +100 XP, badge `toefl_ready` jika total ≥ 80
-- File baru: `toefl-speaking-data.js`, `toefl-writing-data.js`, `toefl-simulation-data.js`, `toefl-speaking.js`, `toefl-writing.js`, `toefl-simulation.js`, `toefl-result.js`
+- File baru: `toefl-speaking-data.js`, `toefl-writing-data.js`, `toefl-speaking.js`, `toefl-writing.js`
+- localStorage baru: `ep_user_{id}_toefl_speaking`, `ep_user_{id}_toefl_writing`
+
+**Fase 15c-2 — TOEFL iBT: Simulasi Full Test + Halaman Hasil (v2.2.4)**
+- Halaman simulasi full test (`pages/toefl/simulation.html`) — Reading (54 min) → Listening (41 min) → 10-min break → Speaking (17 min) → Writing (50 min); navigasi antar section otomatis, progress bar overall
+- Halaman hasil (`pages/toefl/result.html`) — score per section (0–30 each), total 0–120, diagnostic per skill, next steps rekomendasi, riwayat 5 simulasi terakhir
+- Score calculator: raw correct → skala 0–30 per section, total 0–120 (sesuai rubrik TOEFL iBT)
+- +100 XP on complete, badge `toefl_ready` jika total ≥ 80
+- File baru: `toefl-simulation-data.js`, `toefl-simulation.js`, `toefl-result.js`
+- localStorage baru: tambah entry ke `ep_user_{id}_sim_results`
 
 ---
 
@@ -895,9 +902,11 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v2.1.2 — Fase 14b** | 2026-02-26 | TOEIC: Practice Listening Parts 1–4 (TTS, MCQ, form completion, SW v8) | ✅ |
 | **v2.1.3 — Fase 14c-1** | 2026-02-26 | TOEIC: Practice Reading Parts 5–7 (Part 5 Incomplete Sentences, Part 6 Text Completion, Part 7 Single & Double Passage) | ✅ |
 | **v2.1.4 — Fase 14c-2** | 2026-02-26 | TOEIC: Simulasi Full Test (LC 45 min: Parts 1–4 TTS + RC 75 min: Parts 5–7) + Halaman Hasil (score 10–990, part breakdown, rekomendasi, riwayat 5 sim, badge toeic_ready, SW v10) | ✅ |
+| **v2.2.2 — Fase 15b** | 2026-02-26 | TOEFL iBT: Practice Reading (3 academic passages, 8Q each: factual, inference, vocab, insert, summary) + Listening (2 lectures + 1 conversation, 5-6Q each: main idea, detail, function, attitude, organization), toefl.css extended, SW v12 | ✅ |
 | **v2.2.1 — Fase 15a** | 2026-02-26 | TOEFL iBT: Hub & Vocabulary (300+ AWL Tier 1–2, 8 domain akademik, hub 4 sections, score chart 0–120, MyBest™, flashcard, SRS, quiz, toefl.css, SW v11) | ✅ |
 | **v2.2.2 — Fase 15b** | TBD | TOEFL iBT: Practice Reading & Listening (3 passage akademik + 2 lecture + 1 conversation) | 🔲 |
-| **v2.2.3 — Fase 15c** | TBD | TOEFL iBT: Practice Speaking & Writing + Simulasi Full Test (4 section timed, score 0–120) | 🔲 |
+| **v2.2.3 — Fase 15c-1** | TBD | TOEFL iBT: Practice Speaking & Writing (speaking.html + writing.html, rubrik, model answers, word count) | 🔲 |
+| **v2.2.4 — Fase 15c-2** | TBD | TOEFL iBT: Simulasi Full Test + Halaman Hasil (4 section timed, score 0–120, badge toefl_ready) | 🔲 |
 | **v2.3.1 — Fase 16a** | TBD | Cambridge: Hub & Vocabulary (B2 First & C1 Advanced, 300+ advanced vocab, flashcard, SRS) | 🔲 |
 | **v2.3.2 — Fase 16b** | TBD | Cambridge: Practice Reading & Use of English + Listening (Parts 1–7/8 + 4 Listening parts) | 🔲 |
 | **v2.3.3 — Fase 16c** | TBD | Cambridge: Practice Writing & Speaking + Simulasi Full Test (timed, grade A–U) | 🔲 |
@@ -911,7 +920,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 15a ✅ TOEFL iBT: Hub & Vocabulary → **Fase 15b** 🔲 (berikutnya: TOEFL iBT: Practice Reading & Listening)
+> **Fase saat ini:** Fase 15b ✅ TOEFL iBT: Practice Reading & Listening → **Fase 15c-1** 🔲 (berikutnya: TOEFL iBT: Practice Speaking & Writing)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >
@@ -1121,3 +1130,48 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 **localStorage Baru:**
 - `ep_user_{id}_toefl_vocab` — {wordId: {learnedAt}} — progress vocabulary TOEFL
 - `ep_user_{id}_srs_toefl_vocab` — data SM-2 per word id
+
+---
+
+### FASE 15b — TOEFL iBT: Practice Reading & Listening ✅
+**Versi:** v2.2.2 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `pages/toefl/reading.html` — TOEFL Reading Practice: menu passage + reading view + question view + result
+- `pages/toefl/listening.html` — TOEFL Listening Practice: menu track + listen view + question view + result
+- `assets/js/data/toefl-reading-data.js` — 3 academic passages (500–700 kata) + 8 soal masing-masing
+- `assets/js/data/toefl-listening-data.js` — 2 lectures + 1 campus conversation, 5–6 soal masing-masing
+- `assets/js/pages/toefl-reading.js` — Logic reading module (IIFE)
+- `assets/js/pages/toefl-listening.js` — Logic listening module (IIFE, TTS)
+
+**File Diubah:**
+- `assets/css/toefl.css` — Append styles: hero, tips box, passage cards, passage body, question UI, choices, feedback, result screen, review items, listening track cards, audio controls, transcript
+- `sw.js` — Bump ke `englishpath-v12`, tambah 6 file baru
+- `README.md` — Update status fase, struktur folder, log pengerjaan, localStorage key reference
+
+**Konten Reading (3 Passages):**
+- **Passage 1: The Domestication of Dogs** (Biology & Evolution) — 8 soal: factual ×2, vocabulary ×1, inference ×1, negative factual ×1, rhetorical purpose ×1, insert text ×1, prose summary ×1
+- **Passage 2: The Development of Written Language** (History & Civilization) — 8 soal: factual ×2, vocabulary ×2, inference ×1, rhetorical purpose ×1, negative factual ×1, prose summary ×1
+- **Passage 3: Neuroplasticity and Learning** (Psychology & Neuroscience) — 8 soal: factual ×2, vocabulary ×2, inference ×1, rhetorical purpose ×1, negative factual... wait, factual ×1 + attitude ×1, prose summary ×1
+
+**Konten Listening (3 Tracks):**
+- **Lecture 1: The Columbian Exchange** (World History) — 7-segment TTS script, 6 soal: main idea, detail ×2, inference, function, attitude
+- **Lecture 2: Behavioral Economics and Decision Making** (Economics) — 7-segment TTS, 6 soal: main idea, detail ×2, function, inference, organization
+- **Conversation: Office Hours — Research Paper Advice** (Campus) — 14-line TTS dialog, 5 soal: main idea, detail ×2, attitude, inference
+
+**Fitur yang Berfungsi:**
+- ✅ Menu passage/track dengan best score & attempts dari localStorage
+- ✅ Reading: baca passage akademik lengkap sebelum soal, tombol "Baca Ulang" kapan saja
+- ✅ Question types Reading: factual, negative factual, inference, vocabulary in context, rhetorical purpose, insert text, prose summary (multi-select 3 dari 6)
+- ✅ Question types Listening: main idea, detail, function, attitude, organization, inference
+- ✅ TTS audio playback dengan highlight script real-time, toggle transcript tampilkan/sembunyikan
+- ✅ Listening: tombol Lanjut ke Soal hanya aktif setelah audio diputar minimal sekali
+- ✅ Feedback per soal: benar/salah + penjelasan lengkap dalam bahasa Indonesia
+- ✅ Result screen: skor, waktu, XP earned, review semua jawaban dengan penjelasan
+- ✅ XP Awards: +3 per soal benar, +20 bonus sempurna (100%)
+- ✅ ChallengeSystem.onModuleVisit() + onQuizComplete() terhubung
+- ✅ SW bump ke englishpath-v12
+
+**localStorage Baru:**
+- `ep_user_{id}_toefl_reading` — {results: {p1/p2/p3: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts}
+- `ep_user_{id}_toefl_listening` — {results: {l1/l2/c1: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts}
