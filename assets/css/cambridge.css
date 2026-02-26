@@ -1226,3 +1226,223 @@
   .cam-quiz-question-word { font-size: 1.5rem; }
   .cam-modal-box { padding: 1.25rem; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   CAMBRIDGE READING & USE OF ENGLISH — Fase 16b
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Page Header ─────────────────────────────────────────────────── */
+.crm-header { margin-bottom: 1.5rem; }
+.crm-title { font-size: 1.6rem; font-weight: 700; color: var(--cambridge-purple, #6c3fc5); margin: 0.5rem 0 0.25rem; }
+.crm-subtitle { color: var(--text-secondary); font-size: 0.95rem; margin: 0 0 1rem; }
+.crm-intro { background: var(--surface-2); border-left: 3px solid var(--cambridge-purple, #6c3fc5); padding: 0.75rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.95rem; margin-bottom: 1rem; }
+.crm-intro p { margin: 0; }
+
+/* ── Overview Badges ─────────────────────────────────────────────── */
+.crm-overview-badges { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.crm-badge-item { display: flex; flex-direction: column; align-items: center; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 0.75rem 1.25rem; font-size: 0.85rem; font-weight: 600; min-width: 110px; text-align: center; }
+.crm-badge-item small { color: var(--text-secondary); font-weight: 400; font-size: 0.75rem; }
+.crm-badge-icon { font-size: 1.5rem; margin-bottom: 0.25rem; }
+
+/* ── Part Cards (Menu) ────────────────────────────────────────────── */
+.crm-cards { display: flex; flex-direction: column; gap: 0.85rem; }
+.crm-card { display: flex; align-items: center; gap: 1rem; background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; transition: box-shadow 0.2s; }
+.crm-card:hover { box-shadow: 0 2px 12px rgba(108,63,197,0.12); }
+.crm-card-icon { font-size: 1.8rem; flex-shrink: 0; }
+.crm-card-body { flex: 1; min-width: 0; }
+.crm-card-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.2rem; }
+.crm-card-desc { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.3rem; }
+.crm-best { font-size: 0.78rem; color: var(--cambridge-purple, #6c3fc5); font-weight: 600; }
+.crm-best-none { color: var(--text-secondary); font-weight: 400; }
+
+/* ── Set Cards (Part Menu) ───────────────────────────────────────── */
+.crm-set-cards { display: flex; flex-direction: column; gap: 0.75rem; }
+.crm-set-card { display: flex; align-items: center; gap: 1rem; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1.1rem; }
+.crm-set-icon { font-size: 1.6rem; flex-shrink: 0; }
+.crm-set-body { flex: 1; }
+.crm-set-title { font-weight: 600; font-size: 0.92rem; }
+.crm-set-level { font-size: 0.78rem; color: var(--cambridge-purple, #6c3fc5); font-weight: 600; margin: 0.1rem 0 0.2rem; }
+
+/* ── Exercise Header ─────────────────────────────────────────────── */
+.crm-ex-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+.crm-ex-title { font-size: 1rem; font-weight: 700; flex: 1; color: var(--cambridge-purple, #6c3fc5); }
+.crm-timer-wrap { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; color: var(--text-secondary); }
+#crm-timer { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* ── Passage Text ────────────────────────────────────────────────── */
+.crm-passage { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; line-height: 1.85; font-size: 0.95rem; margin-bottom: 1.25rem; }
+.crm-instruction { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; background: var(--surface-2); padding: 0.6rem 1rem; border-radius: 8px; border-left: 3px solid var(--cambridge-purple, #6c3fc5); }
+
+/* ── Gap Inputs ──────────────────────────────────────────────────── */
+.crm-gap-select { display: inline-block; padding: 0.25rem 0.5rem; font-size: 0.9rem; border: 2px solid var(--cambridge-purple, #6c3fc5); border-radius: 6px; background: var(--surface-1); color: var(--text-primary); margin: 0 0.2rem; cursor: pointer; }
+.crm-gap-input { display: inline-block; width: 100px; padding: 0.2rem 0.5rem; font-size: 0.9rem; border: 2px solid var(--cambridge-purple, #6c3fc5); border-radius: 6px; background: var(--surface-1); color: var(--text-primary); margin: 0 0.15rem; }
+.crm-gap-wf { display: inline-flex; align-items: center; gap: 0.25rem; margin: 0 0.15rem; }
+.crm-gap-wf-input { width: 110px; }
+.crm-gap-base { font-size: 0.78rem; font-weight: 700; color: var(--cambridge-purple, #6c3fc5); background: rgba(108,63,197,0.1); padding: 0.1rem 0.35rem; border-radius: 4px; text-transform: uppercase; }
+.crm-submit-btn { margin-top: 1rem; width: 100%; }
+
+/* ── Key Word Transformation ────────────────────────────────────── */
+.crm-kwt-progress { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
+.crm-kwt-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
+.crm-kwt-original { font-size: 1.05rem; font-weight: 600; margin-bottom: 1rem; }
+.crm-kwt-keyword { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
+.crm-kwt-hint { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+.crm-kwt-input { width: 100%; padding: 0.75rem; font-size: 0.95rem; border: 2px solid var(--border); border-radius: 8px; background: var(--surface-1); color: var(--text-primary); resize: vertical; }
+.crm-kwt-input:focus { border-color: var(--cambridge-purple, #6c3fc5); outline: none; }
+.crm-kwt-feedback { background: var(--surface-2); border-radius: 10px; padding: 1rem; margin-bottom: 1rem; }
+.crm-kwt-fb-label { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.4rem; }
+.crm-kwt-fb-answer { font-size: 1rem; font-weight: 700; color: #22863a; background: rgba(34,134,58,0.08); border-radius: 6px; padding: 0.5rem 0.75rem; margin-bottom: 0.5rem; }
+.crm-kwt-fb-explain { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+.crm-kwt-fb-yours { font-size: 0.88rem; }
+.crm-kwt-nav { display: flex; gap: 0.75rem; margin-top: 0.75rem; }
+.crm-kwt-actions { display: flex; flex-direction: column; gap: 0.5rem; }
+
+/* ── Reading Layout (2 cols) ─────────────────────────────────────── */
+.crm-reading-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; align-items: start; }
+.crm-passage-panel { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; line-height: 1.8; font-size: 0.93rem; position: sticky; top: 1rem; max-height: calc(100vh - 10rem); overflow-y: auto; }
+.crm-passage-panel p { margin-bottom: 0.9rem; }
+.crm-questions-panel { display: flex; flex-direction: column; gap: 1.25rem; }
+.crm-question { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; }
+.crm-q-num { font-size: 0.78rem; font-weight: 700; color: var(--cambridge-purple, #6c3fc5); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.4rem; }
+.crm-q-text { font-size: 0.93rem; font-weight: 600; margin-bottom: 0.75rem; }
+.crm-choices { display: flex; flex-direction: column; gap: 0.5rem; }
+.crm-choice { display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer; padding: 0.5rem 0.6rem; border-radius: 7px; transition: background 0.15s; font-size: 0.9rem; }
+.crm-choice:hover { background: rgba(108,63,197,0.07); }
+.crm-choice input { margin-top: 0.15rem; accent-color: var(--cambridge-purple, #6c3fc5); }
+.crm-choice-letter { font-weight: 700; color: var(--cambridge-purple, #6c3fc5); flex-shrink: 0; width: 1.2rem; }
+
+/* ── Gapped Text (Part 6) ────────────────────────────────────────── */
+.crm-gapped-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.crm-gapped-main { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; line-height: 1.8; font-size: 0.93rem; }
+.crm-gapped-main p { margin-bottom: 0.9rem; }
+.crm-gap-block { background: rgba(108,63,197,0.08); border: 2px dashed var(--cambridge-purple, #6c3fc5); border-radius: 8px; padding: 0.75rem 1rem; margin: 0.75rem 0; text-align: center; }
+.crm-gap-label { font-size: 0.8rem; font-weight: 700; color: var(--cambridge-purple, #6c3fc5); margin-bottom: 0.4rem; }
+.crm-gapped-select { width: 100%; }
+.crm-gapped-removed { display: flex; flex-direction: column; gap: 0.75rem; }
+.crm-removed-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--cambridge-purple, #6c3fc5); }
+.crm-removed-para { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1.1rem; }
+.crm-removed-para p { margin: 0; font-size: 0.88rem; line-height: 1.7; }
+.crm-removed-label { font-size: 0.8rem; font-weight: 700; color: var(--cambridge-purple, #6c3fc5); margin-bottom: 0.4rem; }
+
+/* ── Multiple Matching (Part 7) ──────────────────────────────────── */
+.crm-mm-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.crm-mm-texts { display: flex; flex-direction: column; gap: 0.9rem; }
+.crm-mm-text { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; }
+.crm-mm-text-label { font-size: 0.82rem; font-weight: 700; color: var(--cambridge-purple, #6c3fc5); margin-bottom: 0.5rem; }
+.crm-mm-text p { margin: 0; font-size: 0.88rem; line-height: 1.7; }
+.crm-mm-questions { display: flex; flex-direction: column; gap: 0.75rem; }
+.crm-mm-q-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--cambridge-purple, #6c3fc5); }
+.crm-mm-q { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem 1rem; }
+
+/* ── Feedback / Result ───────────────────────────────────────────── */
+.crm-feedback { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.25rem; }
+.crm-fb-row { background: var(--surface-2); border-radius: 8px; padding: 0.7rem 1rem; font-size: 0.88rem; border-left: 3px solid transparent; }
+.crm-fb-correct { border-left-color: #22863a; }
+.crm-fb-wrong { border-left-color: #d73a49; }
+.crm-fb-num { font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.2rem; }
+.crm-fb-user { font-weight: 600; margin-bottom: 0.2rem; }
+.crm-fb-correct-ans { color: #22863a; font-weight: 600; margin-bottom: 0.2rem; }
+.crm-fb-explain { font-size: 0.82rem; color: var(--text-secondary); font-style: italic; }
+
+.crm-result { max-width: 680px; margin: 0 auto; }
+.crm-result-header { text-align: center; background: linear-gradient(135deg, #6c3fc5 0%, #9461e6 100%); color: white; border-radius: 14px; padding: 2rem; margin-bottom: 1.5rem; }
+.crm-result-icon { font-size: 3rem; margin-bottom: 0.75rem; }
+.crm-result-title { font-size: 1.1rem; font-weight: 600; opacity: 0.9; margin-bottom: 0.5rem; }
+.crm-result-score { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem; }
+.crm-result-pct { font-size: 1.1rem; opacity: 0.85; margin-bottom: 0.5rem; }
+.crm-result-grade { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+.crm-result-xp { background: rgba(255,255,255,0.2); display: inline-block; padding: 0.3rem 0.9rem; border-radius: 20px; font-size: 0.9rem; font-weight: 700; }
+.crm-result-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   CAMBRIDGE LISTENING — Fase 16b
+   ═══════════════════════════════════════════════════════════════════ */
+
+.clt-header { margin-bottom: 1.5rem; }
+.clt-title { font-size: 1.6rem; font-weight: 700; color: var(--cambridge-purple, #6c3fc5); margin: 0.5rem 0 0.25rem; }
+.clt-subtitle { color: var(--text-secondary); font-size: 0.95rem; margin: 0 0 1rem; }
+
+.clt-overview-badges { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.clt-badge-item { display: flex; flex-direction: column; align-items: center; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 0.75rem 1.25rem; font-size: 0.85rem; font-weight: 600; min-width: 110px; text-align: center; }
+.clt-badge-item small { color: var(--text-secondary); font-weight: 400; font-size: 0.75rem; }
+.clt-badge-icon { font-size: 1.5rem; margin-bottom: 0.25rem; }
+
+.clt-cards { display: flex; flex-direction: column; gap: 0.85rem; }
+.clt-card { display: flex; align-items: center; gap: 1rem; background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; transition: box-shadow 0.2s; }
+.clt-card:hover { box-shadow: 0 2px 12px rgba(108,63,197,0.12); }
+.clt-card-icon { font-size: 1.8rem; flex-shrink: 0; }
+.clt-card-body { flex: 1; }
+.clt-card-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.2rem; }
+.clt-card-desc { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.3rem; }
+.clt-best { font-size: 0.78rem; color: var(--cambridge-purple, #6c3fc5); font-weight: 600; }
+.clt-best-none { color: var(--text-secondary); font-weight: 400; }
+
+.clt-set-cards { display: flex; flex-direction: column; gap: 0.75rem; }
+.clt-set-card { display: flex; align-items: center; gap: 1rem; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1.1rem; }
+.clt-set-icon { font-size: 1.6rem; flex-shrink: 0; }
+.clt-set-body { flex: 1; }
+.clt-set-title { font-weight: 600; font-size: 0.92rem; }
+.clt-set-speaker { font-size: 0.8rem; color: var(--text-secondary); margin: 0.1rem 0 0.2rem; }
+
+.clt-ex-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+.clt-ex-title { font-size: 1rem; font-weight: 700; flex: 1; color: var(--cambridge-purple, #6c3fc5); }
+.clt-timer-wrap { font-size: 0.9rem; color: var(--text-secondary); }
+#clt-timer { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* ── Audio / Script Panel ────────────────────────────────────────── */
+.clt-audio-panel { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.25rem; }
+.clt-script-box { max-height: 280px; overflow-y: auto; border: 1px solid var(--border); border-radius: 8px; padding: 1rem; background: var(--surface-1); margin-bottom: 0.9rem; }
+.clt-script-line { display: flex; gap: 0.6rem; padding: 0.4rem 0.5rem; border-radius: 6px; font-size: 0.9rem; transition: background 0.2s; line-height: 1.5; }
+.clt-script-line.clt-script-active { background: rgba(108,63,197,0.12); }
+.clt-script-speaker { font-weight: 700; color: var(--cambridge-purple, #6c3fc5); flex-shrink: 0; min-width: 90px; }
+.clt-script-text { flex: 1; }
+.btn-cambridge { background: var(--cambridge-purple, #6c3fc5); color: white; border: none; padding: 0.6rem 1.25rem; border-radius: 8px; cursor: pointer; font-size: 0.9rem; font-weight: 600; }
+.btn-cambridge:hover { background: #5a32a3; }
+.clt-play-btn { display: block; width: 100%; }
+.clt-listen-note { font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.6rem; text-align: center; }
+
+/* ── Questions ───────────────────────────────────────────────────── */
+.clt-q-section { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+.clt-q-text { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem; }
+.clt-choices { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+.clt-choice { display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer; padding: 0.5rem 0.6rem; border-radius: 7px; transition: background 0.15s; font-size: 0.9rem; }
+.clt-choice:hover { background: rgba(108,63,197,0.07); }
+.clt-choice input { margin-top: 0.15rem; accent-color: var(--cambridge-purple, #6c3fc5); }
+.clt-choice-letter { font-weight: 700; color: var(--cambridge-purple, #6c3fc5); flex-shrink: 0; width: 1.2rem; }
+.clt-question { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; }
+.clt-q-num { font-size: 0.78rem; font-weight: 700; color: var(--cambridge-purple, #6c3fc5); text-transform: uppercase; margin-bottom: 0.4rem; }
+
+/* ── Sentence Completion ─────────────────────────────────────────── */
+.clt-sc-speaker { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; }
+.clt-sc-section { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+.clt-sc-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.9rem; }
+.clt-sc-q { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; font-size: 0.92rem; flex-wrap: wrap; }
+.clt-sc-num { font-weight: 700; color: var(--cambridge-purple, #6c3fc5); flex-shrink: 0; }
+.clt-sc-sentence { flex: 1; display: flex; align-items: center; flex-wrap: wrap; gap: 0.3rem; }
+.clt-sc-input { display: inline-block; width: 150px; padding: 0.25rem 0.5rem; font-size: 0.9rem; border: 2px solid var(--cambridge-purple, #6c3fc5); border-radius: 6px; background: var(--surface-1); color: var(--text-primary); }
+
+/* ── Multiple Matching (Part 4) ──────────────────────────────────── */
+.clt-mm-intro { background: var(--surface-2); border-left: 3px solid var(--cambridge-purple, #6c3fc5); padding: 0.75rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.9rem; margin-bottom: 1rem; }
+.clt-mm-options-panel { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; margin-bottom: 1rem; }
+.clt-mm-opts-title { font-weight: 700; font-size: 0.88rem; color: var(--cambridge-purple, #6c3fc5); margin-bottom: 0.6rem; }
+.clt-mm-option { display: flex; gap: 0.5rem; font-size: 0.88rem; padding: 0.25rem 0; }
+.clt-mm-opt-id { font-weight: 700; color: var(--cambridge-purple, #6c3fc5); min-width: 1.2rem; }
+.clt-mm-questions { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+.clt-mm-q-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--cambridge-purple, #6c3fc5); }
+.clt-mm-q { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+.clt-mm-q-label { font-weight: 600; font-size: 0.9rem; min-width: 100px; }
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .crm-reading-layout { grid-template-columns: 1fr; }
+  .crm-passage-panel { position: static; max-height: 300px; }
+  .crm-gapped-layout { grid-template-columns: 1fr; }
+  .crm-mm-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .crm-card { flex-wrap: wrap; }
+  .clt-card { flex-wrap: wrap; }
+  .clt-sc-q { flex-direction: column; align-items: flex-start; }
+  .clt-mm-q { flex-direction: column; align-items: flex-start; }
+}

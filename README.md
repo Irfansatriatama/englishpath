@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 2.3.1 |
-| **Fase Saat Ini** | FASE 16a ✅ — Cambridge: Hub & Vocabulary |
-| **Fase Berikutnya** | FASE 16b — Cambridge: Practice Reading & Use of English + Listening (v2.3.2) |
+| **Versi App** | 2.3.2 |
+| **Fase Saat Ini** | FASE 16b ✅ — Cambridge: Practice Reading & Use of English + Listening |
+| **Fase Berikutnya** | FASE 16c — Cambridge: Practice Writing & Speaking + Simulasi Full Test (v2.3.3) |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -133,7 +133,7 @@ englishpath/
 │   ├── ielts/                          ✅ Fase 13a–13c-2 (Hub + Vocab + Reading + Listening + Speaking + Writing + Simulasi + Hasil)
 │   ├── toeic/                          ✅ Fase 14a–14c-2 SELESAI (Hub + Vocab + Listening + Reading + Simulasi + Hasil)
 │   ├── toefl/                          ✅ Fase 15a–15c-2 SELESAI (Hub + Vocab + Reading + Listening + Speaking + Writing + Simulasi + Hasil)
-│   └── cambridge/                      ✅ Fase 16a (Hub + Vocabulary)
+│   └── cambridge/                      ✅ Fase 16a–16b (Hub + Vocabulary + Reading + Listening)
 │
 └── assets/
     ├── css/
@@ -316,6 +316,8 @@ Menghitung path relatif ke root berdasarkan kedalaman folder.
 | `toefl_vocab` | Object | {wordId: {learnedAt, mastered?}} per TOEFL Academic word |
 | `srs_cambridge_vocab` | Object | SM-2 data per Cambridge word id — {repetitions, interval, ef, nextReview, lastReview} |
 | `cambridge_vocab` | Object | {wordId: {learnedAt}} per Cambridge advanced word |
+| `cambridge_reading` | Object | {results: {setId: {best, attempts, lastScore, lastDate}}, totalAttempts} |
+| `cambridge_listening` | Object | {results: {trackId: {best, attempts, lastScore, lastDate}}, totalAttempts} |
 
 ---
 
@@ -1276,6 +1278,92 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 **localStorage Baru:**
 - `ep_user_{id}_cambridge_vocab` — {wordId: {learnedAt}} — progress vocabulary Cambridge
 - `ep_user_{id}_srs_cambridge_vocab` — data SM-2 per word id
+
+---
+
+### FASE 16b — Cambridge: Practice Reading & Use of English + Listening ✅
+**Versi:** v2.3.2 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `pages/cambridge/reading.html` — Cambridge Reading & Use of English: menu 7 parts, exercise per part, hasil + feedback
+- `pages/cambridge/listening.html` — Cambridge Listening Practice: menu 4 parts, TTS script en-GB, exercise per part
+- `assets/js/data/cambridge-reading-data.js` — Data Parts 1–7: 2 set Part 1 (multiple-choice cloze), 2 set Part 2 (open cloze), 2 set Part 3 (word formation), 2 set Part 4 (key word transformation, 6 items per set), 1 Part 5 (reading MC), 1 Part 6 (gapped text 4 gaps), 1 Part 7 (multiple matching 5 questions × 4 texts)
+- `assets/js/data/cambridge-listening-data.js` — Data Parts 1–4: 3 extracts Part 1 (MCQ), 1 monologue Part 2 (sentence completion 7 gaps), 1 interview Part 3 (4 MCQ), 1 Part 4 (5 speakers multiple matching)
+- `assets/js/pages/cambridge-reading.js` — Logic Reading module (IIFE): menu 7 parts, part submenu, render 7 tipe exercise (gap select, gap input, word formation, KWT, reading MC, gapped text, multiple matching), submit + feedback + result screen
+- `assets/js/pages/cambridge-listening.js` — Logic Listening module (IIFE): menu 4 parts, TTS playScript en-GB dengan highlight baris aktif, 4 exercise types (MCQ, sentence completion, interview MCQ, multiple matching), submit + result
+
+**File Diubah:**
+- `assets/css/cambridge.css` — Append styles: crm-* (reading: cards, passage, gap selects/inputs, word formation, KWT, reading 2-col layout, gapped text, multiple matching, feedback, result) + clt-* (listening: cards, audio panel, script box, play button, sentence completion, multiple matching); responsive breakpoints
+- `sw.js` — Bump ke `englishpath-v16`, tambah cambridge-reading-data.js, cambridge-listening-data.js, cambridge-reading.js, cambridge-listening.js, pages/cambridge/reading.html, pages/cambridge/listening.html
+- `README.md` — Update status fase, struktur folder, versi, log pengerjaan, localStorage key reference
+
+**Konten Reading & Use of English (7 Parts):**
+
+**Part 1 — Multiple-Choice Cloze (2 set × 6 soal):**
+- The Power of Habit: 6 gap, tema brain & chunking, pilihan A–D per nomor
+- Urban Green Spaces: 6 gap, tema health benefits of parks, kolokai natural
+
+**Part 2 — Open Cloze (2 set × 7 soal):**
+- The Science of Sleep: 7 gap, grammar function words (far from, while, into, on the other hand, that, including, as)
+- Digital Literacy: 7 gap, grammar + vocabulary (as ... as, integrate, beyond, how, often, from, among)
+
+**Part 3 — Word Formation (2 set × 8 soal):**
+- The Future of Work: 8 derivasi (fundamental, judgement, accuracy, considerable, optimistic, technological, convinced, unprecedented)
+- Ocean Conservation: 8 derivasi (increasing, pollution, deepest, destruction, estimated, compounding, awareness, cooperation)
+
+**Part 4 — Key Word Transformation (2 set × 6 soal):**
+- Set A: present perfect continuous, have to, ask+obj+inf, although, reported speech, wish+past perfect
+- Set B: necessary for + inf, too...for...to, first time + past perfect, lead to, risk + gerund, be supposed to
+
+**Part 5 — Reading: Multiple Choice (1 teks × 4 soal):**
+- "The Rediscovery of Slow Travel" — 5 paragraf, 4 soal tentang ironi, elitisme, emisi karbon, neurologi memori
+
+**Part 6 — Reading: Gapped Text (1 teks × 4 celah):**
+- "How Colour Shapes Perception" — 9 blok (5 utuh + 4 celah), 6 paragraf pilihan (D, A, C, B adalah jawaban; E dan F ekstra)
+
+**Part 7 — Reading: Multiple Matching (4 teks × 5 soal):**
+- "Voices on Remote Work" — 4 speaker (Priya, Marcus, Yuki, Elena), 5 pertanyaan matching (beberapa teks bisa cocok > 1 soal)
+
+**Konten Listening (4 Parts):**
+
+**Part 1 — Short Extracts MCQ (3 extracts × 1 soal):**
+- Two friends discussing a book (woman's opinion on challenging novel)
+- Man calling hotel about gym closure
+- Radio interview with chef about texture vs flavour
+
+**Part 2 — Sentence Completion (1 monolog × 7 kalimat):**
+- Dr. Amara Osei on Citizen Science: Galaxy Zoo, eBird, BOLD project, SciStarter; 7 sentence completion (1990s, 160,000, 50, 1 billion, undercount, BOLD, SciStarter)
+
+**Part 3 — Long Interview MCQ (1 interview × 4 soal):**
+- Dr. Vance on Architectural Acoustics: invisible impact, school renovation origin, intelligible speech, developer cost-cutting
+
+**Part 4 — Multiple Matching (5 speakers × 1 opsi, 6 options total):**
+- 5 adults learning new skills: cello (F—prior knowledge hindered), pottery (C—changed expectations), watercolour (B—social unexpected), coding (E—failure rewarding), Spanish (D—online resources better)
+
+**Fitur yang Berfungsi:**
+- ✅ Reading: menu 7 parts dengan progress per set; submenu per part dengan status latihan sebelumnya
+- ✅ Part 1 (Multiple-Choice Cloze): teks inline dengan `<select>` dropdown per celah, auto-checked
+- ✅ Part 2 (Open Cloze): teks inline dengan `<input>` text per celah, case-insensitive check
+- ✅ Part 3 (Word Formation): teks inline input + label kata dasar (KAPITAL), check dengan lowercase compare
+- ✅ Part 4 (KWT): per-item flow, tampil jawaban referensi + penjelasan, navigasi maju per item
+- ✅ Part 5 (Reading MC): layout 2 kolom sticky (teks kiri | soal kanan), radio button choices
+- ✅ Part 6 (Gapped Text): layout 2 kolom (teks utama + celah dropdown | panel paragraf yang dihilangkan)
+- ✅ Part 7 (Multiple Matching): layout 2 kolom (teks A–D | pertanyaan + dropdown), multi-answer support
+- ✅ Feedback screen setiap part: ✅/❌ per soal, jawaban benar, penjelasan, persentase, grade, XP
+- ✅ Listening: menu 4 parts, audio panel TTS en-GB (rate 0.85), highlight baris aktif
+- ✅ Part 1 (Extracts MCQ): script box + play button + MCQ + submit
+- ✅ Part 2 (Sentence Completion): monolog TTS dengan highlight + 7 inline input fields
+- ✅ Part 3 (Interview MCQ): dialog TTS dengan speaker tags + 4 multiple choice questions
+- ✅ Part 4 (Multiple Matching): 5 monolog TTS berurutan + 6 options panel + 5 dropdown matching
+- ✅ Toggle play/stop TTS per exercise, state management (isPlaying)
+- ✅ Timer aktif saat exercise berjalan, dihentikan saat result
+- ✅ XP Awards: +20 XP (≥80%), +12 XP (≥60%), +7 XP (lainnya)
+- ✅ ChallengeSystem.onModuleVisit() + onQuizComplete() terhubung
+- ✅ SW bump ke englishpath-v16
+
+**localStorage Baru:**
+- `ep_user_{id}_cambridge_reading` — {results: {setId: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts}
+- `ep_user_{id}_cambridge_listening` — {results: {trackId: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts}
 
 ---
 

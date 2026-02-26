@@ -473,7 +473,7 @@ Jangan copy-paste kode dari Lingora secara membabi buta. Ambil **pola arsitektur
 | **15c-1** | **TOEFL iBT: Practice Speaking & Writing** | **v2.2.3** |
 | **15c-2** | **TOEFL iBT: Simulasi Full Test + Halaman Hasil** | **v2.2.4** |
 | **16a** | **Cambridge: Hub & Vocabulary** | **v2.3.1** ✅ |
-| **16b** | **Cambridge: Practice (Reading & Use of English + Listening)** | **v2.3.2** |
+| **16b** | **Cambridge: Practice (Reading & Use of English + Listening)** | **v2.3.2** ✅ |
 | **16c** | **Cambridge: Practice (Writing & Speaking) + Simulasi Full Test** | **v2.3.3** |
 | 17 | Advanced: Vocabulary & Grammar C1–C2 | v2.4.0 |
 | 18 | Advanced: Reading & Listening | v2.5.0 |

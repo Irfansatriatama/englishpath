@@ -4,7 +4,7 @@
  * Bump CACHE_NAME version whenever files are added/changed.
  */
 
-const CACHE_NAME = 'englishpath-v15';
+const CACHE_NAME = 'englishpath-v16';
 
 const ASSETS_TO_CACHE = [
   './',
@@ -148,6 +148,12 @@ const ASSETS_TO_CACHE = [
   './assets/js/pages/cambridge-vocab.js',
   './pages/cambridge/index.html',
   './pages/cambridge/vocabulary.html',
+  './assets/js/data/cambridge-reading-data.js',
+  './assets/js/data/cambridge-listening-data.js',
+  './assets/js/pages/cambridge-reading.js',
+  './assets/js/pages/cambridge-listening.js',
+  './pages/cambridge/reading.html',
+  './pages/cambridge/listening.html',
 ];
 
 // ── Install: cache all assets ──────────────────────────────
