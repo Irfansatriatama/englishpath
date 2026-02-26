@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 2.3.3 |
-| **Fase Saat Ini** | FASE 16c-1 ✅ — Cambridge: Practice Writing & Speaking |
-| **Fase Berikutnya** | FASE 16c-2 — Cambridge: Simulasi Full Test + Halaman Hasil (v2.3.4) |
+| **Versi App** | 2.3.4 |
+| **Fase Saat Ini** | FASE 16c-2 ✅ — Cambridge: Simulasi Full Test + Halaman Hasil |
+| **Fase Berikutnya** | FASE 17 — Advanced: Vocabulary, Grammar & Integrated Skills |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -133,7 +133,7 @@ englishpath/
 │   ├── ielts/                          ✅ Fase 13a–13c-2 (Hub + Vocab + Reading + Listening + Speaking + Writing + Simulasi + Hasil)
 │   ├── toeic/                          ✅ Fase 14a–14c-2 SELESAI (Hub + Vocab + Listening + Reading + Simulasi + Hasil)
 │   ├── toefl/                          ✅ Fase 15a–15c-2 SELESAI (Hub + Vocab + Reading + Listening + Speaking + Writing + Simulasi + Hasil)
-│   └── cambridge/                      ✅ Fase 16a–16c-1 (Hub + Vocabulary + Reading + Listening + Writing + Speaking)
+│   └── cambridge/                      ✅ Fase 16a–16c-2 SELESAI (Hub + Vocabulary + Reading + Listening + Writing + Speaking + Simulasi + Hasil)
 │
 └── assets/
     ├── css/
@@ -1452,6 +1452,39 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 **localStorage Baru:**
 - `ep_user_{id}_cambridge_writing` — {results: {taskId: {attempts, lastWordCount, lastSelfScore, lastDraft, lastDate}}, totalAttempts}
 - `ep_user_{id}_cambridge_speaking` — {results: {partId: {attempts, lastSelfScore, lastScores, lastDate}}, totalAttempts}
+
+---
+
+### FASE 16c-2 — Cambridge: Simulasi Full Test + Halaman Hasil ✅
+**Versi:** v2.3.4 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `pages/cambridge/simulation.html` — Simulasi Full Test Cambridge: pilihan level B2/C1, flow 4 section (Reading & Use of English → Writing → Listening → Speaking), section nav progress tracker, section timer countdown, warning saat waktu habis
+- `pages/cambridge/result.html` — Halaman Hasil: Cambridge Scale per paper, grade A–U, detail skor per part, bar chart teks, rekomendasi belajar per skill, riwayat 5 simulasi terakhir, actions (ulangi/hub/dashboard)
+- `assets/js/data/cambridge-simulation-data.js` — Data simulasi: Part 1 MCQ Cloze (6 gaps — The Art of Negotiation), Part 2 Open Cloze (7 gaps — The Rise of Slow Travel), Part 3 Word Formation (8 gaps — The Science of Memory), Part 4 KWT (6 items), Part 5 Reading MCQ (4 Q — The Value of Boredom); Writing P1 B2 (Sport in Education) + C1 (Pursuit of Happiness) + 3 P2 options (Letter/Report/Review); Listening P1 (3 extracts MCQ), P2 (Sentence Completion — cartography talk), P3 (Interview MCQ — science communicator), P4 (Multiple Matching — career changers); Speaking 4 parts dengan prompts + timers; score calculators; grade calculator Cambridge Scale → A/B/C/D/E/U
+- `assets/js/pages/cambridge-simulation.js` — Logic simulasi (IIFE): level select (B2/C1), intro overview, Section 1 R&UoE (Parts 1–5 dengan auto-scoring), Section 2 Writing (P1 essay + P2 pilihan + self-assess), Section 3 Listening (TTS extracts + MCQ + sentence completion + matching), Section 4 Speaking (4 parts dengan per-part timer + self-assess), save results, redirect ke result.html via sessionStorage
+- `assets/js/pages/cambridge-result.js` — Logic hasil (IIFE): baca sessionStorage cambridge_sim_result, render grade hero, bar chart Cambridge Scale per paper, detail skor per part, rekomendasi belajar, riwayat 5 simulasi dari localStorage
+
+**File Diubah:**
+- `assets/css/cambridge.css` — Append styles: sim-* (level select cards, intro, section nav, section header+timer, part blocks, Part 1 MCQ cloze, Part 2/3 open cloze inputs, Part 4 KWT, Part 5 reading MCQ, Writing areas, Part 2 option cards, self-assessment buttons, Listening extracts+choices+TTS, sentence completion, matching layout, Speaking prompts+compare+collab+followup) + res-* (result hero grade, bar rows, detail grid, recommendations, history, actions); responsive breakpoints
+- `sw.js` — Bump ke `englishpath-v18`, tambah cambridge-simulation-data.js, cambridge-simulation.js, cambridge-result.js, pages/cambridge/simulation.html, pages/cambridge/result.html
+- `README.md` — Update status fase (v2.3.4), struktur folder cambridge, log pengerjaan, roadmap
+
+**Fitur yang Berfungsi:**
+- ✅ Level select B2/C1 — essay word count target dan difficulty disesuaikan
+- ✅ Section 1 R&UoE: Part 1 MCQ inline (auto-score), Part 2 Open Cloze inputs, Part 3 Word Formation inputs, Part 4 KWT free-text (partial credit jika diisi), Part 5 Reading MCQ (auto-score)
+- ✅ Section 2 Writing: Part 1 essay textarea + real-time word count (hijau/kuning/merah), Part 2 pilih satu dari 3 opsi (Letter/Report/Review) + writing area, self-assessment 1–5
+- ✅ Section 3 Listening: TTS playback per extract (Part 1), TTS full talk (Part 2 cartography), TTS interview (Part 3), TTS semua speakers berurutan (Part 4); MCQ + sentence completion + multiple matching
+- ✅ Section 4 Speaking: 4 parts berurutan dengan per-part timer visual start/stop, Part 1 Q&A + TTS, Part 2 compare visual, Part 3 collaborative prompts, Part 4 discussion Q&A + TTS; self-assessment 1–5 per part
+- ✅ Auto-advance antar section dengan Toast notification saat timer habis
+- ✅ Cambridge Scale calculator: R&UoE, Writing, Listening, Speaking → skala 80–230; overall avg → grade A/B/C/D/E/U
+- ✅ +100 XP on complete; badge `cambridge_ready` jika grade ≥ C
+- ✅ Simpan ke `ep_user_{id}_sim_results` (testType:cambridge, date, level, scores, cambridgeScale, grade, xpAwarded); maks 5 entri
+- ✅ Result: hero grade warna per grade, bar chart scale per paper, grade threshold legend, detail per part, rekomendasi per skill, riwayat
+- ✅ SW bump ke englishpath-v18
+
+**localStorage Baru:**
+- `ep_user_{id}_sim_results` — tambah entry {testType:"cambridge", date, level, scores:{rue, rueMax, rueScale, writing, writingScale, listening, listenMax, listenScale, speakingAvg, speakingScale}, cambridgeScale, grade, xpAwarded}
 
 ---
 

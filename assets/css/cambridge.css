@@ -1636,3 +1636,228 @@
   .csp-prompts-grid { grid-template-columns: 1fr 1fr; }
   .cwr-tabs { flex-direction: column; }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   FASE 16c-2 — Cambridge Simulation & Result Styles
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Simulation Welcome / Level Select ───────────────────────────── */
+.sim-welcome { max-width: 760px; margin: 0 auto; text-align: center; padding: 2rem 1rem; }
+.sim-welcome-icon { font-size: 3rem; margin-bottom: 0.5rem; }
+.sim-welcome-title { font-size: 1.75rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.75rem; }
+.sim-welcome-desc { color: var(--text-muted); margin-bottom: 2rem; }
+.sim-level-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 2rem; }
+.sim-level-card { background: var(--surface-2); border: 2px solid var(--border-1); border-radius: var(--radius-lg, 12px); padding: 1.5rem; text-align: left; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s; }
+.sim-level-card:hover { border-color: #6c3fc5; box-shadow: 0 4px 18px rgba(108,63,197,0.15); }
+.sim-level-badge { display: inline-block; font-size: 1.5rem; font-weight: 900; padding: 0.25rem 0.75rem; border-radius: 8px; margin-bottom: 0.75rem; }
+.sim-level-badge.b2 { background: #ddd6fe; color: #6c3fc5; }
+.sim-level-badge.c1 { background: #fce7f3; color: #9d174d; }
+.sim-level-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-primary); }
+.sim-level-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem; }
+.sim-level-details { list-style: disc; padding-left: 1.25rem; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.25rem; line-height: 1.8; }
+.sim-start-btn { width: 100%; }
+.sim-tip { background: var(--surface-2); border-left: 4px solid #f59e0b; border-radius: 8px; padding: 1rem 1.25rem; text-align: left; color: var(--text-secondary); font-size: 0.9rem; }
+
+/* ── Intro ───────────────────────────────────────────────────────── */
+.sim-intro { max-width: 600px; margin: 0 auto; padding: 2rem 1rem; }
+.sim-intro-badge { display: inline-block; background: #6c3fc5; color: #fff; font-weight: 700; font-size: 0.85rem; padding: 0.3rem 0.9rem; border-radius: 99px; margin-bottom: 1rem; }
+.sim-intro-title { font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.4rem; }
+.sim-intro-sub { color: var(--text-muted); margin-bottom: 1.5rem; }
+.sim-intro-sections { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+.sim-intro-section { display: flex; align-items: center; gap: 1rem; background: var(--surface-2); border-radius: 10px; padding: 0.9rem 1.25rem; }
+.sim-intro-num { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: #6c3fc5; color: #fff; border-radius: 50%; font-weight: 800; font-size: 0.9rem; flex-shrink: 0; }
+.sim-intro-icon { font-size: 1.4rem; }
+.sim-intro-section-name { font-weight: 700; color: var(--text-primary); }
+.sim-intro-section-time { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.15rem; }
+.sim-intro-rules { background: var(--surface-2); border-radius: 10px; padding: 1.25rem; margin-bottom: 1.75rem; }
+.sim-intro-rules h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; }
+.sim-intro-rules ul { padding-left: 1.25rem; color: var(--text-secondary); font-size: 0.9rem; line-height: 2; }
+
+/* ── Section Wrapper ──────────────────────────────────────────────── */
+.sim-section-wrapper { max-width: 860px; margin: 0 auto; padding: 1rem; }
+.sim-section-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.sim-sec-item { display: flex; align-items: center; gap: 0.4rem; background: var(--surface-2); border: 2px solid var(--border-1); border-radius: 8px; padding: 0.4rem 0.8rem; font-size: 0.82rem; color: var(--text-muted); }
+.sim-sec-item.active { border-color: #6c3fc5; background: #ede9fe; color: #6c3fc5; font-weight: 700; }
+.sim-sec-item.done { border-color: #22c55e; color: #15803d; background: #dcfce7; }
+.sim-sec-label { font-weight: 600; }
+.sim-sec-time { font-size: 0.75rem; color: var(--text-muted); }
+.sim-sec-check { font-size: 1rem; }
+
+/* ── Section Header & Timer ──────────────────────────────────────── */
+.sim-section-header { display: flex; align-items: center; justify-content: space-between; background: #6c3fc5; color: #fff; border-radius: 10px; padding: 0.75rem 1.25rem; margin-bottom: 1.5rem; }
+.sim-section-title { font-size: 1.1rem; font-weight: 700; }
+.sim-timer { font-size: 1.4rem; font-weight: 900; font-variant-numeric: tabular-nums; letter-spacing: 0.05em; }
+.sim-timer.warning { color: #fde68a; animation: blink 1s ease-in-out infinite; }
+
+/* ── Section Body & Parts ────────────────────────────────────────── */
+.sim-section-body { display: flex; flex-direction: column; gap: 1.75rem; }
+.sim-part-block { background: var(--surface-1); border: 1px solid var(--border-1); border-radius: 12px; padding: 1.5rem; }
+.sim-part-header { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-1); }
+.sim-part-num { background: #6c3fc5; color: #fff; font-size: 0.78rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+.sim-part-name { font-size: 1rem; font-weight: 700; color: var(--text-primary); }
+.sim-part-instruction { font-size: 0.85rem; color: var(--text-muted); margin-left: auto; }
+.sim-passage-title { font-weight: 700; color: #6c3fc5; margin-bottom: 0.75rem; font-size: 1rem; }
+.sim-submit-row { display: flex; justify-content: flex-end; margin-top: 0.5rem; }
+
+/* ── Part 1 MCQ Cloze ────────────────────────────────────────────── */
+.sim-part1-text { line-height: 2.2; color: var(--text-secondary); font-size: 0.97rem; }
+.sim-gap-inline { position: relative; display: inline-block; }
+.sim-gap-options { display: inline-flex; gap: 0.25rem; flex-wrap: wrap; margin-left: 0.25rem; }
+.sim-p1-option { padding: 0.2rem 0.55rem; border: 1.5px solid var(--border-1); border-radius: 6px; background: var(--surface-2); cursor: pointer; font-size: 0.85rem; color: var(--text-primary); transition: all 0.15s; }
+.sim-p1-option:hover { border-color: #6c3fc5; background: #ede9fe; }
+.sim-p1-option.selected { background: #6c3fc5; color: #fff; border-color: #6c3fc5; }
+
+/* ── Part 2/3 Open Cloze & Word Formation ────────────────────────── */
+.sim-part2-text { background: var(--surface-2); border-radius: 8px; padding: 1rem; line-height: 2; color: var(--text-secondary); font-size: 0.97rem; margin-bottom: 1rem; }
+.sim-open-gaps { display: flex; flex-direction: column; gap: 0.65rem; }
+.sim-open-gap { display: flex; align-items: center; gap: 0.75rem; }
+.sim-open-num { min-width: 32px; font-weight: 700; color: #6c3fc5; }
+.sim-open-base { font-size: 0.8rem; background: #ddd6fe; color: #6c3fc5; border-radius: 4px; padding: 0.1rem 0.4rem; font-weight: 700; }
+.sim-open-input { padding: 0.4rem 0.7rem; border: 1.5px solid var(--border-1); border-radius: 7px; background: var(--surface-2); color: var(--text-primary); font-size: 0.92rem; flex: 1; min-width: 80px; }
+.sim-open-input:focus { outline: none; border-color: #6c3fc5; }
+
+/* ── Part 4 KWT ──────────────────────────────────────────────────── */
+.sim-kwt-list { display: flex; flex-direction: column; gap: 1rem; }
+.sim-kwt-item { display: flex; gap: 1rem; }
+.sim-kwt-num { min-width: 28px; font-weight: 800; color: #6c3fc5; padding-top: 0.25rem; }
+.sim-kwt-body { flex: 1; }
+.sim-kwt-original { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.3rem; }
+.sim-kwt-keyword { font-size: 0.82rem; margin-bottom: 0.5rem; color: var(--text-muted); }
+
+/* ── Part 5 Reading MCQ ──────────────────────────────────────────── */
+.sim-reading-passage { background: var(--surface-2); border-radius: 8px; padding: 1.25rem; line-height: 1.85; color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem; }
+.sim-reading-passage p { margin-bottom: 0.85rem; }
+.sim-p5-questions { display: flex; flex-direction: column; gap: 1.25rem; }
+.sim-p5-question {}
+.sim-p5-qtext { font-weight: 600; color: var(--text-primary); margin-bottom: 0.6rem; }
+.sim-p5-choices { display: flex; flex-direction: column; gap: 0.4rem; }
+.sim-p5-option { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.6rem 0.9rem; border: 1.5px solid var(--border-1); border-radius: 8px; background: var(--surface-2); cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-primary); transition: all 0.15s; }
+.sim-p5-option:hover { border-color: #6c3fc5; background: #ede9fe; }
+.sim-p5-option.selected { border-color: #6c3fc5; background: #ede9fe; }
+.sim-p5-letter { font-weight: 800; color: #6c3fc5; min-width: 18px; }
+
+/* ── Writing Section ─────────────────────────────────────────────── */
+.sim-w-stimulus { background: #ede9fe; border-left: 4px solid #6c3fc5; border-radius: 8px; padding: 1rem 1.25rem; color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem; }
+.sim-w-prompt { background: var(--surface-2); border-radius: 8px; padding: 1rem 1.25rem; color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 1rem; line-height: 1.8; }
+.sim-planning-box { background: #fef9c3; border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
+.sim-planning-title { font-weight: 700; color: #854d0e; margin-bottom: 0.5rem; font-size: 0.9rem; }
+.sim-planning-item { font-size: 0.88rem; color: #78350f; margin-bottom: 0.25rem; }
+.sim-w-area { width: 100%; border: 1.5px solid var(--border-1); border-radius: 8px; padding: 0.9rem; font-size: 0.95rem; font-family: inherit; color: var(--text-primary); background: var(--surface-2); resize: vertical; line-height: 1.7; box-sizing: border-box; }
+.sim-w-area:focus { outline: none; border-color: #6c3fc5; }
+.sim-wc-row { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem; }
+.wc-good { color: #15803d; font-weight: 700; }
+.wc-low  { color: #b45309; font-weight: 700; }
+.wc-high { color: #dc2626; font-weight: 700; }
+.sim-w2-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem; }
+.sim-w2-opt-card { display: flex; align-items: flex-start; gap: 1rem; padding: 0.9rem 1.1rem; border: 2px solid var(--border-1); border-radius: 10px; cursor: pointer; background: var(--surface-2); transition: border-color 0.15s, background 0.15s; }
+.sim-w2-opt-card:hover { border-color: #6c3fc5; background: #ede9fe; }
+.sim-w2-opt-card.selected { border-color: #6c3fc5; background: #ede9fe; }
+.sim-w2-opt-icon { font-size: 1.5rem; flex-shrink: 0; }
+.sim-w2-opt-title { font-weight: 700; color: var(--text-primary); margin-bottom: 0.2rem; }
+.sim-w2-opt-desc { font-size: 0.85rem; color: var(--text-muted); }
+.sim-w2-prompt-area { border-top: 1px solid var(--border-1); padding-top: 1rem; margin-top: 0.5rem; }
+.sim-self-assess-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0 0.25rem; }
+.sim-self-btn { width: 44px; height: 44px; border-radius: 50%; border: 2px solid #6c3fc5; background: var(--surface-2); color: #6c3fc5; font-weight: 800; font-size: 1rem; cursor: pointer; transition: all 0.15s; }
+.sim-self-btn:hover, .sim-self-btn.active { background: #6c3fc5; color: #fff; }
+.sim-self-labels { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+.sim-rubric-mini { display: flex; flex-direction: column; gap: 0.4rem; }
+.sim-rubric-item { font-size: 0.85rem; color: var(--text-secondary); }
+
+/* ── Listening Section ───────────────────────────────────────────── */
+.sim-listen-extract { background: var(--surface-2); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
+.sim-listen-label { font-weight: 700; color: #6c3fc5; margin-bottom: 0.35rem; }
+.sim-listen-intro { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 0.75rem; }
+.sim-listen-q { font-size: 0.95rem; color: var(--text-primary); font-weight: 600; margin: 0.75rem 0 0.5rem; }
+.sim-p1-choices { display: flex; flex-direction: column; gap: 0.4rem; }
+.sim-listen-choice { display: flex; align-items: flex-start; gap: 0.65rem; padding: 0.5rem 0.85rem; border: 1.5px solid var(--border-1); border-radius: 7px; background: var(--surface-1); cursor: pointer; text-align: left; font-size: 0.9rem; color: var(--text-primary); transition: all 0.15s; }
+.sim-listen-choice:hover { border-color: #6c3fc5; background: #ede9fe; }
+.sim-listen-choice.selected { border-color: #6c3fc5; background: #ede9fe; font-weight: 700; }
+.sim-listen-choice span { font-weight: 800; color: #6c3fc5; min-width: 18px; }
+.sim-tts-btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 1rem; background: #6c3fc5; color: #fff; border-radius: 7px; border: none; cursor: pointer; font-size: 0.88rem; font-weight: 700; margin-bottom: 0.75rem; transition: background 0.15s; }
+.sim-tts-btn:hover { background: #5a34a3; }
+.sim-sent-complete-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.75rem; }
+.sim-sent-item { display: flex; align-items: center; gap: 0.5rem; }
+.sim-sent-num { min-width: 28px; font-weight: 700; color: #6c3fc5; }
+.sim-sent-stem { flex: 1; font-size: 0.93rem; color: var(--text-secondary); }
+.sim-sc-input { padding: 0.3rem 0.6rem; border: 1.5px solid var(--border-1); border-radius: 6px; background: var(--surface-2); color: var(--text-primary); font-size: 0.88rem; }
+.sim-matching-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem; }
+.sim-matching-title { font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; font-size: 0.9rem; }
+.sim-statement-item { display: flex; gap: 0.5rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border-1); font-size: 0.88rem; color: var(--text-secondary); }
+.sim-stmt-letter { font-weight: 800; color: #6c3fc5; min-width: 22px; }
+.sim-matching-row { display: flex; align-items: center; gap: 0.5rem; padding: 0.35rem 0; }
+.sim-matching-spk { font-weight: 700; min-width: 80px; font-size: 0.88rem; color: var(--text-primary); }
+.sim-matching-sel { padding: 0.3rem 0.5rem; border: 1.5px solid var(--border-1); border-radius: 6px; background: var(--surface-2); color: var(--text-primary); font-size: 0.88rem; }
+
+/* ── Speaking Section ────────────────────────────────────────────── */
+.sim-speak-instructions { background: #ede9fe; border-radius: 8px; padding: 0.85rem 1.1rem; font-size: 0.9rem; color: #4c1d95; margin-bottom: 1rem; }
+.sim-speak-qs { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem; }
+.sim-speak-q-card { display: flex; align-items: flex-start; gap: 0.75rem; background: var(--surface-2); border-radius: 8px; padding: 0.85rem 1.1rem; }
+.sim-speak-qnum { min-width: 30px; font-weight: 800; color: #6c3fc5; }
+.sim-speak-qtext { flex: 1; color: var(--text-primary); font-size: 0.95rem; }
+.sim-speak-tts { padding: 0.25rem 0.65rem; background: #ede9fe; color: #6c3fc5; border: 1px solid #c4b5fd; border-radius: 6px; cursor: pointer; font-size: 0.8rem; flex-shrink: 0; margin-top: 0.1rem; }
+.sim-speak-task { background: var(--surface-2); border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; }
+.sim-speak-task-prompt { font-weight: 700; color: var(--text-primary); font-size: 1rem; margin-bottom: 1rem; }
+.sim-speak-compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.sim-speak-photo-card { background: var(--surface-1); border: 1.5px solid var(--border-1); border-radius: 10px; padding: 1rem; text-align: center; }
+.sim-photo-icon { font-size: 2.5rem; display: block; margin-bottom: 0.5rem; }
+.sim-photo-label { font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem; }
+.sim-photo-desc { font-size: 0.85rem; color: var(--text-muted); }
+.sim-collab-prompts { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1rem; }
+.sim-collab-card { display: flex; align-items: flex-start; gap: 0.75rem; background: var(--surface-1); border-radius: 8px; padding: 0.75rem 1rem; }
+.sim-collab-icon { font-size: 1.4rem; flex-shrink: 0; }
+.sim-collab-label { font-weight: 700; color: var(--text-primary); }
+.sim-collab-desc { font-size: 0.85rem; color: var(--text-muted); }
+.sim-follow-up { background: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 6px; padding: 0.75rem 1rem; font-size: 0.9rem; color: #78350f; }
+
+/* ── Result Page ──────────────────────────────────────────────────── */
+.res-hero { max-width: 600px; margin: 0 auto 2rem; text-align: center; background: var(--surface-1); border: 3px solid #6c3fc5; border-radius: 16px; padding: 2.5rem 2rem; }
+.res-hero-level { font-size: 0.9rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+.res-grade { font-size: 5rem; font-weight: 900; line-height: 1; margin-bottom: 0.25rem; }
+.res-grade-label { font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
+.res-scale { font-size: 1rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+.res-grade-desc { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; }
+.res-badge-earned { background: #dcfce7; color: #15803d; border-radius: 8px; padding: 0.6rem 1rem; font-size: 0.9rem; margin-bottom: 0.5rem; }
+.res-xp-earned { font-size: 1.1rem; font-weight: 700; color: #f59e0b; }
+.res-card { background: var(--surface-1); border: 1px solid var(--border-1); border-radius: 14px; padding: 1.5rem; margin-bottom: 1.5rem; max-width: 760px; margin-left: auto; margin-right: auto; }
+.res-card-title { font-size: 1.1rem; font-weight: 800; color: var(--text-primary); margin-bottom: 1.25rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-1); }
+.res-bars { display: flex; flex-direction: column; gap: 0.75rem; }
+.res-bar-row { display: flex; align-items: center; gap: 0.75rem; }
+.res-bar-label { min-width: 180px; font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; }
+.res-bar-track { flex: 1; height: 12px; background: var(--surface-2); border-radius: 99px; overflow: hidden; }
+.res-bar-fill { height: 100%; border-radius: 99px; transition: width 0.8s ease; }
+.res-bar-val { min-width: 50px; text-align: right; font-size: 0.85rem; font-weight: 700; color: var(--text-primary); }
+.res-scale-legend { margin-top: 1.25rem; font-size: 0.82rem; color: var(--text-muted); text-align: center; }
+.res-grade-thresholds { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-top: 0.4rem; font-weight: 700; font-size: 0.82rem; }
+.res-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+.res-detail-item { display: flex; justify-content: space-between; align-items: center; background: var(--surface-2); border-radius: 8px; padding: 0.6rem 0.9rem; }
+.res-detail-label { font-size: 0.85rem; color: var(--text-secondary); }
+.res-detail-val { font-weight: 800; color: #6c3fc5; }
+.res-rec-item { background: var(--surface-2); border-radius: 8px; padding: 0.85rem 1.1rem; margin-bottom: 0.75rem; }
+.res-rec-skill { font-weight: 700; color: var(--text-primary); margin-bottom: 0.3rem; }
+.res-rec-tip { font-size: 0.88rem; color: var(--text-secondary); }
+.res-history { display: flex; flex-direction: column; gap: 0.5rem; }
+.res-history-item { display: flex; align-items: center; gap: 1rem; background: var(--surface-2); border-radius: 8px; padding: 0.6rem 0.9rem; flex-wrap: wrap; }
+.res-history-item.latest { border: 2px solid #6c3fc5; }
+.res-history-num { font-size: 0.75rem; font-weight: 800; color: #6c3fc5; min-width: 55px; }
+.res-history-date { font-size: 0.85rem; color: var(--text-muted); }
+.res-history-level { font-weight: 700; font-size: 0.85rem; }
+.res-history-score { font-size: 0.88rem; color: var(--text-secondary); flex: 1; }
+.res-history-grade { font-weight: 900; font-size: 1rem; }
+.res-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin: 2rem auto; max-width: 600px; }
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .sim-level-cards { grid-template-columns: 1fr; }
+  .sim-matching-layout { grid-template-columns: 1fr; }
+  .sim-speak-compare-grid { grid-template-columns: 1fr; }
+  .res-detail-grid { grid-template-columns: 1fr; }
+  .res-bar-label { min-width: 120px; font-size: 0.78rem; }
+  .sim-section-nav { gap: 0.35rem; }
+  .sim-sec-time { display: none; }
+  .res-grade { font-size: 3.5rem; }
+}
+@media (max-width: 480px) {
+  .sim-part-header { flex-direction: column; align-items: flex-start; }
+  .sim-part-instruction { margin-left: 0; }
+  .res-actions { flex-direction: column; }
+}

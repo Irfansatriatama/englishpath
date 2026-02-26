@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge Hasil Simulasi — EnglishPath</title>
+  <meta name="theme-color" content="#6c3fc5">
+  <link rel="manifest" href="../../manifest.json">
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+      const fn = localStorage.getItem('ep_font');
+      if (fn) document.documentElement.setAttribute('data-font', fn);
+      const rd = localStorage.getItem('ep_radius');
+      if (rd) document.documentElement.setAttribute('data-radius', rd);
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/cambridge.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">🇬🇧</span>
+      <span class="logo-text">EnglishPath</span>
+    </div>
+    <div class="sidebar-user" id="sidebar-user"></div>
+    <ul class="nav-list">
+      <li><a class="nav-item" href="../dashboard.html" data-page="dashboard"><span class="nav-icon">🏠</span>Dashboard</a></li>
+      <li><a class="nav-item" href="../stats.html" data-page="stats"><span class="nav-icon">📊</span>Statistik</a></li>
+      <li><a class="nav-item" href="../settings.html" data-page="settings"><span class="nav-icon">⚙️</span>Pengaturan</a></li>
+      <li class="nav-section">Tes Internasional</li>
+      <li><a class="nav-item" href="../ielts/index.html" data-page="ielts"><span class="nav-icon">🎯</span>IELTS</a></li>
+      <li><a class="nav-item" href="../toeic/index.html" data-page="toeic"><span class="nav-icon">🎯</span>TOEIC</a></li>
+      <li><a class="nav-item" href="../toefl/index.html" data-page="toefl"><span class="nav-icon">🎯</span>TOEFL iBT</a></li>
+      <li><a class="nav-item active" href="index.html" data-page="cambridge"><span class="nav-icon">🎯</span>Cambridge</a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="../profile.html" class="sidebar-profile-link" id="sidebar-profile-link">👤 Profil</a>
+      <button class="btn-logout" id="btn-logout">Keluar</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header class="topbar">
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+      <div class="topbar-title">Cambridge — Hasil Simulasi</div>
+      <div class="topbar-right">
+        <div class="xp-badge" id="topbar-xp"></div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </header>
+
+    <div class="page-content" id="result-content">
+      <!-- Rendered by CambridgeResult.init() -->
+    </div>
+  </div><!-- /main-content -->
+</div><!-- /app-shell -->
+
+<!-- Scripts -->
+<script src="../../assets/js/core/storage.js"></script>
+<script src="../../assets/js/core/auth.js"></script>
+<script src="../../assets/js/core/router.js"></script>
+<script src="../../assets/js/core/app.js"></script>
+<script src="../../assets/js/modules/xp.js"></script>
+<script src="../../assets/js/modules/badge.js"></script>
+<script src="../../assets/js/modules/challenge.js"></script>
+<script src="../../assets/js/pages/cambridge-result.js"></script>
+<script>
+  Router.guard();
+  App.init('cambridge-result');
+  CambridgeResult.init();
+</script>
+</body>
+</html>

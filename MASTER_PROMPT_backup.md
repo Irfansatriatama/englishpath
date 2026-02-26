@@ -612,7 +612,7 @@ Jangan copy-paste kode dari Lingora secara membabi buta. Ambil **pola arsitektur
 - File baru: `cambridge-writing-data.js`, `cambridge-speaking-data.js`, `cambridge-writing.js`, `cambridge-speaking.js`
 - localStorage baru: `ep_user_{id}_cambridge_writing` — {results: {taskId: {attempts, lastWordCount, lastSelfScore, lastDraft, lastDate}}, totalAttempts}, `ep_user_{id}_cambridge_speaking` — {results: {partId: {attempts, lastSelfScore, lastDate}}, totalAttempts}
 
-✅ **Fase 16c-2 — Cambridge: Simulasi Full Test + Halaman Hasil (v2.3.4)** ✅ SELESAI 2026-02-26
+**Fase 16c-2 — Cambridge: Simulasi Full Test + Halaman Hasil (v2.3.4)**
 - Halaman simulasi full test (`pages/cambridge/simulation.html`) — pilihan level B2/C1 di awal; flow 4 section timed: Reading & Use of English (75 min, Parts 1–4 Use of English + Part 5–7/8 Reading, soal subset) → Writing (80 min, Part 1 Essay wajib + Part 2 pilihan satu dari 3 opsi, word count tracker) → Listening (40 min, 4 parts TTS MCQ + sentence completion + matching) → Speaking (prompts self-paced, 4 parts dengan timer visual); navigasi antar section otomatis, progress bar overall, warning sebelum submit
 - Halaman hasil (`pages/cambridge/result.html`) — score per paper (Use of English raw, Reading raw, Writing self-score 1–5, Listening raw, Speaking self-score 1–5), konversi ke Cambridge Scale 80–230, estimated grade A/B/C/D/E/U, performa per skill dalam grafik bar teks, rekomendasi belajar per skill, riwayat 5 simulasi terakhir, +100 XP on complete, badge `cambridge_ready` jika estimated grade ≥ C
 - Grade calculator: Cambridge Scale → Grade (A: 193–230, B: 180–192, C: 169–179, D: 160–168, E: 142–159, U: <142)
