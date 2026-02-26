@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 2.2.3 |
-| **Fase Saat Ini** | FASE 15c-1 ✅ — TOEFL iBT: Practice Speaking & Writing |
-| **Fase Berikutnya** | FASE 15c-2 — TOEFL iBT: Simulasi Full Test + Hasil (v2.2.4) |
+| **Versi App** | 2.2.4 |
+| **Fase Saat Ini** | FASE 15c-2 ✅ — TOEFL iBT: Simulasi Full Test + Halaman Hasil |
+| **Fase Berikutnya** | FASE 16a — Cambridge: Hub & Vocabulary (v2.3.1) |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -132,7 +132,7 @@ englishpath/
 │   ├── advanced/                       🔲 Fase 17–18
 │   ├── ielts/                          ✅ Fase 13a–13c-2 (Hub + Vocab + Reading + Listening + Speaking + Writing + Simulasi + Hasil)
 │   ├── toeic/                          ✅ Fase 14a–14c-2 SELESAI (Hub + Vocab + Listening + Reading + Simulasi + Hasil)
-│   ├── toefl/                          ✅ Fase 15a–15c-1 (Hub + Vocab + Reading + Listening + Speaking + Writing) — Fase 15c-2 🔲
+│   ├── toefl/                          ✅ Fase 15a–15c-2 SELESAI (Hub + Vocab + Reading + Listening + Speaking + Writing + Simulasi + Hasil)
 │   └── cambridge/                      🔲 Fase 16a–16b
 │
 └── assets/
@@ -685,7 +685,7 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **15a** | TOEFL iBT: Hub & Vocabulary | v2.2.1 | ✅ |
 | **15b** | TOEFL iBT: Practice Reading & Listening | v2.2.2 | ✅ |
 | **15c-1** | TOEFL iBT: Practice Speaking & Writing | v2.2.3 | ✅ |
-| **15c-2** | TOEFL iBT: Simulasi Full Test + Halaman Hasil | v2.2.4 | 🔲 |
+| **15c-2** | TOEFL iBT: Simulasi Full Test + Halaman Hasil | v2.2.4 | ✅ |
 | **16a** | Cambridge: Hub & Vocabulary | v2.3.1 | 🔲 |
 | **16b** | Cambridge: Practice Reading & Use of English + Listening | v2.3.2 | 🔲 |
 | **16c** | Cambridge: Practice Writing & Speaking + Simulasi Full Test | v2.3.3 | 🔲 |
@@ -905,7 +905,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v2.2.1 — Fase 15a** | 2026-02-26 | TOEFL iBT: Hub & Vocabulary (300+ AWL Tier 1–2, 8 domain akademik, hub 4 sections, score chart 0–120, MyBest™, flashcard, SRS, quiz, toefl.css, SW v11) | ✅ |
 | **v2.2.2 — Fase 15b** | 2026-02-26 | TOEFL iBT: Practice Reading (3 academic passages, 8Q each: factual, inference, vocab, insert, summary) + Listening (2 lectures + 1 conversation, 5-6Q each: main idea, detail, function, attitude, organization), toefl.css extended, SW v12 | ✅ |
 | **v2.2.3 — Fase 15c-1** | 2026-02-26 | TOEFL iBT: Practice Speaking (4 tasks: 4 independent prompts, 2 campus announcements, 2 academic concepts, 2 academic lectures; TTS, rubrik 0–4, model answers) + Writing (Task 1 Integrated read→listen→write 150–225 kata, Task 2 Academic Discussion 100+ kata; word count tracker, rubrik 0–5, model answers, SW v13) | ✅ |
-| **v2.2.4 — Fase 15c-2** | TBD | TOEFL iBT: Simulasi Full Test + Halaman Hasil (4 section timed, score 0–120, badge toefl_ready) | 🔲 |
+| **v2.2.4 — Fase 15c-2** | 2026-02-26 | TOEFL iBT: Simulasi Full Test + Halaman Hasil (4 section timed, score 0–120, badge toefl_ready) | ✅ |
 | **v2.3.1 — Fase 16a** | TBD | Cambridge: Hub & Vocabulary (B2 First & C1 Advanced, 300+ advanced vocab, flashcard, SRS) | 🔲 |
 | **v2.3.2 — Fase 16b** | TBD | Cambridge: Practice Reading & Use of English + Listening (Parts 1–7/8 + 4 Listening parts) | 🔲 |
 | **v2.3.3 — Fase 16c** | TBD | Cambridge: Practice Writing & Speaking + Simulasi Full Test (timed, grade A–U) | 🔲 |
@@ -919,7 +919,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 15c-1 ✅ TOEFL iBT: Practice Speaking & Writing → **Fase 15c-2** 🔲 (berikutnya: TOEFL iBT: Simulasi Full Test + Halaman Hasil)
+> **Fase saat ini:** Fase 15c-2 ✅ TOEFL iBT: Simulasi Full Test + Halaman Hasil → **Fase 16a** 🔲 (berikutnya: Cambridge: Hub & Vocabulary)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >
@@ -1174,6 +1174,62 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 **localStorage Baru:**
 - `ep_user_{id}_toefl_reading` — {results: {p1/p2/p3: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts}
 - `ep_user_{id}_toefl_listening` — {results: {l1/l2/c1: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts}
+
+---
+
+### FASE 15c-2 — TOEFL iBT: Simulasi Full Test + Halaman Hasil ✅
+**Versi:** v2.2.4 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+-  — Simulasi Full Test: Reading (54 min) → Listening (41 min) → Break (10 min) → Speaking (17 min) → Writing (50 min), timer aktif per section, step progress, navigasi otomatis antar section
+-  — Halaman Hasil: skor per section (0–30), total 0–120, CEFR level, self-assessment detail, rekomendasi per skill, riwayat 5 simulasi terakhir
+-  — Data simulasi: 2 reading passages × 10 soal, 2 lectures + 1 conversation (17 soal), 4 speaking tasks (independent/campus/academic/lecture), 2 writing tasks (integrated + academic discussion)
+-  — Logic simulasi (IIFE module): flow lengkap 5 section, timer per section dan per task, TTS audio playback dengan script highlight, self-assessment speaking (0–4) dan writing (0–5)
+-  — Logic hasil (IIFE module): baca sim_results, kalkulasi skor, rekomendasi per section, riwayat simulasi
+
+**File Diubah:**
+-  — Append: TOEFL reading 2-column layout, listening wrap, break screen, speaking timer phases, writing phases, academic discussion 2-column, self-assessment score buttons, TOEFL result hero, section score cards, history, score guide table
+-  — Bump ke , tambah 5 file baru
+
+**Konten Simulasi:**
+
+**Reading (54 menit, 2 passages × 10 soal):**
+- Passage 1: The Origins of Agriculture (Archaeology & History) — factual ×2, negative factual ×1, vocab ×2, inference ×2, rhetorical purpose ×1, prose summary ×1
+- Passage 2: Ocean Currents and Climate (Earth Science) — factual ×2, negative factual ×1, vocab ×2, inference ×2, rhetorical purpose ×1, prose summary ×1
+
+**Listening (41 menit, 2 lectures + 1 conversation):**
+- Lecture 1: The Psychology of Decision Making — main idea, detail ×2, function, inference, organization (6Q)
+- Lecture 2: Plate Tectonics and Mountain Formation — main idea, detail ×2, function, inference, attitude (6Q)
+- Conversation: Student Consulting Academic Advisor — main idea, detail ×2, inference, attitude (5Q)
+
+**Speaking (17 menit, 4 tasks):**
+- Task 1 Independent: Should university require broad or specialized study? (15s prep + 45s speak)
+- Task 2 Campus: Library closing at midnight announcement (reading 45s + conversation TTS + 30s prep + 60s speak)
+- Task 3 Academic: Classical conditioning (reading 45s + lecture TTS + 30s prep + 60s speak)
+- Task 4 Lecture: Keystone species (lecture TTS + 20s prep + 60s speak)
+
+**Writing (50 menit, 2 tasks):**
+- Task 1 Integrated: The Case for Universal Basic Income (reading 3 min + lecture TTS + writing 20 min, 150–225 kata)
+- Task 2 Academic Discussion: Rapid technological change — beneficial or harmful? (Prof. Nwosu + 2 student posts, 10 min, 100+ kata)
+
+**Fitur yang Berfungsi:**
+- ✅ Flow otomatis 5 section dengan timer aktif per section
+- ✅ Reading: layout 2 kolom (passage | soal), semua tipe soal TOEFL (factual, vocab, inference, rhetorical, prose summary multi-select)
+- ✅ Listening: audio TTS dengan script highlight real-time, tombol play/replay, gate ke soal setelah audio diputar
+- ✅ Break 10 menit dengan countdown timer dan tombol skip
+- ✅ Speaking: per-task flow (ready → read → listen → prep timer → speak timer → self-assess rubrik 0–4)
+- ✅ Writing: per-task flow (ready → read timer → listen TTS → writing area dengan word count tracker real-time)
+- ✅ Academic Discussion: layout 2 kolom (professor + student posts | writing panel)
+- ✅ Self-assessment writing rubrik 0–5 setelah setiap writing task
+- ✅ Score calculator: raw correct → skala 0–30 per section, self-assess → 0–30, total 0–120
+- ✅ Halaman hasil: hero total score, CEFR level, skor per section (bar chart), self-assessment detail, rekomendasi per weakness
+- ✅ Score guide table 0–120 (current range highlighted)
+- ✅ Riwayat 5 simulasi terakhir
+- ✅ +100 XP on complete, badge  jika total ≥ 80
+- ✅ SW bump ke englishpath-v14
+
+**localStorage Baru/Diperbarui:**
+-  — Tambah entry 
 
 ---
 
