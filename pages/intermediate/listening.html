@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listening B1–B2 — EnglishPath</title>
+  <meta name="theme-color" content="#7c3aed">
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+      const fn = localStorage.getItem('ep_font');
+      if (fn) document.documentElement.setAttribute('data-font', fn);
+      const rd = localStorage.getItem('ep_radius');
+      if (rd) document.documentElement.setAttribute('data-radius', rd);
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/listening-intermediate.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-main">EnglishPath</div>
+      <div class="logo-sub">A1 → C2 + IELTS · TOEIC · TOEFL</div>
+    </div>
+    <div class="sidebar-user">
+      <div class="avatar-circle" data-user-avatar>🇬🇧</div>
+      <div class="sidebar-user-info">
+        <div class="user-name" data-user-name>Pengguna</div>
+        <div class="user-level" data-user-email>—</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Umum</div>
+      <a class="nav-item" href="../dashboard.html" data-page="dashboard"><span class="nav-icon">🏠</span>Dashboard</a>
+      <a class="nav-item" href="../stats.html" data-page="stats"><span class="nav-icon">📊</span>Statistik</a>
+      <a class="nav-item" href="../settings.html" data-page="settings"><span class="nav-icon">⚙️</span>Pengaturan</a>
+      <div class="nav-section-label">Foundation (A1–A2)</div>
+      <a class="nav-item" href="../foundation/vocabulary.html" data-page="foundation-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../foundation/grammar.html" data-page="foundation-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../foundation/pronunciation.html" data-page="foundation-pronunciation"><span class="nav-icon">🔊</span>Pronunciation</a>
+      <a class="nav-item" href="../foundation/dialog.html" data-page="foundation-dialog"><span class="nav-icon">💬</span>Dialog</a>
+      <a class="nav-item" href="../foundation/quiz.html" data-page="foundation-quiz"><span class="nav-icon">⭐</span>Quiz Foundation</a>
+      <div class="nav-section-label">Intermediate (B1–B2)</div>
+      <a class="nav-item" href="vocabulary.html" data-page="intermediate-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="grammar.html" data-page="intermediate-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="reading.html" data-page="intermediate-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item active" href="listening.html" data-page="intermediate-listening"><span class="nav-icon">🎧</span>Listening</a>
+      <a class="nav-item" href="quiz.html" data-page="intermediate-quiz"><span class="nav-icon">⭐</span>Quiz Intermediate</a>
+      <div class="nav-section-label">Advanced (C1–C2)</div>
+      <a class="nav-item" href="../advanced/vocabulary.html" data-page="advanced-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../advanced/grammar.html" data-page="advanced-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../advanced/reading.html" data-page="advanced-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="../advanced/quiz.html" data-page="advanced-quiz"><span class="nav-icon">⭐</span>Quiz Advanced</a>
+      <div class="nav-section-label">Persiapan Tes</div>
+      <a class="nav-item" href="../ielts/overview.html" data-page="ielts"><span class="nav-icon">🎯</span>IELTS</a>
+      <a class="nav-item" href="../toeic/overview.html" data-page="toeic"><span class="nav-icon">🎯</span>TOEIC</a>
+      <a class="nav-item" href="../toefl/overview.html" data-page="toefl"><span class="nav-icon">🎯</span>TOEFL iBT</a>
+      <a class="nav-item" href="../cambridge/overview.html" data-page="cambridge"><span class="nav-icon">🎯</span>Cambridge</a>
+      <div class="nav-section-label">Lainnya</div>
+      <a class="nav-item" href="../planner.html" data-page="planner"><span class="nav-icon">📅</span>Study Planner</a>
+      <a class="nav-item" href="../games.html" data-page="games"><span class="nav-icon">🎮</span>Mini Game</a>
+      <div class="nav-section-label">Akun</div>
+      <a class="nav-item" href="../profile.html" data-page="profile"><span class="nav-icon">👤</span>Profil</a>
+      <a class="nav-item" href="../change-password.html" data-page="change-password"><span class="nav-icon">🔒</span>Ganti Password</a>
+      <a class="nav-item" href="#" data-action="logout"><span class="nav-icon">🚪</span>Keluar</a>
+    </nav>
+  </nav>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Desktop topbar -->
+    <div class="topbar">
+      <div class="topbar-title">🎧 Listening B1–B2</div>
+      <div class="topbar-actions">
+        <button class="theme-toggle-btn" title="Ganti tema">🌙</button>
+      </div>
+    </div>
+
+    <!-- Mobile topbar -->
+    <div class="mobile-topbar">
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="logo-main">Listening B1–B2</div>
+      <button class="theme-toggle-btn" title="Ganti tema">🌙</button>
+    </div>
+
+    <!-- Page Body -->
+    <div class="page-body">
+
+      <!-- ══════════════════════════════════════════════════════
+           LIST VIEW
+      ═══════════════════════════════════════════════════════ -->
+      <div id="list-view">
+
+        <!-- Header -->
+        <div class="listening-header">
+          <h1>🎧 Listening B1–B2</h1>
+          <p>Latih kemampuan mendengarkan dengan audio autentik: wawancara, podcast, berita, kuliah, dan debat. Dengarkan, pahami, lalu uji pemahaman kamu.</p>
+          <div class="hdr-meta">
+            <span>8 Audio Track</span>
+            <span>B1 & B2 Level</span>
+            <span>TTS Powered</span>
+          </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="listening-stats">
+          <div class="listening-stat-card">
+            <div class="stat-num" id="stat-total">8</div>
+            <div class="stat-label">Total Track</div>
+          </div>
+          <div class="listening-stat-card">
+            <div class="stat-num" id="stat-done">0</div>
+            <div class="stat-label">Selesai</div>
+          </div>
+          <div class="listening-stat-card">
+            <div class="stat-num" id="stat-b1">4</div>
+            <div class="stat-label">Track B1</div>
+          </div>
+          <div class="listening-stat-card">
+            <div class="stat-num" id="stat-avg">—</div>
+            <div class="stat-label">Rata-rata Skor</div>
+          </div>
+        </div>
+
+        <!-- Category Filter (built by JS) -->
+        <div id="cat-filter-bar" class="cat-filter-bar">
+          <!-- Rendered by JS -->
+        </div>
+
+        <!-- Tracks Grid -->
+        <div class="tracks-section">
+          <h2>Pilih Audio Track</h2>
+          <div class="tracks-grid" id="tracks-grid">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+      </div><!-- /list-view -->
+
+      <!-- ══════════════════════════════════════════════════════
+           DETAIL VIEW
+      ═══════════════════════════════════════════════════════ -->
+      <div id="listening-detail">
+
+        <!-- Back bar -->
+        <div class="detail-back-bar">
+          <button class="btn-back" id="btn-back">← Kembali</button>
+          <h2>Track</h2>
+        </div>
+
+        <!-- Mode Tabs -->
+        <div class="mode-tabs">
+          <button class="mode-tab-btn active" data-mode="listen">🎧 Dengarkan</button>
+          <button class="mode-tab-btn" data-mode="quiz">📝 Quiz</button>
+        </div>
+
+        <!-- ── Listen Panel ─────────────────────────────────── -->
+        <div id="panel-listen" class="active">
+
+          <!-- Audio Player Card -->
+          <div class="audio-player-card">
+            <h3 id="audio-track-title">Judul Track</h3>
+            <div class="audio-meta" id="audio-meta"></div>
+
+            <!-- Waveform animation -->
+            <div class="waveform" id="waveform">
+              <div class="wave-bar" style="height:20px"></div>
+              <div class="wave-bar" style="height:35px"></div>
+              <div class="wave-bar" style="height:28px"></div>
+              <div class="wave-bar" style="height:42px"></div>
+              <div class="wave-bar" style="height:30px"></div>
+              <div class="wave-bar" style="height:38px"></div>
+              <div class="wave-bar" style="height:24px"></div>
+              <div class="wave-bar" style="height:44px"></div>
+              <div class="wave-bar" style="height:32px"></div>
+              <div class="wave-bar" style="height:40px"></div>
+              <div class="wave-bar" style="height:26px"></div>
+              <div class="wave-bar" style="height:36px"></div>
+            </div>
+
+            <!-- Controls -->
+            <div class="audio-controls">
+              <button class="btn-speed active" data-speed="0.75" title="Lambat">🐢 0.75x</button>
+              <button class="btn-play-main" id="btn-play-main" data-playing="false">▶</button>
+              <button class="btn-speed active" data-speed="0.85" title="Normal">▶ Normal</button>
+            </div>
+
+            <!-- Progress -->
+            <div class="audio-progress-wrap">
+              <div class="audio-progress-fill" id="audio-progress-fill" style="width:0%"></div>
+            </div>
+            <div class="audio-time">
+              <span id="audio-elapsed">0:00</span>
+              <span id="audio-total">0:00</span>
+            </div>
+          </div>
+
+          <!-- Transcript -->
+          <div class="transcript-section">
+            <div class="transcript-header">
+              <h4>📄 Transkrip</h4>
+              <button class="btn-reveal-transcript" id="btn-reveal-transcript">👁 Tampilkan Transkrip</button>
+            </div>
+            <div class="transcript-hint" id="transcript-hint">
+              Dengarkan audio terlebih dahulu, baru tampilkan transkrip.
+            </div>
+            <div class="transcript-body" id="transcript-body">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- Key Phrases -->
+          <div class="key-phrases-section">
+            <h4>🗣 Frasa Kunci</h4>
+            <div class="phrases-list" id="phrases-list">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- CTA to Quiz -->
+          <div style="text-align:center;margin:1.5rem 0;">
+            <button class="btn-primary" onclick="document.querySelector('.mode-tab-btn[data-mode=quiz]').click()">
+              📝 Kerjakan Quiz Listening →
+            </button>
+          </div>
+
+        </div><!-- /panel-listen -->
+
+        <!-- ── Quiz Panel ─────────────────────────────────── -->
+        <div id="panel-quiz">
+
+          <!-- Start Screen -->
+          <div id="quiz-start-screen" style="display:none;">
+            <div class="quiz-start-screen">
+              <h3>📝 Quiz Listening</h3>
+              <p>5 soal tentang audio yang baru kamu dengarkan. Dengarkan ulang jika perlu!</p>
+              <p class="quiz-prev-score" style="color:var(--color-text-secondary);font-size:0.85rem;"></p>
+              <button class="btn-primary" id="btn-start-quiz">Mulai Quiz</button>
+            </div>
+          </div>
+
+          <!-- Question Screen -->
+          <div class="quiz-question-screen" id="quiz-question-screen">
+            <div class="quiz-progress-info">
+              <span>Soal 1 / 5</span>
+            </div>
+            <div class="quiz-progress-bar">
+              <div class="quiz-progress-fill" style="width:0%"></div>
+            </div>
+
+            <span class="q-type-label">Pilihan Ganda</span>
+            <div class="q-audio-ref">🎧 Konteks audio akan muncul di sini.</div>
+            <div class="q-question-text">Pertanyaan...</div>
+
+            <div class="answer-area">
+              <!-- MCQ / Fill / Dictation rendered by JS -->
+            </div>
+
+            <div class="answer-feedback"></div>
+
+            <div class="quiz-actions">
+              <button class="btn-check">Periksa</button>
+              <button class="btn-next" style="display:none">Soal Berikutnya →</button>
+            </div>
+          </div>
+
+          <!-- Result Screen -->
+          <div class="quiz-result-screen" id="quiz-result-screen">
+            <div class="result-emoji">🌟</div>
+            <div class="result-score">0%</div>
+            <div class="result-label">0 dari 5 soal benar</div>
+            <div class="result-xp">+0 XP</div>
+            <div class="result-actions">
+              <button class="btn-secondary" id="btn-retry-quiz">🔄 Coba Lagi</button>
+              <button class="btn-primary" id="btn-quiz-done">✓ Selesai</button>
+            </div>
+          </div>
+
+        </div><!-- /panel-quiz -->
+
+      </div><!-- /listening-detail -->
+
+    </div><!-- /page-body -->
+
+    <!-- Bottom nav -->
+    <nav class="bottom-nav">
+      <a class="bottom-nav-item" href="../dashboard.html" data-page="dashboard">
+        <span class="bottom-nav-icon">🏠</span>
+        <span class="bottom-nav-label">Home</span>
+      </a>
+      <a class="bottom-nav-item" href="reading.html" data-page="intermediate-reading">
+        <span class="bottom-nav-icon">📖</span>
+        <span class="bottom-nav-label">Reading</span>
+      </a>
+      <a class="bottom-nav-item active" href="listening.html" data-page="intermediate-listening">
+        <span class="bottom-nav-icon">🎧</span>
+        <span class="bottom-nav-label">Listening</span>
+      </a>
+      <a class="bottom-nav-item" href="../stats.html" data-page="stats">
+        <span class="bottom-nav-icon">📊</span>
+        <span class="bottom-nav-label">Stats</span>
+      </a>
+      <a class="bottom-nav-item" href="../profile.html" data-page="profile">
+        <span class="bottom-nav-icon">👤</span>
+        <span class="bottom-nav-label">Profil</span>
+      </a>
+    </nav>
+
+  </div><!-- /main-content -->
+</div><!-- /app-shell -->
+
+<!-- Scripts -->
+<script src="../../assets/js/core/storage.js"></script>
+<script src="../../assets/js/core/auth.js"></script>
+<script src="../../assets/js/core/router.js"></script>
+<script src="../../assets/js/core/app.js"></script>
+<script src="../../assets/js/modules/xp.js"></script>
+<script src="../../assets/js/modules/challenge.js"></script>
+<script src="../../assets/js/modules/badge.js"></script>
+<script src="../../assets/js/data/listening-intermediate-data.js"></script>
+<script src="../../assets/js/pages/listening-intermediate.js"></script>
+</body>
+</html>
