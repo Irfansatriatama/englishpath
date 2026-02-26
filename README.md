@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 2.0.3 |
-| **Fase Saat Ini** | FASE 13c-1 ✅ — IELTS: Practice Speaking & Writing |
-| **Fase Berikutnya** | FASE 13c-2 — IELTS: Simulasi Full Test + Halaman Hasil (v2.0.4) |
+| **Versi App** | 2.0.4 |
+| **Fase Saat Ini** | FASE 13c-2 ✅ — IELTS: Simulasi Full Test + Halaman Hasil |
+| **Fase Berikutnya** | FASE 14a — TOEIC: Hub & Vocabulary (v2.1.1) |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -130,7 +130,7 @@ englishpath/
 │   │   ├── reading.html                ✅ Reading B1–B2: 8 artikel, key vocab, comprehension quiz (Fase 9)
 │   │   └── listening.html              ✅ Listening B1–B2: 8 audio track TTS, transkrip, quiz (Fase 9)
 │   ├── advanced/                       🔲 Fase 17–18
-│   ├── ielts/                          ✅ Fase 13a–13c-1 (Hub + Vocab + Reading + Listening + Speaking + Writing)
+│   ├── ielts/                          ✅ Fase 13a–13c-2 (Hub + Vocab + Reading + Listening + Speaking + Writing + Simulasi + Hasil)
 │   ├── toeic/                          🔲 Fase 14a–14b
 │   ├── toefl/                          🔲 Fase 15a–15b
 │   └── cambridge/                      🔲 Fase 16a–16b
@@ -668,7 +668,7 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **13a** | IELTS: Hub & Vocabulary | v2.0.1 | ✅ |
 | **13b** | IELTS: Practice Reading & Listening | v2.0.2 | ✅ |
 | **13c-1** | IELTS: Practice Speaking & Writing | v2.0.3 | ✅ |
-| **13c-2** | IELTS: Simulasi Full Test + Halaman Hasil | v2.0.4 | 🔲 |
+| **13c-2** | IELTS: Simulasi Full Test + Halaman Hasil | v2.0.4 | ✅ |
 | **14a** | TOEIC: Hub & Vocabulary | v2.1.1 | 🔲 |
 | **14b** | TOEIC: Practice Listening (Parts 1–4) | v2.1.2 | 🔲 |
 | **14c** | TOEIC: Practice Reading (Parts 5–7) + Simulasi Full Test | v2.1.3 | 🔲 |
@@ -870,7 +870,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v2.0.1 — Fase 13a** | 2026-02-26 | IELTS: Hub & Vocabulary (300+ AWL, flashcard, SRS, quiz) | ✅ |
 | **v2.0.2 — Fase 13b** | 2026-02-26 | IELTS: Practice Reading & Listening (4 Academic + 2 General Training passage, 4 Listening Sections TTS, MCQ, T/F/NG, form completion, timer, review jawaban) | ✅ |
 | **v2.0.3 — Fase 13c-1** | 2026-02-26 | IELTS: Practice Speaking & Writing (Speaking: 8 topik Part 1, 6 cue card Part 2, 6 topik Part 3, TTS, rubrik Band 1–9; Writing: 4 Task 1 Academic, 3 Task 1 General, 4 Task 2 Essay, word count real-time, model answers, scoring tips) | ✅ |
-| **v2.0.4 — Fase 13c-2** | TBD | IELTS: Simulasi Full Test + Halaman Hasil (4 skill timed, Band 0–9, riwayat) | 🔲 |
+| **v2.0.4 — Fase 13c-2** | 2026-02-26 | IELTS: Simulasi Full Test + Halaman Hasil (4 skill timed, Band calculator, riwayat 5 sim, +100 XP, badge ielts_ready, SW v6) | ✅ |
 | **v2.1.1 — Fase 14a** | TBD | TOEIC: Hub & Vocabulary (300+ Business English, flashcard, SRS, quiz) | 🔲 |
 | **v2.1.2 — Fase 14b** | TBD | TOEIC: Practice Listening Parts 1–4 (TTS, MCQ, form completion) | 🔲 |
 | **v2.1.3 — Fase 14c** | TBD | TOEIC: Practice Reading Parts 5–7 + Simulasi Full Test (LC 45 min + RC 75 min, score 10–990) | 🔲 |
@@ -890,7 +890,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 13c-1 ✅ IELTS: Practice Speaking & Writing → **Fase 13c-2** 🔲 (berikutnya: IELTS Simulasi Full Test + Halaman Hasil)
+> **Fase saat ini:** Fase 13c-2 ✅ IELTS: Simulasi Full Test + Halaman Hasil → **Fase 14a** 🔲 (berikutnya: TOEIC Hub & Vocabulary)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >

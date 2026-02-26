@@ -1,0 +1,1140 @@
+/**
+ * EnglishPath — Simulation & Result CSS
+ * Fase 13c-2: IELTS Full Test Simulation + Result pages
+ */
+
+/* ── Simulation Wrapper ──────────────────────────────────────── */
+.sim-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+/* ── Header / Status Bar ─────────────────────────────────────── */
+.sim-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sim-logo {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.sim-progress-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sim-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.sim-progress-bar {
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.sim-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.sim-timer-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.sim-timer-label {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sim-timer {
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+}
+
+.sim-timer.warning {
+  color: var(--warning, #f59e0b);
+}
+
+.sim-timer.danger {
+  color: var(--danger, #ef4444);
+  animation: pulse-timer 1s ease-in-out infinite;
+}
+
+@keyframes pulse-timer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ── Section Step Indicators ─────────────────────────────────── */
+.sim-steps {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.sim-step {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+
+.sim-step.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.sim-step.completed {
+  background: var(--success-bg, #d1fae5);
+  color: var(--success, #10b981);
+  border-color: var(--success, #10b981);
+}
+
+/* ── Main Content Area ───────────────────────────────────────── */
+.sim-body {
+  flex: 1;
+  padding: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Welcome / Intro Screen ──────────────────────────────────── */
+.sim-intro {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.sim-intro-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.sim-intro h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.sim-intro p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+
+.sim-intro-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.sim-section-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.sim-section-card-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.sim-section-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.sim-section-card p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+/* ── Audio Script Panel (Listening) ─────────────────────────── */
+.sim-audio-panel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.sim-audio-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.sim-audio-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.sim-audio-btns {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-listen {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-listen:hover { background: var(--primary-dark, #1557d0); }
+.btn-listen.playing { background: var(--danger, #ef4444); }
+
+.sim-audio-script {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm, 6px);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  white-space: pre-line;
+  display: none;
+}
+
+.sim-audio-script.visible { display: block; }
+
+/* ── Section Title / Description ─────────────────────────────── */
+.sim-section-header {
+  margin-bottom: 1.5rem;
+}
+
+.sim-section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.sim-section-badge.listening { background: #dbeafe; color: #1d4ed8; }
+.sim-section-badge.reading   { background: #dcfce7; color: #166534; }
+.sim-section-badge.writing   { background: #fef3c7; color: #92400e; }
+.sim-section-badge.speaking  { background: #ede9fe; color: #5b21b6; }
+
+.sim-section-header h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.sim-section-header p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ── Passage / Text Area ─────────────────────────────────────── */
+.sim-passage-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 680px) {
+  .sim-passage-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sim-passage {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.sim-passage h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.sim-passage p {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.sim-passage p:last-child { margin-bottom: 0; }
+
+/* ── Questions Area ──────────────────────────────────────────── */
+.sim-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sim-question {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.sim-question-num {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-tertiary, #9ca3af);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.sim-question-text {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 0.875rem;
+  line-height: 1.5;
+}
+
+.sim-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sim-option {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.875rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm, 6px);
+  cursor: pointer;
+  transition: all 0.15s;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+.sim-option:hover { border-color: var(--primary); background: var(--primary-bg, #eff6ff); }
+
+.sim-option.selected {
+  border-color: var(--primary);
+  background: var(--primary-bg, #eff6ff);
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.sim-option input[type="radio"] { accent-color: var(--primary); flex-shrink: 0; }
+
+/* Form fill input */
+.sim-fill-input {
+  width: 100%;
+  padding: 0.6rem 0.875rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm, 6px);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.sim-fill-input:focus { border-color: var(--primary); }
+
+/* ── Writing Task ────────────────────────────────────────────── */
+.sim-writing-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sim-writing-prompt {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.sim-writing-prompt h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.sim-writing-prompt p {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--text-primary);
+  white-space: pre-line;
+}
+
+.sim-chart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.85rem;
+}
+
+.sim-chart-table th,
+.sim-chart-table td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.sim-chart-table th {
+  background: var(--bg-secondary);
+  font-weight: 600;
+}
+
+.sim-textarea-wrap {
+  position: relative;
+}
+
+.sim-textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  resize: vertical;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.15s;
+}
+
+.sim-textarea:focus { border-color: var(--primary); }
+
+.sim-wordcount {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.sim-wordcount-num {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.sim-wordcount-num.ok { color: var(--success, #10b981); }
+.sim-wordcount-num.warn { color: var(--warning, #f59e0b); }
+
+/* ── Speaking Part ───────────────────────────────────────────── */
+.sim-speaking-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sim-speaking-part-header {
+  background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+[data-theme="dark"] .sim-speaking-part-header {
+  background: linear-gradient(135deg, rgba(109,40,217,0.25) 0%, rgba(109,40,217,0.15) 100%);
+}
+
+.sim-speaking-part-header h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.sim-speaking-part-header p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.sim-cue-card {
+  background: var(--bg-card);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.sim-cue-card h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+}
+
+.sim-cue-card .cue-topic {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.sim-cue-card ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.sim-cue-card li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.sim-cue-card li::before {
+  content: '•';
+  color: var(--primary);
+  font-size: 1.1rem;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+
+.sim-timer-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.timer-circle-svg {
+  transform: rotate(-90deg);
+}
+
+.timer-circle-bg {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 8;
+}
+
+.timer-circle-progress {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s linear;
+}
+
+.timer-circle-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  fill: var(--text-primary);
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+
+.timer-circle-label {
+  font-size: 0.75rem;
+  fill: var(--text-secondary);
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+
+.sim-speaking-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sim-speak-q {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.sim-speak-q-text {
+  flex: 1;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.btn-speak-q {
+  padding: 0.4rem 0.75rem;
+  background: var(--primary-bg, #eff6ff);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  border-radius: var(--radius-sm, 6px);
+  font-size: 0.8rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+
+.btn-speak-q:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* ── Self-Assessment (Speaking rubrik) ───────────────────────── */
+.sim-self-assess {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.sim-self-assess h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.sim-rubric-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.sim-rubric-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sim-rubric-label {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.sim-rubric-label strong {
+  color: var(--text-primary);
+  display: block;
+  font-size: 0.9rem;
+}
+
+.sim-rubric-band-select {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.sim-band-btn {
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sim-band-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+.sim-band-btn.selected {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+/* ── Writing Rubrik ──────────────────────────────────────────── */
+.sim-writing-rubric {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.sim-writing-rubric h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+/* ── Navigation Buttons ──────────────────────────────────────── */
+.sim-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg-card);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.sim-nav-info {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.sim-nav-btns {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-sim {
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btn-sim-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-sim-primary:hover { background: var(--primary-dark, #1557d0); }
+
+.btn-sim-secondary {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.btn-sim-secondary:hover { background: var(--border); color: var(--text-primary); }
+
+.btn-sim-danger {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+}
+
+.btn-sim-danger:hover { background: #fca5a5; }
+
+/* ── Sample Answer Toggle ────────────────────────────────────── */
+.sim-sample-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm, 6px);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.sim-sample-toggle:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.sim-sample-answer {
+  display: none;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--text-primary);
+  white-space: pre-line;
+  margin-top: 0.75rem;
+}
+
+.sim-sample-answer.visible { display: block; }
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* RESULT PAGE                                                     */
+/* ═══════════════════════════════════════════════════════════════ */
+
+.result-hero {
+  background: linear-gradient(135deg, var(--primary) 0%, #6366f1 100%);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  color: white;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.result-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.result-hero-content { position: relative; }
+
+.result-test-label {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.result-band-display {
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.result-band-label {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+}
+
+.result-band-desc {
+  font-size: 1.05rem;
+  opacity: 0.95;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.result-ielts-ready {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+/* ── Section Bands Grid ──────────────────────────────────────── */
+.result-bands {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.result-band-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.result-band-card-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.result-band-card-section {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.result-band-card-score {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.result-band-card-level {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.level-excellent { background: #d1fae5; color: #065f46; }
+.level-good { background: #dbeafe; color: #1e40af; }
+.level-fair { background: #fef3c7; color: #92400e; }
+.level-improve { background: #fee2e2; color: #991b1b; }
+
+/* ── Recommendations ─────────────────────────────────────────── */
+.result-recs {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.result-recs h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.result-rec-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.result-rec-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.875rem;
+  align-items: flex-start;
+}
+
+.result-rec-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.result-rec-text h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.result-rec-text p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ── History ─────────────────────────────────────────────────── */
+.result-history {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.result-history h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.result-history-empty {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.result-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.result-history-table th {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.result-history-table td {
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.result-history-table tr:last-child td { border-bottom: none; }
+
+.result-history-band {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* ── Action Buttons ──────────────────────────────────────────── */
+.result-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.btn-result {
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-result-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-result-primary:hover { background: var(--primary-dark, #1557d0); }
+
+.btn-result-secondary {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.btn-result-secondary:hover { background: var(--border); color: var(--text-primary); }
+
+/* ── Loading / Calculating overlay ──────────────────────────── */
+.sim-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.sim-loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.sim-loading h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.sim-loading p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .sim-header { padding: 0.5rem 1rem; }
+  .sim-body { padding: 1rem; }
+  .sim-nav { padding: 1rem; }
+  .sim-timer { font-size: 1.1rem; }
+  .result-band-display { font-size: 3.5rem; }
+  .result-bands { grid-template-columns: repeat(2, 1fr); }
+  .sim-rubric-row { grid-template-columns: 1fr; }
+  .sim-band-btn { width: 24px; height: 24px; font-size: 0.72rem; }
+}
