@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 2.0.1 |
-| **Fase Saat Ini** | FASE 13a ✅ — IELTS: Hub & Vocabulary |
-| **Fase Berikutnya** | FASE 13b — IELTS: Practice Reading & Listening (v2.0.2) |
+| **Versi App** | 2.0.2 |
+| **Fase Saat Ini** | FASE 13b ✅ — IELTS: Practice Reading & Listening |
+| **Fase Berikutnya** | FASE 13c — IELTS: Practice Speaking & Writing + Simulasi Full Test (v2.0.3) |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -296,6 +296,10 @@ Menghitung path relatif ke root berdasarkan kedalaman folder.
 | `quiz_foundation` | Object | {setResults{best,attempts,lastScore}, totalXP, attempts} |
 | `customization` | Object | {colorTheme, font, radius} — preferensi tampilan per user |
 | `planner_plan` | Object | {testId, targetScore, startDate, targetDate, weeklyPlan[], dailyChecks{}, milestoneCompleted{}, createdAt} |
+| `srs_ielts_vocab` | Object | SM-2 data per IELTS word id — {repetitions, interval, ef, nextReview, lastReview} |
+| `ielts_vocab` | Object | {domains studied, quiz results, flashcard progress} |
+| `ielts_reading` | Object | {results: {passageId: {best, attempts, lastScore, lastDate}}, totalAttempts} |
+| `ielts_listening` | Object | {results: {sectionId: {best, attempts, lastScore, lastDate}}, totalAttempts} |
 
 ---
 
@@ -656,8 +660,9 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **10** | PWA, Profil & Settings | v1.1.0 | ✅ |
 | **11** | Tema & Kustomisasi UI | v1.2.0 | ✅ |
 | **12** | Study Planner | v1.3.0 | ✅ |
-| **13a** | IELTS: Hub & Vocabulary | v2.0.1 | 🔲 |
-| **13b** | IELTS: Practice Reading & Listening | v2.0.2 | 🔲 |
+| **13a** | IELTS: Hub & Vocabulary | v2.0.1 | ✅ |
+| **13b** | IELTS: Practice Reading & Listening | v2.0.2 | ✅ |
+
 | **13c** | IELTS: Practice Speaking & Writing + Simulasi Full Test | v2.0.3 | 🔲 |
 | **14a** | TOEIC: Hub & Vocabulary | v2.1.1 | 🔲 |
 | **14b** | TOEIC: Practice Listening (Parts 1–4) | v2.1.2 | 🔲 |
@@ -852,7 +857,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v1.2.0 — Fase 11** | 2026-02-26 | Tema & Kustomisasi UI: halaman theme.html dedicated, 8 tema warna (+ Teal & Midnight baru), live preview, font & radius picker, 6 preset siap pakai, App.setColorTheme/setFont/setRadius API, SW bump v2 | ✅ |
 | **v1.3.0 — Fase 12** | 2026-02-26 | Study Planner: wizard setup, 5 target tes, countdown, progress ring, jadwal harian, milestone timeline, tips per skill, quote harian, XP terintegrasi, SW bump v3 | ✅ |
 | **v2.0.1 — Fase 13a** | 2026-02-26 | IELTS: Hub & Vocabulary (300+ AWL, flashcard, SRS, quiz) | ✅ |
-| **v2.0.2 — Fase 13b** | TBD | IELTS: Practice Reading & Listening (passage + TTS audio, MCQ, T/F/NG, form completion) | 🔲 |
+| **v2.0.2 — Fase 13b** | 2026-02-26 | IELTS: Practice Reading & Listening (4 Academic + 2 General Training passage, 4 Listening Sections TTS, MCQ, T/F/NG, form completion, timer, review jawaban) | ✅ |
 | **v2.0.3 — Fase 13c** | TBD | IELTS: Practice Speaking & Writing + Simulasi Full Test (4 skills timed, Band 0–9, hasil) | 🔲 |
 | **v2.1.1 — Fase 14a** | TBD | TOEIC: Hub & Vocabulary (300+ Business English, flashcard, SRS, quiz) | 🔲 |
 | **v2.1.2 — Fase 14b** | TBD | TOEIC: Practice Listening Parts 1–4 (TTS, MCQ, form completion) | 🔲 |
@@ -873,7 +878,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 13a ✅ IELTS Hub & Vocabulary → **Fase 13b** 🔲 (berikutnya: IELTS Hub & Vocabulary)
+> **Fase saat ini:** Fase 13b ✅ IELTS: Practice Reading & Listening → **Fase 13c** 🔲 (berikutnya: IELTS Practice Speaking & Writing + Simulasi Full Test)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >
