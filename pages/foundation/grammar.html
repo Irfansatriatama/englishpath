@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar A1–A2 — EnglishPath</title>
+  <meta name="theme-color" content="#1a6cf0">
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+      const fn = localStorage.getItem('ep_font');
+      if (fn) document.documentElement.setAttribute('data-font', fn);
+      const rd = localStorage.getItem('ep_radius');
+      if (rd) document.documentElement.setAttribute('data-radius', rd);
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/grammar.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-main">EnglishPath</div>
+      <div class="logo-sub">A1 → C2 + IELTS · TOEIC · TOEFL</div>
+    </div>
+    <div class="sidebar-user">
+      <div class="avatar-circle" data-user-avatar>🇬🇧</div>
+      <div class="sidebar-user-info">
+        <div class="user-name" data-user-name>Pengguna</div>
+        <div class="user-level" data-user-email>—</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Umum</div>
+      <a class="nav-item" href="../dashboard.html" data-page="dashboard"><span class="nav-icon">🏠</span>Dashboard</a>
+      <a class="nav-item" href="../stats.html" data-page="stats"><span class="nav-icon">📊</span>Statistik</a>
+      <a class="nav-item" href="../settings.html" data-page="settings"><span class="nav-icon">⚙️</span>Pengaturan</a>
+      <div class="nav-section-label">Foundation (A1–A2)</div>
+      <a class="nav-item" href="vocabulary.html" data-page="foundation-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="grammar.html" data-page="foundation-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="pronunciation.html" data-page="foundation-pronunciation"><span class="nav-icon">🔊</span>Pronunciation</a>
+      <a class="nav-item" href="dialog.html" data-page="foundation-dialog"><span class="nav-icon">💬</span>Dialog</a>
+      <a class="nav-item" href="quiz.html" data-page="foundation-quiz"><span class="nav-icon">⭐</span>Quiz Foundation</a>
+      <div class="nav-section-label">Intermediate (B1–B2)</div>
+      <a class="nav-item" href="../intermediate/vocabulary.html" data-page="intermediate-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../intermediate/grammar.html" data-page="intermediate-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../intermediate/reading.html" data-page="intermediate-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="../intermediate/listening.html" data-page="intermediate-listening"><span class="nav-icon">🎧</span>Listening</a>
+      <a class="nav-item" href="../intermediate/quiz.html" data-page="intermediate-quiz"><span class="nav-icon">⭐</span>Quiz Intermediate</a>
+      <div class="nav-section-label">Advanced (C1–C2)</div>
+      <a class="nav-item" href="../advanced/vocabulary.html" data-page="advanced-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../advanced/grammar.html" data-page="advanced-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../advanced/reading.html" data-page="advanced-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="../advanced/quiz.html" data-page="advanced-quiz"><span class="nav-icon">⭐</span>Quiz Advanced</a>
+      <div class="nav-section-label">Persiapan Tes</div>
+      <a class="nav-item" href="../ielts/overview.html" data-page="ielts"><span class="nav-icon">🎯</span>IELTS</a>
+      <a class="nav-item" href="../toeic/overview.html" data-page="toeic"><span class="nav-icon">🎯</span>TOEIC</a>
+      <a class="nav-item" href="../toefl/overview.html" data-page="toefl"><span class="nav-icon">🎯</span>TOEFL iBT</a>
+      <a class="nav-item" href="../cambridge/overview.html" data-page="cambridge"><span class="nav-icon">🎯</span>Cambridge</a>
+      <div class="nav-section-label">Lainnya</div>
+      <a class="nav-item" href="../planner.html" data-page="planner"><span class="nav-icon">📅</span>Study Planner</a>
+      <a class="nav-item" href="../games.html" data-page="games"><span class="nav-icon">🎮</span>Mini Game</a>
+      <div class="nav-section-label">Akun</div>
+      <a class="nav-item" href="../profile.html" data-page="profile"><span class="nav-icon">👤</span>Profil</a>
+      <a class="nav-item" href="../change-password.html" data-page="change-password"><span class="nav-icon">🔒</span>Ganti Password</a>
+      <a class="nav-item" href="#" data-action="logout"><span class="nav-icon">🚪</span>Keluar</a>
+    </nav>
+  </nav>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <!-- Main content -->
+  <div class="main-content">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+      <div class="topbar-title">Grammar A1–A2</div>
+      <div class="topbar-actions">
+        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+
+    <!-- Mobile Topbar -->
+    <div class="mobile-topbar">
+      <button class="hamburger" id="hamburger-mobile" aria-label="Menu">&#9776;</button>
+      <div class="mobile-topbar-title">Grammar A1–A2</div>
+      <button class="theme-toggle-btn" id="theme-toggle-btn-mobile" aria-label="Toggle dark mode">🌙</button>
+    </div>
+
+    <div class="page-content">
+
+      <!-- Page Header -->
+      <div class="grammar-header">
+        <div class="grammar-header-icon">📝</div>
+        <div>
+          <h1>Grammar A1–A2</h1>
+          <p>Pelajari tata bahasa Inggris dari dasar — dari to be hingga modal verbs.</p>
+          <div class="grammar-header-stats">
+            <span>📚 <span id="hdr-topics">12 topik</span></span>
+            <span>❓ <span id="hdr-total-quiz">120+ soal latihan</span></span>
+            <span>✅ <span id="hdr-completed">0 topik selesai</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="grammar-stats-bar">
+        <div class="stat-box">
+          <div class="stat-value" id="stat-topics-done">0</div>
+          <div class="stat-label">Topik Selesai</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="stat-quizzes-done">0</div>
+          <div class="stat-label">Quiz Selesai</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="stat-best-score">—</div>
+          <div class="stat-label">Skor Terbaik</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="stat-total-xp">0</div>
+          <div class="stat-label">XP Diraih</div>
+        </div>
+      </div>
+
+      <!-- ── TOPICS LIST VIEW ─────────────────────────────── -->
+      <div id="topics-view">
+
+        <!-- Level Filter -->
+        <div class="level-tabs">
+          <button class="level-tab-btn active" data-level="all">Semua</button>
+          <button class="level-tab-btn" data-level="A1">A1</button>
+          <button class="level-tab-btn" data-level="A2">A2</button>
+        </div>
+
+        <!-- Progress Overview -->
+        <div class="progress-section" id="progress-overview">
+          <h3>📈 Progress Keseluruhan</h3>
+          <div id="topic-progress-list">
+            <!-- rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Topics Grid -->
+        <div class="topics-grid" id="topics-grid">
+          <!-- rendered by JS -->
+        </div>
+
+      </div>
+
+      <!-- ── DETAIL VIEW ──────────────────────────────────── -->
+      <div class="grammar-detail" id="detail-view">
+
+        <!-- Back -->
+        <button class="detail-back-btn" id="btn-back-to-topics">
+          ← Kembali ke Daftar Topik
+        </button>
+
+        <!-- Header -->
+        <div class="detail-header" id="detail-header">
+          <div class="topic-icon" id="detail-icon">📝</div>
+          <div>
+            <h2 id="detail-title">Judul Topik</h2>
+            <p id="detail-desc">Deskripsi singkat topik.</p>
+          </div>
+        </div>
+
+        <!-- Mode Tabs -->
+        <div class="detail-mode-tabs">
+          <button class="mode-tab-btn active" data-mode="study">📖 Materi</button>
+          <button class="mode-tab-btn" data-mode="quiz">✏️ Latihan</button>
+        </div>
+
+        <!-- Study Panel -->
+        <div class="study-panel active" id="panel-study">
+          <div id="study-content">
+            <!-- rendered by JS -->
+          </div>
+          <div style="text-align:center; margin-top: 1.5rem;">
+            <button class="btn btn-primary" id="btn-go-to-quiz">Mulai Latihan Soal →</button>
+          </div>
+        </div>
+
+        <!-- Quiz Panel -->
+        <div class="quiz-panel" id="panel-quiz">
+
+          <!-- Start Screen -->
+          <div class="quiz-start-screen" id="quiz-start-screen">
+            <h3 id="quiz-start-title">Latihan Soal</h3>
+            <p id="quiz-start-desc">Uji pemahamanmu dengan 10 soal pilihan ganda, isi kosong, dan menyusun kalimat.</p>
+            <button class="btn btn-primary" id="btn-start-quiz">Mulai Latihan</button>
+          </div>
+
+          <!-- Question Screen -->
+          <div class="quiz-question-screen" id="quiz-question-screen">
+            <div class="quiz-progress-text">
+              <span id="q-progress-text">Soal 1 dari 10</span>
+              <span id="q-score-text">Benar: 0</span>
+            </div>
+            <div class="quiz-progress-bar">
+              <div class="quiz-progress-fill" id="q-progress-fill" style="width:0%"></div>
+            </div>
+
+            <div class="quiz-card">
+              <div class="quiz-type-label" id="q-type-label">PILIHAN GANDA</div>
+              <div class="quiz-question-text" id="q-question-text">Pertanyaan di sini</div>
+
+              <!-- MCQ -->
+              <div id="q-mcq-wrap" class="mcq-options"></div>
+
+              <!-- Fill Blank -->
+              <div id="q-fill-wrap" class="fill-blank-wrap" style="display:none;">
+                <input type="text" id="q-fill-input" class="fill-blank-input" placeholder="Ketik jawaban..." autocomplete="off" autocorrect="off" spellcheck="false">
+              </div>
+
+              <!-- Reorder -->
+              <div id="q-reorder-wrap" style="display:none;">
+                <p style="font-size:0.82rem; color:var(--color-text-muted); margin-bottom:0.5rem;">Klik kata untuk menyusun kalimat:</p>
+                <div class="reorder-area" id="q-reorder-answer"></div>
+                <div class="word-bank" id="q-word-bank"></div>
+              </div>
+
+              <!-- Feedback -->
+              <div class="answer-feedback" id="q-feedback"></div>
+            </div>
+
+            <div class="quiz-actions">
+              <button class="btn-check-answer" id="btn-check">Periksa Jawaban</button>
+              <button class="btn-next-question" id="btn-next">Soal Berikutnya →</button>
+            </div>
+          </div>
+
+          <!-- Result Screen -->
+          <div class="quiz-result-screen" id="quiz-result-screen">
+            <span class="result-emoji" id="result-emoji">🏆</span>
+            <div class="result-score-big" id="result-score">0/10</div>
+            <div class="result-label" id="result-label">Selesai!</div>
+            <div class="result-xp-earned" id="result-xp">+0 XP</div>
+            <div class="result-actions">
+              <button class="btn btn-outline" id="btn-retry-quiz">Ulangi Latihan</button>
+              <button class="btn btn-primary" id="btn-back-from-result">Kembali ke Topik</button>
+            </div>
+          </div>
+
+        </div>
+        <!-- /quiz-panel -->
+
+      </div>
+      <!-- /detail-view -->
+
+    </div><!-- /page-content -->
+
+    <!-- Bottom Nav -->
+    <nav class="bottom-nav">
+      <a class="bottom-nav-item" href="../dashboard.html" data-page="dashboard">
+        <span class="bottom-nav-icon">🏠</span>
+        <span>Home</span>
+      </a>
+      <a class="bottom-nav-item active" href="grammar.html" data-page="foundation-grammar">
+        <span class="bottom-nav-icon">📝</span>
+        <span>Grammar</span>
+      </a>
+      <a class="bottom-nav-item" href="vocabulary.html" data-page="foundation-vocab">
+        <span class="bottom-nav-icon">📚</span>
+        <span>Vocab</span>
+      </a>
+      <a class="bottom-nav-item" href="../profile.html" data-page="profile">
+        <span class="bottom-nav-icon">👤</span>
+        <span>Profil</span>
+      </a>
+    </nav>
+
+  </div><!-- /main-content -->
+</div><!-- /app-shell -->
+
+<!-- Scripts -->
+<script src="../../assets/js/core/storage.js"></script>
+<script src="../../assets/js/core/auth.js"></script>
+<script src="../../assets/js/core/router.js"></script>
+<script src="../../assets/js/core/app.js"></script>
+<script src="../../assets/js/modules/xp.js"></script>
+<script src="../../assets/js/modules/challenge.js"></script>
+<script src="../../assets/js/modules/badge.js"></script>
+<script src="../../assets/js/data/grammar-data.js"></script>
+<script src="../../assets/js/pages/grammar.js"></script>
+
+</body>
+</html>

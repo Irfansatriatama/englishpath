@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 0.6.0 |
-| **Fase Saat Ini** | FASE 5 ✅ — Foundation: Pronunciation & Phonetics |
-| **Fase Berikutnya** | FASE 6 — Foundation: Grammar A1–A2 |
+| **Versi App** | 0.7.0 |
+| **Fase Saat Ini** | FASE 6 ✅ — Foundation: Grammar A1–A2 |
+| **Fase Berikutnya** | FASE 7 — Foundation: Dialog & Quiz |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -119,6 +119,7 @@ englishpath/
 │   ├── foundation/                     🔲 Fase 4–7
 │   │   └── vocabulary.html             ✅ Halaman belajar vocab A1–A2 (Fase 4)
 │   │   └── pronunciation.html          ✅ Pronunciation & Phonetics (Fase 5)
+│   └── grammar.html                ✅ Grammar A1–A2 (Fase 6)
 │   ├── intermediate/                   🔲 Fase 8–9
 │   ├── advanced/                       🔲 Fase 17–18
 │   ├── ielts/                          🔲 Fase 13
@@ -151,10 +152,16 @@ englishpath/
         ├── data/
         │   ├── placement-questions.js      ✅ 20 soal placement test A1–B2
         │   └── vocabulary-data.js          ✅ 500+ kata A1–A2 (13 tema) — Fase 4
+        ├── data/
+        │   ├── placement-questions.js      ✅ 20 soal placement test A1–B2
+        │   ├── vocabulary-data.js          ✅ 500+ kata A1–A2 (13 tema) — Fase 4
+        │   └── grammar-data.js             ✅ 12 topik grammar A1–A2 + 120 soal — Fase 6
         └── pages/
             ├── onboarding.js               ✅ Wizard onboarding logic
             ├── dashboard.js                ✅ Dashboard page logic (Fase 3)
-            └── vocabulary.js               ✅ Vocab page: browse/flashcard/quiz/SRS (Fase 4)
+            ├── vocabulary.js               ✅ Vocab page: browse/flashcard/quiz/SRS (Fase 4)
+            ├── pronunciation.js            ✅ Pronunciation page logic (Fase 5)
+            └── grammar.js                  ✅ Grammar page logic (Fase 6)
 ```
 
 ---
@@ -250,6 +257,7 @@ Menghitung path relatif ke root berdasarkan kedalaman folder.
 | `challenge` | Object | {date, tasks[], completed, xpAwarded} |
 | `challenge_log` | Array | tanggal challenge yang diselesaikan |
 | `srs_vocab_foundation` | Object | SM-2 data per word id — {repetitions, interval, ef, nextReview, lastReview} |
+| `grammar_foundation` | Object | {topicsStudied, quizResults{best,attempts,lastScore}, totalXP, quizzesDone} |
 
 ---
 
@@ -439,6 +447,40 @@ Dokumen perencanaan lengkap dengan 23 fase roadmap.
 - ✅ localStorage key: `ep_user_{id}_pron_stats`
 
 ---
+
+---
+
+### FASE 6 — Foundation: Grammar A1–A2 ✅
+**Versi:** v0.7.0 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `assets/js/data/grammar-data.js` — 12 topik grammar A1–A2 dengan penjelasan, contoh, dan 120+ soal quiz
+- `assets/css/grammar.css` — Styles lengkap: header, topic grid, detail view, study mode, quiz mode (MCQ/fill/reorder), result screen
+- `pages/foundation/grammar.html` — Halaman grammar dengan dua view: daftar topik & detail topik
+- `assets/js/pages/grammar.js` — Logic lengkap (IIFE module)
+
+**Topik Grammar yang Tersedia:**
+
+A1: To Be (am/is/are), Simple Present Tense, Simple Past Tense, Articles (a/an/the), Prepositions (at/in/on), Nouns Plural, Pronouns, WH-Questions
+
+A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Present Continuous, Future (will/going to)
+
+**Fitur yang berfungsi:**
+- ✅ Daftar 12 topik grammar (8 A1 + 4 A2) dalam grid dengan progress indicator
+- ✅ Filter topik per level: Semua / A1 / A2
+- ✅ Progress overview: progress bar per topik berdasarkan skor terbaik quiz
+- ✅ Stats bar: Topik Selesai, Quiz Selesai, Skor Terbaik, Total XP
+- ✅ Mode Materi: penjelasan lengkap + contoh kalimat Indonesia/Inggris + tips + tombol 🔊 TTS
+- ✅ Mode Latihan Soal: 10 soal acak per topik, 3 tipe soal (MCQ, isi kosong, susun kalimat)
+- ✅ Sistem susun kalimat: klik kata dari word bank, klik lagi untuk hapus/kembalikan
+- ✅ Feedback langsung per soal: warna correct/wrong + jawaban yang benar
+- ✅ XP Awards: +3 per soal benar, +20 bonus sempurna (100%)
+- ✅ Challenge harian: onModuleVisit + onQuizComplete terhubung
+- ✅ localStorage key: `ep_user_{id}_grammar_foundation`
+- ✅ Topik dianggap "selesai" jika skor terbaik ≥ 7/10 (70%)
+
+---
+
 ## 10. Roadmap Fase Mendatang
 
 | Fase | Nama | Versi | Status |
@@ -447,7 +489,7 @@ Dokumen perencanaan lengkap dengan 23 fase roadmap.
 | **3** | Dashboard & Gamifikasi Dasar | v0.4.0 | ✅ |
 | **4** | Foundation: Vocabulary A1–A2 | v0.5.0 | ✅ |
 | **5** | Foundation: Pronunciation & Phonetics | v0.6.0 | ✅ |
-| **6** | Foundation: Grammar A1–A2 | v0.7.0 | 🔲 |
+| **6** | Foundation: Grammar A1–A2 | v0.7.0 | ✅ |
 | **7** | Foundation: Dialog & Quiz | v0.8.0 | 🔲 |
 | **8** | Intermediate: Vocabulary & Grammar B1–B2 | v1.0.0 | 🔲 |
 | **9** | Intermediate: Reading & Listening | v1.1.0 | 🔲 |
@@ -515,6 +557,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | stats.html | `'stats'` |
 | onboarding.html | `'onboarding'` |
 | foundation/vocabulary.html | `'foundation-vocab'` |
+| foundation/grammar.html | `'foundation-grammar'` |
 | (dst sesuai pattern) | |
 
 ### Checklist Halaman Baru
@@ -539,7 +582,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v0.4.0 — Fase 3** | 2026-02-26 | Dashboard & Gamifikasi Dasar: challenge harian, badge system, streak calendar, XP progress | ✅ |
 | **v0.5.0 — Fase 4** | 2026-02-26 | Foundation Vocabulary A1–A2: 500+ kata, SRS SM-2, 4 mode belajar | ✅ |
 | **v0.6.0 — Fase 5** | 2026-02-26 | Foundation Pronunciation & Phonetics: IPA chart, minimal pairs, tongue twisters, word stress, quiz | ✅ |
-| **v0.7.0 — Fase 6** | TBD | Foundation: Grammar A1–A2 | 🔲 |
+| **v0.7.0 — Fase 6** | 2026-02-26 | Foundation Grammar A1–A2: 12 topik, 120+ soal, 3 mode quiz | ✅ |
 | **v0.8.0 — Fase 7** | TBD | Foundation: Dialog & Quiz | 🔲 |
 | **v1.0.0 — Fase 8** | TBD | Intermediate: Vocabulary & Grammar B1–B2 | 🔲 |
 | **v1.1.0 — Fase 9** | TBD | Intermediate: Reading & Listening | 🔲 |
@@ -560,7 +603,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 4 ✅ Foundation: Vocabulary A1–A2 → **Fase 5** 🔲 (berikutnya)
+> **Fase saat ini:** Fase 6 ✅ Foundation: Grammar A1–A2 → **Fase 7** 🔲 (berikutnya)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >
