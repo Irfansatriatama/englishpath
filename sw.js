@@ -4,7 +4,7 @@
  * Bump CACHE_NAME version whenever files are added/changed.
  */
 
-const CACHE_NAME = 'englishpath-v12';
+const CACHE_NAME = 'englishpath-v13';
 
 const ASSETS_TO_CACHE = [
   './',
@@ -130,6 +130,12 @@ const ASSETS_TO_CACHE = [
   './pages/toefl/listening.html',
   './assets/js/data/toefl-reading-data.js',
   './assets/js/data/toefl-listening-data.js',
+  './assets/js/data/toefl-speaking-data.js',
+  './assets/js/data/toefl-writing-data.js',
+  './assets/js/pages/toefl-speaking.js',
+  './assets/js/pages/toefl-writing.js',
+  './pages/toefl/speaking.html',
+  './pages/toefl/writing.html',
   './assets/js/pages/toefl-reading.js',
   './assets/js/pages/toefl-listening.js',
 ];

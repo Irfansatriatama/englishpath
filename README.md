@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 2.2.2 |
-| **Fase Saat Ini** | FASE 15b ✅ — TOEFL iBT: Practice Reading & Listening |
-| **Fase Berikutnya** | FASE 15c-1 — TOEFL iBT: Practice Speaking & Writing (v2.2.3) |
+| **Versi App** | 2.2.3 |
+| **Fase Saat Ini** | FASE 15c-1 ✅ — TOEFL iBT: Practice Speaking & Writing |
+| **Fase Berikutnya** | FASE 15c-2 — TOEFL iBT: Simulasi Full Test + Hasil (v2.2.4) |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -132,7 +132,7 @@ englishpath/
 │   ├── advanced/                       🔲 Fase 17–18
 │   ├── ielts/                          ✅ Fase 13a–13c-2 (Hub + Vocab + Reading + Listening + Speaking + Writing + Simulasi + Hasil)
 │   ├── toeic/                          ✅ Fase 14a–14c-2 SELESAI (Hub + Vocab + Listening + Reading + Simulasi + Hasil)
-│   ├── toefl/                          ✅ Fase 15a–15b (Hub + Vocab + Reading + Listening) — Fase 15c-1 🔲
+│   ├── toefl/                          ✅ Fase 15a–15c-1 (Hub + Vocab + Reading + Listening + Speaking + Writing) — Fase 15c-2 🔲
 │   └── cambridge/                      🔲 Fase 16a–16b
 │
 └── assets/
@@ -681,10 +681,10 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **14a** | TOEIC: Hub & Vocabulary | v2.1.1 | ✅ |
 | **14b** | TOEIC: Practice Listening (Parts 1–4) | v2.1.2 | ✅ |
 | **14c-1** | TOEIC: Practice Reading (Parts 5–7) | v2.1.3 | ✅ |
-| **14c-2** | TOEIC: Simulasi Full Test + Halaman Hasil | v2.1.4 | 🔲 |
+| **14c-2** | TOEIC: Simulasi Full Test + Halaman Hasil | v2.1.4 | ✅ |
 | **15a** | TOEFL iBT: Hub & Vocabulary | v2.2.1 | ✅ |
-| **15b** | TOEFL iBT: Practice Reading & Listening | v2.2.2 | 🔲 |
-| **15c-1** | TOEFL iBT: Practice Speaking & Writing | v2.2.3 | 🔲 |
+| **15b** | TOEFL iBT: Practice Reading & Listening | v2.2.2 | ✅ |
+| **15c-1** | TOEFL iBT: Practice Speaking & Writing | v2.2.3 | ✅ |
 | **15c-2** | TOEFL iBT: Simulasi Full Test + Halaman Hasil | v2.2.4 | 🔲 |
 | **16a** | Cambridge: Hub & Vocabulary | v2.3.1 | 🔲 |
 | **16b** | Cambridge: Practice Reading & Use of English + Listening | v2.3.2 | 🔲 |
@@ -902,10 +902,9 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v2.1.2 — Fase 14b** | 2026-02-26 | TOEIC: Practice Listening Parts 1–4 (TTS, MCQ, form completion, SW v8) | ✅ |
 | **v2.1.3 — Fase 14c-1** | 2026-02-26 | TOEIC: Practice Reading Parts 5–7 (Part 5 Incomplete Sentences, Part 6 Text Completion, Part 7 Single & Double Passage) | ✅ |
 | **v2.1.4 — Fase 14c-2** | 2026-02-26 | TOEIC: Simulasi Full Test (LC 45 min: Parts 1–4 TTS + RC 75 min: Parts 5–7) + Halaman Hasil (score 10–990, part breakdown, rekomendasi, riwayat 5 sim, badge toeic_ready, SW v10) | ✅ |
-| **v2.2.2 — Fase 15b** | 2026-02-26 | TOEFL iBT: Practice Reading (3 academic passages, 8Q each: factual, inference, vocab, insert, summary) + Listening (2 lectures + 1 conversation, 5-6Q each: main idea, detail, function, attitude, organization), toefl.css extended, SW v12 | ✅ |
 | **v2.2.1 — Fase 15a** | 2026-02-26 | TOEFL iBT: Hub & Vocabulary (300+ AWL Tier 1–2, 8 domain akademik, hub 4 sections, score chart 0–120, MyBest™, flashcard, SRS, quiz, toefl.css, SW v11) | ✅ |
-| **v2.2.2 — Fase 15b** | TBD | TOEFL iBT: Practice Reading & Listening (3 passage akademik + 2 lecture + 1 conversation) | 🔲 |
-| **v2.2.3 — Fase 15c-1** | TBD | TOEFL iBT: Practice Speaking & Writing (speaking.html + writing.html, rubrik, model answers, word count) | 🔲 |
+| **v2.2.2 — Fase 15b** | 2026-02-26 | TOEFL iBT: Practice Reading (3 academic passages, 8Q each: factual, inference, vocab, insert, summary) + Listening (2 lectures + 1 conversation, 5-6Q each: main idea, detail, function, attitude, organization), toefl.css extended, SW v12 | ✅ |
+| **v2.2.3 — Fase 15c-1** | 2026-02-26 | TOEFL iBT: Practice Speaking (4 tasks: 4 independent prompts, 2 campus announcements, 2 academic concepts, 2 academic lectures; TTS, rubrik 0–4, model answers) + Writing (Task 1 Integrated read→listen→write 150–225 kata, Task 2 Academic Discussion 100+ kata; word count tracker, rubrik 0–5, model answers, SW v13) | ✅ |
 | **v2.2.4 — Fase 15c-2** | TBD | TOEFL iBT: Simulasi Full Test + Halaman Hasil (4 section timed, score 0–120, badge toefl_ready) | 🔲 |
 | **v2.3.1 — Fase 16a** | TBD | Cambridge: Hub & Vocabulary (B2 First & C1 Advanced, 300+ advanced vocab, flashcard, SRS) | 🔲 |
 | **v2.3.2 — Fase 16b** | TBD | Cambridge: Practice Reading & Use of English + Listening (Parts 1–7/8 + 4 Listening parts) | 🔲 |
@@ -920,7 +919,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 15b ✅ TOEFL iBT: Practice Reading & Listening → **Fase 15c-1** 🔲 (berikutnya: TOEFL iBT: Practice Speaking & Writing)
+> **Fase saat ini:** Fase 15c-1 ✅ TOEFL iBT: Practice Speaking & Writing → **Fase 15c-2** 🔲 (berikutnya: TOEFL iBT: Simulasi Full Test + Halaman Hasil)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >
@@ -1175,3 +1174,75 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 **localStorage Baru:**
 - `ep_user_{id}_toefl_reading` — {results: {p1/p2/p3: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts}
 - `ep_user_{id}_toefl_listening` — {results: {l1/l2/c1: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts}
+
+---
+
+### FASE 15c-1 — TOEFL iBT: Practice Speaking & Writing ✅
+**Versi:** v2.2.3 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `pages/toefl/speaking.html` — TOEFL Speaking Practice: menu 4 task, timer prep+speak, model answer TTS, self-assessment rubrik 0–4
+- `pages/toefl/writing.html` — TOEFL Writing Practice: menu 2 task, writing area, word count tracker, rubrik 0–5, model answer TTS
+- `assets/js/data/toefl-speaking-data.js` — Data 4 tasks speaking (Task1: 4 independent prompts; Task2: 2 campus announcements; Task3: 2 academic concepts; Task4: 2 academic lectures)
+- `assets/js/data/toefl-writing-data.js` — Data 2 tasks writing (Task1: 3 integrated passages + lectures; Task2: 3 academic discussion threads dengan professor post + 2 student posts)
+- `assets/js/pages/toefl-speaking.js` — Logic speaking module (IIFE): menu, task1 independent timer, task2-4 integrated read→listen→speak flow, TTS script playback, self-assessment
+- `assets/js/pages/toefl-writing.js` — Logic writing module (IIFE): menu, task1 read→listen→write flow, task2 discussion writing, word count live tracker, result + rubrik
+
+**File Diubah:**
+- `assets/css/toefl.css` — Append styles: skill-header, skill-tabs, skill-grid, toefl-task-card, timer (prep/speak phases), script-box, reading-panel, rubric-box, model-section, self-assess score-buttons, writing-layout (2-kolom), discussion-thread, result-screens, responsive
+- `sw.js` — Bump ke `englishpath-v13`, tambah toefl-speaking-data.js, toefl-writing-data.js, toefl-speaking.js, toefl-writing.js, pages/toefl/speaking.html, pages/toefl/writing.html
+- `README.md` — Update status, struktur folder, versi, log pengerjaan
+
+**Konten Speaking (4 Tasks):**
+
+**Task 1 — Independent (4 prompts × 15s prep + 45s speak):**
+- Living Alone or With Others, Technology in Education, Urban or Rural Living, Learning from Experience vs. Formal Education
+- Setiap prompt: keyPoints panduan + rubrik 3 kriteria (Delivery, Language Use, Topic Development) + model answer lengkap + TTS
+
+**Task 2 — Campus Announcement (2 items × 45s baca + listen + 30s prep + 60s speak):**
+- Library Hours Change: pengumuman perubahan jam buka + percakapan 2 mahasiswa
+- New Group Study Policy: kebijakan reservasi ruang belajar + percakapan 2 mahasiswa
+- Flow lengkap: reading (timer) → percakapan TTS dengan highlight aktif → prep → speaking → rubrik + model
+
+**Task 3 — Academic Concept (2 items × 45s baca + listen + 30s prep + 60s speak):**
+- Cognitive Dissonance (Leon Festinger 1957): teks definisi + kuliah profesor dengan 2 contoh (perokok + environmentalist)
+- The Sunk Cost Fallacy: teks konsep + kuliah profesor dengan 2 contoh (konser + korporat)
+- Flow: reading → lecture TTS → prep → speaking → rubrik + model
+
+**Task 4 — Academic Lecture (2 items × listen + 20s prep + 60s speak):**
+- Mimicry in Nature: Batesian (hoverfly) vs Müllerian (poison dart frogs)
+- The Broken Windows Theory (Wilson & Kelling 1982): NYC subway application
+- Flow: lecture TTS dengan highlight → prep → speaking → rubrik + model
+
+**Konten Writing (2 Tasks):**
+
+**Task 1 — Integrated Writing (3 topics × baca 3 menit + dengar lecture + tulis 20 menit, 150–225 kata):**
+- The Benefits of Urban Green Spaces: klaim air quality + mental health + biodiversity vs. sanggahan profesor
+- Artificial Intelligence in the Workplace: klaim higher-value tasks + historical precedent + new industries vs. sanggahan profesor
+- Genetic Engineering in Agriculture: klaim pest resistance + nutritional enhancement + climate resilience vs. sanggahan profesor
+- Setiap item: passage teks lengkap + skrip lecture TTS + listening note + prompt + rubrik skor 0–5 + model answer lengkap
+
+**Task 2 — Academic Discussion (3 topics × baca discussion + tulis 10 menit, 100+ kata):**
+- Remote Work vs. Office Work: professor Dr. Sandra Mitchell + 2 student posts (Marcus, Priya)
+- Should University Education Be Free?: professor Dr. James Okafor + 2 student posts (Sofia, Ethan)
+- Individual Action vs. Systemic Change on Climate: professor Dr. Yuki Tanaka + 2 student posts (Anya, David)
+- Layout 2-kolom: panel diskusi (professor + student posts) | panel menulis (prompt + textarea + word count)
+
+**Fitur yang Berfungsi:**
+- ✅ Task 1 Speaking: timer fase persiapan (15s) → fase berbicara (45s) → evaluasi diri
+- ✅ Task 2–4 Speaking: reading panel (baca passage/pengumuman dengan timer) → TTS script dengan highlight baris aktif per kalimat → fase prep → fase speak → evaluasi diri
+- ✅ TTS lecture playback: _speakScript() mengiterasikan setiap baris dengan delay natural, highlight baris aktif real-time
+- ✅ Model answer TTS: tombol putar/berhenti dengan state toggle
+- ✅ Rubrik self-assessment: skor 0–4 (Speaking) & 0–5 (Writing), tersimpan ke localStorage
+- ✅ Task 1 Writing: baca passage 3 menit (timer) → dengar lecture TTS → writing area 20 menit dengan word count tracker real-time
+- ✅ Task 2 Writing: layout 2-kolom (discussion thread professor+students | writing panel), timer 10 menit
+- ✅ Word count display: hijau (dalam target), kuning (terlalu sedikit), merah (terlalu banyak)
+- ✅ Result screen: tampilkan tulisan user, statistik kata, rubrik lengkap, model answer, self-assessment
+- ✅ XP Awards: +15 XP score ≥ 3, +10 XP lainnya (speaking); +20 XP score ≥ 4 (writing)
+- ✅ ChallengeSystem.onModuleVisit() + onQuizComplete() terhubung
+- ✅ SW bump ke englishpath-v13
+- ✅ TOEFL Hub sudah memiliki link ke speaking.html dan writing.html
+
+**localStorage Baru:**
+- `ep_user_{id}_toefl_speaking` — {results: {t1_id / t2_id / t3_id / t4_id: {attempts, lastSelfScore, lastDate}}, totalAttempts}
+- `ep_user_{id}_toefl_writing` — {results: {w1_id / w2_id: {attempts, lastSelfScore, lastWordCount, lastDate}}, totalAttempts}
