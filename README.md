@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 1.3.0 |
-| **Fase Saat Ini** | FASE 12 ✅ — Study Planner |
-| **Fase Berikutnya** | FASE 13 — IELTS: Practice & Simulasi |
+| **Versi App** | 2.0.1 |
+| **Fase Saat Ini** | FASE 13a ✅ — IELTS: Hub & Vocabulary |
+| **Fase Berikutnya** | FASE 13b — IELTS: Practice Reading & Listening (v2.0.2) |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -130,10 +130,10 @@ englishpath/
 │   │   ├── reading.html                ✅ Reading B1–B2: 8 artikel, key vocab, comprehension quiz (Fase 9)
 │   │   └── listening.html              ✅ Listening B1–B2: 8 audio track TTS, transkrip, quiz (Fase 9)
 │   ├── advanced/                       🔲 Fase 17–18
-│   ├── ielts/                          🔲 Fase 13
-│   ├── toeic/                          🔲 Fase 14
-│   ├── toefl/                          🔲 Fase 15
-│   └── cambridge/                      🔲 Fase 16
+│   ├── ielts/                          ✅ Fase 13a (Hub + Vocabulary)
+│   ├── toeic/                          🔲 Fase 14a–14b
+│   ├── toefl/                          🔲 Fase 15a–15b
+│   └── cambridge/                      🔲 Fase 16a–16b
 │
 └── assets/
     ├── css/
@@ -656,10 +656,18 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **10** | PWA, Profil & Settings | v1.1.0 | ✅ |
 | **11** | Tema & Kustomisasi UI | v1.2.0 | ✅ |
 | **12** | Study Planner | v1.3.0 | ✅ |
-| **13** | IELTS: Practice & Simulasi | v2.0.0 | 🔲 |
-| **14** | TOEIC: Practice & Simulasi | v2.1.0 | 🔲 |
-| **15** | TOEFL iBT: Practice & Simulasi | v2.2.0 | 🔲 |
-| **16** | Cambridge: Practice & Simulasi | v2.3.0 | 🔲 |
+| **13a** | IELTS: Hub & Vocabulary | v2.0.1 | 🔲 |
+| **13b** | IELTS: Practice Reading & Listening | v2.0.2 | 🔲 |
+| **13c** | IELTS: Practice Speaking & Writing + Simulasi Full Test | v2.0.3 | 🔲 |
+| **14a** | TOEIC: Hub & Vocabulary | v2.1.1 | 🔲 |
+| **14b** | TOEIC: Practice Listening (Parts 1–4) | v2.1.2 | 🔲 |
+| **14c** | TOEIC: Practice Reading (Parts 5–7) + Simulasi Full Test | v2.1.3 | 🔲 |
+| **15a** | TOEFL iBT: Hub & Vocabulary | v2.2.1 | 🔲 |
+| **15b** | TOEFL iBT: Practice Reading & Listening | v2.2.2 | 🔲 |
+| **15c** | TOEFL iBT: Practice Speaking & Writing + Simulasi Full Test | v2.2.3 | 🔲 |
+| **16a** | Cambridge: Hub & Vocabulary | v2.3.1 | 🔲 |
+| **16b** | Cambridge: Practice Reading & Use of English + Listening | v2.3.2 | 🔲 |
+| **16c** | Cambridge: Practice Writing & Speaking + Simulasi Full Test | v2.3.3 | 🔲 |
 | **17** | Advanced: Vocabulary & Grammar C1–C2 | v2.4.0 | 🔲 |
 | **18** | Advanced: Reading & Listening | v2.5.0 | 🔲 |
 | **19** | Speaking & Writing Modules | v2.6.0 | 🔲 |
@@ -667,6 +675,99 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **21** | Statistik, Backup & Laporan | v3.1.0 | 🔲 |
 | **22** | Reminder & Notifikasi | v3.2.0 | 🔲 |
 | **23** | Polish, Bug Fix & Optimasi Final | v3.3.0 | 🔲 |
+
+### Scope Detail: Fase 13 (IELTS) — 3 Tahap
+
+**Fase 13a — IELTS: Hub & Vocabulary (v2.0.1)**
+- Halaman hub IELTS (`pages/ielts/index.html`) — overview format tes, Band score chart 0–9, navigasi 4 skill & simulasi
+- IELTS Vocabulary (`pages/ielts/vocabulary.html`) — 300+ kata Academic Word List + domain-specific (science, business, law, environment), flashcard + SRS + quiz
+- File baru: `ielts-vocab-data.js`, `ielts.css`, `ielts-vocab.js`
+- localStorage baru: `ep_user_{id}_srs_ielts_vocab`, `ep_user_{id}_ielts_vocab`
+
+**Fase 13b — IELTS: Practice Reading & Listening (v2.0.2)**
+- Halaman practice Reading (`pages/ielts/reading.html`) — 4 passage Academic + 2 General Training, multiple choice / True-False-NG / matching, timer per passage
+- Halaman practice Listening (`pages/ielts/listening.html`) — 4 section audio TTS (conversation, monolog, lecture, discussion), MCQ + form completion + matching
+- File baru: `ielts-reading-data.js`, `ielts-listening-data.js`, `ielts-reading.js`, `ielts-listening.js`
+- localStorage baru: `ep_user_{id}_ielts_reading`, `ep_user_{id}_ielts_listening`
+
+**Fase 13c — IELTS: Practice Speaking & Writing + Simulasi Full Test (v2.0.3)**
+- Halaman practice Speaking (`pages/ielts/speaking.html`) — Part 1 (short Q&A), Part 2 (long turn + cue card, timer 2 min), Part 3 (discussion prompts), TTS model answer, self-assessment rubrik
+- Halaman practice Writing (`pages/ielts/writing.html`) — Task 1 Academic (graph/chart/diagram), Task 1 General (letter), Task 2 Essay — guided planning, model answers, word count tracker
+- Halaman simulasi full test (`pages/ielts/simulation.html`) — flow 4 skill timed: Listening (30 min) → Reading (60 min) → Writing (60 min) → Speaking prompts
+- Halaman hasil (`pages/ielts/result.html`) — Band per section, estimated overall Band, rekomendasi, riwayat simulasi
+- Band Score calculator: raw score → Band 0–9; +100 XP, badge `ielts_ready` jika Band ≥ 6.0
+- File baru: `ielts-speaking-data.js`, `ielts-writing-data.js`, `ielts-simulation-data.js`, `ielts-speaking.js`, `ielts-writing.js`, `ielts-simulation.js`, `ielts-result.js`, `simulation.css`
+
+---
+
+### Scope Detail: Fase 14 (TOEIC) — 3 Tahap
+
+**Fase 14a — TOEIC: Hub & Vocabulary (v2.1.1)**
+- Halaman hub TOEIC (`pages/toeic/index.html`) — overview format tes, score chart 10–990, struktur 7 parts (LC Parts 1–4, RC Parts 5–7)
+- TOEIC Vocabulary (`pages/toeic/vocabulary.html`) — 300+ kata Business English (meetings, HR, finance, office, travel, logistics, customer service), flashcard + SRS + quiz
+- File baru: `toeic-vocab-data.js`, `toeic.css`, `toeic-vocab.js`
+- localStorage baru: `ep_user_{id}_srs_toeic_vocab`, `ep_user_{id}_toeic_vocab`
+
+**Fase 14b — TOEIC: Practice Listening Parts 1–4 (v2.1.2)**
+- Halaman practice Listening (`pages/toeic/listening.html`) — Part 1: Photograph Description (TTS), Part 2: Question-Response (TTS), Part 3: Short Conversations (TTS), Part 4: Short Talks (TTS)
+- Timer per set latihan, feedback per soal
+- File baru: `toeic-listening-data.js`, `toeic-listening.js`
+- localStorage baru: `ep_user_{id}_toeic_listening`
+
+**Fase 14c — TOEIC: Practice Reading Parts 5–7 + Simulasi Full Test (v2.1.3)**
+- Halaman practice Reading (`pages/toeic/reading.html`) — Part 5: Incomplete Sentences, Part 6: Text Completion, Part 7: Single & Double Passage Reading Comprehension
+- Halaman simulasi full test (`pages/toeic/simulation.html`) — Listening (45 menit, Parts 1–4) + Reading (75 menit, Parts 5–7), auto-advance antar section
+- Halaman hasil (`pages/toeic/result.html`) — score Listening + Reading + Total (10–990), performa per Part
+- +100 XP, badge `toeic_ready` jika total ≥ 700
+- File baru: `toeic-reading-data.js`, `toeic-simulation-data.js`, `toeic-reading.js`, `toeic-simulation.js`, `toeic-result.js`
+
+---
+
+### Scope Detail: Fase 15 (TOEFL iBT) — 3 Tahap
+
+**Fase 15a — TOEFL iBT: Hub & Vocabulary (v2.2.1)**
+- Halaman hub TOEFL (`pages/toefl/index.html`) — overview format, score 0–120 (4×30), MyBest scores explanation
+- TOEFL Vocabulary (`pages/toefl/vocabulary.html`) — 300+ kata AWL Tier 1–2 + scientific & academic domains (biology, economics, history, psychology), flashcard + SRS + quiz
+- File baru: `toefl-vocab-data.js`, `toefl.css`, `toefl-vocab.js`
+- localStorage baru: `ep_user_{id}_srs_toefl_vocab`, `ep_user_{id}_toefl_vocab`
+
+**Fase 15b — TOEFL iBT: Practice Reading & Listening (v2.2.2)**
+- Halaman practice Reading (`pages/toefl/reading.html`) — 3 passage akademik (500–700 kata), soal: factual info, inference, vocabulary in context, insert text, prose summary
+- Halaman practice Listening (`pages/toefl/listening.html`) — 2 lecture + 1 conversation, soal: main idea, detail, function, attitude, organization
+- File baru: `toefl-reading-data.js`, `toefl-listening-data.js`, `toefl-reading.js`, `toefl-listening.js`
+- localStorage baru: `ep_user_{id}_toefl_reading`, `ep_user_{id}_toefl_listening`
+
+**Fase 15c — TOEFL iBT: Practice Speaking & Writing + Simulasi Full Test (v2.2.3)**
+- Halaman practice Speaking (`pages/toefl/speaking.html`) — Task 1 Independent (timer 45 det prep + 60 det bicara), Tasks 2–4 Integrated, rubrik 0–4, model answers
+- Halaman practice Writing (`pages/toefl/writing.html`) — Task 1 Integrated (baca + dengar → tulis 150–225 kata), Task 2 Academic Discussion (100+ kata), rubrik 0–5, word count tracker
+- Halaman simulasi (`pages/toefl/simulation.html`) — Reading (54 min) → Listening (41 min) → 10-min break → Speaking (17 min) → Writing (50 min)
+- Halaman hasil (`pages/toefl/result.html`) — score per section (0–30 each), total 0–120, diagnostic
+- +100 XP, badge `toefl_ready` jika total ≥ 80
+- File baru: `toefl-speaking-data.js`, `toefl-writing-data.js`, `toefl-simulation-data.js`, `toefl-speaking.js`, `toefl-writing.js`, `toefl-simulation.js`, `toefl-result.js`
+
+---
+
+### Scope Detail: Fase 16 (Cambridge) — 3 Tahap
+
+**Fase 16a — Cambridge: Hub & Vocabulary (v2.3.1)**
+- Halaman hub Cambridge (`pages/cambridge/index.html`) — overview B2 First (FCE) & C1 Advanced (CAE), grade A–U, struktur 4 papers, pilihan level
+- Cambridge Vocabulary (`pages/cambridge/vocabulary.html`) — 300+ kata advanced: collocations, phrasal verbs, idioms, word formation (prefix/suffix), C1-level academic vocab, flashcard + SRS + quiz
+- File baru: `cambridge-vocab-data.js`, `cambridge.css`, `cambridge-vocab.js`
+- localStorage baru: `ep_user_{id}_srs_cambridge_vocab`, `ep_user_{id}_cambridge_vocab`
+
+**Fase 16b — Cambridge: Practice Reading & Use of English + Listening (v2.3.2)**
+- Halaman practice Reading & Use of English (`pages/cambridge/reading.html`) — Parts 1–4 (multiple-choice cloze, open cloze, word formation, key word transformation) + Parts 5–7/8 (reading comprehension, gapped text, multiple matching)
+- Halaman practice Listening (`pages/cambridge/listening.html`) — 4 parts: MCQ short extracts, sentence completion, MCQ long text, multiple matching
+- File baru: `cambridge-reading-data.js`, `cambridge-listening-data.js`, `cambridge-reading.js`, `cambridge-listening.js`
+- localStorage baru: `ep_user_{id}_cambridge_reading`, `ep_user_{id}_cambridge_listening`
+
+**Fase 16c — Cambridge: Practice Writing & Speaking + Simulasi Full Test (v2.3.3)**
+- Halaman practice Writing (`pages/cambridge/writing.html`) — Part 1 (essay compulsory), Part 2 (letter/email, report, review, article, story), guided planning, sample answers, assessment criteria
+- Halaman practice Speaking (`pages/cambridge/speaking.html`) — Part 1 (interview), Part 2 (compare photos, long turn), Part 3 (collaborative task), Part 4 (further discussion), TTS prompts
+- Halaman simulasi full test (`pages/cambridge/simulation.html`) — Reading & Use of English (75 min) → Writing (80 min) → Listening (40 min) → Speaking prompts; pilihan level B2/C1
+- Halaman hasil (`pages/cambridge/result.html`) — score per paper, Cambridge Scale score, estimated grade A–U
+- Grade calculator: total mark → Cambridge Scale → Grade A/B/C/D/E/U; +100 XP, badge `cambridge_ready` jika grade ≥ C
+- File baru: `cambridge-writing-data.js`, `cambridge-speaking-data.js`, `cambridge-simulation-data.js`, `cambridge-writing.js`, `cambridge-speaking.js`, `cambridge-simulation.js`, `cambridge-result.js`
 
 ---
 
@@ -750,10 +851,18 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v1.1.0 — Fase 10** | 2026-02-26 | PWA (manifest.json + sw.js), Profile upgrade (stats, badges, XP bar), Settings upgrade (backup/restore, daily goal, color themes, reset progress, PWA install banner) | ✅ |
 | **v1.2.0 — Fase 11** | 2026-02-26 | Tema & Kustomisasi UI: halaman theme.html dedicated, 8 tema warna (+ Teal & Midnight baru), live preview, font & radius picker, 6 preset siap pakai, App.setColorTheme/setFont/setRadius API, SW bump v2 | ✅ |
 | **v1.3.0 — Fase 12** | 2026-02-26 | Study Planner: wizard setup, 5 target tes, countdown, progress ring, jadwal harian, milestone timeline, tips per skill, quote harian, XP terintegrasi, SW bump v3 | ✅ |
-| **v2.0.0 — Fase 13** | TBD | IELTS: Practice & Simulasi | 🔲 |
-| **v2.1.0 — Fase 14** | TBD | TOEIC: Practice & Simulasi | 🔲 |
-| **v2.2.0 — Fase 15** | TBD | TOEFL iBT: Practice & Simulasi | 🔲 |
-| **v2.3.0 — Fase 16** | TBD | Cambridge: Practice & Simulasi | 🔲 |
+| **v2.0.1 — Fase 13a** | 2026-02-26 | IELTS: Hub & Vocabulary (300+ AWL, flashcard, SRS, quiz) | ✅ |
+| **v2.0.2 — Fase 13b** | TBD | IELTS: Practice Reading & Listening (passage + TTS audio, MCQ, T/F/NG, form completion) | 🔲 |
+| **v2.0.3 — Fase 13c** | TBD | IELTS: Practice Speaking & Writing + Simulasi Full Test (4 skills timed, Band 0–9, hasil) | 🔲 |
+| **v2.1.1 — Fase 14a** | TBD | TOEIC: Hub & Vocabulary (300+ Business English, flashcard, SRS, quiz) | 🔲 |
+| **v2.1.2 — Fase 14b** | TBD | TOEIC: Practice Listening Parts 1–4 (TTS, MCQ, form completion) | 🔲 |
+| **v2.1.3 — Fase 14c** | TBD | TOEIC: Practice Reading Parts 5–7 + Simulasi Full Test (LC 45 min + RC 75 min, score 10–990) | 🔲 |
+| **v2.2.1 — Fase 15a** | TBD | TOEFL iBT: Hub & Vocabulary (300+ AWL Tier 1–2, flashcard, SRS, quiz) | 🔲 |
+| **v2.2.2 — Fase 15b** | TBD | TOEFL iBT: Practice Reading & Listening (3 passage akademik + 2 lecture + 1 conversation) | 🔲 |
+| **v2.2.3 — Fase 15c** | TBD | TOEFL iBT: Practice Speaking & Writing + Simulasi Full Test (4 section timed, score 0–120) | 🔲 |
+| **v2.3.1 — Fase 16a** | TBD | Cambridge: Hub & Vocabulary (B2 First & C1 Advanced, 300+ advanced vocab, flashcard, SRS) | 🔲 |
+| **v2.3.2 — Fase 16b** | TBD | Cambridge: Practice Reading & Use of English + Listening (Parts 1–7/8 + 4 Listening parts) | 🔲 |
+| **v2.3.3 — Fase 16c** | TBD | Cambridge: Practice Writing & Speaking + Simulasi Full Test (timed, grade A–U) | 🔲 |
 | **v2.4.0 — Fase 17** | TBD | Advanced: Vocabulary & Grammar C1–C2 | 🔲 |
 | **v2.5.0 — Fase 18** | TBD | Advanced: Reading & Listening | 🔲 |
 | **v2.6.0 — Fase 19** | TBD | Speaking & Writing Modules | 🔲 |
@@ -764,7 +873,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 12 ✅ Study Planner → **Fase 13** 🔲 (berikutnya)
+> **Fase saat ini:** Fase 13a ✅ IELTS Hub & Vocabulary → **Fase 13b** 🔲 (berikutnya: IELTS Hub & Vocabulary)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >

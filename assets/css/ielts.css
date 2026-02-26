@@ -1,0 +1,1013 @@
+/* ============================================================
+   EnglishPath — IELTS Styles (ielts.css)
+   Fase 13a: IELTS Hub & Vocabulary
+   ============================================================ */
+
+/* ── IELTS Hub ─────────────────────────────────────────────── */
+
+.ielts-hero {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #1a3f8f 100%);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ielts-hero::before {
+  content: '🎯';
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 5rem;
+  opacity: 0.15;
+}
+
+.ielts-hero-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 0.35rem;
+}
+
+.ielts-hero-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+}
+
+.ielts-hero-sub {
+  font-size: 0.92rem;
+  opacity: 0.85;
+  margin-bottom: 1.25rem;
+  max-width: 480px;
+}
+
+.ielts-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ielts-badge {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 2rem;
+  padding: 0.2rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Band Score Chart */
+.band-chart-section {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.band-chart-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.band-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.band-row {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr 8rem;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.band-num {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.band-bar-wrap {
+  height: 0.6rem;
+  background: var(--surface-2);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.band-bar {
+  height: 100%;
+  border-radius: 1rem;
+  background: var(--color-primary);
+  transition: width 0.6s ease;
+}
+
+.band-bar.b9 { background: #22c55e; width: 100%; }
+.band-bar.b8 { background: #16a34a; width: 88%; }
+.band-bar.b7 { background: #3b82f6; width: 77%; }
+.band-bar.b6 { background: #6366f1; width: 66%; }
+.band-bar.b5 { background: #f59e0b; width: 55%; }
+.band-bar.b4 { background: #ef4444; width: 44%; }
+.band-bar.b3 { background: #dc2626; width: 33%; }
+.band-bar.b2 { background: #991b1b; width: 22%; }
+.band-bar.b1 { background: #7f1d1d; width: 11%; }
+.band-bar.b0 { background: #6b7280; width: 4%; }
+
+.band-desc {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* IELTS Skill Cards Grid */
+.ielts-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .ielts-skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.ielts-skill-card {
+  background: var(--surface-1);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ielts-skill-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 16px rgba(var(--color-primary-rgb), 0.15);
+  transform: translateY(-2px);
+}
+
+.ielts-skill-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.ielts-skill-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.ielts-skill-desc {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.ielts-skill-coming {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  background: var(--surface-2);
+  border-radius: 2rem;
+  padding: 0.15rem 0.5rem;
+  margin-top: 0.2rem;
+}
+
+/* Navigation Cards Row */
+.ielts-nav-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.ielts-nav-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.2s;
+}
+
+.ielts-nav-card:hover {
+  border-color: var(--color-primary);
+  background: var(--surface-2);
+}
+
+.ielts-nav-icon {
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}
+
+.ielts-nav-info { flex: 1; min-width: 0; }
+.ielts-nav-label { font-weight: 700; font-size: 0.9rem; color: var(--text-primary); }
+.ielts-nav-sub { font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.1rem; }
+
+/* Strategy Overview */
+.ielts-strategy-section {
+  margin-bottom: 1.5rem;
+}
+
+.ielts-strategy-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .ielts-strategy-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.ielts-strategy-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+}
+
+.ielts-strategy-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.ielts-strategy-icon { font-size: 1.25rem; }
+
+.ielts-strategy-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.ielts-strategy-tips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.ielts-strategy-tips li {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding-left: 1rem;
+  position: relative;
+}
+
+.ielts-strategy-tips li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/* ── IELTS Vocabulary Page ────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════ */
+
+.ielts-vocab-header {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #1a3f8f 100%);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.ielts-vocab-header h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.ielts-vocab-header p {
+  opacity: 0.85;
+  font-size: 0.9rem;
+}
+
+.ielts-vocab-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 560px) {
+  .ielts-vocab-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+.ielts-stat-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 0.75rem;
+  text-align: center;
+}
+
+.ielts-stat-val {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.ielts-stat-label {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+/* Tabs */
+.ielts-vocab-tabs {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.ielts-tab {
+  padding: 0.45rem 1rem;
+  border-radius: 2rem;
+  border: 1.5px solid var(--border);
+  background: var(--surface-1);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.ielts-tab:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.ielts-tab.active { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+
+/* Domain Filter */
+.ielts-domain-filter {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.ielts-domain-btn {
+  padding: 0.3rem 0.75rem;
+  border-radius: 2rem;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.ielts-domain-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.ielts-domain-btn.active { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+
+/* Word Cards Grid */
+.ielts-word-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.75rem;
+}
+
+.ielts-word-card {
+  background: var(--surface-1);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.ielts-word-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 12px rgba(var(--color-primary-rgb), 0.12);
+}
+
+.ielts-word-card.learned {
+  border-color: #22c55e;
+}
+
+.ielts-word-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.25rem;
+}
+
+.ielts-word-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ielts-band-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: 2rem;
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.ielts-word-ipa {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  margin-bottom: 0.4rem;
+  font-style: italic;
+}
+
+.ielts-word-trans {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.ielts-word-example {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  font-style: italic;
+  border-left: 2px solid var(--border);
+  padding-left: 0.5rem;
+}
+
+.ielts-word-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.6rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.ielts-word-domain {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+}
+
+.ielts-learned-check {
+  font-size: 0.8rem;
+  color: #22c55e;
+  font-weight: 700;
+}
+
+/* ── Flashcard Mode ──────────────────────────────────────── */
+
+.ielts-flashcard-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.ielts-flashcard-counter {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.ielts-flashcard {
+  width: 100%;
+  max-width: 480px;
+  min-height: 260px;
+  background: var(--surface-1);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  perspective: 800px;
+  transition: all 0.2s;
+}
+
+.ielts-flashcard:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 20px rgba(var(--color-primary-rgb), 0.15);
+}
+
+.ielts-fc-front, .ielts-fc-back {
+  width: 100%;
+}
+
+.ielts-fc-word {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.ielts-fc-ipa {
+  font-size: 1rem;
+  color: var(--text-tertiary);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.ielts-fc-domain-badge {
+  display: inline-block;
+  background: var(--surface-2);
+  border-radius: 2rem;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.ielts-fc-hint {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  margin-top: 1.25rem;
+}
+
+.ielts-fc-trans {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.ielts-fc-example {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.ielts-fc-family {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  margin-top: 0.5rem;
+}
+
+.ielts-fc-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.ielts-fc-btn {
+  padding: 0.55rem 1.4rem;
+  border-radius: 2rem;
+  border: none;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.ielts-fc-btn.skip { background: var(--surface-2); color: var(--text-secondary); }
+.ielts-fc-btn.learn { background: var(--color-primary); color: #fff; }
+.ielts-fc-btn.skip:hover { background: var(--border); }
+.ielts-fc-btn.learn:hover { opacity: 0.9; }
+
+.ielts-fc-progress {
+  width: 100%;
+  max-width: 480px;
+  height: 0.4rem;
+  background: var(--surface-2);
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.ielts-fc-progress-bar {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 2rem;
+  transition: width 0.4s ease;
+}
+
+/* ── SRS Review Mode ─────────────────────────────────────── */
+
+.ielts-srs-card {
+  background: var(--surface-1);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.ielts-srs-word {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.ielts-srs-ipa {
+  font-size: 1rem;
+  color: var(--text-tertiary);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.ielts-srs-reveal-btn {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.6rem 2rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.ielts-srs-answer {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+}
+
+.ielts-srs-trans {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.ielts-srs-example {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.ielts-srs-quality-btns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.ielts-srs-q-btn {
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.ielts-srs-q-btn.again { background: #fde8e8; color: #dc2626; }
+.ielts-srs-q-btn.hard  { background: #fff7e6; color: #d97706; }
+.ielts-srs-q-btn.good  { background: #e7f5e7; color: #16a34a; }
+.ielts-srs-q-btn.again:hover { background: #fca5a5; }
+.ielts-srs-q-btn.hard:hover  { background: #fde68a; }
+.ielts-srs-q-btn.good:hover  { background: #86efac; }
+
+/* ── Quiz Mode ───────────────────────────────────────────── */
+
+.ielts-quiz-card {
+  background: var(--surface-1);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.ielts-quiz-progress-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.ielts-quiz-bar-wrap {
+  height: 0.4rem;
+  background: var(--surface-2);
+  border-radius: 2rem;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+}
+
+.ielts-quiz-bar {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 2rem;
+  transition: width 0.4s;
+}
+
+.ielts-quiz-q {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.ielts-quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.ielts-quiz-opt {
+  padding: 0.7rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-1);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+}
+
+.ielts-quiz-opt:hover:not(.correct):not(.wrong) {
+  border-color: var(--color-primary);
+  background: var(--surface-2);
+}
+
+.ielts-quiz-opt.correct { background: #dcfce7; border-color: #22c55e; color: #15803d; }
+.ielts-quiz-opt.wrong   { background: #fee2e2; border-color: #ef4444; color: #dc2626; }
+
+.ielts-quiz-feedback {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.ielts-quiz-feedback.correct { background: #dcfce7; color: #15803d; }
+.ielts-quiz-feedback.wrong   { background: #fee2e2; color: #dc2626; }
+
+.ielts-quiz-next-btn {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.65rem;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.ielts-quiz-next-btn:hover { opacity: 0.9; }
+
+.ielts-quiz-result {
+  text-align: center;
+  padding: 2rem;
+}
+
+.ielts-quiz-result-score {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.ielts-quiz-result-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.ielts-quiz-result-sub {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.ielts-quiz-retry-btn {
+  padding: 0.6rem 2rem;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* ── Word Detail Modal ───────────────────────────────────── */
+
+.ielts-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.ielts-modal-overlay.open {
+  display: flex;
+}
+
+.ielts-modal {
+  background: var(--surface-0);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  animation: ielts-modal-in 0.2s ease;
+}
+
+@keyframes ielts-modal-in {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.ielts-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  line-height: 1;
+}
+
+.ielts-modal-word { font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.2rem; }
+.ielts-modal-ipa { font-size: 0.9rem; color: var(--text-tertiary); font-style: italic; margin-bottom: 0.75rem; }
+.ielts-modal-trans { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; }
+.ielts-modal-example {
+  background: var(--surface-1);
+  border-left: 3px solid var(--color-primary);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 1rem;
+}
+
+.ielts-modal-family {
+  background: var(--surface-1);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.ielts-modal-family-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-tertiary);
+  margin-bottom: 0.5rem;
+}
+
+.ielts-modal-family-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem;
+}
+
+.ielts-modal-family-item {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.ielts-modal-family-item span {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ielts-modal-badges {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.ielts-modal-badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.ielts-modal-badge.band { background: var(--color-primary); color: #fff; }
+.ielts-modal-badge.domain { background: var(--surface-2); color: var(--text-secondary); }
+
+.ielts-modal-tts-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--surface-2);
+  border: none;
+  border-radius: 2rem;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.15s;
+}
+
+.ielts-modal-tts-btn:hover { background: var(--border); }
+
+/* Empty/Loading states */
+.ielts-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-secondary);
+}
+
+.ielts-empty-icon { font-size: 3rem; margin-bottom: 0.75rem; }
+.ielts-empty-title { font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary); }
+.ielts-empty-sub { font-size: 0.88rem; }
+
+/* Section headings */
+.ielts-section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Search bar */
+.ielts-search-wrap {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.ielts-search-wrap input {
+  width: 100%;
+  padding: 0.6rem 1rem 0.6rem 2.5rem;
+  border: 1.5px solid var(--border);
+  border-radius: 2rem;
+  background: var(--surface-1);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.ielts-search-wrap input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.ielts-search-icon {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .ielts-hero-title { font-size: 1.3rem; }
+  .ielts-fc-word { font-size: 1.6rem; }
+  .ielts-srs-word { font-size: 1.8rem; }
+}

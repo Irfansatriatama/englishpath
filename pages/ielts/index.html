@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS Hub — EnglishPath</title>
+  <meta name="theme-color" content="#1a6cf0">
+  <link rel="manifest" href="../../manifest.json">
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+      const fn = localStorage.getItem('ep_font');
+      if (fn) document.documentElement.setAttribute('data-font', fn);
+      const rd = localStorage.getItem('ep_radius');
+      if (rd) document.documentElement.setAttribute('data-radius', rd);
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/ielts.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-main">EnglishPath</div>
+      <div class="logo-sub">A1 → C2 + IELTS · TOEIC · TOEFL</div>
+    </div>
+    <div class="sidebar-user">
+      <div class="avatar-circle" data-user-avatar>🇬🇧</div>
+      <div class="sidebar-user-info">
+        <div class="user-name" data-user-name>Pengguna</div>
+        <div class="user-level" data-user-email>—</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Umum</div>
+      <a class="nav-item" href="../dashboard.html" data-page="dashboard"><span class="nav-icon">🏠</span>Dashboard</a>
+      <a class="nav-item" href="../stats.html" data-page="stats"><span class="nav-icon">📊</span>Statistik</a>
+      <a class="nav-item" href="../settings.html" data-page="settings"><span class="nav-icon">⚙️</span>Pengaturan</a>
+      <div class="nav-section-label">Foundation (A1–A2)</div>
+      <a class="nav-item" href="../foundation/vocabulary.html" data-page="foundation-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../foundation/grammar.html" data-page="foundation-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../foundation/pronunciation.html" data-page="foundation-pronunciation"><span class="nav-icon">🔊</span>Pronunciation</a>
+      <a class="nav-item" href="../foundation/dialog.html" data-page="foundation-dialog"><span class="nav-icon">💬</span>Dialog</a>
+      <a class="nav-item" href="../foundation/quiz.html" data-page="foundation-quiz"><span class="nav-icon">⭐</span>Quiz Foundation</a>
+      <div class="nav-section-label">Intermediate (B1–B2)</div>
+      <a class="nav-item" href="../intermediate/vocabulary.html" data-page="intermediate-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../intermediate/grammar.html" data-page="intermediate-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../intermediate/reading.html" data-page="intermediate-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="../intermediate/listening.html" data-page="intermediate-listening"><span class="nav-icon">🎧</span>Listening</a>
+      <div class="nav-section-label">Advanced (C1–C2)</div>
+      <a class="nav-item" href="../advanced/vocabulary.html" data-page="advanced-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../advanced/grammar.html" data-page="advanced-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <div class="nav-section-label">Persiapan Tes</div>
+      <a class="nav-item active" href="index.html" data-page="ielts"><span class="nav-icon">🎯</span>IELTS</a>
+      <a class="nav-item" href="../toeic/index.html" data-page="toeic"><span class="nav-icon">🎯</span>TOEIC</a>
+      <a class="nav-item" href="../toefl/index.html" data-page="toefl"><span class="nav-icon">🎯</span>TOEFL iBT</a>
+      <a class="nav-item" href="../cambridge/index.html" data-page="cambridge"><span class="nav-icon">🎯</span>Cambridge</a>
+      <div class="nav-section-label">Lainnya</div>
+      <a class="nav-item" href="../theme.html" data-page="theme"><span class="nav-icon">🎨</span>Tema &amp; Tampilan</a>
+      <a class="nav-item" href="../planner.html" data-page="planner"><span class="nav-icon">📅</span>Study Planner</a>
+      <a class="nav-item" href="../games.html" data-page="games"><span class="nav-icon">🎮</span>Mini Game</a>
+      <div class="nav-section-label">Akun</div>
+      <a class="nav-item" href="../profile.html" data-page="profile"><span class="nav-icon">👤</span>Profil</a>
+      <a class="nav-item" href="../change-password.html" data-page="change-password"><span class="nav-icon">🔒</span>Ganti Password</a>
+      <a class="nav-item" href="#" data-action="logout"><span class="nav-icon">🚪</span>Keluar</a>
+    </nav>
+  </nav>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <!-- Main Content -->
+  <div class="main-content" id="main-content">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+        <div class="topbar-title">IELTS Hub</div>
+      </div>
+      <div class="topbar-right">
+        <button class="theme-toggle-btn" title="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+
+    <!-- Mobile Topbar -->
+    <div class="mobile-topbar">
+      <button class="hamburger" id="hamburger-mobile" aria-label="Menu">&#9776;</button>
+      <div class="mobile-topbar-title">IELTS Hub</div>
+      <button class="theme-toggle-btn">🌙</button>
+    </div>
+
+    <div class="page-body">
+
+      <!-- Hero -->
+      <div class="ielts-hero">
+        <div class="ielts-hero-label">Persiapan Tes Internasional</div>
+        <div class="ielts-hero-title">🎯 IELTS</div>
+        <div class="ielts-hero-sub">International English Language Testing System — Tes bahasa Inggris paling populer di dunia untuk studi, migrasi, dan karir internasional.</div>
+        <div class="ielts-hero-badges">
+          <span class="ielts-badge">Band 0–9</span>
+          <span class="ielts-badge">4 Skills</span>
+          <span class="ielts-badge">Academic & GT</span>
+          <span class="ielts-badge">2h 45m</span>
+        </div>
+      </div>
+
+      <!-- Navigation Cards -->
+      <div class="ielts-nav-row">
+        <a class="ielts-nav-card" href="vocabulary.html">
+          <div class="ielts-nav-icon">📖</div>
+          <div class="ielts-nav-info">
+            <div class="ielts-nav-label">IELTS Vocabulary</div>
+            <div class="ielts-nav-sub">300+ AWL · Flashcard · SRS · Quiz</div>
+          </div>
+        </a>
+        <a class="ielts-nav-card" href="reading.html">
+          <div class="ielts-nav-icon">📝</div>
+          <div class="ielts-nav-info">
+            <div class="ielts-nav-label">Reading Practice</div>
+            <div class="ielts-nav-sub">Passages · MCQ · T/F/NG · Matching</div>
+          </div>
+        </a>
+      </div>
+      <div class="ielts-nav-row">
+        <a class="ielts-nav-card" href="listening.html">
+          <div class="ielts-nav-icon">🎧</div>
+          <div class="ielts-nav-info">
+            <div class="ielts-nav-label">Listening Practice</div>
+            <div class="ielts-nav-sub">4 Sections · TTS Audio · Form Fill</div>
+          </div>
+        </a>
+        <a class="ielts-nav-card" href="speaking.html">
+          <div class="ielts-nav-icon">🎤</div>
+          <div class="ielts-nav-info">
+            <div class="ielts-nav-label">Speaking Practice</div>
+            <div class="ielts-nav-sub">Part 1–3 · Cue Card · Timer</div>
+          </div>
+        </a>
+      </div>
+      <div class="ielts-nav-row">
+        <a class="ielts-nav-card" href="writing.html">
+          <div class="ielts-nav-icon">✍️</div>
+          <div class="ielts-nav-info">
+            <div class="ielts-nav-label">Writing Practice</div>
+            <div class="ielts-nav-sub">Task 1 & 2 · Model Answers</div>
+          </div>
+        </a>
+        <a class="ielts-nav-card" href="simulation.html">
+          <div class="ielts-nav-icon">⏱️</div>
+          <div class="ielts-nav-info">
+            <div class="ielts-nav-label">Full Simulation</div>
+            <div class="ielts-nav-sub">Timed · All 4 Skills · Band Score</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- 4 Skill Cards -->
+      <div class="ielts-section-title">📋 Overview 4 Skills</div>
+      <div class="ielts-skills-grid">
+        <div class="ielts-skill-card">
+          <div class="ielts-skill-icon">📝</div>
+          <div class="ielts-skill-name">Reading</div>
+          <div class="ielts-skill-desc">3 passages (Academic) or 3 sections (GT) · 40 soal · 60 menit</div>
+        </div>
+        <div class="ielts-skill-card">
+          <div class="ielts-skill-icon">🎧</div>
+          <div class="ielts-skill-name">Listening</div>
+          <div class="ielts-skill-desc">4 sections · 40 soal · ~30 menit + 10 mnt transfer</div>
+        </div>
+        <div class="ielts-skill-card">
+          <div class="ielts-skill-icon">🎤</div>
+          <div class="ielts-skill-name">Speaking</div>
+          <div class="ielts-skill-desc">3 parts · 11–14 menit · Tatap muka / rekaman</div>
+        </div>
+        <div class="ielts-skill-card">
+          <div class="ielts-skill-icon">✍️</div>
+          <div class="ielts-skill-name">Writing</div>
+          <div class="ielts-skill-desc">Task 1 (150 kata, 20 mnt) + Task 2 (250 kata, 40 mnt)</div>
+        </div>
+      </div>
+
+      <!-- Band Score Chart -->
+      <div class="band-chart-section">
+        <div class="band-chart-title">📊 Band Score IELTS (0–9)</div>
+        <div class="band-chart">
+          <div class="band-row">
+            <div class="band-num">9</div>
+            <div class="band-bar-wrap"><div class="band-bar b9"></div></div>
+            <div class="band-desc">Expert user</div>
+          </div>
+          <div class="band-row">
+            <div class="band-num">8</div>
+            <div class="band-bar-wrap"><div class="band-bar b8"></div></div>
+            <div class="band-desc">Very good user</div>
+          </div>
+          <div class="band-row">
+            <div class="band-num">7</div>
+            <div class="band-bar-wrap"><div class="band-bar b7"></div></div>
+            <div class="band-desc">Good user</div>
+          </div>
+          <div class="band-row">
+            <div class="band-num">6</div>
+            <div class="band-bar-wrap"><div class="band-bar b6"></div></div>
+            <div class="band-desc">Competent user</div>
+          </div>
+          <div class="band-row">
+            <div class="band-num">5</div>
+            <div class="band-bar-wrap"><div class="band-bar b5"></div></div>
+            <div class="band-desc">Modest user</div>
+          </div>
+          <div class="band-row">
+            <div class="band-num">4</div>
+            <div class="band-bar-wrap"><div class="band-bar b4"></div></div>
+            <div class="band-desc">Limited user</div>
+          </div>
+          <div class="band-row">
+            <div class="band-num">3</div>
+            <div class="band-bar-wrap"><div class="band-bar b3"></div></div>
+            <div class="band-desc">Extremely limited</div>
+          </div>
+          <div class="band-row">
+            <div class="band-num">2</div>
+            <div class="band-bar-wrap"><div class="band-bar b2"></div></div>
+            <div class="band-desc">Intermittent user</div>
+          </div>
+          <div class="band-row">
+            <div class="band-num">1</div>
+            <div class="band-bar-wrap"><div class="band-bar b1"></div></div>
+            <div class="band-desc">Non user</div>
+          </div>
+          <div class="band-row">
+            <div class="band-num">0</div>
+            <div class="band-bar-wrap"><div class="band-bar b0"></div></div>
+            <div class="band-desc">Did not attempt</div>
+          </div>
+        </div>
+        <div style="margin-top:0.75rem;font-size:0.8rem;color:var(--text-secondary);">
+          💡 Band 6.0–7.0 biasanya dibutuhkan untuk S1 luar negeri. Band 7.5+ untuk pekerjaan profesional internasional.
+        </div>
+      </div>
+
+      <!-- Strategy Tips per Skill -->
+      <div class="ielts-section-title">💡 Strategi per Skill</div>
+      <div class="ielts-strategy-grid">
+        <div class="ielts-strategy-card">
+          <div class="ielts-strategy-header">
+            <div class="ielts-strategy-icon">📝</div>
+            <div class="ielts-strategy-name">Reading Strategy</div>
+          </div>
+          <ul class="ielts-strategy-tips">
+            <li>Baca pertanyaan terlebih dahulu sebelum teks</li>
+            <li>Gunakan skimming untuk ide utama, scanning untuk detail</li>
+            <li>Perhatikan kata kunci: "always", "never", "mainly"</li>
+            <li>Jangan habiskan lebih dari 20 menit per passage</li>
+            <li>Untuk True/False/NG: jika tidak disebutkan → Not Given</li>
+          </ul>
+        </div>
+        <div class="ielts-strategy-card">
+          <div class="ielts-strategy-header">
+            <div class="ielts-strategy-icon">🎧</div>
+            <div class="ielts-strategy-name">Listening Strategy</div>
+          </div>
+          <ul class="ielts-strategy-tips">
+            <li>Baca soal sebelum audio dimulai</li>
+            <li>Perhatikan spelling (Section 1 sering ada nama/alamat)</li>
+            <li>Jawaban biasanya muncul berurutan dalam audio</li>
+            <li>Hati-hati dengan distractors / jawaban yang diubah</li>
+            <li>Transfer jawaban di akhir (10 menit tersedia)</li>
+          </ul>
+        </div>
+        <div class="ielts-strategy-card">
+          <div class="ielts-strategy-header">
+            <div class="ielts-strategy-icon">🎤</div>
+            <div class="ielts-strategy-name">Speaking Strategy</div>
+          </div>
+          <ul class="ielts-strategy-tips">
+            <li>Part 2: Gunakan semua 1 menit persiapan untuk catatan</li>
+            <li>Bicaralah selama 1–2 menit penuh di Part 2</li>
+            <li>Gunakan discourse markers: "firstly", "however", "in addition"</li>
+            <li>Tunjukkan range vocabulary dan grammar yang bervariasi</li>
+            <li>Jangan diam lebih dari 3 detik — gunakan fillers alami</li>
+          </ul>
+        </div>
+        <div class="ielts-strategy-card">
+          <div class="ielts-strategy-header">
+            <div class="ielts-strategy-icon">✍️</div>
+            <div class="ielts-strategy-name">Writing Strategy</div>
+          </div>
+          <ul class="ielts-strategy-tips">
+            <li>Task 2 bernilai lebih tinggi — kerjakan dulu jika perlu</li>
+            <li>Task 1 Academic: overview + 2 paragraf detail</li>
+            <li>Task 2: Introduction → Body 1 → Body 2 → Conclusion</li>
+            <li>Hindari copy soal — paraphrase pertanyaan</li>
+            <li>Cek word count: T1 min 150, T2 min 250 kata</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Format Detail -->
+      <div class="ielts-section-title" style="margin-top:1.5rem;">📋 Format Tes IELTS Lengkap</div>
+      <div class="ielts-strategy-card" style="margin-bottom:1rem;">
+        <div style="overflow-x:auto;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+            <thead>
+              <tr style="border-bottom:2px solid var(--border);">
+                <th style="padding:0.5rem;text-align:left;color:var(--text-secondary);">Skill</th>
+                <th style="padding:0.5rem;text-align:left;color:var(--text-secondary);">Durasi</th>
+                <th style="padding:0.5rem;text-align:left;color:var(--text-secondary);">Soal</th>
+                <th style="padding:0.5rem;text-align:left;color:var(--text-secondary);">Tipe Soal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.5rem;font-weight:700;">Listening</td>
+                <td style="padding:0.5rem;">~30 min + 10 min transfer</td>
+                <td style="padding:0.5rem;">40</td>
+                <td style="padding:0.5rem;color:var(--text-secondary);">MCQ, form fill, labeling, matching</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.5rem;font-weight:700;">Reading</td>
+                <td style="padding:0.5rem;">60 min</td>
+                <td style="padding:0.5rem;">40</td>
+                <td style="padding:0.5rem;color:var(--text-secondary);">MCQ, True/False/NG, matching, heading</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.5rem;font-weight:700;">Writing</td>
+                <td style="padding:0.5rem;">60 min</td>
+                <td style="padding:0.5rem;">2 tasks</td>
+                <td style="padding:0.5rem;color:var(--text-secondary);">Task 1: graph/letter · Task 2: essay</td>
+              </tr>
+              <tr>
+                <td style="padding:0.5rem;font-weight:700;">Speaking</td>
+                <td style="padding:0.5rem;">11–14 min</td>
+                <td style="padding:0.5rem;">3 parts</td>
+                <td style="padding:0.5rem;color:var(--text-secondary);">Interview, cue card, discussion</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /page-body -->
+  </div><!-- /main-content -->
+</div><!-- /app-shell -->
+
+<!-- Bottom Nav -->
+<nav class="bottom-nav">
+  <a class="bottom-nav-item" href="../dashboard.html" data-page="dashboard"><span>🏠</span><span>Home</span></a>
+  <a class="bottom-nav-item active" href="index.html" data-page="ielts"><span>🎯</span><span>IELTS</span></a>
+  <a class="bottom-nav-item" href="../planner.html" data-page="planner"><span>📅</span><span>Planner</span></a>
+  <a class="bottom-nav-item" href="../stats.html" data-page="stats"><span>📊</span><span>Stats</span></a>
+  <a class="bottom-nav-item" href="../profile.html" data-page="profile"><span>👤</span><span>Profil</span></a>
+</nav>
+
+<script src="../../assets/js/core/storage.js"></script>
+<script src="../../assets/js/core/auth.js"></script>
+<script src="../../assets/js/core/router.js"></script>
+<script src="../../assets/js/core/app.js"></script>
+<script src="../../assets/js/modules/xp.js"></script>
+<script src="../../assets/js/modules/badge.js"></script>
+<script>
+  Router.guard();
+  App.init('ielts');
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register(getBase() + 'sw.js').catch(function() {});
+  }
+</script>
+</body>
+</html>

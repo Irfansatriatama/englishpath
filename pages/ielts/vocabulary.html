@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vocabulary B1–B2 — EnglishPath</title>
+  <title>IELTS Vocabulary — EnglishPath</title>
   <meta name="theme-color" content="#1a6cf0">
   <link rel="manifest" href="../../manifest.json">
   <script>
@@ -20,8 +20,7 @@
   </script>
   <link rel="stylesheet" href="../../assets/css/main.css">
   <link rel="stylesheet" href="../../assets/css/layout.css">
-  <link rel="stylesheet" href="../../assets/css/vocabulary.css">
-  <link rel="stylesheet" href="../../assets/css/vocab-intermediate.css">
+  <link rel="stylesheet" href="../../assets/css/ielts.css">
 </head>
 <body>
 <div class="app-shell">
@@ -51,18 +50,15 @@
       <a class="nav-item" href="../foundation/dialog.html" data-page="foundation-dialog"><span class="nav-icon">💬</span>Dialog</a>
       <a class="nav-item" href="../foundation/quiz.html" data-page="foundation-quiz"><span class="nav-icon">⭐</span>Quiz Foundation</a>
       <div class="nav-section-label">Intermediate (B1–B2)</div>
-      <a class="nav-item" href="vocabulary.html" data-page="intermediate-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
-      <a class="nav-item" href="grammar.html" data-page="intermediate-grammar"><span class="nav-icon">📝</span>Grammar</a>
-      <a class="nav-item" href="reading.html" data-page="intermediate-reading"><span class="nav-icon">📖</span>Reading</a>
-      <a class="nav-item" href="listening.html" data-page="intermediate-listening"><span class="nav-icon">🎧</span>Listening</a>
-      <a class="nav-item" href="quiz.html" data-page="intermediate-quiz"><span class="nav-icon">⭐</span>Quiz Intermediate</a>
+      <a class="nav-item" href="../intermediate/vocabulary.html" data-page="intermediate-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../intermediate/grammar.html" data-page="intermediate-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../intermediate/reading.html" data-page="intermediate-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="../intermediate/listening.html" data-page="intermediate-listening"><span class="nav-icon">🎧</span>Listening</a>
       <div class="nav-section-label">Advanced (C1–C2)</div>
       <a class="nav-item" href="../advanced/vocabulary.html" data-page="advanced-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
       <a class="nav-item" href="../advanced/grammar.html" data-page="advanced-grammar"><span class="nav-icon">📝</span>Grammar</a>
-      <a class="nav-item" href="../advanced/reading.html" data-page="advanced-reading"><span class="nav-icon">📖</span>Reading</a>
-      <a class="nav-item" href="../advanced/quiz.html" data-page="advanced-quiz"><span class="nav-icon">⭐</span>Quiz Advanced</a>
       <div class="nav-section-label">Persiapan Tes</div>
-      <a class="nav-item" href="../ielts/index.html" data-page="ielts"><span class="nav-icon">🎯</span>IELTS</a>
+      <a class="nav-item active" href="index.html" data-page="ielts"><span class="nav-icon">🎯</span>IELTS</a>
       <a class="nav-item" href="../toeic/index.html" data-page="toeic"><span class="nav-icon">🎯</span>TOEIC</a>
       <a class="nav-item" href="../toefl/index.html" data-page="toefl"><span class="nav-icon">🎯</span>TOEFL iBT</a>
       <a class="nav-item" href="../cambridge/index.html" data-page="cambridge"><span class="nav-icon">🎯</span>Cambridge</a>
@@ -79,81 +75,110 @@
   <div class="drawer-overlay" id="drawer-overlay"></div>
 
   <!-- Main Content -->
-  <div class="main-content">
+  <div class="main-content" id="main-content">
 
-    <!-- Desktop topbar -->
+    <!-- Topbar -->
     <div class="topbar">
-      <div class="topbar-title">📚 Vocabulary B1–B2</div>
-      <div class="topbar-actions">
-        <button class="theme-toggle-btn" title="Ganti tema">🌙</button>
+      <div class="topbar-left">
+        <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+        <div class="topbar-title">IELTS Vocabulary</div>
+      </div>
+      <div class="topbar-right">
+        <button class="theme-toggle-btn" title="Toggle dark mode">🌙</button>
       </div>
     </div>
 
-    <!-- Mobile topbar -->
+    <!-- Mobile Topbar -->
     <div class="mobile-topbar">
-      <div class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-      </div>
-      <div class="logo-main">Vocabulary B1–B2</div>
-      <button class="theme-toggle-btn" title="Ganti tema">🌙</button>
+      <button class="hamburger" id="hamburger-mobile" aria-label="Menu">&#9776;</button>
+      <div class="mobile-topbar-title">IELTS Vocabulary</div>
+      <button class="theme-toggle-btn">🌙</button>
     </div>
 
-    <!-- Page Body -->
     <div class="page-body">
 
-      <!-- Page Header -->
-      <div class="vocab-header">
-        <div class="vocab-header-icon">📚</div>
-        <div class="vocab-header-text">
-          <h1>Vocabulary Intermediate B1–B2</h1>
-          <p>Kuasai 400+ kata tingkat menengah dengan flashcard, quiz, SRS, dan fitur Word Families</p>
+      <!-- Header -->
+      <div class="ielts-vocab-header">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;">
+          <div>
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;opacity:0.7;margin-bottom:0.2rem;">IELTS · Academic Word List</div>
+            <h1>📖 IELTS Vocabulary</h1>
+            <p>300+ kata Academic Word List + domain-specific (Sains, Bisnis, Hukum, Lingkungan)</p>
+          </div>
+          <a href="index.html" style="color:rgba(255,255,255,0.8);font-size:0.85rem;text-decoration:none;display:flex;align-items:center;gap:0.3rem;margin-top:0.5rem;">← Hub IELTS</a>
         </div>
       </div>
 
-      <!-- Stats Bar -->
-      <div class="vocab-stats-bar">
-        <div class="vocab-stat-card">
-          <div class="vocab-stat-value" id="stat-total">—</div>
-          <div class="vocab-stat-label">Total Kata</div>
+      <!-- Stats -->
+      <div class="ielts-vocab-stats">
+        <div class="ielts-stat-card">
+          <div class="ielts-stat-val" id="iv-stat-total">—</div>
+          <div class="ielts-stat-label">Total Kata</div>
         </div>
-        <div class="vocab-stat-card">
-          <div class="vocab-stat-value" id="stat-learned">0</div>
-          <div class="vocab-stat-label">Dipelajari</div>
+        <div class="ielts-stat-card">
+          <div class="ielts-stat-val" id="iv-stat-learned">0</div>
+          <div class="ielts-stat-label">Dipelajari</div>
         </div>
-        <div class="vocab-stat-card">
-          <div class="vocab-stat-value" id="stat-due">0</div>
-          <div class="vocab-stat-label">Review Hari Ini</div>
+        <div class="ielts-stat-card">
+          <div class="ielts-stat-val" id="iv-stat-due">0</div>
+          <div class="ielts-stat-label">SRS Review</div>
         </div>
-        <div class="vocab-stat-card">
-          <div class="vocab-stat-value" id="stat-mastered">0</div>
-          <div class="vocab-stat-label">Hafal</div>
+        <div class="ielts-stat-card">
+          <div class="ielts-stat-val" id="iv-stat-mastered">0</div>
+          <div class="ielts-stat-label">Hafal</div>
         </div>
       </div>
 
       <!-- Mode Tabs -->
-      <div class="vocab-mode-tabs">
-        <button class="vocab-mode-tab active" data-mode="browse">🔍 Jelajah</button>
-        <button class="vocab-mode-tab" data-mode="flashcard">🃏 Flashcard</button>
-        <button class="vocab-mode-tab" data-mode="quiz">📝 Quiz</button>
-        <button class="vocab-mode-tab" data-mode="srs">⟳ SRS Review</button>
-        <button class="vocab-mode-tab" data-mode="families">🔗 Word Families</button>
+      <div class="ielts-vocab-tabs">
+        <button class="ielts-tab active" data-mode="browse">🔍 Jelajah</button>
+        <button class="ielts-tab" data-mode="flashcard">🃏 Flashcard</button>
+        <button class="ielts-tab" data-mode="quiz">📝 Quiz</button>
+        <button class="ielts-tab" data-mode="srs">⟳ SRS Review</button>
+      </div>
+
+      <!-- Domain Filter (only shown in browse/flashcard/quiz mode) -->
+      <div class="ielts-domain-filter" id="iv-domain-filter">
+        <button class="ielts-domain-btn active" data-domain="all">🌐 Semua</button>
+        <button class="ielts-domain-btn" data-domain="academic_core">🎓 Akademik</button>
+        <button class="ielts-domain-btn" data-domain="science_tech">🔬 Sains</button>
+        <button class="ielts-domain-btn" data-domain="business_economy">💼 Bisnis</button>
+        <button class="ielts-domain-btn" data-domain="law_society">⚖️ Hukum</button>
+        <button class="ielts-domain-btn" data-domain="environment">🌿 Lingkungan</button>
+        <button class="ielts-domain-btn" data-domain="society_education">🏫 Masyarakat</button>
+        <button class="ielts-domain-btn" data-domain="health_medicine">🏥 Kesehatan</button>
+      </div>
+
+      <!-- Search (browse only) -->
+      <div class="ielts-search-wrap" id="iv-search-wrap">
+        <span class="ielts-search-icon">🔍</span>
+        <input type="text" id="iv-search" placeholder="Cari kata dalam bahasa Inggris atau Indonesia...">
       </div>
 
       <!-- Dynamic Content -->
-      <div id="vocab-content"></div>
+      <div id="iv-content">
+        <!-- Rendered by JS -->
+      </div>
 
     </div><!-- /page-body -->
   </div><!-- /main-content -->
 </div><!-- /app-shell -->
 
 <!-- Word Detail Modal -->
-<div class="word-modal-overlay" id="word-modal-overlay">
-  <div class="word-modal" id="word-modal">
+<div class="ielts-modal-overlay" id="iv-modal-overlay">
+  <div class="ielts-modal" id="iv-modal">
     <!-- Filled by JS -->
   </div>
 </div>
 
-<!-- Toast container injected by app.js -->
+<!-- Bottom Nav -->
+<nav class="bottom-nav">
+  <a class="bottom-nav-item" href="../dashboard.html" data-page="dashboard"><span>🏠</span><span>Home</span></a>
+  <a class="bottom-nav-item active" href="index.html" data-page="ielts"><span>🎯</span><span>IELTS</span></a>
+  <a class="bottom-nav-item" href="../planner.html" data-page="planner"><span>📅</span><span>Planner</span></a>
+  <a class="bottom-nav-item" href="../stats.html" data-page="stats"><span>📊</span><span>Stats</span></a>
+  <a class="bottom-nav-item" href="../profile.html" data-page="profile"><span>👤</span><span>Profil</span></a>
+</nav>
 
 <script src="../../assets/js/core/storage.js"></script>
 <script src="../../assets/js/core/auth.js"></script>
@@ -163,10 +188,10 @@
 <script src="../../assets/js/modules/challenge.js"></script>
 <script src="../../assets/js/modules/badge.js"></script>
 <script src="../../assets/js/modules/srs.js"></script>
-<script src="../../assets/js/data/vocab-intermediate-data.js"></script>
-<script src="../../assets/js/pages/vocab-intermediate.js"></script>
-
+<script src="../../assets/js/data/ielts-vocab-data.js"></script>
+<script src="../../assets/js/pages/ielts-vocab.js"></script>
 <script>
+  IELTSVocab.init();
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register(getBase() + 'sw.js').catch(function() {});
   }
