@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 2.2.4 |
-| **Fase Saat Ini** | FASE 15c-2 ✅ — TOEFL iBT: Simulasi Full Test + Halaman Hasil |
-| **Fase Berikutnya** | FASE 16a — Cambridge: Hub & Vocabulary (v2.3.1) |
+| **Versi App** | 2.3.1 |
+| **Fase Saat Ini** | FASE 16a ✅ — Cambridge: Hub & Vocabulary |
+| **Fase Berikutnya** | FASE 16b — Cambridge: Practice Reading & Use of English + Listening (v2.3.2) |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -133,7 +133,7 @@ englishpath/
 │   ├── ielts/                          ✅ Fase 13a–13c-2 (Hub + Vocab + Reading + Listening + Speaking + Writing + Simulasi + Hasil)
 │   ├── toeic/                          ✅ Fase 14a–14c-2 SELESAI (Hub + Vocab + Listening + Reading + Simulasi + Hasil)
 │   ├── toefl/                          ✅ Fase 15a–15c-2 SELESAI (Hub + Vocab + Reading + Listening + Speaking + Writing + Simulasi + Hasil)
-│   └── cambridge/                      🔲 Fase 16a–16b
+│   └── cambridge/                      ✅ Fase 16a (Hub + Vocabulary)
 │
 └── assets/
     ├── css/
@@ -314,6 +314,8 @@ Menghitung path relatif ke root berdasarkan kedalaman folder.
 | `toeic_reading` | Object | {results: {part5/part6/part7: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts} |
 | `srs_toefl_vocab` | Object | SM-2 data per TOEFL word id — {repetitions, interval, ef, nextReview, lastReview} |
 | `toefl_vocab` | Object | {wordId: {learnedAt, mastered?}} per TOEFL Academic word |
+| `srs_cambridge_vocab` | Object | SM-2 data per Cambridge word id — {repetitions, interval, ef, nextReview, lastReview} |
+| `cambridge_vocab` | Object | {wordId: {learnedAt}} per Cambridge advanced word |
 
 ---
 
@@ -686,7 +688,7 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **15b** | TOEFL iBT: Practice Reading & Listening | v2.2.2 | ✅ |
 | **15c-1** | TOEFL iBT: Practice Speaking & Writing | v2.2.3 | ✅ |
 | **15c-2** | TOEFL iBT: Simulasi Full Test + Halaman Hasil | v2.2.4 | ✅ |
-| **16a** | Cambridge: Hub & Vocabulary | v2.3.1 | 🔲 |
+| **16a** | Cambridge: Hub & Vocabulary | v2.3.1 | ✅ |
 | **16b** | Cambridge: Practice Reading & Use of English + Listening | v2.3.2 | 🔲 |
 | **16c** | Cambridge: Practice Writing & Speaking + Simulasi Full Test | v2.3.3 | 🔲 |
 | **17** | Advanced: Vocabulary & Grammar C1–C2 | v2.4.0 | 🔲 |
@@ -906,7 +908,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v2.2.2 — Fase 15b** | 2026-02-26 | TOEFL iBT: Practice Reading (3 academic passages, 8Q each: factual, inference, vocab, insert, summary) + Listening (2 lectures + 1 conversation, 5-6Q each: main idea, detail, function, attitude, organization), toefl.css extended, SW v12 | ✅ |
 | **v2.2.3 — Fase 15c-1** | 2026-02-26 | TOEFL iBT: Practice Speaking (4 tasks: 4 independent prompts, 2 campus announcements, 2 academic concepts, 2 academic lectures; TTS, rubrik 0–4, model answers) + Writing (Task 1 Integrated read→listen→write 150–225 kata, Task 2 Academic Discussion 100+ kata; word count tracker, rubrik 0–5, model answers, SW v13) | ✅ |
 | **v2.2.4 — Fase 15c-2** | 2026-02-26 | TOEFL iBT: Simulasi Full Test + Halaman Hasil (4 section timed, score 0–120, badge toefl_ready) | ✅ |
-| **v2.3.1 — Fase 16a** | TBD | Cambridge: Hub & Vocabulary (B2 First & C1 Advanced, 300+ advanced vocab, flashcard, SRS) | 🔲 |
+| **v2.3.1 — Fase 16a** | 2026-02-26 | Cambridge: Hub & Vocabulary (300+ advanced vocab: collocations, phrasal verbs, idioms, word formation, C1 academic; flashcard, SRS, quiz; cambridge.css, SW v15) | ✅ |
 | **v2.3.2 — Fase 16b** | TBD | Cambridge: Practice Reading & Use of English + Listening (Parts 1–7/8 + 4 Listening parts) | 🔲 |
 | **v2.3.3 — Fase 16c** | TBD | Cambridge: Practice Writing & Speaking + Simulasi Full Test (timed, grade A–U) | 🔲 |
 | **v2.4.0 — Fase 17** | TBD | Advanced: Vocabulary & Grammar C1–C2 | 🔲 |
@@ -919,7 +921,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 15c-2 ✅ TOEFL iBT: Simulasi Full Test + Halaman Hasil → **Fase 16a** 🔲 (berikutnya: Cambridge: Hub & Vocabulary)
+> **Fase saat ini:** Fase 16a ✅ Cambridge: Hub & Vocabulary → **Fase 16b** 🔲 (berikutnya: Cambridge: Practice Reading & Use of English + Listening)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >
@@ -1230,6 +1232,50 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 **localStorage Baru/Diperbarui:**
 -  — Tambah entry 
+
+---
+
+### FASE 16a — Cambridge: Hub & Vocabulary ✅
+**Versi:** v2.3.1 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `pages/cambridge/index.html` — Cambridge Hub: hero B2 First & C1 Advanced, 6 nav cards, struktur 4 papers detail, grade chart A–U, Cambridge Scale, perbandingan B2 vs C1, strategi per skill
+- `pages/cambridge/vocabulary.html` — Cambridge Vocabulary: header gradient ungu, stats bar, 4 mode belajar (Browse/Flashcard/Quiz/SRS)
+- `assets/css/cambridge.css` — Cambridge styles: tema royal purple (#6c3fc5), hub hero, nav cards, level selector, papers grid, grade chart, strategy cards, vocab modes (browse/flashcard/quiz/srs), word modal, responsive
+- `assets/js/data/cambridge-vocab-data.js` — 150 kata advanced dalam 6 domain (Collocations 25, Phrasal Verbs 25, Idioms 25, Word Formation 25, C1 Academic 50, Advanced Adjectives 25)
+- `assets/js/pages/cambridge-vocab.js` — Logic vocabulary page (IIFE module): browse dengan search & domain filter, flashcard 3D flip, quiz pilihan ganda, SRS review
+
+**File Diubah:**
+- `sw.js` — Bump ke `englishpath-v15`, tambah cambridge.css, cambridge-vocab-data.js, cambridge-vocab.js, cambridge/index.html, cambridge/vocabulary.html
+- `README.md` — Update status fase, struktur folder, log pengerjaan, localStorage key reference
+
+**Domain Vocabulary (150 kata, 6 domain):**
+1. 🔗 Kolokasi Tingkat Lanjut (25 kata) — bear in mind, break new ground, shed light on, dll
+2. ⚡ Phrasal Verbs Tingkat Lanjut (25 kata) — account for, draw on, stem from, give rise to, dll
+3. 💡 Idiom & Ekspresi C1 (25 kata) — double-edged sword, tip of the iceberg, vicious circle, dll
+4. 🔤 Pembentukan Kata (25 kata) — unprecedented, counterproductive, sustainability, globalisation, dll
+5. 🎓 Kosakata Akademik C1 (50 kata) — catalyst, paradigm, scrutinise, resilience, ubiquitous, dll
+6. ✨ Kosakata Deskriptif Tingkat Lanjut (25 kata) — astute, meticulous, elusive, profound, dll
+
+**Fitur yang Berfungsi:**
+- ✅ Hub Cambridge: overview B2 First (FCE) & C1 Advanced (CAE), pilihan level, 6 quick nav cards
+- ✅ Struktur 4 papers: Reading & Use of English, Writing, Listening, Speaking (detail parts)
+- ✅ Grade Chart: Cambridge Scale → Grade A/B/C/D/E/U dengan bar visual
+- ✅ Tabel perbandingan B2 First vs C1 Advanced (CEFR level, durasi, bobot, passing score)
+- ✅ Strategi per skill: 4 tips per paper
+- ✅ Mode Browse: domain grid dengan progress bar, word list + search, klik kata → modal detail + TTS (en-GB)
+- ✅ Mode Flashcard: pilih domain & jumlah kartu, 3D flip animation, SRS quality buttons (Susah/Ingat/Mudah)
+- ✅ Mode Quiz: 10 soal pilihan ganda (pilih terjemahan), feedback per soal + contoh kalimat, skor + XP
+- ✅ Mode SRS Review: kartu yang jatuh tempo hari ini, SM-2 algorithm, quality buttons
+- ✅ Word Modal: klik kata → detail (IPA, terjemahan, word type, category, contoh kalimat), TTS, tandai dipelajari
+- ✅ XP Awards: +5 vocab baru, +2 SRS review, +3 quiz benar, +20 quiz sempurna
+- ✅ ChallengeSystem.onLearnItem() + onModuleVisit() + onQuizComplete() terhubung
+- ✅ Warna tema Cambridge: Royal Purple (#6c3fc5) — berbeda dari IELTS (biru), TOEFL (hijau), TOEIC (biru gelap)
+- ✅ SW bump ke englishpath-v15
+
+**localStorage Baru:**
+- `ep_user_{id}_cambridge_vocab` — {wordId: {learnedAt}} — progress vocabulary Cambridge
+- `ep_user_{id}_srs_cambridge_vocab` — data SM-2 per word id
 
 ---
 

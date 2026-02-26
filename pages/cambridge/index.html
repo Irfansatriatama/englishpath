@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge Hub — EnglishPath</title>
+  <meta name="theme-color" content="#6c3fc5">
+  <link rel="manifest" href="../../manifest.json">
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+      const fn = localStorage.getItem('ep_font');
+      if (fn) document.documentElement.setAttribute('data-font', fn);
+      const rd = localStorage.getItem('ep_radius');
+      if (rd) document.documentElement.setAttribute('data-radius', rd);
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/cambridge.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-main">EnglishPath</div>
+      <div class="logo-sub">A1 → C2 + IELTS · TOEIC · TOEFL · Cambridge</div>
+    </div>
+    <div class="sidebar-user">
+      <div class="avatar-circle" data-user-avatar>🇬🇧</div>
+      <div class="sidebar-user-info">
+        <div class="user-name" data-user-name>Pengguna</div>
+        <div class="user-level" data-user-email>—</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Umum</div>
+      <a class="nav-item" href="../dashboard.html" data-page="dashboard"><span class="nav-icon">🏠</span>Dashboard</a>
+      <a class="nav-item" href="../stats.html" data-page="stats"><span class="nav-icon">📊</span>Statistik</a>
+      <a class="nav-item" href="../settings.html" data-page="settings"><span class="nav-icon">⚙️</span>Pengaturan</a>
+      <div class="nav-section-label">Foundation (A1–A2)</div>
+      <a class="nav-item" href="../foundation/vocabulary.html" data-page="foundation-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../foundation/grammar.html" data-page="foundation-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../foundation/pronunciation.html" data-page="foundation-pronunciation"><span class="nav-icon">🔊</span>Pronunciation</a>
+      <a class="nav-item" href="../foundation/dialog.html" data-page="foundation-dialog"><span class="nav-icon">💬</span>Dialog</a>
+      <a class="nav-item" href="../foundation/quiz.html" data-page="foundation-quiz"><span class="nav-icon">⭐</span>Quiz Foundation</a>
+      <div class="nav-section-label">Intermediate (B1–B2)</div>
+      <a class="nav-item" href="../intermediate/vocabulary.html" data-page="intermediate-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../intermediate/grammar.html" data-page="intermediate-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../intermediate/reading.html" data-page="intermediate-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="../intermediate/listening.html" data-page="intermediate-listening"><span class="nav-icon">🎧</span>Listening</a>
+      <div class="nav-section-label">Advanced (C1–C2)</div>
+      <a class="nav-item" href="../advanced/vocabulary.html" data-page="advanced-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../advanced/grammar.html" data-page="advanced-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <div class="nav-section-label">Persiapan Tes</div>
+      <a class="nav-item" href="../ielts/index.html" data-page="ielts"><span class="nav-icon">🎯</span>IELTS</a>
+      <a class="nav-item" href="../toeic/index.html" data-page="toeic"><span class="nav-icon">🎯</span>TOEIC</a>
+      <a class="nav-item" href="../toefl/index.html" data-page="toefl"><span class="nav-icon">🎓</span>TOEFL iBT</a>
+      <a class="nav-item active" href="index.html" data-page="cambridge"><span class="nav-icon">🏛️</span>Cambridge</a>
+      <div class="nav-section-label">Lainnya</div>
+      <a class="nav-item" href="../theme.html" data-page="theme"><span class="nav-icon">🎨</span>Tema &amp; Tampilan</a>
+      <a class="nav-item" href="../planner.html" data-page="planner"><span class="nav-icon">📅</span>Study Planner</a>
+      <a class="nav-item" href="../games.html" data-page="games"><span class="nav-icon">🎮</span>Mini Game</a>
+      <div class="nav-section-label">Akun</div>
+      <a class="nav-item" href="../profile.html" data-page="profile"><span class="nav-icon">👤</span>Profil</a>
+      <a class="nav-item" href="../change-password.html" data-page="change-password"><span class="nav-icon">🔒</span>Ganti Password</a>
+      <a class="nav-item" href="#" data-action="logout"><span class="nav-icon">🚪</span>Keluar</a>
+    </nav>
+  </nav>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <!-- Main Content -->
+  <div class="main-content" id="main-content">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+        <div class="topbar-title">Cambridge Hub</div>
+      </div>
+      <div class="topbar-right">
+        <button class="theme-toggle-btn" title="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+
+    <!-- Mobile Topbar -->
+    <div class="mobile-topbar">
+      <button class="hamburger" id="hamburger-mobile" aria-label="Menu">&#9776;</button>
+      <div class="mobile-topbar-title">Cambridge Hub</div>
+      <button class="theme-toggle-btn">🌙</button>
+    </div>
+
+    <div class="page-body">
+
+      <!-- Hero -->
+      <div class="cam-hero">
+        <h1>🏛️ Cambridge English Qualifications</h1>
+        <p>Persiapkan diri untuk ujian Cambridge — B2 First (FCE) dan C1 Advanced (CAE). Diakui oleh ribuan universitas dan perusahaan di seluruh dunia.</p>
+        <div class="cam-level-pills">
+          <div class="cam-level-pill b2" id="pill-b2">B2 First (FCE)</div>
+          <div class="cam-level-pill c1" id="pill-c1">C1 Advanced (CAE)</div>
+        </div>
+      </div>
+
+      <!-- Quick Nav -->
+      <div class="cam-nav-grid">
+        <a class="cam-nav-card" href="vocabulary.html">
+          <span class="nav-icon">📖</span>
+          <span>Vocabulary</span>
+        </a>
+        <a class="cam-nav-card" href="reading.html">
+          <span class="nav-icon">📰</span>
+          <span>Reading &amp; Use of English</span>
+        </a>
+        <a class="cam-nav-card" href="listening.html">
+          <span class="nav-icon">🎧</span>
+          <span>Listening</span>
+        </a>
+        <a class="cam-nav-card" href="writing.html">
+          <span class="nav-icon">✍️</span>
+          <span>Writing</span>
+        </a>
+        <a class="cam-nav-card" href="speaking.html">
+          <span class="nav-icon">🎙️</span>
+          <span>Speaking</span>
+        </a>
+        <a class="cam-nav-card" href="simulation.html">
+          <span class="nav-icon">🎓</span>
+          <span>Simulasi Full Test</span>
+        </a>
+      </div>
+
+      <!-- Level Selector -->
+      <div class="cam-section">
+        <div class="cam-section-title">🎯 Pilih Level Ujian</div>
+        <div class="cam-level-selector">
+          <div class="cam-level-btn b2" id="level-btn-b2">
+            <div class="cam-level-tag b2">B2</div>
+            <h3>Cambridge B2 First (FCE)</h3>
+            <p>Untuk pelajar level B2. Membuktikan kemampuan berkomunikasi dalam situasi sehari-hari dan profesional dalam bahasa Inggris.</p>
+          </div>
+          <div class="cam-level-btn c1" id="level-btn-c1">
+            <div class="cam-level-tag c1">C1</div>
+            <h3>Cambridge C1 Advanced (CAE)</h3>
+            <p>Untuk pelajar level C1. Membuktikan kemampuan bahasa Inggris tingkat tinggi untuk akademis dan karier profesional.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Papers Structure -->
+      <div class="cam-section">
+        <div class="cam-section-title">📋 Struktur Ujian Cambridge</div>
+        <div class="cam-papers-grid">
+
+          <div class="cam-paper-card">
+            <div class="cam-paper-header">
+              <div class="cam-paper-icon">📰</div>
+              <div>
+                <div class="cam-paper-title">Reading &amp; Use of English</div>
+                <div class="cam-paper-sub">75 menit · Bobot 40%</div>
+              </div>
+            </div>
+            <div class="cam-paper-body">
+              <p>Menguji pemahaman teks dan penggunaan bahasa Inggris yang akurat melalui berbagai tipe soal.</p>
+              <ul class="cam-paper-parts">
+                <li>✏️ Part 1: Multiple-choice cloze</li>
+                <li>✏️ Part 2: Open cloze</li>
+                <li>✏️ Part 3: Word formation</li>
+                <li>✏️ Part 4: Key word transformation</li>
+                <li>📖 Part 5–7/8: Reading comprehension</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cam-paper-card">
+            <div class="cam-paper-header">
+              <div class="cam-paper-icon">✍️</div>
+              <div>
+                <div class="cam-paper-title">Writing</div>
+                <div class="cam-paper-sub">80 menit · Bobot 20%</div>
+              </div>
+            </div>
+            <div class="cam-paper-body">
+              <p>Menguji kemampuan menulis dalam berbagai genre dengan nada dan gaya yang tepat.</p>
+              <ul class="cam-paper-parts">
+                <li>✍️ Part 1: Essay (wajib)</li>
+                <li>✍️ Part 2: Pilihan — Letter/Email, Report, Review, Article</li>
+                <li>🎯 Min. 140 kata per tulisan</li>
+                <li>📊 Dinilai dari konten, struktur &amp; bahasa</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cam-paper-card">
+            <div class="cam-paper-header">
+              <div class="cam-paper-icon">🎧</div>
+              <div>
+                <div class="cam-paper-title">Listening</div>
+                <div class="cam-paper-sub">40 menit · Bobot 20%</div>
+              </div>
+            </div>
+            <div class="cam-paper-body">
+              <p>Menguji pemahaman berbagai rekaman audio seperti wawancara, monolog, dan diskusi.</p>
+              <ul class="cam-paper-parts">
+                <li>🎧 Part 1: MCQ — 3 percakapan pendek</li>
+                <li>🎧 Part 2: Sentence completion</li>
+                <li>🎧 Part 3: MCQ — percakapan panjang</li>
+                <li>🎧 Part 4: Multiple matching (5 pembicara)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cam-paper-card">
+            <div class="cam-paper-header">
+              <div class="cam-paper-icon">🎙️</div>
+              <div>
+                <div class="cam-paper-title">Speaking</div>
+                <div class="cam-paper-sub">15 menit · Bobot 20%</div>
+              </div>
+            </div>
+            <div class="cam-paper-body">
+              <p>Ujian lisan berpasangan dengan penguji terlatih — menilai kelancaran, akurasi, dan interaksi.</p>
+              <ul class="cam-paper-parts">
+                <li>🗣️ Part 1: Interview (2 menit)</li>
+                <li>🗣️ Part 2: Individual long turn (4 menit)</li>
+                <li>🗣️ Part 3: Collaborative task (4 menit)</li>
+                <li>🗣️ Part 4: Further discussion (5 menit)</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Grade Chart -->
+      <div class="cam-section">
+        <div class="cam-section-title">📊 Penilaian Cambridge Scale &amp; Grade</div>
+        <div class="cam-grade-chart">
+          <h3>Cambridge Scale Score → Grade (B2 First)</h3>
+          <div class="cam-grade-bars">
+            <div class="cam-grade-row">
+              <div class="cam-grade-label a">A</div>
+              <div class="cam-grade-bar-outer"><div class="cam-grade-bar-inner a"></div></div>
+              <div class="cam-grade-score">180–190 (C1)</div>
+            </div>
+            <div class="cam-grade-row">
+              <div class="cam-grade-label b">B</div>
+              <div class="cam-grade-bar-outer"><div class="cam-grade-bar-inner b"></div></div>
+              <div class="cam-grade-score">173–179</div>
+            </div>
+            <div class="cam-grade-row">
+              <div class="cam-grade-label c">C</div>
+              <div class="cam-grade-bar-outer"><div class="cam-grade-bar-inner c"></div></div>
+              <div class="cam-grade-score">160–172</div>
+            </div>
+            <div class="cam-grade-row">
+              <div class="cam-grade-label d">D</div>
+              <div class="cam-grade-bar-outer"><div class="cam-grade-bar-inner d"></div></div>
+              <div class="cam-grade-score">140–159 (B1)</div>
+            </div>
+            <div class="cam-grade-row">
+              <div class="cam-grade-label e">E</div>
+              <div class="cam-grade-bar-outer"><div class="cam-grade-bar-inner e"></div></div>
+              <div class="cam-grade-score">120–139</div>
+            </div>
+            <div class="cam-grade-row">
+              <div class="cam-grade-label u">U</div>
+              <div class="cam-grade-bar-outer"><div class="cam-grade-bar-inner u"></div></div>
+              <div class="cam-grade-score">&lt; 120</div>
+            </div>
+          </div>
+          <p style="font-size:0.8rem;color:var(--text-secondary);margin-top:1rem;">
+            💡 Grade A pada B2 First mencapai level C1. Grade C adalah passing score minimum. C1 Advanced: Grade A = 200–210 (C2), Grade C = 180–192.
+          </p>
+        </div>
+      </div>
+
+      <!-- Strategy Section -->
+      <div class="cam-section">
+        <div class="cam-section-title">💡 Strategi Sukses Cambridge</div>
+        <div class="cam-strategy-grid">
+          <div class="cam-strategy-card">
+            <h4>📰 Reading &amp; Use of English</h4>
+            <ul>
+              <li>Hafal collocations dan phrasal verbs umum</li>
+              <li>Pelajari word formation (prefix, suffix)</li>
+              <li>Latihan key word transformation setiap hari</li>
+              <li>Baca teks C1-level: The Guardian, BBC News</li>
+            </ul>
+          </div>
+          <div class="cam-strategy-card">
+            <h4>✍️ Writing</h4>
+            <ul>
+              <li>Kenali format setiap jenis tulisan</li>
+              <li>Gunakan linking words yang bervariasi</li>
+              <li>Perhatikan register (formal vs informal)</li>
+              <li>Selalu cek word count (140+ kata)</li>
+            </ul>
+          </div>
+          <div class="cam-strategy-card">
+            <h4>🎧 Listening</h4>
+            <ul>
+              <li>Dengarkan BBC Podcasts secara rutin</li>
+              <li>Latih "predict before you listen"</li>
+              <li>Perhatikan distractor (jawaban yang mengecoh)</li>
+              <li>Tulis catatan singkat saat mendengar</li>
+            </ul>
+          </div>
+          <div class="cam-strategy-card">
+            <h4>🎙️ Speaking</h4>
+            <ul>
+              <li>Gunakan language of speculation &amp; opinion</li>
+              <li>Jangan berhenti terlalu lama — keep talking</li>
+              <li>Collaborative task: selalu tanya pendapat pasangan</li>
+              <li>Rekam diri sendiri dan dengarkan kembali</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Format Table -->
+      <div class="cam-section">
+        <div class="cam-section-title">📋 Perbandingan B2 First vs C1 Advanced</div>
+        <div style="overflow-x:auto;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+            <thead>
+              <tr style="background:var(--cam-bg-soft);">
+                <th style="padding:0.75rem;text-align:left;border-bottom:2px solid var(--cam-border);">Aspek</th>
+                <th style="padding:0.75rem;text-align:center;border-bottom:2px solid var(--cam-border);">B2 First (FCE)</th>
+                <th style="padding:0.75rem;text-align:center;border-bottom:2px solid var(--cam-border);">C1 Advanced (CAE)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:0.65rem 0.75rem;border-bottom:1px solid var(--border-color);">Level CEFR</td>
+                <td style="padding:0.65rem 0.75rem;text-align:center;border-bottom:1px solid var(--border-color);">B2</td>
+                <td style="padding:0.65rem 0.75rem;text-align:center;border-bottom:1px solid var(--border-color);">C1</td>
+              </tr>
+              <tr style="background:var(--surface-color);">
+                <td style="padding:0.65rem 0.75rem;border-bottom:1px solid var(--border-color);">Durasi Total</td>
+                <td style="padding:0.65rem 0.75rem;text-align:center;border-bottom:1px solid var(--border-color);">3 jam 30 menit</td>
+                <td style="padding:0.65rem 0.75rem;text-align:center;border-bottom:1px solid var(--border-color);">4 jam</td>
+              </tr>
+              <tr>
+                <td style="padding:0.65rem 0.75rem;border-bottom:1px solid var(--border-color);">R&amp;UE Parts</td>
+                <td style="padding:0.65rem 0.75rem;text-align:center;border-bottom:1px solid var(--border-color);">7 parts</td>
+                <td style="padding:0.65rem 0.75rem;text-align:center;border-bottom:1px solid var(--border-color);">8 parts</td>
+              </tr>
+              <tr style="background:var(--surface-color);">
+                <td style="padding:0.65rem 0.75rem;border-bottom:1px solid var(--border-color);">Writing</td>
+                <td style="padding:0.65rem 0.75rem;text-align:center;border-bottom:1px solid var(--border-color);">2 tasks, 80 min</td>
+                <td style="padding:0.65rem 0.75rem;text-align:center;border-bottom:1px solid var(--border-color);">2 tasks, 90 min</td>
+              </tr>
+              <tr>
+                <td style="padding:0.65rem 0.75rem;border-bottom:1px solid var(--border-color);">Passing Grade</td>
+                <td style="padding:0.65rem 0.75rem;text-align:center;border-bottom:1px solid var(--border-color);">Grade C (160+)</td>
+                <td style="padding:0.65rem 0.75rem;text-align:center;border-bottom:1px solid var(--border-color);">Grade C (180+)</td>
+              </tr>
+              <tr style="background:var(--surface-color);">
+                <td style="padding:0.65rem 0.75rem;">Cocok untuk</td>
+                <td style="padding:0.65rem 0.75rem;text-align:center;">Kuliah S1, kerja umum</td>
+                <td style="padding:0.65rem 0.75rem;text-align:center;">Kuliah S2, karir profesional</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- end page-body -->
+
+    <!-- Bottom Nav Mobile -->
+    <nav class="bottom-nav">
+      <a class="bottom-nav-item" href="../dashboard.html" data-page="dashboard"><span>🏠</span><span>Home</span></a>
+      <a class="bottom-nav-item" href="../stats.html" data-page="stats"><span>📊</span><span>Stats</span></a>
+      <a class="bottom-nav-item active" href="index.html" data-page="cambridge"><span>🏛️</span><span>Cambridge</span></a>
+      <a class="bottom-nav-item" href="../profile.html" data-page="profile"><span>👤</span><span>Profil</span></a>
+    </nav>
+
+  </div><!-- end main-content -->
+</div><!-- end app-shell -->
+
+<script src="../../assets/js/core/storage.js"></script>
+<script src="../../assets/js/core/auth.js"></script>
+<script src="../../assets/js/core/router.js"></script>
+<script src="../../assets/js/core/app.js"></script>
+<script>
+  Router.guard();
+  App.init('cambridge');
+</script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge Vocabulary — EnglishPath</title>
+  <meta name="theme-color" content="#6c3fc5">
+  <link rel="manifest" href="../../manifest.json">
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+      const fn = localStorage.getItem('ep_font');
+      if (fn) document.documentElement.setAttribute('data-font', fn);
+      const rd = localStorage.getItem('ep_radius');
+      if (rd) document.documentElement.setAttribute('data-radius', rd);
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/cambridge.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-main">EnglishPath</div>
+      <div class="logo-sub">A1 → C2 + IELTS · TOEIC · TOEFL · Cambridge</div>
+    </div>
+    <div class="sidebar-user">
+      <div class="avatar-circle" data-user-avatar>🇬🇧</div>
+      <div class="sidebar-user-info">
+        <div class="user-name" data-user-name>Pengguna</div>
+        <div class="user-level" data-user-email>—</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Umum</div>
+      <a class="nav-item" href="../dashboard.html" data-page="dashboard"><span class="nav-icon">🏠</span>Dashboard</a>
+      <a class="nav-item" href="../stats.html" data-page="stats"><span class="nav-icon">📊</span>Statistik</a>
+      <a class="nav-item" href="../settings.html" data-page="settings"><span class="nav-icon">⚙️</span>Pengaturan</a>
+      <div class="nav-section-label">Foundation (A1–A2)</div>
+      <a class="nav-item" href="../foundation/vocabulary.html" data-page="foundation-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../foundation/grammar.html" data-page="foundation-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../foundation/pronunciation.html" data-page="foundation-pronunciation"><span class="nav-icon">🔊</span>Pronunciation</a>
+      <a class="nav-item" href="../foundation/dialog.html" data-page="foundation-dialog"><span class="nav-icon">💬</span>Dialog</a>
+      <a class="nav-item" href="../foundation/quiz.html" data-page="foundation-quiz"><span class="nav-icon">⭐</span>Quiz Foundation</a>
+      <div class="nav-section-label">Intermediate (B1–B2)</div>
+      <a class="nav-item" href="../intermediate/vocabulary.html" data-page="intermediate-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../intermediate/grammar.html" data-page="intermediate-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../intermediate/reading.html" data-page="intermediate-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="../intermediate/listening.html" data-page="intermediate-listening"><span class="nav-icon">🎧</span>Listening</a>
+      <div class="nav-section-label">Advanced (C1–C2)</div>
+      <a class="nav-item" href="../advanced/vocabulary.html" data-page="advanced-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../advanced/grammar.html" data-page="advanced-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <div class="nav-section-label">Persiapan Tes</div>
+      <a class="nav-item" href="../ielts/index.html" data-page="ielts"><span class="nav-icon">🎯</span>IELTS</a>
+      <a class="nav-item" href="../toeic/index.html" data-page="toeic"><span class="nav-icon">🎯</span>TOEIC</a>
+      <a class="nav-item" href="../toefl/index.html" data-page="toefl"><span class="nav-icon">🎓</span>TOEFL iBT</a>
+      <a class="nav-item active" href="index.html" data-page="cambridge"><span class="nav-icon">🏛️</span>Cambridge</a>
+      <div class="nav-section-label">Lainnya</div>
+      <a class="nav-item" href="../theme.html" data-page="theme"><span class="nav-icon">🎨</span>Tema &amp; Tampilan</a>
+      <a class="nav-item" href="../planner.html" data-page="planner"><span class="nav-icon">📅</span>Study Planner</a>
+      <a class="nav-item" href="../games.html" data-page="games"><span class="nav-icon">🎮</span>Mini Game</a>
+      <div class="nav-section-label">Akun</div>
+      <a class="nav-item" href="../profile.html" data-page="profile"><span class="nav-icon">👤</span>Profil</a>
+      <a class="nav-item" href="../change-password.html" data-page="change-password"><span class="nav-icon">🔒</span>Ganti Password</a>
+      <a class="nav-item" href="#" data-action="logout"><span class="nav-icon">🚪</span>Keluar</a>
+    </nav>
+  </nav>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <!-- Main Content -->
+  <div class="main-content" id="main-content">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+        <div class="topbar-title">Cambridge Vocabulary</div>
+      </div>
+      <div class="topbar-right">
+        <button class="theme-toggle-btn" title="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+    <div class="mobile-topbar">
+      <button class="hamburger" id="hamburger-mobile" aria-label="Menu">&#9776;</button>
+      <div class="mobile-topbar-title">Cambridge Vocabulary</div>
+      <button class="theme-toggle-btn">🌙</button>
+    </div>
+
+    <div class="page-body">
+
+      <!-- Header -->
+      <div class="cam-vocab-header">
+        <h1>📖 Cambridge Vocabulary</h1>
+        <p>300+ kata tingkat lanjut B2/C1: collocations, phrasal verbs, idioms, word formation, &amp; academic vocabulary. Diperlengkapi flashcard 3D, SRS, dan quiz interaktif.</p>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <a href="index.html" style="color:rgba(255,255,255,0.8);font-size:0.85rem;">← Kembali ke Hub</a>
+        </div>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="cam-stats-bar" id="cam-stats-bar">
+        <div class="cam-stat">
+          <span class="cam-stat-value" id="stat-total">—</span>
+          <span class="cam-stat-label">total kata</span>
+        </div>
+        <div class="cam-stat">
+          <span class="cam-stat-value" id="stat-learned">—</span>
+          <span class="cam-stat-label">dipelajari</span>
+        </div>
+        <div class="cam-stat">
+          <span class="cam-stat-value" id="stat-due">—</span>
+          <span class="cam-stat-label">review hari ini</span>
+        </div>
+        <div class="cam-stat">
+          <span class="cam-stat-value" id="stat-mastered">—</span>
+          <span class="cam-stat-label">sudah hafal</span>
+        </div>
+      </div>
+
+      <!-- Mode Tabs -->
+      <div class="cam-mode-tabs">
+        <button class="cam-tab-btn active" data-mode="browse">🔍 Jelajah</button>
+        <button class="cam-tab-btn" data-mode="flashcard">🃏 Flashcard</button>
+        <button class="cam-tab-btn" data-mode="quiz">📝 Quiz</button>
+        <button class="cam-tab-btn" data-mode="srs">🔄 SRS Review</button>
+      </div>
+
+      <!-- ── BROWSE MODE ── -->
+      <div id="mode-browse">
+        <div class="cam-domain-grid" id="domain-grid">
+          <!-- JS rendered -->
+        </div>
+        <div>
+          <div class="cam-word-list-header">
+            <h3 id="domain-title-browse">Semua Kata</h3>
+            <input class="cam-search-input" type="text" id="search-input" placeholder="🔍 Cari kata...">
+          </div>
+          <div class="cam-word-list" id="word-list">
+            <!-- JS rendered -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ── FLASHCARD MODE ── -->
+      <div id="mode-flashcard" class="hidden">
+        <!-- Setup -->
+        <div id="fc-setup" class="cam-flashcard-setup">
+          <div class="cam-fc-setup-title">⚡ Pilih Domain &amp; Jumlah Kartu</div>
+          <div class="cam-fc-select-group">
+            <label>Domain Kata</label>
+            <select class="cam-fc-select" id="fc-domain-select">
+              <option value="all">Semua Domain</option>
+            </select>
+          </div>
+          <div class="cam-fc-select-group">
+            <label>Jumlah Kartu</label>
+            <select class="cam-fc-select" id="fc-count-select">
+              <option value="10">10 kartu</option>
+              <option value="20" selected>20 kartu</option>
+              <option value="30">30 kartu</option>
+              <option value="all">Semua kartu</option>
+            </select>
+          </div>
+          <button class="cam-btn-start-fc" id="fc-start-btn">Mulai Flashcard →</button>
+        </div>
+        <!-- Flashcard play area -->
+        <div id="fc-play" class="hidden cam-fc-wrapper">
+          <div class="cam-fc-progress" id="fc-progress">Kartu 1 / 20</div>
+          <div class="cam-fc-scene">
+            <div class="cam-fc-card" id="fc-card">
+              <div class="cam-fc-face cam-fc-front">
+                <div class="fc-word" id="fc-front-word">—</div>
+                <div class="fc-ipa" id="fc-front-ipa">—</div>
+                <button class="cam-btn-audio" id="fc-speak-btn">🔊 Dengarkan</button>
+                <div class="fc-tap-hint">Tap untuk lihat arti</div>
+              </div>
+              <div class="cam-fc-face cam-fc-back">
+                <div class="fc-translation" id="fc-back-trans">—</div>
+                <div class="fc-type-label" id="fc-back-type">—</div>
+                <div class="fc-example" id="fc-back-example">"—"</div>
+              </div>
+            </div>
+          </div>
+          <div class="cam-fc-controls hidden" id="fc-quality-btns">
+            <button class="cam-fc-quality-btn hard" data-quality="1">😓 Susah</button>
+            <button class="cam-fc-quality-btn ok" data-quality="3">🤔 Ingat</button>
+            <button class="cam-fc-quality-btn easy" data-quality="5">😎 Mudah</button>
+          </div>
+          <div id="fc-done" class="hidden" style="text-align:center;padding:2rem;">
+            <div style="font-size:3rem;margin-bottom:1rem;">🎉</div>
+            <h3>Sesi Flashcard Selesai!</h3>
+            <p style="color:var(--text-secondary);margin-bottom:1.5rem;">Kartu yang sulit akan muncul lebih cepat untuk review.</p>
+            <div style="display:flex;gap:0.75rem;justify-content:center;">
+              <button class="cam-btn-retry" id="fc-restart-btn">Ulangi</button>
+              <button class="cam-btn-browse" id="fc-back-setup-btn">Ganti Domain</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── QUIZ MODE ── -->
+      <div id="mode-quiz" class="hidden">
+        <div id="quiz-start" class="cam-flashcard-setup">
+          <div class="cam-fc-setup-title">📝 Quiz Pilihan Ganda</div>
+          <div class="cam-fc-select-group">
+            <label>Domain Kata</label>
+            <select class="cam-fc-select" id="quiz-domain-select">
+              <option value="all">Semua Domain</option>
+            </select>
+          </div>
+          <button class="cam-btn-start-fc" id="quiz-start-btn">Mulai Quiz →</button>
+        </div>
+        <div id="quiz-play" class="hidden cam-quiz-wrapper">
+          <div class="cam-quiz-header">
+            <span id="quiz-num">1/10</span>
+            <div class="cam-quiz-progress-bar"><div class="cam-quiz-progress-fill" id="quiz-progress-fill" style="width:10%"></div></div>
+            <span id="quiz-score-display">Skor: 0</span>
+          </div>
+          <div class="cam-quiz-question-box">
+            <div class="cam-quiz-question-word" id="quiz-q-word">—</div>
+            <div class="cam-quiz-question-ipa" id="quiz-q-ipa">—</div>
+            <div class="cam-quiz-question-label">Pilih terjemahan yang paling tepat:</div>
+          </div>
+          <div class="cam-quiz-choices" id="quiz-choices"></div>
+          <div class="cam-quiz-feedback" id="quiz-feedback"></div>
+          <button class="cam-btn-next-q hidden" id="quiz-next-btn">Soal Berikutnya →</button>
+        </div>
+        <div id="quiz-result" class="hidden cam-quiz-result">
+          <div class="cam-quiz-result-emoji" id="quiz-result-emoji">🎉</div>
+          <h2>Quiz Selesai!</h2>
+          <div class="cam-quiz-result-score" id="quiz-result-score">0/10</div>
+          <p id="quiz-result-msg">Terus berlatih untuk meningkatkan skor!</p>
+          <div class="cam-quiz-result-actions">
+            <button class="cam-btn-retry" id="quiz-retry-btn">Coba Lagi</button>
+            <button class="cam-btn-browse" id="quiz-browse-btn">Jelajah Kata</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SRS REVIEW MODE ── -->
+      <div id="mode-srs" class="hidden">
+        <div id="srs-play" class="cam-srs-wrapper">
+          <div class="cam-fc-progress" id="srs-progress">—</div>
+          <div class="cam-srs-card" id="srs-card">
+            <div class="cam-srs-word" id="srs-word">—</div>
+            <div class="cam-srs-ipa" id="srs-ipa">—</div>
+            <div style="margin-top:0.5rem;">
+              <button class="cam-btn-audio" style="background:var(--cam-primary);border:none;" id="srs-speak-btn">🔊</button>
+            </div>
+            <div class="cam-srs-reveal" id="srs-reveal">
+              <div class="srs-type" id="srs-reveal-type"></div>
+              <div id="srs-reveal-trans" style="font-size:1.2rem;font-weight:700;color:var(--cam-primary);margin-bottom:0.4rem;"></div>
+              <div class="srs-example" id="srs-reveal-example"></div>
+            </div>
+            <button class="cam-srs-btn-reveal" id="srs-reveal-btn">Tampilkan Jawaban</button>
+          </div>
+          <div class="cam-fc-controls hidden" id="srs-quality-btns">
+            <button class="cam-fc-quality-btn hard" data-quality="1">😓 Susah</button>
+            <button class="cam-fc-quality-btn ok" data-quality="3">🤔 Ingat</button>
+            <button class="cam-fc-quality-btn easy" data-quality="5">😎 Mudah</button>
+          </div>
+        </div>
+        <div class="cam-srs-empty hidden" id="srs-empty">
+          <div class="srs-empty-icon">✅</div>
+          <h3>Tidak ada kartu untuk review hari ini!</h3>
+          <p style="color:var(--text-secondary);">Semua kartu sudah di-review. Kembali besok untuk sesi review berikutnya.</p>
+          <button class="cam-btn-start-fc" style="margin-top:1rem;" onclick="document.querySelector('[data-mode=browse]').click()">Jelajah Kata Baru</button>
+        </div>
+      </div>
+
+    </div><!-- end page-body -->
+
+    <!-- Word Modal -->
+    <div class="cam-modal-overlay hidden" id="word-modal">
+      <div class="cam-modal-box">
+        <div class="cam-modal-word" id="modal-word">—</div>
+        <div class="cam-modal-ipa" id="modal-ipa">—</div>
+        <div class="cam-modal-type" id="modal-type">—</div>
+        <div class="cam-modal-translation" id="modal-translation">—</div>
+        <div class="cam-modal-word-type" id="modal-word-type">—</div>
+        <div class="cam-modal-example" id="modal-example">"—"</div>
+        <div class="cam-modal-actions">
+          <button class="cam-btn-speak" id="modal-speak-btn">🔊 Dengarkan</button>
+          <button class="cam-btn-learn" id="modal-learn-btn">✅ Tandai Dipelajari</button>
+          <button class="cam-btn-close" id="modal-close-btn">✕ Tutup</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Nav Mobile -->
+    <nav class="bottom-nav">
+      <a class="bottom-nav-item" href="../dashboard.html" data-page="dashboard"><span>🏠</span><span>Home</span></a>
+      <a class="bottom-nav-item" href="../stats.html" data-page="stats"><span>📊</span><span>Stats</span></a>
+      <a class="bottom-nav-item active" href="index.html" data-page="cambridge"><span>🏛️</span><span>Cambridge</span></a>
+      <a class="bottom-nav-item" href="../profile.html" data-page="profile"><span>👤</span><span>Profil</span></a>
+    </nav>
+
+  </div><!-- end main-content -->
+</div><!-- end app-shell -->
+
+<script src="../../assets/js/core/storage.js"></script>
+<script src="../../assets/js/core/auth.js"></script>
+<script src="../../assets/js/core/router.js"></script>
+<script src="../../assets/js/core/app.js"></script>
+<script src="../../assets/js/modules/xp.js"></script>
+<script src="../../assets/js/modules/challenge.js"></script>
+<script src="../../assets/js/modules/badge.js"></script>
+<script src="../../assets/js/modules/srs.js"></script>
+<script src="../../assets/js/data/cambridge-vocab-data.js"></script>
+<script src="../../assets/js/pages/cambridge-vocab.js"></script>
+<script>
+  Router.guard();
+  App.init('cambridge-vocab');
+  CambridgeVocab.init();
+</script>
+</body>
+</html>
