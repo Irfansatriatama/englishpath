@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daftar — EnglishPath</title>
   <meta name="theme-color" content="#1a6cf0">
+  <link rel="manifest" href="../manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="EnglishPath">
   <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
@@ -359,6 +360,12 @@
       }
     }, 350);
   });
+</script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register(getBase() + 'sw.js').catch(function() {});
+  }
 </script>
 </body>
 </html>

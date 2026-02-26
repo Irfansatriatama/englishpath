@@ -297,5 +297,11 @@
 <script src="../../assets/js/modules/badge.js"></script>
 <script src="../../assets/js/data/reading-intermediate-data.js"></script>
 <script src="../../assets/js/pages/reading-intermediate.js"></script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register(getBase() + 'sw.js').catch(function() {});
+  }
+</script>
 </body>
 </html>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard — EnglishPath</title>
   <meta name="theme-color" content="#1a6cf0">
+  <link rel="manifest" href="../manifest.json">
   <script>
     (function() {
       const dm = localStorage.getItem('ep_dark_mode');
@@ -309,6 +310,12 @@
   document.getElementById('btn-all-badges').addEventListener('click', () => {
     DashboardPage.openBadgeModal();
   });
+</script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register(getBase() + 'sw.js').catch(function() {});
+  }
 </script>
 </body>
 </html>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pengaturan — EnglishPath</title>
   <meta name="theme-color" content="#1a6cf0">
+  <link rel="manifest" href="../manifest.json">
   <script>
     (function() {
       const dm = localStorage.getItem('ep_dark_mode');
@@ -19,60 +20,7 @@
   </script>
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/layout.css">
-  <style>
-    .settings-section { margin-bottom: 20px; }
-    .setting-row {
-      display: flex; align-items: center;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-      gap: 16px;
-    }
-    .setting-row:last-child { border-bottom: none; }
-    .setting-label { flex: 1; }
-    .setting-name  { font-size: 0.9rem; font-weight: 600; color: var(--text); }
-    .setting-desc  { font-size: 0.78rem; color: var(--text-3); margin-top: 2px; }
-    /* Toggle switch */
-    .toggle-switch { position: relative; width: 48px; height: 26px; flex-shrink: 0; }
-    .toggle-switch input { opacity: 0; width: 0; height: 0; }
-    .toggle-track {
-      position: absolute; inset: 0; cursor: pointer;
-      background: var(--border-2); border-radius: 26px;
-      transition: background 0.2s;
-    }
-    .toggle-track::before {
-      content: '';
-      position: absolute; height: 20px; width: 20px;
-      left: 3px; bottom: 3px;
-      background: white; border-radius: 50%;
-      transition: transform 0.2s;
-    }
-    input:checked + .toggle-track { background: var(--primary); }
-    input:checked + .toggle-track::before { transform: translateX(22px); }
-    /* Color theme picker */
-    .color-theme-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
-    .color-swatch {
-      width: 36px; height: 36px; border-radius: 50%;
-      cursor: pointer; border: 2px solid transparent;
-      transition: border-color 0.15s, transform 0.15s;
-    }
-    .color-swatch.active { border-color: var(--text); transform: scale(1.15); }
-    /* Select style */
-    .setting-select {
-      background: var(--surface); border: 1.5px solid var(--border);
-      border-radius: var(--radius); padding: 6px 10px;
-      font-size: 0.85rem; color: var(--text);
-      cursor: pointer;
-    }
-    /* Danger zone */
-    .danger-btn {
-      background: #fee2e2; color: #991b1b; border: 1px solid #fecaca;
-      border-radius: var(--radius-lg); padding: 10px 20px;
-      font-size: 0.875rem; font-weight: 600; cursor: pointer;
-      transition: background 0.2s;
-    }
-    .danger-btn:hover { background: #fecaca; }
-    [data-theme="dark"] .danger-btn { background: rgba(220,38,38,0.12); color: #fca5a5; border-color: rgba(220,38,38,0.3); }
-  </style>
+  <link rel="stylesheet" href="../assets/css/profile.css">
 </head>
 <body>
 <div class="app-shell">
@@ -147,6 +95,16 @@
     <div class="page-body">
       <div style="max-width: 640px; margin: 0 auto;">
 
+        <!-- PWA Install Banner -->
+        <div class="pwa-banner" id="pwa-banner" style="display:none;">
+          <div class="pwa-icon">📱</div>
+          <div class="pwa-text">
+            <div class="pwa-title">Install EnglishPath</div>
+            <div class="pwa-desc">Tambahkan ke layar utama untuk akses offline penuh</div>
+          </div>
+          <button class="pwa-btn" id="pwa-install-btn">Install</button>
+        </div>
+
         <!-- Tampilan -->
         <div class="card fade-in settings-section">
           <div class="card-title">🎨 Tampilan</div>
@@ -195,6 +153,46 @@
           </div>
         </div>
 
+        <!-- Belajar -->
+        <div class="card fade-in settings-section">
+          <div class="card-title">📚 Belajar</div>
+
+          <div class="setting-row" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+            <div class="setting-label">
+              <div class="setting-name">Target Belajar Harian</div>
+              <div class="setting-desc">Berapa menit yang ingin kamu capai setiap hari</div>
+            </div>
+            <div class="goal-options" id="goal-options">
+              <button class="goal-btn" data-goal="5">5 mnt</button>
+              <button class="goal-btn" data-goal="10">10 mnt</button>
+              <button class="goal-btn" data-goal="15">15 mnt</button>
+              <button class="goal-btn" data-goal="30">30 mnt</button>
+            </div>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-label">
+              <div class="setting-name">Auto-play Audio</div>
+              <div class="setting-desc">Otomatis putar audio saat membuka flashcard</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="toggle-autoplay">
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-label">
+              <div class="setting-name">Tampilkan Terjemahan</div>
+              <div class="setting-desc">Tampilkan terjemahan Bahasa Indonesia secara default</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="toggle-translation">
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+        </div>
+
         <!-- Akun -->
         <div class="card fade-in settings-section">
           <div class="card-title">👤 Akun</div>
@@ -204,11 +202,7 @@
               <div class="setting-name">Edit Profil</div>
               <div class="setting-desc">Ubah nama, avatar, dan bio</div>
             </div>
-            <a href="profile.html" style="
-              background: var(--primary-soft); color: var(--primary);
-              padding: 8px 16px; border-radius: var(--radius);
-              font-size: 0.8rem; font-weight: 700;
-            ">Edit →</a>
+            <a href="profile.html" style="background:var(--primary-soft);color:var(--primary);padding:8px 16px;border-radius:var(--radius);font-size:0.8rem;font-weight:700;">Edit →</a>
           </div>
 
           <div class="setting-row">
@@ -216,23 +210,79 @@
               <div class="setting-name">Ganti Password</div>
               <div class="setting-desc">Ubah kata sandi akunmu</div>
             </div>
-            <a href="change-password.html" style="
-              background: var(--primary-soft); color: var(--primary);
-              padding: 8px 16px; border-radius: var(--radius);
-              font-size: 0.8rem; font-weight: 700;
-            ">Ganti →</a>
+            <a href="change-password.html" style="background:var(--primary-soft);color:var(--primary);padding:8px 16px;border-radius:var(--radius);font-size:0.8rem;font-weight:700;">Ganti →</a>
           </div>
         </div>
 
-        <!-- Danger zone -->
+        <!-- Data & Backup -->
         <div class="card fade-in settings-section">
-          <div class="card-title" style="color: #dc2626;">⚠️ Zona Bahaya</div>
+          <div class="card-title">💾 Data &amp; Backup</div>
+
+          <div class="setting-row">
+            <div class="setting-label">
+              <div class="setting-name">Export Data</div>
+              <div class="setting-desc">Unduh semua data belajarmu sebagai file JSON</div>
+            </div>
+            <button class="setting-select" style="cursor:pointer;font-weight:600;" id="btn-export">
+              📥 Export
+            </button>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-label">
+              <div class="setting-name">Import Data</div>
+              <div class="setting-desc">Pulihkan data dari file backup JSON</div>
+              <div id="import-status" class="backup-info"></div>
+            </div>
+            <label style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);padding:6px 10px;font-size:0.85rem;color:var(--text);cursor:pointer;font-weight:600;">
+              📤 Import
+              <input type="file" id="btn-import" accept=".json" style="display:none;">
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-label">
+              <div class="setting-name">Backup Terakhir</div>
+              <div class="setting-desc" id="last-backup-info">Belum pernah backup</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zona Bahaya -->
+        <div class="card fade-in settings-section">
+          <div class="card-title" style="color:#dc2626;">⚠️ Zona Bahaya</div>
+
           <div class="setting-row">
             <div class="setting-label">
               <div class="setting-name">Keluar</div>
               <div class="setting-desc">Keluar dari akun aktif</div>
             </div>
             <button class="danger-btn" data-action="logout">Keluar</button>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-label">
+              <div class="setting-name">Reset Progress Belajar</div>
+              <div class="setting-desc">Hapus seluruh progress, XP, badge, dan riwayat belajar. Profil tetap tersimpan.</div>
+            </div>
+            <button class="danger-btn" id="btn-reset-progress">Reset</button>
+          </div>
+        </div>
+
+        <!-- Info Aplikasi -->
+        <div class="card fade-in settings-section">
+          <div class="card-title">ℹ️ Tentang Aplikasi</div>
+          <div class="setting-row">
+            <div class="setting-label">
+              <div class="setting-name">EnglishPath</div>
+              <div class="setting-desc">Versi 1.1.0 — Fase 10</div>
+            </div>
+          </div>
+          <div class="setting-row">
+            <div class="setting-label">
+              <div class="setting-name">Status PWA</div>
+              <div class="setting-desc" id="pwa-status">Memeriksa...</div>
+            </div>
           </div>
         </div>
 
@@ -261,29 +311,31 @@
   Router.guard();
   App.init('settings');
 
-  const session = Auth.getSession();
-  const userId  = session.userId;
+  var session = Auth.getSession();
+  var userId  = session.userId;
 
-  // ── Color themes ──
-  const COLOR_THEMES = [
-    { id: 'ocean',  label: 'Ocean',   color: '#1a6cf0' },
-    { id: 'forest', label: 'Forest',  color: '#16a34a' },
-    { id: 'sunset', label: 'Sunset',  color: '#ef4444' },
-    { id: 'violet', label: 'Violet',  color: '#7c3aed' },
+  // ── Color themes ─────────────────────────────────────────
+  var COLOR_THEMES = [
+    { id: 'ocean',  label: 'Ocean',  color: '#1a6cf0' },
+    { id: 'forest', label: 'Forest', color: '#16a34a' },
+    { id: 'sunset', label: 'Sunset', color: '#ef4444' },
+    { id: 'violet', label: 'Violet', color: '#7c3aed' },
+    { id: 'amber',  label: 'Amber',  color: '#d97706' },
+    { id: 'rose',   label: 'Rose',   color: '#e11d48' },
   ];
 
-  const currentTheme = localStorage.getItem('ep_color_theme') || 'ocean';
-  const grid = document.getElementById('color-theme-grid');
+  var currentTheme = localStorage.getItem('ep_color_theme') || 'ocean';
+  var grid = document.getElementById('color-theme-grid');
 
-  COLOR_THEMES.forEach(t => {
-    const btn = document.createElement('button');
+  COLOR_THEMES.forEach(function(t) {
+    var btn = document.createElement('button');
     btn.type = 'button';
     btn.title = t.label;
     btn.className = 'color-swatch' + (t.id === currentTheme ? ' active' : '');
     btn.style.background = t.color;
     btn.setAttribute('data-theme-id', t.id);
-    btn.addEventListener('click', () => {
-      grid.querySelectorAll('.color-swatch').forEach(b => b.classList.remove('active'));
+    btn.addEventListener('click', function() {
+      grid.querySelectorAll('.color-swatch').forEach(function(b) { b.classList.remove('active'); });
       btn.classList.add('active');
       localStorage.setItem('ep_color_theme', t.id);
       document.documentElement.setAttribute('data-color-theme', t.id);
@@ -293,44 +345,217 @@
     grid.appendChild(btn);
   });
 
-  // ── Dark mode toggle ──
-  const darkToggle = document.getElementById('toggle-darkmode');
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-  darkToggle.checked = isDark;
+  // ── Dark mode ─────────────────────────────────────────────
+  var darkToggle = document.getElementById('toggle-darkmode');
+  darkToggle.checked = document.documentElement.getAttribute('data-theme') === 'dark';
+  darkToggle.addEventListener('change', function() { App.toggleTheme(); });
 
-  darkToggle.addEventListener('change', () => {
-    App.toggleTheme();
-  });
-
-  // ── Font ──
-  const fontSelect = document.getElementById('font-select');
+  // ── Font ──────────────────────────────────────────────────
+  var fontSelect = document.getElementById('font-select');
   fontSelect.value = localStorage.getItem('ep_font') || 'default';
-  fontSelect.addEventListener('change', () => {
-    const val = fontSelect.value;
+  fontSelect.addEventListener('change', function() {
+    var val = fontSelect.value;
     localStorage.setItem('ep_font', val);
-    if (val === 'default') {
-      document.documentElement.removeAttribute('data-font');
-    } else {
-      document.documentElement.setAttribute('data-font', val);
-    }
+    if (val === 'default') document.documentElement.removeAttribute('data-font');
+    else document.documentElement.setAttribute('data-font', val);
     Storage.mergeUser(userId, 'settings', { font: val });
     App.toast('Font diubah', 'success');
   });
 
-  // ── Radius ──
-  const radiusSelect = document.getElementById('radius-select');
+  // ── Radius ────────────────────────────────────────────────
+  var radiusSelect = document.getElementById('radius-select');
   radiusSelect.value = localStorage.getItem('ep_radius') || 'default';
-  radiusSelect.addEventListener('change', () => {
-    const val = radiusSelect.value;
+  radiusSelect.addEventListener('change', function() {
+    var val = radiusSelect.value;
     localStorage.setItem('ep_radius', val);
-    if (val === 'default') {
-      document.documentElement.removeAttribute('data-radius');
-    } else {
-      document.documentElement.setAttribute('data-radius', val);
-    }
+    if (val === 'default') document.documentElement.removeAttribute('data-radius');
+    else document.documentElement.setAttribute('data-radius', val);
     Storage.mergeUser(userId, 'settings', { radius: val });
     App.toast('Sudut tombol diubah', 'success');
   });
+
+  // ── Daily Goal ────────────────────────────────────────────
+  var userSettings = Storage.getUser(userId, 'settings', {});
+  var currentGoal  = userSettings.dailyGoal || 10;
+
+  document.querySelectorAll('.goal-btn').forEach(function(btn) {
+    var g = parseInt(btn.getAttribute('data-goal'));
+    if (g === currentGoal) btn.classList.add('active');
+    btn.addEventListener('click', function() {
+      currentGoal = g;
+      document.querySelectorAll('.goal-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      Storage.mergeUser(userId, 'settings', { dailyGoal: g });
+      App.toast('Target ' + g + ' menit/hari disimpan', 'success');
+    });
+  });
+
+  // ── Auto-play audio ───────────────────────────────────────
+  var autoplayToggle = document.getElementById('toggle-autoplay');
+  autoplayToggle.checked = userSettings.autoplay !== false;
+  autoplayToggle.addEventListener('change', function() {
+    Storage.mergeUser(userId, 'settings', { autoplay: autoplayToggle.checked });
+    App.toast(autoplayToggle.checked ? 'Auto-play aktif' : 'Auto-play nonaktif', 'success');
+  });
+
+  // ── Show translation ──────────────────────────────────────
+  var transToggle = document.getElementById('toggle-translation');
+  transToggle.checked = userSettings.showTranslation !== false;
+  transToggle.addEventListener('change', function() {
+    Storage.mergeUser(userId, 'settings', { showTranslation: transToggle.checked });
+    App.toast(transToggle.checked ? 'Terjemahan ditampilkan' : 'Terjemahan disembunyikan', 'success');
+  });
+
+  // ── Last backup info ──────────────────────────────────────
+  (function() {
+    var backup = Storage.getUser(userId, 'last_backup', null);
+    var el = document.getElementById('last-backup-info');
+    if (backup && backup.date) {
+      el.textContent = 'Terakhir backup: ' + new Date(backup.date).toLocaleDateString('id-ID', {
+        year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+      });
+    }
+  })();
+
+  // ── Export data ───────────────────────────────────────────
+  document.getElementById('btn-export').addEventListener('click', function() {
+    try {
+      var allUsers = Storage.get('users', []);
+      var userData = {};
+
+      // Collect all ep_user_{userId}_* keys
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        if (k && k.startsWith('ep_user_' + userId + '_')) {
+          var suffix = k.replace('ep_user_' + userId + '_', '');
+          try { userData[suffix] = JSON.parse(localStorage.getItem(k)); } catch(e) { userData[suffix] = localStorage.getItem(k); }
+        }
+      }
+
+      var exportObj = {
+        version: '1.1.0',
+        exportDate: new Date().toISOString(),
+        userId: userId,
+        userData: userData,
+      };
+
+      var blob = new Blob([JSON.stringify(exportObj, null, 2)], { type: 'application/json' });
+      var url  = URL.createObjectURL(blob);
+      var a    = document.createElement('a');
+      a.href   = url;
+      a.download = 'englishpath-backup-' + new Date().toISOString().split('T')[0] + '.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      // Save last backup timestamp
+      Storage.setUser(userId, 'last_backup', { timestamp: Date.now(), date: new Date().toISOString() });
+      document.getElementById('last-backup-info').textContent = 'Terakhir backup: ' + new Date().toLocaleDateString('id-ID', {
+        year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+      });
+
+      App.toast('Data berhasil diekspor!', 'success');
+    } catch(err) {
+      App.toast('Gagal export data', 'error');
+    }
+  });
+
+  // ── Import data ───────────────────────────────────────────
+  document.getElementById('btn-import').addEventListener('change', function(e) {
+    var file = e.target.files[0];
+    if (!file) return;
+
+    var reader = new FileReader();
+    reader.onload = function(ev) {
+      try {
+        var data = JSON.parse(ev.target.result);
+        if (!data.userData || !data.version) throw new Error('Format tidak valid');
+
+        // Restore all user keys
+        Object.keys(data.userData).forEach(function(suffix) {
+          var key = 'ep_user_' + userId + '_' + suffix;
+          localStorage.setItem(key, JSON.stringify(data.userData[suffix]));
+        });
+
+        Storage.setUser(userId, 'last_backup', { timestamp: Date.now(), date: new Date().toISOString() });
+        document.getElementById('import-status').textContent = '✅ Import berhasil dari ' + new Date(data.exportDate).toLocaleDateString('id-ID');
+        App.toast('Data berhasil dipulihkan!', 'success');
+
+        setTimeout(function() { window.location.reload(); }, 1500);
+      } catch(err) {
+        document.getElementById('import-status').textContent = '❌ File tidak valid. Pastikan file JSON dari EnglishPath.';
+        App.toast('Import gagal: format tidak dikenali', 'error');
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  });
+
+  // ── Reset progress ────────────────────────────────────────
+  document.getElementById('btn-reset-progress').addEventListener('click', function() {
+    if (!confirm('Yakin ingin mereset semua progress belajar?\n\nXP, badge, streak, dan riwayat quiz akan dihapus.\nProfil dan akun tetap aman.')) return;
+
+    Storage.setUser(userId, 'progress', {});
+    Storage.setUser(userId, 'xp', 0);
+    Storage.setUser(userId, 'xp_history', []);
+    Storage.setUser(userId, 'level', 1);
+    Storage.setUser(userId, 'streak', 0);
+    Storage.setUser(userId, 'last_active', null);
+    Storage.setUser(userId, 'badges', []);
+    Storage.setUser(userId, 'quiz_scores', []);
+    Storage.setUser(userId, 'activity_log', []);
+    Storage.setUser(userId, 'challenge', null);
+    Storage.setUser(userId, 'favorites', {});
+
+    // Clear SRS keys
+    for (var i = localStorage.length - 1; i >= 0; i--) {
+      var k = localStorage.key(i);
+      if (k && k.startsWith('ep_user_' + userId + '_srs_')) {
+        localStorage.removeItem(k);
+      }
+    }
+
+    App.toast('Progress berhasil direset', 'success');
+    setTimeout(function() { window.location.href = 'dashboard.html'; }, 1500);
+  });
+
+  // ── PWA Install ───────────────────────────────────────────
+  var deferredPrompt = null;
+
+  window.addEventListener('beforeinstallprompt', function(e) {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById('pwa-banner').style.display = 'flex';
+  });
+
+  document.getElementById('pwa-install-btn').addEventListener('click', function() {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function(result) {
+      if (result.outcome === 'accepted') {
+        document.getElementById('pwa-banner').style.display = 'none';
+        App.toast('EnglishPath berhasil diinstall!', 'success');
+      }
+      deferredPrompt = null;
+    });
+  });
+
+  // PWA status
+  (function() {
+    var statusEl = document.getElementById('pwa-status');
+    var isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
+                       window.navigator.standalone === true;
+    var hasSW = 'serviceWorker' in navigator;
+
+    if (isStandalone) {
+      statusEl.textContent = '✅ Berjalan sebagai aplikasi (installed)';
+    } else if (hasSW) {
+      statusEl.textContent = '🌐 Berjalan di browser — bisa diinstall sebagai PWA';
+    } else {
+      statusEl.textContent = '⚠️ Browser tidak mendukung PWA';
+    }
+  })();
 </script>
 </body>
 </html>

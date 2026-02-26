@@ -276,11 +276,41 @@ html {
   --text-3:        #8b7baa;
 }
 
+[data-color-theme="amber"] {
+  --primary:       #d97706;
+  --primary-dark:  #b45309;
+  --primary-light: #f59e0b;
+  --primary-soft:  #fef3c7;
+  --bg:            #fffbeb;
+  --surface-2:     #fef9e7;
+  --border:        #fde68a;
+  --border-2:      #fcd34d;
+  --text:          #1c1200;
+  --text-2:        #5c4200;
+  --text-3:        #a37a00;
+}
+
+[data-color-theme="rose"] {
+  --primary:       #e11d48;
+  --primary-dark:  #be123c;
+  --primary-light: #fb7185;
+  --primary-soft:  #ffe4e6;
+  --bg:            #fff1f2;
+  --surface-2:     #ffe4e6;
+  --border:        #fecdd3;
+  --border-2:      #fda4af;
+  --text:          #1c0008;
+  --text-2:        #5c0018;
+  --text-3:        #a3003a;
+}
+
 /* Dark + all themes: override surfaces */
 [data-theme="dark"][data-color-theme="ocean"],
 [data-theme="dark"][data-color-theme="forest"],
 [data-theme="dark"][data-color-theme="sunset"],
-[data-theme="dark"][data-color-theme="violet"] {
+[data-theme="dark"][data-color-theme="violet"],
+[data-theme="dark"][data-color-theme="amber"],
+[data-theme="dark"][data-color-theme="rose"] {
   --bg:       #0d1117;
   --surface:  #161b22;
   --surface-2:#21262d;

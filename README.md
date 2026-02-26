@@ -27,15 +27,15 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 1.0.0 |
-| **Fase Saat Ini** | FASE 9 ✅ — Intermediate: Reading & Listening |
-| **Fase Berikutnya** | FASE 10 — PWA, Profil & Settings |
+| **Versi App** | 1.1.0 |
+| **Fase Saat Ini** | FASE 10 ✅ — PWA, Profil & Settings |
+| **Fase Berikutnya** | FASE 11 — Tema & Kustomisasi UI |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
 | **Level** | A1 → A2 → B1 → B2 → C1 → C2 (CEFR) |
 | **Target Ujian** | IELTS, TOEIC, TOEFL iBT, Cambridge (B2 First, C1 Advanced) |
-| **PWA** | Direncanakan mulai Fase 10 |
+| **PWA** | ✅ Aktif sejak Fase 10 (manifest.json + sw.js) |
 | **Deploy** | GitHub Pages / Netlify (butuh HTTPS untuk PWA penuh) |
 
 ---
@@ -148,8 +148,11 @@ englishpath/
 │   └── grammar-intermediate.css    ✅ Grammar Intermediate styles (Fase 8b)
 │   └── reading-intermediate.css    ✅ Reading Intermediate styles (Fase 9)
 │   └── listening-intermediate.css  ✅ Listening Intermediate styles (Fase 9)
+│   └── profile.css                 ✅ Profile & Settings styles (Fase 10)
     ├── icons/
-    │   ├── icon-192.png               ✅
+    ├── manifest.json                   ✅ PWA manifest (Fase 10)
+├── sw.js                           ✅ Service Worker (Fase 10)
+│   ├── icon-192.png               ✅
     │   └── icon-512.png               ✅
     └── js/
         ├── core/
@@ -576,7 +579,7 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **8a** | Intermediate: Vocabulary B1–B2 | v0.9.1 | ✅ |
 | **8b** | Intermediate: Grammar B1–B2 | v0.9.2 | ✅ |
 | **9** | Intermediate: Reading & Listening | v1.0.0 | ✅ |
-| **10** | PWA, Profil & Settings | v1.1.0 | 🔲 |
+| **10** | PWA, Profil & Settings | v1.1.0 | ✅ |
 | **11** | Tema & Kustomisasi UI | v1.2.0 | 🔲 |
 | **12** | Study Planner | v1.3.0 | 🔲 |
 | **13** | IELTS: Practice & Simulasi | v2.0.0 | 🔲 |
@@ -670,7 +673,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v0.9.1 — Fase 8a** | 2026-02-26 | Intermediate: Vocabulary B1–B2 (400+ kata, 10 tema, SRS, Word Families, 5 mode belajar) | ✅ |
 | **v0.9.2 — Fase 8b** | 2026-02-26 | Intermediate: Grammar B1–B2 (12 topik B1+B2, 120 soal, 3 tipe quiz, progress tracker) | ✅ |
 | **v1.0.0 — Fase 9** | 2026-02-26 | Intermediate: Reading & Listening (8 artikel B1–B2 + 8 audio track B1–B2, comprehension quiz, TTS player) | ✅ |
-| **v1.1.0 — Fase 10** | TBD | PWA, Profil & Settings | 🔲 |
+| **v1.1.0 — Fase 10** | 2026-02-26 | PWA (manifest.json + sw.js), Profile upgrade (stats, badges, XP bar), Settings upgrade (backup/restore, daily goal, color themes, reset progress, PWA install banner) | ✅ |
 | **v1.2.0 — Fase 11** | TBD | Tema & Kustomisasi UI | 🔲 |
 | **v1.3.0 — Fase 12** | TBD | Study Planner | 🔲 |
 | **v2.0.0 — Fase 13** | TBD | IELTS: Practice & Simulasi | 🔲 |
@@ -687,7 +690,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 9 ✅ Intermediate: Reading & Listening → **Fase 10** 🔲 (berikutnya)
+> **Fase saat ini:** Fase 10 ✅ PWA, Profil & Settings → **Fase 11** 🔲 (berikutnya)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >
