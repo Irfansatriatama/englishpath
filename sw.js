@@ -4,7 +4,7 @@
  * Bump CACHE_NAME version whenever files are added/changed.
  */
 
-const CACHE_NAME = 'englishpath-v18';
+const CACHE_NAME = 'englishpath-v19';
 
 const ASSETS_TO_CACHE = [
   './',
@@ -165,6 +165,12 @@ const ASSETS_TO_CACHE = [
   './assets/js/pages/cambridge-result.js',
   './pages/cambridge/simulation.html',
   './pages/cambridge/result.html',
+  // Fase 17a — Advanced C1–C2
+  './assets/css/advanced.css',
+  './assets/js/data/advanced-vocab-data.js',
+  './assets/js/pages/advanced-vocab.js',
+  './pages/advanced/index.html',
+  './pages/advanced/vocabulary.html',
 ];
 
 // ── Install: cache all assets ──────────────────────────────

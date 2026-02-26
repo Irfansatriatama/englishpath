@@ -477,7 +477,8 @@ Jangan copy-paste kode dari Lingora secara membabi buta. Ambil **pola arsitektur
 | **16b** | **Cambridge: Practice (Reading & Use of English + Listening)** | **v2.3.2** |
 | **16c-1** | **Cambridge: Practice Writing & Speaking** | **v2.3.3** |
 | **16c-2** | **Cambridge: Simulasi Full Test + Halaman Hasil** | **v2.3.4** |
-| 17 | Advanced: Vocabulary & Grammar C1–C2 | v2.4.0 |
+| **17a** | **Advanced: Vocabulary C1–C2** ✅ | **v2.4.1** |
+| **17b** | **Advanced: Grammar C1–C2** | **v2.4.2** |
 | 18 | Advanced: Reading & Listening | v2.5.0 |
 | 19 | Speaking & Writing Modules | v2.6.0 |
 | 20 | Mini Game (5 game) | v3.0.0 |
@@ -618,6 +619,39 @@ Jangan copy-paste kode dari Lingora secara membabi buta. Ambil **pola arsitektur
 - Grade calculator: Cambridge Scale → Grade (A: 193–230, B: 180–192, C: 169–179, D: 160–168, E: 142–159, U: <142)
 - File baru: `cambridge-simulation-data.js`, `cambridge-simulation.js`, `cambridge-result.js`
 - localStorage baru: tambah entry ke `ep_user_{id}_sim_results` — {testType:'cambridge', date, level:'B2'/'C1', scores:{reading, uoe, writing, listening, speaking}, cambridgeScale, grade, xpAwarded}
+
+---
+
+### FASE 17 — Advanced C1–C2 (2 Tahap)
+
+✅ **Fase 17a — Advanced: Vocabulary C1–C2 (v2.4.1)** ✅ SELESAI 2026-02-26
+- Halaman hub Advanced (`pages/advanced/index.html`) — overview modul Advanced (C1–C2), jalur dari test-prep ke mastery, navigasi ke Vocabulary, Grammar, Reading, Listening
+- Halaman Vocabulary Advanced (`pages/advanced/vocabulary.html`) — 400+ kata C1–C2 dalam 8 domain (Academic & Intellectual, Formal & Written English, Idioms & Fixed Expressions, Collocations Advanced, Phrasal Verbs C1–C2, Word Formation Patterns, Nuanced Adjectives & Adverbs, Specialized Domains: Science/Law/Business), 5 mode belajar: Browse (search + domain filter + progress badge) / Flashcard (3D flip, SRS quality) / Quiz (translate + fill-in-context + word family) / SRS Review (SM-2 due cards) / Word Family Explorer (cluster kata per root/family)
+- File baru: `advanced-vocab-data.js`, `advanced.css`, `advanced-vocab.js`
+- localStorage baru: `ep_user_{id}_srs_advanced_vocab`, `ep_user_{id}_advanced_vocab`
+- XP: +5 vocab baru, +2 SRS review, +3 quiz benar, +20 quiz sempurna
+- SW bump: `englishpath-v19`
+
+**Fase 17b — Advanced: Grammar C1–C2 (v2.4.2)**
+- Halaman Grammar Advanced (`pages/advanced/grammar.html`) — 12 topik grammar C1–C2 dengan penjelasan mendalam + contoh + latihan 3 tipe soal (MCQ, fill-in, transform/rewrite)
+- Topik wajib:
+  1. Inversion (Negative Adverbials: Not only...but, Hardly...when, No sooner...than, dll)
+  2. Cleft Sentences (It is...that, What...is/are, All that, The reason why)
+  3. Nominal Clauses (that-clause, wh-clause, whether/if)
+  4. Complex Conditionals (Mixed, Inverted: Had I known, Were it not for, Should you need)
+  5. Subjunctive Mood (It is essential that, Wish/If only, as if/as though)
+  6. Advanced Passive Constructions (passive infinitive, passive with modals, get-passive)
+  7. Participle Clauses (present/past/perfect participle, dangling modifier avoidance)
+  8. Ellipsis & Substitution (so/not/do so, auxiliary substitution, pro-form)
+  9. Advanced Articles & Determiners (zero article with abstract nouns, generic reference)
+  10. Discourse Markers & Cohesion (stance markers, hedging language, academic discourse)
+  11. Advanced Modal Verbs (epistemic modality, must have, should have, needn't have)
+  12. Emphasis & Focus Structures (fronting, thematic progression, end-focus)
+- Setiap topik: 10 soal latihan acak, 3 tipe: MCQ, isi kosong (typed), transform kalimat
+- File baru: `advanced-grammar-data.js`, `advanced-grammar.js`
+- localStorage baru: `ep_user_{id}_advanced_grammar`
+- XP: +3 soal benar, +20 bonus sempurna; topik selesai jika skor terbaik ≥ 70%
+- SW bump: `englishpath-v20`
 
 ---
 

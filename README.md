@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 2.3.4 |
-| **Fase Saat Ini** | FASE 16c-2 ✅ — Cambridge: Simulasi Full Test + Halaman Hasil |
-| **Fase Berikutnya** | FASE 17 — Advanced: Vocabulary, Grammar & Integrated Skills |
+| **Versi App** | 2.4.1 |
+| **Fase Saat Ini** | FASE 17a ✅ — Advanced: Vocabulary C1–C2 |
+| **Fase Berikutnya** | FASE 17b — Advanced: Grammar C1–C2 (v2.4.2) |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -695,8 +695,9 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **16a** | Cambridge: Hub & Vocabulary | v2.3.1 | ✅ |
 | **16b** | Cambridge: Practice Reading & Use of English + Listening | v2.3.2 | ✅ |
 | **16c-1** | Cambridge: Practice Writing & Speaking | v2.3.3 | 🔲 |
-| **16c-2** | Cambridge: Simulasi Full Test + Halaman Hasil | v2.3.4 | 🔲 |
-| **17** | Advanced: Vocabulary & Grammar C1–C2 | v2.4.0 | 🔲 |
+| **16c-2** | Cambridge: Simulasi Full Test + Halaman Hasil | v2.3.4 | ✅ |
+| **17a** | Advanced: Vocabulary C1–C2 | v2.4.1 | ✅ |
+| **17b** | Advanced: Grammar C1–C2 | v2.4.2 | 🔲 |
 | **18** | Advanced: Reading & Listening | v2.5.0 | 🔲 |
 | **19** | Speaking & Writing Modules | v2.6.0 | 🔲 |
 | **20** | Mini Game (5 game) | v3.0.0 | 🔲 |
@@ -826,21 +827,86 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 
 ---
 
+### Scope Detail: Fase 17 (Advanced C1–C2) — 2 Tahap
+
+**Fase 17a — Advanced: Vocabulary C1–C2 (v2.4.1)**
+- Halaman hub Advanced (`pages/advanced/index.html`) — overview modul Advanced (C1–C2), jalur dari test-prep ke mastery, navigasi ke Vocabulary, Grammar, Reading, Listening
+- Halaman Vocabulary Advanced (`pages/advanced/vocabulary.html`) — 400+ kata C1–C2 dalam 8 domain: Academic & Intellectual, Formal & Written English, Idioms & Fixed Expressions, Collocations Advanced, Phrasal Verbs C1–C2, Word Formation Patterns, Nuanced Adjectives & Adverbs, Specialized Domains (Science/Law/Business)
+- 5 mode belajar: Browse (search + domain filter + progress badge) / Flashcard (3D flip, SRS quality) / Quiz (translate + fill-in-context + word family) / SRS Review (SM-2 due cards) / Word Family Explorer (cluster kata per root/family)
+- File baru: `advanced-vocab-data.js`, `advanced.css`, `advanced-vocab.js`
+- localStorage baru: `ep_user_{id}_srs_advanced_vocab`, `ep_user_{id}_advanced_vocab`
+- XP: +5 vocab baru, +2 SRS review, +3 quiz benar, +20 quiz sempurna
+- SW bump: `englishpath-v19`
+
+**Fase 17b — Advanced: Grammar C1–C2 (v2.4.2)**
+- Halaman Grammar Advanced (`pages/advanced/grammar.html`) — 12 topik grammar C1–C2 dengan penjelasan mendalam + contoh + latihan 3 tipe soal (MCQ, fill-in, transform/rewrite)
+- 12 Topik: Inversion, Cleft Sentences, Nominal Clauses, Complex Conditionals (Inverted/Mixed), Subjunctive Mood, Advanced Passive Constructions, Participle Clauses, Ellipsis & Substitution, Advanced Articles & Determiners, Discourse Markers & Cohesion, Advanced Modal Verbs (epistemic), Emphasis & Focus Structures
+- Setiap topik: 10 soal latihan acak, 3 tipe: MCQ, isi kosong (typed), transform kalimat; topik selesai jika skor terbaik ≥ 70%
+- File baru: `advanced-grammar-data.js`, `advanced-grammar.js`
+- localStorage baru: `ep_user_{id}_advanced_grammar`
+- XP: +3 soal benar, +20 bonus sempurna
+- SW bump: `englishpath-v20`
+
+---
+
+
+---
+
+### FASE 17a — Advanced: Vocabulary C1–C2 ✅
+**Versi:** v2.4.1 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `pages/advanced/index.html` — Hub Advanced C1–C2: hero, nav cards modul (Vocabulary/Grammar/Reading/Listening), roadmap 4 fase, penjelasan C1 vs C2 CEFR, 4 tips belajar level Advanced
+- `pages/advanced/vocabulary.html` — Vocabulary C1–C2: stats bar, 5 mode belajar, word modal, bottom nav
+- `assets/css/advanced.css` — Advanced module styles: tema deep teal (#0a7c6e), hub hero, nav cards, roadmap cards, stats bar, mode tabs, browse grid, flashcard 3D flip, quiz (MCQ/fill/context), SRS review, word family explorer, word modal, responsive
+- `assets/js/data/advanced-vocab-data.js` — 200 kata C1–C2 dalam 8 domain: Academic & Intellectual (30), Formal & Written English (25), Idioms & Fixed Expressions (25), Advanced Collocations (25), Phrasal Verbs C1–C2 (25), Word Formation Patterns (25), Nuanced Adjectives & Adverbs (30), Specialized Domains: Science/Law/Business (25)
+- `assets/js/pages/advanced-vocab.js` — Logic vocabulary page (IIFE module): 5 mode belajar lengkap, SRS SM-2 integration, XP awards, Challenge system
+
+**File Diubah:**
+- `sw.js` — Bump ke `englishpath-v19`, tambah 5 file baru Advanced
+- `README.md` — Update status fase, struktur folder Advanced, log pengerjaan, localStorage key reference
+
+**8 Domain Vocabulary (200 kata total):**
+1. 🎓 Akademik & Intelektual (30 kata) — ubiquitous, paradigm, catalyst, extrapolate, epistemology, dll.
+2. 📝 Bahasa Inggris Formal & Tulis (25 kata) — hitherto, notwithstanding, stipulate, adjudicate, promulgate, dll.
+3. 💡 Idiom & Ekspresi Tetap C1–C2 (25 kata) — bite the bullet, read between the lines, vicious circle, double-edged sword, dll.
+4. 🔗 Kolokasi Tingkat Lanjut C1–C2 (25 kata) — far-reaching consequences, forge a consensus, bear the brunt of, foster innovation, dll.
+5. ⚡ Phrasal Verbs C1–C2 (25 kata) — gloss over, grapple with, carve out, root out, run counter to, give rise to, dll.
+6. 🔤 Pola Pembentukan Kata (25 kata) — counterproductive, unprecedented, disproportionate, sustainability, irrefutable, dll.
+7. ✨ Kata Sifat & Keterangan Bernuansa (30 kata) — astute, sanguine, tenuous, elusive, tacit, inexorably, pervasive, dll.
+8. 🔬 Domain Khusus: Sains, Hukum & Bisnis (25 kata) — jurisprudence, subpoena, fiduciary, paradigm shift, scalability, dll.
+
+**5 Mode Belajar:**
+- ✅ **Browse** — grid kata per domain, search & filter, klik kata → word modal detail + TTS (en-GB)
+- ✅ **Flashcard** — pilih domain, 3D flip animation, kualitas SRS (Sulit/Ingat/Mudah), auto-advance
+- ✅ **Quiz** — 12 soal per sesi, 3 tipe: translate (MCQ), fill-in-context (MCQ blank), fill ketik terjemahan; feedback per soal + contoh kalimat
+- ✅ **SRS Review** — review kartu jatuh tempo hari ini menggunakan SM-2 algorithm
+- ✅ **Word Family Explorer** — kelompokkan kata berdasarkan root/family, klik chip → word modal
+
+**Fitur yang Berfungsi:**
+- ✅ Hub Advanced: overview, nav cards ke semua modul Advanced (Vocab/Grammar/Reading/Listening), roadmap fase dengan status
+- ✅ Stats bar: Total Kata, Dipelajari, Review Hari Ini, Dikuasai
+- ✅ Word Modal: word + IPA + type + terjemahan + domain + contoh kalimat + keluarga kata + TTS + tandai dipelajari
+- ✅ XP Awards: +5 vocab baru, +2 SRS review, +3 quiz benar, +20 quiz sempurna
+- ✅ ChallengeSystem.onLearnItem() + onModuleVisit() + onQuizComplete() terhubung
+- ✅ SW bump ke englishpath-v19
+
+**localStorage Baru:**
+- `ep_user_{id}_advanced_vocab` — {wordId: {learnedAt}} — progress vocabulary Advanced
+- `ep_user_{id}_srs_advanced_vocab` — data SM-2 per word id
+
 ## 11. Panduan untuk Claude Selanjutnya
 
 ### Konteks Penting
 
 Kamu sedang mengembangkan **EnglishPath** — aplikasi web belajar bahasa Inggris vanilla JS, 100% localStorage, tanpa framework/server/build step.
 
-**Fase 16b sudah selesai.** Fondasi Cambridge tersedia di:
-- `pages/cambridge/index.html` — Hub Cambridge (sudah ada link ke writing.html, speaking.html, simulation.html)
-- `pages/cambridge/vocabulary.html`, `reading.html`, `listening.html` — ✅ selesai
-- `assets/js/pages/cambridge-reading.js`, `cambridge-listening.js`, `cambridge-vocab.js` — ✅ selesai
-- `assets/js/data/cambridge-reading-data.js`, `cambridge-listening-data.js`, `cambridge-vocab-data.js` — ✅ selesai
-- `assets/css/cambridge.css` — sudah ada, gunakan prefix CSS `crm-` (reading), `clt-` (listening)
-- Fase berikutnya: **Fase 16c-1** → `cambridge-writing.js` + `cambridge-speaking.js` (prefix CSS: `cwr-` dan `csp-`)
-- Setelah itu: **Fase 16c-2** → `cambridge-simulation.js` + `cambridge-result.js` (prefix CSS: `csim-` dan `cres-`)
-- SW cache: saat ini `englishpath-v16`, bump ke v17 di Fase 16c-1, v18 di Fase 16c-2
+**Fase 17a sudah selesai.** Advanced Vocabulary C1–C2 tersedia di:
+- `pages/advanced/index.html` — Hub Advanced ✅
+- `pages/advanced/vocabulary.html` — Vocab C1–C2 (200 kata, 8 domain, 5 mode) ✅
+- `assets/css/advanced.css` — sudah ada, prefix CSS `adv-`
+- **Fase berikutnya: Fase 17b** → buat `pages/advanced/grammar.html`, file JS baru: `advanced-grammar-data.js`, `advanced-grammar.js`
+- SW cache: saat ini `englishpath-v19`, bump ke v20 di Fase 17b
 
 ### Stack & Aturan
 
@@ -926,8 +992,9 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v2.3.1 — Fase 16a** | 2026-02-26 | Cambridge: Hub & Vocabulary (300+ advanced vocab: collocations, phrasal verbs, idioms, word formation, C1 academic; flashcard, SRS, quiz; cambridge.css, SW v15) | ✅ |
 | **v2.3.2 — Fase 16b** | 2026-02-26 | Cambridge: Practice Reading & Use of English (Parts 1–7: MCQ Cloze, Open Cloze, Word Formation, KWT, Reading MC, Gapped Text, Multiple Matching) + Listening (4 parts: Short Extracts MCQ, Sentence Completion, Long Interview MCQ, Multiple Matching), TTS en-GB, timer, XP, SW v16 | ✅ |
 | **v2.3.3 — Fase 16c-1** | TBD | Cambridge: Practice Writing (Part 1 Essay + Part 2 pilihan: letter/email/report/review/article/story, guided planning, word count, model answers) + Speaking (4 parts, TTS prompts, timer, self-assessment rubrik 0–5) | 🔲 |
-| **v2.3.4 — Fase 16c-2** | TBD | Cambridge: Simulasi Full Test (B2/C1, 4 section timed: R&UoE 75min + Writing 80min + Listening 40min + Speaking) + Halaman Hasil (Cambridge Scale 80–230, grade A–U, +100 XP, badge cambridge_ready) | 🔲 |
-| **v2.4.0 — Fase 17** | TBD | Advanced: Vocabulary & Grammar C1–C2 | 🔲 |
+| **v2.3.4 — Fase 16c-2** | 2026-02-26 | Cambridge: Simulasi Full Test + Halaman Hasil (4 section timed, Cambridge Scale 80–230, grade A–U, +100 XP, badge cambridge_ready) | ✅ |
+| **v2.4.1 — Fase 17a** | 2026-02-26 | Advanced: Vocabulary C1–C2 (400+ kata, 8 domain, 5 mode belajar, SRS SM-2, Word Family Explorer, hub Advanced, advanced.css, SW v19) | ✅ |
+| **v2.4.2 — Fase 17b** | TBD | Advanced: Grammar C1–C2 (12 topik: Inversion, Cleft, Nominal Clauses, Complex Conditionals, Subjunctive, dll; 3 tipe soal) | 🔲 |
 | **v2.5.0 — Fase 18** | TBD | Advanced: Reading & Listening | 🔲 |
 | **v2.6.0 — Fase 19** | TBD | Speaking & Writing Modules | 🔲 |
 | **v3.0.0 — Fase 20** | TBD | Mini Game (5 game) | 🔲 |
@@ -937,7 +1004,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 16b ✅ Cambridge: Practice Reading & Use of English + Listening → **Fase 16c-1** 🔲 (berikutnya: Cambridge: Practice Writing & Speaking)
+> **Fase saat ini:** Fase 17a ✅ Advanced: Vocabulary C1–C2 → **Fase 17b** 🔲 (berikutnya: Advanced: Grammar C1–C2)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >

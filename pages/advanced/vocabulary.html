@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vocabulary C1–C2 — EnglishPath</title>
+  <meta name="theme-color" content="#0a7c6e">
+  <link rel="manifest" href="../../manifest.json">
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+      const fn = localStorage.getItem('ep_font');
+      if (fn) document.documentElement.setAttribute('data-font', fn);
+      const rd = localStorage.getItem('ep_radius');
+      if (rd) document.documentElement.setAttribute('data-radius', rd);
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/advanced.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-main">EnglishPath</div>
+      <div class="logo-sub">A1 → C2 + IELTS · TOEIC · TOEFL · Cambridge</div>
+    </div>
+    <div class="sidebar-user">
+      <div class="avatar-circle" data-user-avatar>🇬🇧</div>
+      <div class="sidebar-user-info">
+        <div class="user-name" data-user-name>Pengguna</div>
+        <div class="user-level" data-user-email>—</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Umum</div>
+      <a class="nav-item" href="../dashboard.html" data-page="dashboard"><span class="nav-icon">🏠</span>Dashboard</a>
+      <a class="nav-item" href="../stats.html" data-page="stats"><span class="nav-icon">📊</span>Statistik</a>
+      <a class="nav-item" href="../settings.html" data-page="settings"><span class="nav-icon">⚙️</span>Pengaturan</a>
+      <div class="nav-section-label">Foundation (A1–A2)</div>
+      <a class="nav-item" href="../foundation/vocabulary.html" data-page="foundation-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../foundation/grammar.html" data-page="foundation-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../foundation/pronunciation.html" data-page="foundation-pronunciation"><span class="nav-icon">🔊</span>Pronunciation</a>
+      <a class="nav-item" href="../foundation/dialog.html" data-page="foundation-dialog"><span class="nav-icon">💬</span>Dialog</a>
+      <a class="nav-item" href="../foundation/quiz.html" data-page="foundation-quiz"><span class="nav-icon">⭐</span>Quiz Foundation</a>
+      <div class="nav-section-label">Intermediate (B1–B2)</div>
+      <a class="nav-item" href="../intermediate/vocabulary.html" data-page="intermediate-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../intermediate/grammar.html" data-page="intermediate-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../intermediate/reading.html" data-page="intermediate-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="../intermediate/listening.html" data-page="intermediate-listening"><span class="nav-icon">🎧</span>Listening</a>
+      <div class="nav-section-label">Advanced (C1–C2)</div>
+      <a class="nav-item" href="index.html" data-page="advanced"><span class="nav-icon">🏅</span>Hub Advanced</a>
+      <a class="nav-item active" href="vocabulary.html" data-page="advanced-vocab"><span class="nav-icon">📚</span>Vocabulary C1–C2</a>
+      <a class="nav-item" href="grammar.html" data-page="advanced-grammar"><span class="nav-icon">📝</span>Grammar C1–C2</a>
+      <div class="nav-section-label">Persiapan Tes</div>
+      <a class="nav-item" href="../ielts/index.html" data-page="ielts"><span class="nav-icon">🎯</span>IELTS</a>
+      <a class="nav-item" href="../toeic/index.html" data-page="toeic"><span class="nav-icon">🎯</span>TOEIC</a>
+      <a class="nav-item" href="../toefl/index.html" data-page="toefl"><span class="nav-icon">🎓</span>TOEFL iBT</a>
+      <a class="nav-item" href="../cambridge/index.html" data-page="cambridge"><span class="nav-icon">🏛️</span>Cambridge</a>
+      <div class="nav-section-label">Lainnya</div>
+      <a class="nav-item" href="../theme.html" data-page="theme"><span class="nav-icon">🎨</span>Tema &amp; Tampilan</a>
+      <a class="nav-item" href="../planner.html" data-page="planner"><span class="nav-icon">📅</span>Study Planner</a>
+      <a class="nav-item" href="../games.html" data-page="games"><span class="nav-icon">🎮</span>Mini Game</a>
+      <div class="nav-section-label">Akun</div>
+      <a class="nav-item" href="../profile.html" data-page="profile"><span class="nav-icon">👤</span>Profil</a>
+      <a class="nav-item" href="../change-password.html" data-page="change-password"><span class="nav-icon">🔒</span>Ganti Password</a>
+      <a class="nav-item" href="#" data-action="logout"><span class="nav-icon">🚪</span>Keluar</a>
+    </nav>
+  </nav>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <!-- Main Content -->
+  <div class="main-content" id="main-content">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <button class="hamburger" id="hamburger">☰</button>
+      <div class="topbar-title">Vocabulary C1–C2</div>
+      <button class="theme-toggle-btn" id="theme-toggle-btn">🌙</button>
+    </div>
+
+    <!-- Mobile Topbar -->
+    <div class="mobile-topbar">
+      <button class="hamburger" id="hamburger-mobile">☰</button>
+      <span class="mobile-topbar-title">Vocabulary C1–C2</span>
+      <button class="theme-toggle-btn" id="theme-toggle-btn-mobile">🌙</button>
+    </div>
+
+    <div class="page-body">
+
+      <!-- Header -->
+      <div class="adv-vocab-header">
+        <h1>📚 Vocabulary C1–C2</h1>
+        <p>400+ kata level lanjut dalam 8 domain — akademik, formal, idiom, kolokasi, phrasal verbs, pembentukan kata, dan domain khusus</p>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="adv-stats-bar">
+        <div class="adv-stat-item">
+          <span class="stat-val" id="stat-total">—</span>
+          <span class="stat-lbl">Total Kata</span>
+        </div>
+        <div class="adv-stat-item">
+          <span class="stat-val" id="stat-learned">—</span>
+          <span class="stat-lbl">Dipelajari</span>
+        </div>
+        <div class="adv-stat-item">
+          <span class="stat-val" id="stat-due">—</span>
+          <span class="stat-lbl">Review Hari Ini</span>
+        </div>
+        <div class="adv-stat-item">
+          <span class="stat-val" id="stat-mastered">—</span>
+          <span class="stat-lbl">Dikuasai</span>
+        </div>
+      </div>
+
+      <!-- Mode Tabs -->
+      <div class="adv-mode-tabs">
+        <button class="adv-tab-btn active" data-mode="browse">🔍 Browse</button>
+        <button class="adv-tab-btn" data-mode="flashcard">🃏 Flashcard</button>
+        <button class="adv-tab-btn" data-mode="quiz">🧠 Quiz</button>
+        <button class="adv-tab-btn" data-mode="srs">🔄 SRS Review</button>
+        <button class="adv-tab-btn" data-mode="family">🌳 Word Family</button>
+      </div>
+
+      <!-- ── Panel: Browse ─────────────────────────────────── -->
+      <div data-panel="browse">
+        <div class="adv-browse-controls">
+          <input class="adv-search-input" id="browse-search" type="text" placeholder="🔍 Cari kata atau terjemahan...">
+        </div>
+        <div class="adv-domain-filter" id="domain-filter">
+          <!-- rendered by JS -->
+        </div>
+        <div class="adv-word-grid" id="word-grid">
+          <!-- rendered by JS -->
+        </div>
+      </div>
+
+      <!-- ── Panel: Flashcard ──────────────────────────────── -->
+      <div data-panel="flashcard" class="hidden">
+        <div class="adv-fc-controls">
+          <div>
+            <label style="font-size:.8rem;font-weight:600;display:block;margin-bottom:.3rem">Domain:</label>
+            <select id="fc-domain-select">
+              <!-- populated by JS -->
+            </select>
+          </div>
+        </div>
+
+        <div class="adv-fc-progress" id="fc-progress">— / —</div>
+        <div class="adv-flashcard-wrap">
+          <div class="adv-flashcard" id="flashcard">
+            <div class="adv-fc-front" id="fc-front">
+              <div class="fc-word">—</div>
+              <div class="fc-ipa">—</div>
+              <div class="fc-type">—</div>
+            </div>
+            <div class="adv-fc-back" id="fc-back">
+              <div class="fc-trans">—</div>
+              <div class="fc-example">—</div>
+            </div>
+          </div>
+        </div>
+        <div class="adv-fc-hint">Klik kartu untuk membalik dan lihat terjemahan</div>
+
+        <div class="adv-quality-btns hidden" id="fc-quality-btns">
+          <button class="adv-quality-btn hard" data-quality="0">😓 Sulit</button>
+          <button class="adv-quality-btn ok"   data-quality="1">🙂 Ingat</button>
+          <button class="adv-quality-btn easy" data-quality="2">😄 Mudah</button>
+        </div>
+      </div>
+
+      <!-- ── Panel: Quiz ───────────────────────────────────── -->
+      <div data-panel="quiz" class="hidden">
+        <!-- rendered by JS -->
+      </div>
+
+      <!-- ── Panel: SRS Review ─────────────────────────────── -->
+      <div data-panel="srs" class="hidden">
+        <!-- rendered by JS -->
+      </div>
+
+      <!-- ── Panel: Word Family Explorer ──────────────────── -->
+      <div data-panel="family" class="hidden">
+        <!-- rendered by JS -->
+      </div>
+
+    </div><!-- end page-body -->
+
+    <!-- Word Modal -->
+    <div class="adv-modal-overlay hidden" id="word-modal">
+      <div class="adv-modal-box">
+        <div class="adv-modal-word" id="modal-word">—</div>
+        <div class="adv-modal-ipa"  id="modal-ipa">—</div>
+        <div class="adv-modal-type" id="modal-type">—</div>
+        <div class="adv-modal-trans" id="modal-trans">—</div>
+        <div class="adv-modal-domain" id="modal-domain">—</div>
+        <div class="adv-modal-example" id="modal-example">—</div>
+        <div class="adv-modal-family" id="modal-family"></div>
+        <div class="adv-modal-actions">
+          <button class="adv-modal-btn primary" id="modal-speak-btn">🔊 Dengarkan</button>
+          <button class="adv-modal-btn" id="modal-learn-btn">📌 Tandai Dipelajari</button>
+          <button class="adv-modal-btn" id="modal-close-btn">✕ Tutup</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Nav Mobile -->
+    <nav class="bottom-nav">
+      <a class="bottom-nav-item" href="../dashboard.html" data-page="dashboard"><span>🏠</span><span>Home</span></a>
+      <a class="bottom-nav-item" href="../stats.html" data-page="stats"><span>📊</span><span>Stats</span></a>
+      <a class="bottom-nav-item active" href="index.html" data-page="advanced"><span>🏅</span><span>Advanced</span></a>
+      <a class="bottom-nav-item" href="../profile.html" data-page="profile"><span>👤</span><span>Profil</span></a>
+    </nav>
+
+  </div><!-- end main-content -->
+</div><!-- end app-shell -->
+
+<script src="../../assets/js/core/storage.js"></script>
+<script src="../../assets/js/core/auth.js"></script>
+<script src="../../assets/js/core/router.js"></script>
+<script src="../../assets/js/core/app.js"></script>
+<script src="../../assets/js/modules/xp.js"></script>
+<script src="../../assets/js/modules/challenge.js"></script>
+<script src="../../assets/js/modules/badge.js"></script>
+<script src="../../assets/js/modules/srs.js"></script>
+<script src="../../assets/js/data/advanced-vocab-data.js"></script>
+<script src="../../assets/js/pages/advanced-vocab.js"></script>
+<script>
+  Router.guard();
+  App.init('advanced-vocab');
+  AdvancedVocab.init();
+</script>
+</body>
+</html>

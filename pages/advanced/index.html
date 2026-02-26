@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced C1–C2 — EnglishPath</title>
+  <meta name="theme-color" content="#0a7c6e">
+  <link rel="manifest" href="../../manifest.json">
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+      const fn = localStorage.getItem('ep_font');
+      if (fn) document.documentElement.setAttribute('data-font', fn);
+      const rd = localStorage.getItem('ep_radius');
+      if (rd) document.documentElement.setAttribute('data-radius', rd);
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/advanced.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-main">EnglishPath</div>
+      <div class="logo-sub">A1 → C2 + IELTS · TOEIC · TOEFL · Cambridge</div>
+    </div>
+    <div class="sidebar-user">
+      <div class="avatar-circle" data-user-avatar>🇬🇧</div>
+      <div class="sidebar-user-info">
+        <div class="user-name" data-user-name>Pengguna</div>
+        <div class="user-level" data-user-email>—</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Umum</div>
+      <a class="nav-item" href="../dashboard.html" data-page="dashboard"><span class="nav-icon">🏠</span>Dashboard</a>
+      <a class="nav-item" href="../stats.html" data-page="stats"><span class="nav-icon">📊</span>Statistik</a>
+      <a class="nav-item" href="../settings.html" data-page="settings"><span class="nav-icon">⚙️</span>Pengaturan</a>
+      <div class="nav-section-label">Foundation (A1–A2)</div>
+      <a class="nav-item" href="../foundation/vocabulary.html" data-page="foundation-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../foundation/grammar.html" data-page="foundation-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../foundation/pronunciation.html" data-page="foundation-pronunciation"><span class="nav-icon">🔊</span>Pronunciation</a>
+      <a class="nav-item" href="../foundation/dialog.html" data-page="foundation-dialog"><span class="nav-icon">💬</span>Dialog</a>
+      <a class="nav-item" href="../foundation/quiz.html" data-page="foundation-quiz"><span class="nav-icon">⭐</span>Quiz Foundation</a>
+      <div class="nav-section-label">Intermediate (B1–B2)</div>
+      <a class="nav-item" href="../intermediate/vocabulary.html" data-page="intermediate-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../intermediate/grammar.html" data-page="intermediate-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../intermediate/reading.html" data-page="intermediate-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="../intermediate/listening.html" data-page="intermediate-listening"><span class="nav-icon">🎧</span>Listening</a>
+      <div class="nav-section-label">Advanced (C1–C2)</div>
+      <a class="nav-item active" href="index.html" data-page="advanced"><span class="nav-icon">🏅</span>Hub Advanced</a>
+      <a class="nav-item" href="vocabulary.html" data-page="advanced-vocab"><span class="nav-icon">📚</span>Vocabulary C1–C2</a>
+      <a class="nav-item" href="grammar.html" data-page="advanced-grammar"><span class="nav-icon">📝</span>Grammar C1–C2</a>
+      <div class="nav-section-label">Persiapan Tes</div>
+      <a class="nav-item" href="../ielts/index.html" data-page="ielts"><span class="nav-icon">🎯</span>IELTS</a>
+      <a class="nav-item" href="../toeic/index.html" data-page="toeic"><span class="nav-icon">🎯</span>TOEIC</a>
+      <a class="nav-item" href="../toefl/index.html" data-page="toefl"><span class="nav-icon">🎓</span>TOEFL iBT</a>
+      <a class="nav-item" href="../cambridge/index.html" data-page="cambridge"><span class="nav-icon">🏛️</span>Cambridge</a>
+      <div class="nav-section-label">Lainnya</div>
+      <a class="nav-item" href="../theme.html" data-page="theme"><span class="nav-icon">🎨</span>Tema &amp; Tampilan</a>
+      <a class="nav-item" href="../planner.html" data-page="planner"><span class="nav-icon">📅</span>Study Planner</a>
+      <a class="nav-item" href="../games.html" data-page="games"><span class="nav-icon">🎮</span>Mini Game</a>
+      <div class="nav-section-label">Akun</div>
+      <a class="nav-item" href="../profile.html" data-page="profile"><span class="nav-icon">👤</span>Profil</a>
+      <a class="nav-item" href="../change-password.html" data-page="change-password"><span class="nav-icon">🔒</span>Ganti Password</a>
+      <a class="nav-item" href="#" data-action="logout"><span class="nav-icon">🚪</span>Keluar</a>
+    </nav>
+  </nav>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <!-- Main Content -->
+  <div class="main-content" id="main-content">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <button class="hamburger" id="hamburger">☰</button>
+      <div class="topbar-title">Advanced C1–C2</div>
+      <button class="theme-toggle-btn" id="theme-toggle-btn">🌙</button>
+    </div>
+
+    <!-- Mobile Topbar -->
+    <div class="mobile-topbar">
+      <button class="hamburger" id="hamburger-mobile">☰</button>
+      <span class="mobile-topbar-title">Advanced C1–C2</span>
+      <button class="theme-toggle-btn" id="theme-toggle-btn-mobile">🌙</button>
+    </div>
+
+    <div class="page-body">
+
+      <!-- Hero -->
+      <div class="adv-hub-hero">
+        <h1>🏅 Advanced — C1 &amp; C2</h1>
+        <p>Level tertinggi dalam perjalanan bahasa Inggris. Kuasai kosakata akademik, grammar kompleks, dan komunikasi setara penutur asli.</p>
+        <div class="adv-hub-badges">
+          <span class="adv-hub-badge">C1 — Advanced</span>
+          <span class="adv-hub-badge">C2 — Mastery</span>
+          <span class="adv-hub-badge">Academic English</span>
+          <span class="adv-hub-badge">Native-level Fluency</span>
+        </div>
+      </div>
+
+      <!-- Nav Cards -->
+      <div class="adv-section-title">📖 Modul Belajar Advanced</div>
+      <div class="adv-nav-grid">
+        <a class="adv-nav-card" href="vocabulary.html">
+          <span class="adv-card-icon">📚</span>
+          <span class="adv-card-title">Vocabulary C1–C2</span>
+          <span class="adv-card-sub">400+ kata akademik, idiom, kolokasi, phrasal verbs, Word Family Explorer</span>
+        </a>
+        <a class="adv-nav-card" href="grammar.html" style="opacity:.7;pointer-events:none">
+          <span class="adv-card-icon">📝</span>
+          <span class="adv-card-title">Grammar C1–C2</span>
+          <span class="adv-card-sub">Inversion, Cleft Sentences, Complex Conditionals, Subjunctive — segera hadir</span>
+        </a>
+        <a class="adv-nav-card" href="#" style="opacity:.7;pointer-events:none">
+          <span class="adv-card-icon">📖</span>
+          <span class="adv-card-title">Reading C1–C2</span>
+          <span class="adv-card-sub">Teks akademik, editorial, opini panjang — segera hadir</span>
+        </a>
+        <a class="adv-nav-card" href="#" style="opacity:.7;pointer-events:none">
+          <span class="adv-card-icon">🎧</span>
+          <span class="adv-card-title">Listening C1–C2</span>
+          <span class="adv-card-sub">Podcast, debat, kuliah akademik di kecepatan asli — segera hadir</span>
+        </a>
+      </div>
+
+      <!-- Roadmap -->
+      <div class="adv-section-title">🗺️ Roadmap Fase Advanced</div>
+      <div class="adv-roadmap">
+        <div class="adv-roadmap-card">
+          <div class="rm-phase">Fase 17a</div>
+          <div class="rm-title">Vocabulary C1–C2</div>
+          <div class="rm-desc">400+ kata dalam 8 domain, 5 mode belajar: Browse, Flashcard, Quiz, SRS Review, Word Family Explorer</div>
+          <span class="rm-status rm-status-done">✅ Selesai</span>
+        </div>
+        <div class="adv-roadmap-card">
+          <div class="rm-phase">Fase 17b</div>
+          <div class="rm-title">Grammar C1–C2</div>
+          <div class="rm-desc">12 topik grammar tingkat lanjut: Inversion, Cleft Sentences, Nominal Clauses, Complex Conditionals, Subjunctive, dll.</div>
+          <span class="rm-status rm-status-next">🔜 Berikutnya</span>
+        </div>
+        <div class="adv-roadmap-card">
+          <div class="rm-phase">Fase 18</div>
+          <div class="rm-title">Reading &amp; Listening Advanced</div>
+          <div class="rm-desc">Teks akademik C1–C2, podcast kecepatan native, debat dan editorial panjang</div>
+          <span class="rm-status rm-status-upcoming">⏳ Akan Datang</span>
+        </div>
+        <div class="adv-roadmap-card">
+          <div class="rm-phase">Fase 19</div>
+          <div class="rm-title">Speaking &amp; Writing Advanced</div>
+          <div class="rm-desc">Presentasi, debat, esai argumentatif, academic writing style</div>
+          <span class="rm-status rm-status-upcoming">⏳ Akan Datang</span>
+        </div>
+      </div>
+
+      <!-- What is C1/C2 -->
+      <div class="adv-section-title">🎯 Apa itu Level C1 dan C2?</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem">
+        <div class="adv-roadmap-card">
+          <div class="rm-phase">C1 — Advanced</div>
+          <div class="rm-title">Mahir Berbahasa Inggris</div>
+          <div class="rm-desc">Mampu memahami berbagai teks panjang dan kompleks, berekspresi dengan spontan dan fasih, menggunakan bahasa secara fleksibel dan efektif untuk keperluan sosial, akademik, dan profesional.</div>
+          <div style="margin-top:.75rem;font-size:.8rem;opacity:.65">Setara: IELTS 7.0–8.0 · TOEFL 95–114 · CAE A/B</div>
+        </div>
+        <div class="adv-roadmap-card">
+          <div class="rm-phase">C2 — Mastery</div>
+          <div class="rm-title">Penguasaan Penuh</div>
+          <div class="rm-desc">Mampu memahami dengan mudah hampir semua yang didengar atau dibaca. Dapat merangkum informasi dari berbagai sumber lisan dan tulisan, mengungkapkan diri secara spontan, sangat fasih dan tepat.</div>
+          <div style="margin-top:.75rem;font-size:.8rem;opacity:.65">Setara: IELTS 8.5–9.0 · CPE · Native-like proficiency</div>
+        </div>
+      </div>
+
+      <!-- Tips -->
+      <div class="adv-section-title">💡 Tips Belajar di Level Advanced</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem;margin-bottom:2rem">
+        <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md,12px);padding:1rem">
+          <div style="font-size:1.5rem;margin-bottom:.4rem">📰</div>
+          <div style="font-weight:700;margin-bottom:.3rem">Baca setiap hari</div>
+          <div style="font-size:.85rem;opacity:.7">The Economist, The Guardian, BBC — 15 menit per hari untuk menyerap kosakata C1–C2 secara kontekstual.</div>
+        </div>
+        <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md,12px);padding:1rem">
+          <div style="font-size:1.5rem;margin-bottom:.4rem">🎙️</div>
+          <div style="font-weight:700;margin-bottom:.3rem">Shadowing aktif</div>
+          <div style="font-size:.85rem;opacity:.7">Dengarkan podcast native-speed (TED Talks, Lexicon Valley) dan tirukan intonasi serta ritme berbicara.</div>
+        </div>
+        <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md,12px);padding:1rem">
+          <div style="font-size:1.5rem;margin-bottom:.4rem">✍️</div>
+          <div style="font-weight:700;margin-bottom:.3rem">Tulis esai mingguan</div>
+          <div style="font-size:.85rem;opacity:.7">Latih menulis 250–400 kata tentang isu aktual. Gunakan kolokasi dan vocabulary C1 yang dipelajari di sini.</div>
+        </div>
+        <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md,12px);padding:1rem">
+          <div style="font-size:1.5rem;margin-bottom:.4rem">🔄</div>
+          <div style="font-weight:700;margin-bottom:.3rem">SRS konsisten</div>
+          <div style="font-size:.85rem;opacity:.7">Review SRS vocabulary setiap hari — 10 menit cukup untuk mempertahankan semua kata yang sudah dipelajari.</div>
+        </div>
+      </div>
+
+    </div><!-- end page-body -->
+
+    <!-- Bottom Nav Mobile -->
+    <nav class="bottom-nav">
+      <a class="bottom-nav-item" href="../dashboard.html" data-page="dashboard"><span>🏠</span><span>Home</span></a>
+      <a class="bottom-nav-item" href="../stats.html" data-page="stats"><span>📊</span><span>Stats</span></a>
+      <a class="bottom-nav-item active" href="index.html" data-page="advanced"><span>🏅</span><span>Advanced</span></a>
+      <a class="bottom-nav-item" href="../profile.html" data-page="profile"><span>👤</span><span>Profil</span></a>
+    </nav>
+
+  </div><!-- end main-content -->
+</div><!-- end app-shell -->
+
+<script src="../../assets/js/core/storage.js"></script>
+<script src="../../assets/js/core/auth.js"></script>
+<script src="../../assets/js/core/router.js"></script>
+<script src="../../assets/js/core/app.js"></script>
+<script>
+  Router.guard();
+  App.init('advanced');
+</script>
+</body>
+</html>
