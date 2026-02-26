@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pronunciation & Phonetics — EnglishPath</title>
+  <meta name="theme-color" content="#1a6cf0">
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+      const fn = localStorage.getItem('ep_font');
+      if (fn) document.documentElement.setAttribute('data-font', fn);
+      const rd = localStorage.getItem('ep_radius');
+      if (rd) document.documentElement.setAttribute('data-radius', rd);
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/pronunciation.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-main">EnglishPath</div>
+      <div class="logo-sub">A1 → C2 + IELTS · TOEIC · TOEFL</div>
+    </div>
+    <div class="sidebar-user">
+      <div class="avatar-circle" data-user-avatar>🇬🇧</div>
+      <div class="sidebar-user-info">
+        <div class="user-name" data-user-name>Pengguna</div>
+        <div class="user-level" data-user-email>—</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Umum</div>
+      <a class="nav-item" href="../dashboard.html" data-page="dashboard"><span class="nav-icon">🏠</span>Dashboard</a>
+      <a class="nav-item" href="../stats.html" data-page="stats"><span class="nav-icon">📊</span>Statistik</a>
+      <a class="nav-item" href="../settings.html" data-page="settings"><span class="nav-icon">⚙️</span>Pengaturan</a>
+      <div class="nav-section-label">Foundation (A1–A2)</div>
+      <a class="nav-item" href="vocabulary.html" data-page="foundation-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="grammar.html" data-page="foundation-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="pronunciation.html" data-page="foundation-pronunciation"><span class="nav-icon">🔊</span>Pronunciation</a>
+      <a class="nav-item" href="dialog.html" data-page="foundation-dialog"><span class="nav-icon">💬</span>Dialog</a>
+      <a class="nav-item" href="quiz.html" data-page="foundation-quiz"><span class="nav-icon">⭐</span>Quiz Foundation</a>
+      <div class="nav-section-label">Intermediate (B1–B2)</div>
+      <a class="nav-item" href="../intermediate/vocabulary.html" data-page="intermediate-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../intermediate/grammar.html" data-page="intermediate-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../intermediate/reading.html" data-page="intermediate-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="../intermediate/listening.html" data-page="intermediate-listening"><span class="nav-icon">🎧</span>Listening</a>
+      <a class="nav-item" href="../intermediate/quiz.html" data-page="intermediate-quiz"><span class="nav-icon">⭐</span>Quiz Intermediate</a>
+      <div class="nav-section-label">Advanced (C1–C2)</div>
+      <a class="nav-item" href="../advanced/vocabulary.html" data-page="advanced-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../advanced/grammar.html" data-page="advanced-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../advanced/reading.html" data-page="advanced-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="../advanced/quiz.html" data-page="advanced-quiz"><span class="nav-icon">⭐</span>Quiz Advanced</a>
+      <div class="nav-section-label">Persiapan Tes</div>
+      <a class="nav-item" href="../ielts/overview.html" data-page="ielts"><span class="nav-icon">🎯</span>IELTS</a>
+      <a class="nav-item" href="../toeic/overview.html" data-page="toeic"><span class="nav-icon">🎯</span>TOEIC</a>
+      <a class="nav-item" href="../toefl/overview.html" data-page="toefl"><span class="nav-icon">🎯</span>TOEFL iBT</a>
+      <a class="nav-item" href="../cambridge/overview.html" data-page="cambridge"><span class="nav-icon">🎯</span>Cambridge</a>
+      <div class="nav-section-label">Lainnya</div>
+      <a class="nav-item" href="../planner.html" data-page="planner"><span class="nav-icon">📅</span>Study Planner</a>
+      <a class="nav-item" href="../games.html" data-page="games"><span class="nav-icon">🎮</span>Mini Game</a>
+      <div class="nav-section-label">Akun</div>
+      <a class="nav-item" href="../profile.html" data-page="profile"><span class="nav-icon">👤</span>Profil</a>
+      <a class="nav-item" href="../change-password.html" data-page="change-password"><span class="nav-icon">🔒</span>Ganti Password</a>
+      <a class="nav-item" href="#" data-action="logout"><span class="nav-icon">🚪</span>Keluar</a>
+    </nav>
+  </nav>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <!-- Main content -->
+  <div class="main-content">
+
+    <!-- Desktop topbar -->
+    <div class="topbar">
+      <div class="topbar-title">🔊 Pronunciation & Phonetics</div>
+      <div class="topbar-actions">
+        <button class="theme-toggle-btn" title="Ganti tema">🌙</button>
+      </div>
+    </div>
+
+    <!-- Mobile topbar -->
+    <div class="mobile-topbar">
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="logo-main">Pronunciation</div>
+      <button class="theme-toggle-btn" title="Ganti tema">🌙</button>
+    </div>
+
+    <!-- Page body -->
+    <div class="page-body">
+
+      <!-- Page Header -->
+      <div class="pron-header">
+        <div class="pron-header-icon">🔊</div>
+        <div class="pron-header-text">
+          <h1>Pronunciation & Phonetics</h1>
+          <p>Pelajari bunyi bahasa Inggris, IPA, minimal pairs, dan latih pengucapan dengan audio nyata</p>
+        </div>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="pron-stats-bar">
+        <div class="pron-stat-card">
+          <div class="pron-stat-value" id="stat-phonemes">0</div>
+          <div class="pron-stat-label">Fonem Dipelajari</div>
+        </div>
+        <div class="pron-stat-card">
+          <div class="pron-stat-value" id="stat-quizzes">0</div>
+          <div class="pron-stat-label">Quiz Selesai</div>
+        </div>
+        <div class="pron-stat-card">
+          <div class="pron-stat-value" id="stat-best">—</div>
+          <div class="pron-stat-label">Skor Terbaik</div>
+        </div>
+        <div class="pron-stat-card">
+          <div class="pron-stat-value" id="stat-listens">0</div>
+          <div class="pron-stat-label">Total Dengar</div>
+        </div>
+      </div>
+
+      <!-- Mode Tabs -->
+      <div class="pron-tabs">
+        <button class="pron-tab-btn active" data-tab="ipa">
+          <span class="pron-tab-icon">🗺️</span> Tabel IPA
+        </button>
+        <button class="pron-tab-btn" data-tab="minimal-pairs">
+          <span class="pron-tab-icon">🔀</span> Minimal Pairs
+        </button>
+        <button class="pron-tab-btn" data-tab="tongue-twisters">
+          <span class="pron-tab-icon">👅</span> Tongue Twisters
+        </button>
+        <button class="pron-tab-btn" data-tab="word-stress">
+          <span class="pron-tab-icon">💥</span> Word Stress
+        </button>
+        <button class="pron-tab-btn" data-tab="mistakes">
+          <span class="pron-tab-icon">⚠️</span> Kesalahan Umum
+        </button>
+        <button class="pron-tab-btn" data-tab="quiz">
+          <span class="pron-tab-icon">🎯</span> Quiz
+        </button>
+      </div>
+
+      <!-- ══ Panel: IPA Chart ══════════════════════════════════ -->
+      <div class="pron-panel active" id="panel-ipa">
+
+        <!-- IPA Detail (shows when card is clicked) -->
+        <div class="ipa-detail" id="ipa-detail-panel">
+          <!-- Filled by JS -->
+        </div>
+
+        <!-- Short Vowels -->
+        <div class="ipa-section">
+          <div class="ipa-section-title">🔵 Vokal Pendek (Short Vowels)</div>
+          <div class="ipa-grid tts-notice-target" id="vowels-short-grid">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+
+        <!-- Long Vowels -->
+        <div class="ipa-section">
+          <div class="ipa-section-title">🔵 Vokal Panjang (Long Vowels)</div>
+          <div class="ipa-grid" id="vowels-long-grid">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+
+        <!-- Diphthongs -->
+        <div class="ipa-section">
+          <div class="ipa-section-title">🔵 Diftong (Diphthongs)</div>
+          <div class="ipa-grid" id="diphthongs-grid">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+
+        <!-- Consonants -->
+        <div class="ipa-section">
+          <div class="ipa-section-title">🟠 Konsonan (Consonants)</div>
+          <div class="ipa-grid" id="consonants-grid">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+
+        <!-- IPA Legend -->
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-4);margin-top:var(--space-4);">
+          <div style="font-size:var(--text-sm);font-weight:700;margin-bottom:var(--space-3);color:var(--text-primary);">📖 Legenda Tipe Konsonan</div>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--space-2);">
+            <span class="consonant-type-badge type-plosive">Plosive — meledak (p, b, t, d, k, g)</span>
+            <span class="consonant-type-badge type-fricative">Fricative — gesekan (f, v, s, z, θ, ð, ʃ, ʒ, h)</span>
+            <span class="consonant-type-badge type-affricate">Affricate — kombinasi (tʃ, dʒ)</span>
+            <span class="consonant-type-badge type-nasal">Nasal — hidung (m, n, ŋ)</span>
+            <span class="consonant-type-badge type-lateral">Lateral (l)</span>
+            <span class="consonant-type-badge type-approximant">Approximant (r, j, w)</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ══ Panel: Minimal Pairs ════════════════════════════ -->
+      <div class="pron-panel" id="panel-minimal-pairs">
+        <div style="background:rgba(var(--primary-rgb,26,108,240),0.08);border:1px solid rgba(var(--primary-rgb,26,108,240),0.2);border-radius:var(--radius-lg);padding:var(--space-4);margin-bottom:var(--space-5);">
+          <div style="font-size:var(--text-sm);font-weight:700;color:var(--primary);margin-bottom:4px;">💡 Apa itu Minimal Pairs?</div>
+          <div style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.6;">
+            Minimal pairs adalah dua kata yang hanya berbeda <strong>satu bunyi</strong>. Contoh: <strong>ship /ʃɪp/</strong> vs <strong>sheep /ʃiːp/</strong>. 
+            Berlatih dengan minimal pairs membantu kamu mendengar dan mengucapkan perbedaan bunyi yang halus.
+            Klik 🔊 pada kata untuk mendengarkan, atau klik <strong>Bandingkan</strong> untuk mendengarkan keduanya berurutan.
+          </div>
+        </div>
+        <div id="minimal-pairs-container">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+
+      <!-- ══ Panel: Tongue Twisters ══════════════════════════ -->
+      <div class="pron-panel" id="panel-tongue-twisters">
+        <div style="background:rgba(var(--primary-rgb,26,108,240),0.08);border:1px solid rgba(var(--primary-rgb,26,108,240),0.2);border-radius:var(--radius-lg);padding:var(--space-4);margin-bottom:var(--space-5);">
+          <div style="font-size:var(--text-sm);font-weight:700;color:var(--primary);margin-bottom:4px;">💡 Cara Menggunakan Tongue Twisters</div>
+          <div style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.6;">
+            1. Dengarkan dulu dengan kecepatan <strong>🐢 Lambat</strong> — perhatikan setiap bunyi. <br>
+            2. Ikuti dengan suara keras bersama audio. <br>
+            3. Coba kecepatan <strong>🚶 Normal</strong> dan <strong>🚀 Cepat</strong> setelah merasa nyaman. <br>
+            4. Ulangi sampai lancar!
+          </div>
+        </div>
+        <div id="tongue-twisters-container">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+
+      <!-- ══ Panel: Word Stress ══════════════════════════════ -->
+      <div class="pron-panel" id="panel-word-stress">
+        <div style="background:rgba(var(--primary-rgb,26,108,240),0.08);border:1px solid rgba(var(--primary-rgb,26,108,240),0.2);border-radius:var(--radius-lg);padding:var(--space-4);margin-bottom:var(--space-5);">
+          <div style="font-size:var(--text-sm);font-weight:700;color:var(--primary);margin-bottom:4px;">💡 Tentang Word Stress</div>
+          <div style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.6;">
+            <strong>Word stress</strong> (tekanan kata) adalah suku kata yang diucapkan lebih keras, lebih panjang, dan lebih tinggi nadanya. 
+            Suku kata bertekanan ditandai dengan <strong style="color:var(--primary)">HURUF KAPITAL</strong> dalam contoh di bawah. 
+            Klik kata untuk mendengarkan langsung!
+          </div>
+        </div>
+        <div id="word-stress-container">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+
+      <!-- ══ Panel: Common Mistakes ══════════════════════════ -->
+      <div class="pron-panel" id="panel-mistakes">
+        <div style="background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius-lg);padding:var(--space-4);margin-bottom:var(--space-5);">
+          <div style="font-size:var(--text-sm);font-weight:700;color:#dc2626;margin-bottom:4px;">⚠️ Kesalahan Umum Penutur Indonesia</div>
+          <div style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.6;">
+            Sebagai penutur bahasa Indonesia, ada beberapa bunyi bahasa Inggris yang secara alami sulit diucapkan. 
+            Pelajari pola kesalahan ini dan latih kata-kata di bawah untuk memperbaiki pengucapanmu!
+          </div>
+        </div>
+        <div id="common-mistakes-container">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+
+      <!-- ══ Panel: Quiz ═════════════════════════════════════ -->
+      <div class="pron-panel" id="panel-quiz">
+        <div class="pron-quiz-container">
+
+          <!-- Start Screen -->
+          <div class="pron-quiz-start">
+            <div style="font-size:3rem;margin-bottom:var(--space-3)">🎧</div>
+            <h3>Quiz Dengar & Pilih IPA</h3>
+            <p>Dengarkan kata, lalu pilih transkripsi IPA yang benar. 10 soal acak dari berbagai fonem Bahasa Inggris.</p>
+            <div style="display:flex;justify-content:center;gap:var(--space-4);margin-bottom:var(--space-5);flex-wrap:wrap;">
+              <div style="text-align:center">
+                <div style="font-size:var(--text-xl);font-weight:700;color:var(--primary)">10</div>
+                <div style="font-size:var(--text-xs);color:var(--text-muted)">Soal</div>
+              </div>
+              <div style="text-align:center">
+                <div style="font-size:var(--text-xl);font-weight:700;color:var(--primary)">+3</div>
+                <div style="font-size:var(--text-xs);color:var(--text-muted)">XP per benar</div>
+              </div>
+              <div style="text-align:center">
+                <div style="font-size:var(--text-xl);font-weight:700;color:var(--primary)">+20</div>
+                <div style="font-size:var(--text-xs);color:var(--text-muted)">XP bonus sempurna</div>
+              </div>
+            </div>
+            <button class="quiz-start-btn" id="quiz-start-btn">Mulai Quiz 🎯</button>
+          </div>
+
+          <!-- Question Card -->
+          <div id="quiz-question-card" style="display:none;">
+            <!-- Filled by JS -->
+          </div>
+
+          <!-- Results -->
+          <div class="quiz-results" id="quiz-results" style="display:none;">
+            <!-- Filled by JS -->
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- end page-body -->
+
+    <!-- Bottom Nav (Mobile) -->
+    <nav class="bottom-nav">
+      <a class="bottom-nav-item" href="../dashboard.html" data-page="dashboard">
+        <span class="bottom-nav-icon">🏠</span>
+        <span class="bottom-nav-label">Home</span>
+      </a>
+      <a class="bottom-nav-item" href="vocabulary.html" data-page="foundation-vocab">
+        <span class="bottom-nav-icon">📚</span>
+        <span class="bottom-nav-label">Vocab</span>
+      </a>
+      <a class="bottom-nav-item active" href="pronunciation.html" data-page="foundation-pronunciation">
+        <span class="bottom-nav-icon">🔊</span>
+        <span class="bottom-nav-label">Pron</span>
+      </a>
+      <a class="bottom-nav-item" href="../stats.html" data-page="stats">
+        <span class="bottom-nav-icon">📊</span>
+        <span class="bottom-nav-label">Stats</span>
+      </a>
+      <a class="bottom-nav-item" href="../profile.html" data-page="profile">
+        <span class="bottom-nav-icon">👤</span>
+        <span class="bottom-nav-label">Profil</span>
+      </a>
+    </nav>
+
+  </div><!-- end main-content -->
+</div><!-- end app-shell -->
+
+<!-- Toast container -->
+<div id="toast-container"></div>
+
+<!-- Scripts -->
+<script src="../../assets/js/core/storage.js"></script>
+<script src="../../assets/js/core/auth.js"></script>
+<script src="../../assets/js/core/router.js"></script>
+<script src="../../assets/js/core/app.js"></script>
+<script src="../../assets/js/modules/xp.js"></script>
+<script src="../../assets/js/modules/challenge.js"></script>
+<script src="../../assets/js/modules/badge.js"></script>
+<script src="../../assets/js/data/phonetics-data.js"></script>
+<script src="../../assets/js/pages/pronunciation.js"></script>
+
+</body>
+</html>

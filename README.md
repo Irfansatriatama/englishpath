@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 0.5.0 |
-| **Fase Saat Ini** | FASE 4 ✅ — Foundation: Vocabulary A1–A2 |
-| **Fase Berikutnya** | FASE 5 — Foundation: Pronunciation & Phonetics |
+| **Versi App** | 0.6.0 |
+| **Fase Saat Ini** | FASE 5 ✅ — Foundation: Pronunciation & Phonetics |
+| **Fase Berikutnya** | FASE 6 — Foundation: Grammar A1–A2 |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -118,6 +118,7 @@ englishpath/
 │   ├── stats.html                      ✅ Placeholder → Fase 21 (lengkap)
 │   ├── foundation/                     🔲 Fase 4–7
 │   │   └── vocabulary.html             ✅ Halaman belajar vocab A1–A2 (Fase 4)
+│   │   └── pronunciation.html          ✅ Pronunciation & Phonetics (Fase 5)
 │   ├── intermediate/                   🔲 Fase 8–9
 │   ├── advanced/                       🔲 Fase 17–18
 │   ├── ielts/                          🔲 Fase 13
@@ -413,6 +414,31 @@ Dokumen perencanaan lengkap dengan 23 fase roadmap.
 - ✅ SRS localStorage key: `ep_user_{id}_srs_vocab_foundation`
 
 ---
+
+### FASE 5 — Foundation: Pronunciation & Phonetics ✅
+**Versi:** v0.6.0 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `assets/js/data/phonetics-data.js` — Data lengkap: 12 vokal pendek/panjang, 8 diftong, 24 konsonan dengan IPA + tips, 5 kelompok minimal pairs, 6 tongue twisters, 4 pola word stress, 5 kesalahan umum penutur Indonesia, 12 soal quiz listen & choose
+- `assets/css/pronunciation.css` — Styles lengkap: header gradient, tab system, IPA chart grid, IPA detail panel, minimal pairs, tongue twisters, word stress, common mistakes cards, quiz section
+- `pages/foundation/pronunciation.html` — Halaman pronunciation dengan 6 tab mode
+- `assets/js/pages/pronunciation.js` — Logic lengkap (IIFE module)
+
+**Fitur yang berfungsi:**
+- ✅ Tab IPA Chart: grid vokal pendek, vokal panjang, diftong, dan konsonan — total 44 fonem
+- ✅ IPA Detail Panel: klik fonem → tampil simbol besar, nama, contoh kata, IPA, tips pengucapan, dan practice words
+- ✅ Web Speech API: tombol 🔊 di setiap kartu IPA, practice word, minimal pair, tongue twister, word stress
+- ✅ Tab Minimal Pairs: 5 kategori (V vs B, TH vs D/S/T, Short vs Long Vowel, P vs B, L vs R), tombol "Bandingkan" untuk dengar 2 kata berurutan
+- ✅ Tab Tongue Twisters: 6 tongue twister, pilih kecepatan 🐢/🚶/🚀
+- ✅ Tab Word Stress: 4 pola aturan stress, suku kata bertekanan ditampilkan KAPITAL dengan warna primary
+- ✅ Tab Kesalahan Umum: 5 kesalahan khas penutur Indonesia, perbandingan salah vs benar, practice words
+- ✅ Tab Quiz: 10 soal acak "Dengar & Pilih IPA", reveal word setelah listen, feedback per soal, hasil akhir + XP
+- ✅ XP Awards: +3 per soal benar, +20 bonus sempurna
+- ✅ Stats: fonem dipelajari, quiz selesai, skor terbaik, total dengar — semua tersimpan di localStorage
+- ✅ Challenge harian: onModuleVisit + onQuizComplete terhubung
+- ✅ localStorage key: `ep_user_{id}_pron_stats`
+
+---
 ## 10. Roadmap Fase Mendatang
 
 | Fase | Nama | Versi | Status |
@@ -420,7 +446,7 @@ Dokumen perencanaan lengkap dengan 23 fase roadmap.
 | **2** | Onboarding & Placement Test | v0.3.0 | ✅ |
 | **3** | Dashboard & Gamifikasi Dasar | v0.4.0 | ✅ |
 | **4** | Foundation: Vocabulary A1–A2 | v0.5.0 | ✅ |
-| **5** | Foundation: Pronunciation & Phonetics | v0.6.0 | 🔲 |
+| **5** | Foundation: Pronunciation & Phonetics | v0.6.0 | ✅ |
 | **6** | Foundation: Grammar A1–A2 | v0.7.0 | 🔲 |
 | **7** | Foundation: Dialog & Quiz | v0.8.0 | 🔲 |
 | **8** | Intermediate: Vocabulary & Grammar B1–B2 | v1.0.0 | 🔲 |
@@ -512,7 +538,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v0.3.0 — Fase 2** | 2026-02-26 | Onboarding & Placement Test: wizard 5-step, XP system, 20 placement questions | ✅ |
 | **v0.4.0 — Fase 3** | 2026-02-26 | Dashboard & Gamifikasi Dasar: challenge harian, badge system, streak calendar, XP progress | ✅ |
 | **v0.5.0 — Fase 4** | 2026-02-26 | Foundation Vocabulary A1–A2: 500+ kata, SRS SM-2, 4 mode belajar | ✅ |
-| **v0.6.0 — Fase 5** | TBD | Foundation: Pronunciation & Phonetics | 🔲 |
+| **v0.6.0 — Fase 5** | 2026-02-26 | Foundation Pronunciation & Phonetics: IPA chart, minimal pairs, tongue twisters, word stress, quiz | ✅ |
 | **v0.7.0 — Fase 6** | TBD | Foundation: Grammar A1–A2 | 🔲 |
 | **v0.8.0 — Fase 7** | TBD | Foundation: Dialog & Quiz | 🔲 |
 | **v1.0.0 — Fase 8** | TBD | Intermediate: Vocabulary & Grammar B1–B2 | 🔲 |
