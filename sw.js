@@ -4,7 +4,7 @@
  * Bump CACHE_NAME version whenever files are added/changed.
  */
 
-const CACHE_NAME = 'englishpath-v9';
+const CACHE_NAME = 'englishpath-v10';
 
 const ASSETS_TO_CACHE = [
   './',
@@ -69,6 +69,11 @@ const ASSETS_TO_CACHE = [
   './pages/toeic/reading.html',
   './assets/js/data/toeic-reading-data.js',
   './assets/js/pages/toeic-reading.js',
+  './pages/toeic/simulation.html',
+  './pages/toeic/result.html',
+  './assets/js/data/toeic-simulation-data.js',
+  './assets/js/pages/toeic-simulation.js',
+  './assets/js/pages/toeic-result.js',
   './assets/js/pages/dashboard.js',
   './assets/js/pages/onboarding.js',
   './assets/js/pages/vocabulary.js',

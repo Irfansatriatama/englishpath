@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 2.1.3 |
-| **Fase Saat Ini** | FASE 14c-1 ✅ — TOEIC: Practice Reading Parts 5–7 |
-| **Fase Berikutnya** | FASE 14c-2 — TOEIC: Simulasi Full Test + Halaman Hasil (v2.1.4) |
+| **Versi App** | 2.1.4 |
+| **Fase Saat Ini** | FASE 14c-2 ✅ — TOEIC: Simulasi Full Test + Halaman Hasil |
+| **Fase Berikutnya** | FASE 15a — TOEFL iBT: Hub & Vocabulary (v2.2.1) |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -96,7 +96,7 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 
 ---
 
-## 5. Struktur Folder (Saat Ini — Fase 7)
+## 5. Struktur Folder (Saat Ini — Fase 14c-2)
 
 ```
 englishpath/
@@ -131,7 +131,7 @@ englishpath/
 │   │   └── listening.html              ✅ Listening B1–B2: 8 audio track TTS, transkrip, quiz (Fase 9)
 │   ├── advanced/                       🔲 Fase 17–18
 │   ├── ielts/                          ✅ Fase 13a–13c-2 (Hub + Vocab + Reading + Listening + Speaking + Writing + Simulasi + Hasil)
-│   ├── toeic/                          ✅ Fase 14a (Hub + Vocab) ✅ 14b (Listening) 🔲 14c
+│   ├── toeic/                          ✅ Fase 14a–14c-2 SELESAI (Hub + Vocab + Listening + Reading + Simulasi + Hasil)
 │   ├── toefl/                          🔲 Fase 15a–15b
 │   └── cambridge/                      🔲 Fase 16a–16b
 │
@@ -889,7 +889,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v2.1.1 — Fase 14a** | 2026-02-26 | TOEIC: Hub & Vocabulary (300+ Business English, 8 domain, flashcard, SRS, quiz) | ✅ |
 | **v2.1.2 — Fase 14b** | 2026-02-26 | TOEIC: Practice Listening Parts 1–4 (TTS, MCQ, form completion, SW v8) | ✅ |
 | **v2.1.3 — Fase 14c-1** | 2026-02-26 | TOEIC: Practice Reading Parts 5–7 (Part 5 Incomplete Sentences, Part 6 Text Completion, Part 7 Single & Double Passage) | ✅ |
-| **v2.1.4 — Fase 14c-2** | TBD | TOEIC: Simulasi Full Test (LC 45 min + RC 75 min) + Halaman Hasil (score 10–990, badge toeic_ready) | 🔲 |
+| **v2.1.4 — Fase 14c-2** | 2026-02-26 | TOEIC: Simulasi Full Test (LC 45 min: Parts 1–4 TTS + RC 75 min: Parts 5–7) + Halaman Hasil (score 10–990, part breakdown, rekomendasi, riwayat 5 sim, badge toeic_ready, SW v10) | ✅ |
 | **v2.2.1 — Fase 15a** | TBD | TOEFL iBT: Hub & Vocabulary (300+ AWL Tier 1–2, flashcard, SRS, quiz) | 🔲 |
 | **v2.2.2 — Fase 15b** | TBD | TOEFL iBT: Practice Reading & Listening (3 passage akademik + 2 lecture + 1 conversation) | 🔲 |
 | **v2.2.3 — Fase 15c** | TBD | TOEFL iBT: Practice Speaking & Writing + Simulasi Full Test (4 section timed, score 0–120) | 🔲 |
@@ -906,7 +906,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 14b ✅ TOEIC: Practice Listening Parts 1–4 → **Fase 14c** 🔲 (berikutnya: TOEIC Practice Reading Parts 5–7 + Simulasi Full Test)
+> **Fase saat ini:** Fase 14c-2 ✅ TOEIC: Simulasi Full Test + Halaman Hasil → **Fase 15a** 🔲 (berikutnya: TOEFL iBT: Hub & Vocabulary)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >
@@ -1022,3 +1022,52 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 **localStorage Baru:**
 - `ep_user_{id}_toeic_reading` — {results: {part5/part6/part7: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts}
+
+---
+
+### FASE 14c-2 — TOEIC: Simulasi Full Test + Halaman Hasil ✅
+**Versi:** v2.1.4 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `pages/toeic/simulation.html` — Simulasi Full Test: LC 45 menit + jeda 5 menit + RC 75 menit, timer aktif, step progress, TTS per bagian
+- `pages/toeic/result.html` — Halaman Hasil: skor LC+RC+Total, performa per Part, rekomendasi, riwayat 5 simulasi terakhir
+- `assets/js/data/toeic-simulation-data.js` — Data simulasi: Part 1 (6Q), Part 2 (25Q), Part 3 (13 set × 3Q = 39Q), Part 4 (10 set × 3Q = 30Q), Part 5 (30Q), Part 6 (4 teks × 4Q = 16Q), Part 7 (3 single + 2 double = 29Q)
+- `assets/js/pages/toeic-simulation.js` — Logic simulasi (IIFE module): flow intro → LC Parts 1–4 → break → RC Parts 5–7 → submit → redirect result
+- `assets/js/pages/toeic-result.js` — Logic hasil (IIFE module): baca sim_results, hitung level, rekomendasi per Part
+
+**File Diubah:**
+- `assets/css/toeic.css` — Tambah styles: sim-intro, sim-question-card, sim-choices, sim-p7-layout, result hero TOEIC, section scores, breakdown bars, recommendations, score guide table, history, action buttons
+- `sw.js` — Bump ke `englishpath-v10`, tambah simulation.html, result.html, toeic-simulation-data.js, toeic-simulation.js, toeic-result.js
+- `README.md` — Update status fase, struktur folder, log pengerjaan
+
+**Konten Soal (Simulation):**
+- **LC Part 1** — 6 soal: deskripsi foto bisnis (presenter, pengirim, resepsionis, kontraktor, chef, petugas kantor) + TTS 4 pilihan
+- **LC Part 2** — 25 soal: pertanyaan-respons bisnis (when/who/could/where/have/why/how many + statement) + TTS per set
+- **LC Part 3** — 13 percakapan bisnis × 3Q = 39 soal (rescheduling, supplies, performance review, travel, onboarding, budget, equipment, contract, complaint, interview, feedback, office move, quarterly review)
+- **LC Part 4** — 10 monolog bisnis × 3Q = 30 soal (announcement, retail, voicemail, radio ad, training, airport, investor briefing, tour, HR policy, product recall)
+- **RC Part 5** — 30 soal grammar + vocabulary
+- **RC Part 6** — 4 teks bisnis (remote work memo, project email, job ad, customer newsletter) × 4 blanks = 16 soal
+- **RC Part 7** — 3 single passage + 2 double passage = 29 soal (contract renewal email, renovation notice, workplace article; job posting + application, press release + customer review)
+
+**Fitur yang Berfungsi:**
+- ✅ Intro screen: overview 2 section + tips
+- ✅ LC Part 1: foto deskripsi + TTS 4 choices + auto-advance
+- ✅ LC Part 2: TTS pertanyaan + respons + transkrip toggle
+- ✅ LC Part 3: TTS percakapan + transkrip toggle + 3 Q per set
+- ✅ LC Part 4: TTS monolog + transkrip toggle + 3 Q per set
+- ✅ Jeda 5 menit antara LC dan RC (countdown + tombol skip)
+- ✅ RC Part 5: kalimat dengan blank highlight + 4 pilihan
+- ✅ RC Part 6: teks bisnis + inline dropdown select untuk setiap blank
+- ✅ RC Part 7: layout 2 kolom (passage scroll | pertanyaan), support single & double passage
+- ✅ Timer terpisah LC (45 min) & RC (75 min), auto-advance saat habis
+- ✅ Progress bar + step indicator (LC / RC)
+- ✅ Score converter: raw correct → skala TOEIC 5–495 per section (non-linear curve)
+- ✅ Halaman hasil: hero total score, LC + RC breakdown, performa 7 parts dengan bar chart, rekomendasi per weakness
+- ✅ Tabel panduan skor TOEIC (highlight range skor saat ini)
+- ✅ Riwayat 5 simulasi terakhir
+- ✅ +100 XP on complete, badge `toeic_ready` jika total ≥ 700
+- ✅ localStorage: tambah entry ke `ep_user_{id}_sim_results` (type: 'toeic')
+- ✅ SW bump ke englishpath-v10
+
+**localStorage Baru/Diperbarui:**
+- `ep_user_{id}_sim_results` — Tambah entry `{type:'toeic', lc, rc, total, raw:{p1c..p7c, lcCorrect, rcCorrect...}, date, timestamp}`
