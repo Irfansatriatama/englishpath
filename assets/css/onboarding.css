@@ -1,0 +1,570 @@
+/* ============================================================
+   EnglishPath — Onboarding CSS
+   Wizard multi-step: Welcome → Profile → Goals → Placement Test → Result
+   ============================================================ */
+
+/* ── Page Shell ────────────────────────────────────────────── */
+.onboarding-page {
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px 48px;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.ob-header {
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.ob-logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.ob-step-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text-3);
+}
+
+/* ── Progress Bar ───────────────────────────────────────────── */
+.ob-progress-wrap {
+  width: 100%;
+  max-width: 640px;
+  margin-bottom: 32px;
+}
+
+.ob-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-3);
+  margin-bottom: 8px;
+}
+
+.ob-progress-track {
+  height: 6px;
+  background: var(--surface-2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.ob-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  border-radius: 999px;
+  transition: width 0.5s var(--ease);
+}
+
+/* ── Card ───────────────────────────────────────────────────── */
+.ob-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  width: 100%;
+  max-width: 640px;
+  animation: ob-fade-in 0.4s var(--ease) both;
+}
+
+@keyframes ob-fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Step: Welcome ──────────────────────────────────────────── */
+.ob-welcome-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.ob-welcome-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.ob-welcome-sub {
+  color: var(--text-3);
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.ob-feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.ob-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--surface-2);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+}
+
+.ob-feature-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.ob-feature-text strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.ob-feature-text span {
+  font-size: 0.8rem;
+  color: var(--text-3);
+}
+
+/* ── Step: Goals ────────────────────────────────────────────── */
+.ob-step-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.ob-step-sub {
+  color: var(--text-3);
+  margin-bottom: 28px;
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+
+.ob-choice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.ob-choice-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-2);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 12px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  text-align: center;
+}
+
+.ob-choice-btn:hover {
+  border-color: var(--primary-light);
+  background: var(--primary-soft);
+  transform: translateY(-2px);
+}
+
+.ob-choice-btn.selected {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.ob-choice-btn .choice-icon {
+  font-size: 2rem;
+}
+
+.ob-choice-btn .choice-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.ob-choice-btn .choice-sub {
+  font-size: 0.75rem;
+  color: var(--text-3);
+}
+
+/* Daily goal options */
+.ob-goal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.ob-goal-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--surface-2);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.ob-goal-option:hover {
+  border-color: var(--primary-light);
+  background: var(--primary-soft);
+}
+
+.ob-goal-option.selected {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.ob-goal-option .goal-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.ob-goal-option .goal-info strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.ob-goal-option .goal-info span {
+  font-size: 0.78rem;
+  color: var(--text-3);
+}
+
+/* ── Placement Test ─────────────────────────────────────────── */
+.ob-test-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.ob-test-counter {
+  font-size: 0.85rem;
+  color: var(--text-3);
+}
+
+.ob-test-level-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.ob-test-progress {
+  height: 4px;
+  background: var(--surface-2);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.ob-test-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  border-radius: 999px;
+  transition: width 0.3s var(--ease);
+}
+
+.ob-question-text {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.ob-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.ob-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--surface-2);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  cursor: pointer;
+  font-size: 0.92rem;
+  color: var(--text);
+  text-align: left;
+  transition: border-color 0.15s, background 0.15s;
+  width: 100%;
+}
+
+.ob-option-btn:hover:not(:disabled) {
+  border-color: var(--primary-light);
+  background: var(--primary-soft);
+}
+
+.ob-option-btn .opt-letter {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--border);
+  color: var(--text-2);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s, color 0.15s;
+}
+
+.ob-option-btn.selected {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.ob-option-btn.selected .opt-letter {
+  background: var(--primary);
+  color: #fff;
+}
+
+.ob-option-btn.correct {
+  border-color: #10b981;
+  background: #ecfdf5;
+}
+
+.ob-option-btn.correct .opt-letter {
+  background: #10b981;
+  color: #fff;
+}
+
+.ob-option-btn.wrong {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+.ob-option-btn.wrong .opt-letter {
+  background: #ef4444;
+  color: #fff;
+}
+
+.ob-option-btn:disabled {
+  cursor: default;
+}
+
+.ob-explanation {
+  background: var(--surface-2);
+  border-left: 3px solid var(--primary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  color: var(--text-2);
+  margin-bottom: 20px;
+  line-height: 1.6;
+  animation: ob-fade-in 0.3s ease both;
+}
+
+/* ── Result ─────────────────────────────────────────────────── */
+.ob-result-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.ob-result-score-ring {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(var(--primary) var(--score-pct), var(--surface-2) 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  position: relative;
+}
+
+.ob-result-score-ring::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  background: var(--surface);
+  border-radius: 50%;
+}
+
+.ob-result-score-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.ob-result-score-number {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.ob-result-score-label {
+  font-size: 0.7rem;
+  color: var(--text-3);
+}
+
+.ob-result-level-label {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.ob-result-desc {
+  color: var(--text-3);
+  line-height: 1.75;
+  text-align: center;
+  margin-bottom: 28px;
+  font-size: 0.9rem;
+}
+
+.ob-xp-award {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--gold-soft);
+  border: 1px solid var(--gold-light);
+  border-radius: var(--radius-lg);
+  padding: 14px 24px;
+  margin-bottom: 28px;
+  font-weight: 700;
+  color: var(--gold-dark);
+  font-size: 1rem;
+}
+
+.ob-skip-link {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.ob-skip-link button {
+  background: none;
+  border: none;
+  color: var(--text-3);
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 4px;
+}
+
+.ob-skip-link button:hover {
+  color: var(--text-2);
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
+.ob-btn-primary {
+  width: 100%;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 15px 24px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.ob-btn-primary:hover:not(:disabled) {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 108, 240, 0.3);
+}
+
+.ob-btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.ob-btn-secondary {
+  background: none;
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  width: 100%;
+  text-align: center;
+}
+
+.ob-btn-secondary:hover {
+  background: var(--surface-2);
+  color: var(--text-2);
+}
+
+.ob-btn-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.ob-btn-row .ob-btn-secondary {
+  flex: 0 0 auto;
+  width: auto;
+  padding: 12px 20px;
+}
+
+.ob-btn-row .ob-btn-primary {
+  flex: 1;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .ob-card {
+    padding: 28px 20px;
+  }
+
+  .ob-welcome-title {
+    font-size: 1.6rem;
+  }
+
+  .ob-choice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ob-step-title {
+    font-size: 1.3rem;
+  }
+}

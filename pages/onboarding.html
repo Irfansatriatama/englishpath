@@ -18,66 +18,34 @@
     })();
   </script>
   <link rel="stylesheet" href="../assets/css/main.css">
-  <style>
-    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: var(--bg); padding: 20px; }
-    .onboarding-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius-xl); padding: 48px;
-      max-width: 560px; width: 100%;
-      text-align: center;
-      animation: fadeIn 0.5s var(--ease) both;
-    }
-    .onboarding-icon   { font-size: 3.5rem; margin-bottom: 16px; }
-    .onboarding-title  { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; margin-bottom: 12px; }
-    .onboarding-sub    { color: var(--text-3); margin-bottom: 32px; line-height: 1.7; }
-    .btn-start {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--primary); color: #fff;
-      padding: 14px 32px; border-radius: var(--radius-lg);
-      font-size: 1rem; font-weight: 700; border: none; cursor: pointer;
-      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    }
-    .btn-start:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26,108,240,0.3); }
-    .note { font-size: 0.78rem; color: var(--text-3); margin-top: 16px; }
-  </style>
+  <link rel="stylesheet" href="../assets/css/onboarding.css">
 </head>
 <body>
-<div class="onboarding-card">
-  <div class="onboarding-icon">🚀</div>
-  <h1 class="onboarding-title" id="onboarding-title">Selamat Datang!</h1>
-  <p class="onboarding-sub">
-    Wizard onboarding lengkap (placement test + profil belajar) akan tersedia di <strong>Fase 2</strong>.<br><br>
-    Untuk saat ini, mari langsung mulai belajar di dashboard!
-  </p>
-  <button class="btn-start" id="btn-start">
-    Mulai Belajar →
-  </button>
-  <p class="note">Kamu bisa mengubah preferensi belajar nanti di menu Pengaturan.</p>
+<div class="onboarding-page" id="ob-page">
+  <header class="ob-header">
+    <div class="ob-logo">EnglishPath</div>
+    <div class="ob-step-indicator">
+      <span id="ob-step-text">Langkah 1 dari 5</span>
+    </div>
+  </header>
+  <div class="ob-progress-wrap">
+    <div class="ob-progress-labels">
+      <span id="ob-progress-label">Mulai</span>
+      <span id="ob-progress-pct">0%</span>
+    </div>
+    <div class="ob-progress-track">
+      <div class="ob-progress-fill" id="ob-progress-fill" style="width:0%"></div>
+    </div>
+  </div>
+  <div id="ob-step-container"></div>
 </div>
-
 <div id="toast-container"></div>
-
 <script src="../assets/js/core/storage.js"></script>
 <script src="../assets/js/core/auth.js"></script>
 <script src="../assets/js/core/router.js"></script>
 <script src="../assets/js/core/app.js"></script>
-<script>
-  Router.guard();
-  App.init('onboarding');
-
-  const user = Auth.getActiveUser();
-  if (user) {
-    document.getElementById('onboarding-title').textContent = 'Selamat Datang, ' + user.name + '! 👋';
-  }
-
-  document.getElementById('btn-start').addEventListener('click', () => {
-    // Mark onboarding as completed
-    const session = Auth.getSession();
-    if (session) {
-      Storage.mergeUser(session.userId, 'onboarding', { completed: true });
-    }
-    Router.go('pages/dashboard.html');
-  });
-</script>
+<script src="../assets/js/modules/xp.js"></script>
+<script src="../assets/js/data/placement-questions.js"></script>
+<script src="../assets/js/pages/onboarding.js"></script>
 </body>
 </html>

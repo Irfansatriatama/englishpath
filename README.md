@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 0.2.0 |
-| **Fase Saat Ini** | FASE 1 ✅ — Fondasi & Autentikasi |
-| **Fase Berikutnya** | FASE 2 — Onboarding & Placement Test |
+| **Versi App** | 0.3.0 |
+| **Fase Saat Ini** | FASE 2 ✅ — Onboarding & Placement Test |
+| **Fase Berikutnya** | FASE 3 — Dashboard & Gamifikasi Dasar |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -110,7 +110,7 @@ englishpath/
 ├── pages/
 │   ├── login.html                      ✅ Login (2 kolom, hero kiri)
 │   ├── register.html                   ✅ Daftar akun → redirect onboarding
-│   ├── onboarding.html                 ✅ Placeholder → Fase 2
+│   ├── onboarding.html                 ✅ Wizard 5-step + Placement Test
 │   ├── dashboard.html                  ✅ Dashboard dasar → Fase 3 (lengkap)
 │   ├── profile.html                    ✅ Edit profil + avatar picker
 │   ├── change-password.html            ✅ Ganti password
@@ -128,16 +128,23 @@ englishpath/
     ├── css/
     │   ├── main.css                    ✅ Variables, reset, dark mode, color themes
     │   ├── layout.css                  ✅ Sidebar, topbar, page shell, bottom nav
-    │   └── auth.css                    ✅ Login & register pages
+    │   ├── auth.css                    ✅ Login & register pages
+    │   └── onboarding.css              ✅ Wizard onboarding styles
     ├── icons/
     │   ├── icon-192.png               ✅
     │   └── icon-512.png               ✅
     └── js/
-        └── core/
+        ├── core/
             ├── storage.js              ✅ localStorage wrapper (prefix ep_)
             ├── auth.js                 ✅ Register, login, logout, session, streak
             ├── router.js               ✅ guard(), guestOnly(), go(), setActiveNav()
             └── app.js                  ✅ Toast, sidebar, theme, renderUserInfo, init()
+        ├── modules/
+        │   └── xp.js                       ✅ XP system, level calculation, XP history
+        ├── data/
+        │   └── placement-questions.js      ✅ 20 soal placement test A1–B2
+        └── pages/
+            └── onboarding.js               ✅ Wizard onboarding logic
 ```
 
 ---
@@ -229,7 +236,7 @@ Menghitung path relatif ke root berdasarkan kedalaman folder.
 | `activity_log` | Array | {date, modules[]} |
 | `badges` | Array | badge yang diraih |
 | `settings` | Object | {darkMode, colorTheme, font, radius, ...} |
-| `onboarding` | Object | {completed, level, targetTest, dailyGoal} |
+| `onboarding` | Object | {completed, level, targetTest, dailyGoal, testCorrect, testTotal, completedAt} |
 
 ---
 
@@ -314,11 +321,40 @@ Dokumen perencanaan lengkap dengan 23 fase roadmap.
 
 ---
 
+
+### FASE 2 — Onboarding & Placement Test ✅
+**Versi:** v0.3.0 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `assets/css/onboarding.css` — Styles wizard: progress bar, cards, choice buttons, test UI, result
+- `assets/js/modules/xp.js` — XP System: addXP(), level threshold, XP history, level names
+- `assets/js/data/placement-questions.js` — 20 soal placement test A1–B2 + calculateLevel()
+- `assets/js/pages/onboarding.js` — Wizard logic (IIFE module)
+
+**File Diubah:**
+- `pages/onboarding.html` — Placeholder diganti wizard 5-step lengkap
+
+**Fitur yang berfungsi:**
+- ✅ Redirect ke dashboard jika onboarding sudah selesai
+- ✅ Step 1: Welcome screen dengan nama user + fitur utama
+- ✅ Step 2: Pilih tujuan belajar (6 opsi: Umum, IELTS, TOEIC, TOEFL, Cambridge, Jelajahi)
+- ✅ Step 3: Pilih target harian (5/10/15/20/30 menit)
+- ✅ Step 4: Placement test — 20 soal A1–B2, feedback per jawaban + penjelasan
+- ✅ Step 5: Hasil placement test — level CEFR, skor %, deskripsi jalur
+- ✅ +50 XP awarded on completion (XPSystem.addXP)
+- ✅ Data tersimpan: level, targetTest, dailyGoal, testCorrect, testTotal, completedAt
+- ✅ Skip all → langsung dashboard (tetap dapat XP)
+- ✅ Manual level picker (lewati test)
+- ✅ Progress bar wizard + step indicator
+- ✅ XP System: level threshold, level names ID, XP history
+
+---
+
 ## 10. Roadmap Fase Mendatang
 
 | Fase | Nama | Versi | Status |
 |------|------|-------|--------|
-| **2** | Onboarding & Placement Test | v0.3.0 | 🔲 |
+| **2** | Onboarding & Placement Test | v0.3.0 | ✅ |
 | **3** | Dashboard & Gamifikasi Dasar | v0.4.0 | 🔲 |
 | **4** | Foundation: Vocabulary A1–A2 | v0.5.0 | 🔲 |
 | **5** | Foundation: Pronunciation & Phonetics | v0.6.0 | 🔲 |
@@ -410,7 +446,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 |---|---|---|---|
 | **v0.1.0 — Fase 0** | 2026-02-26 | Perencanaan proyek: README lengkap dengan 23 fase roadmap | ✅ |
 | **v0.2.0 — Fase 1** | 2026-02-26 | Fondasi & Autentikasi: core JS, CSS, halaman auth + protected | ✅ |
-| **v0.3.0 — Fase 2** | TBD | Onboarding & Placement Test | 🔲 |
+| **v0.3.0 — Fase 2** | 2026-02-26 | Onboarding & Placement Test: wizard 5-step, XP system, 20 placement questions | ✅ |
 | **v0.4.0 — Fase 3** | TBD | Dashboard & Gamifikasi Dasar | 🔲 |
 | **v0.5.0 — Fase 4** | TBD | Foundation: Vocabulary A1–A2 | 🔲 |
 | **v0.6.0 — Fase 5** | TBD | Foundation: Pronunciation & Phonetics | 🔲 |
@@ -435,7 +471,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 1 ✅ Fondasi & Autentikasi → **Fase 2** 🔲 (berikutnya)
+> **Fase saat ini:** Fase 2 ✅ Onboarding & Placement Test → **Fase 3** 🔲 (berikutnya)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >
