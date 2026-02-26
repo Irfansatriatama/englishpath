@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dialog A1–A2 — EnglishPath</title>
+  <meta name="theme-color" content="#1a6cf0">
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+      const fn = localStorage.getItem('ep_font');
+      if (fn) document.documentElement.setAttribute('data-font', fn);
+      const rd = localStorage.getItem('ep_radius');
+      if (rd) document.documentElement.setAttribute('data-radius', rd);
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/dialog.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-main">EnglishPath</div>
+      <div class="logo-sub">A1 → C2 + IELTS · TOEIC · TOEFL</div>
+    </div>
+    <div class="sidebar-user">
+      <div class="avatar-circle" data-user-avatar>🇬🇧</div>
+      <div class="sidebar-user-info">
+        <div class="user-name" data-user-name>Pengguna</div>
+        <div class="user-level" data-user-email>—</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Umum</div>
+      <a class="nav-item" href="../dashboard.html" data-page="dashboard"><span class="nav-icon">🏠</span>Dashboard</a>
+      <a class="nav-item" href="../stats.html" data-page="stats"><span class="nav-icon">📊</span>Statistik</a>
+      <a class="nav-item" href="../settings.html" data-page="settings"><span class="nav-icon">⚙️</span>Pengaturan</a>
+      <div class="nav-section-label">Foundation (A1–A2)</div>
+      <a class="nav-item" href="vocabulary.html" data-page="foundation-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="grammar.html" data-page="foundation-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="pronunciation.html" data-page="foundation-pronunciation"><span class="nav-icon">🔊</span>Pronunciation</a>
+      <a class="nav-item" href="dialog.html" data-page="foundation-dialog"><span class="nav-icon">💬</span>Dialog</a>
+      <a class="nav-item" href="quiz.html" data-page="foundation-quiz"><span class="nav-icon">⭐</span>Quiz Foundation</a>
+      <div class="nav-section-label">Intermediate (B1–B2)</div>
+      <a class="nav-item" href="../intermediate/vocabulary.html" data-page="intermediate-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../intermediate/grammar.html" data-page="intermediate-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../intermediate/reading.html" data-page="intermediate-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="../intermediate/listening.html" data-page="intermediate-listening"><span class="nav-icon">🎧</span>Listening</a>
+      <a class="nav-item" href="../intermediate/quiz.html" data-page="intermediate-quiz"><span class="nav-icon">⭐</span>Quiz Intermediate</a>
+      <div class="nav-section-label">Advanced (C1–C2)</div>
+      <a class="nav-item" href="../advanced/vocabulary.html" data-page="advanced-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../advanced/grammar.html" data-page="advanced-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../advanced/reading.html" data-page="advanced-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="../advanced/quiz.html" data-page="advanced-quiz"><span class="nav-icon">⭐</span>Quiz Advanced</a>
+      <div class="nav-section-label">Persiapan Tes</div>
+      <a class="nav-item" href="../ielts/overview.html" data-page="ielts"><span class="nav-icon">🎯</span>IELTS</a>
+      <a class="nav-item" href="../toeic/overview.html" data-page="toeic"><span class="nav-icon">🎯</span>TOEIC</a>
+      <a class="nav-item" href="../toefl/overview.html" data-page="toefl"><span class="nav-icon">🎯</span>TOEFL iBT</a>
+      <a class="nav-item" href="../cambridge/overview.html" data-page="cambridge"><span class="nav-icon">🎯</span>Cambridge</a>
+      <div class="nav-section-label">Lainnya</div>
+      <a class="nav-item" href="../planner.html" data-page="planner"><span class="nav-icon">📅</span>Study Planner</a>
+      <a class="nav-item" href="../games.html" data-page="games"><span class="nav-icon">🎮</span>Mini Game</a>
+      <div class="nav-section-label">Akun</div>
+      <a class="nav-item" href="../profile.html" data-page="profile"><span class="nav-icon">👤</span>Profil</a>
+      <a class="nav-item" href="../change-password.html" data-page="change-password"><span class="nav-icon">🔒</span>Ganti Password</a>
+      <a class="nav-item" href="#" data-action="logout"><span class="nav-icon">🚪</span>Keluar</a>
+    </nav>
+  </nav>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <!-- Main content -->
+  <div class="main-content">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+      <div class="topbar-title">Dialog A1–A2</div>
+      <div class="topbar-actions">
+        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+
+    <!-- Mobile Topbar -->
+    <div class="mobile-topbar">
+      <button class="hamburger" id="hamburger-mobile" aria-label="Menu">&#9776;</button>
+      <div class="mobile-topbar-title">Dialog A1–A2</div>
+      <button class="theme-toggle-btn" id="theme-toggle-btn-mobile" aria-label="Toggle dark mode">🌙</button>
+    </div>
+
+    <div class="page-content">
+
+      <!-- ── SCENES LIST VIEW ──────────────────────────────── -->
+      <div id="scenes-view">
+
+        <!-- Header -->
+        <div class="dialog-header">
+          <div class="dialog-header-icon">💬</div>
+          <div>
+            <h1>Dialog A1–A2</h1>
+            <p>Pelajari percakapan nyata sehari-hari — dari salam hingga wawancara kerja.</p>
+            <div class="dialog-header-stats">
+              <span>💬 <span id="hdr-scenes">9 dialog</span></span>
+              <span>❓ <span id="hdr-exercises">45+ latihan</span></span>
+              <span>✅ <span id="hdr-completed">0 selesai</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="dialog-stats-bar">
+          <div class="stat-box">
+            <div class="stat-value" id="stat-scenes-done">0</div>
+            <div class="stat-label">Dialog Selesai</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="stat-exercises-done">0</div>
+            <div class="stat-label">Latihan Selesai</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="stat-best-score">—</div>
+            <div class="stat-label">Skor Terbaik</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="stat-total-xp">0</div>
+            <div class="stat-label">XP Diraih</div>
+          </div>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="dialog-filter-bar" id="filter-bar">
+          <button class="filter-btn active" data-filter="all">Semua</button>
+          <!-- Rendered by JS -->
+        </div>
+
+        <!-- Scenes Grid -->
+        <div class="scenes-grid" id="scenes-grid">
+          <!-- Rendered by JS -->
+        </div>
+
+      </div>
+      <!-- /scenes-view -->
+
+      <!-- ── DETAIL VIEW ────────────────────────────────────── -->
+      <div class="dialog-detail" id="detail-view">
+
+        <button class="detail-back-btn" id="btn-back-to-scenes">← Kembali ke Daftar Dialog</button>
+
+        <!-- Scene Header -->
+        <div class="scene-detail-header">
+          <div class="scene-detail-icon" id="detail-icon">💬</div>
+          <div class="scene-detail-info">
+            <h2 id="detail-title">Judul Scene</h2>
+            <p id="detail-desc">Deskripsi singkat.</p>
+            <div class="scene-setting" id="detail-setting">📍 Setting</div>
+          </div>
+        </div>
+
+        <!-- Mode Tabs -->
+        <div class="detail-mode-tabs">
+          <button class="mode-tab-btn active" data-mode="dialog">💬 Dialog</button>
+          <button class="mode-tab-btn" data-mode="vocab">📖 Kosakata</button>
+          <button class="mode-tab-btn" data-mode="exercise">✏️ Latihan</button>
+        </div>
+
+        <!-- Dialog Panel -->
+        <div class="dialog-panel active" id="panel-dialog">
+          <div class="dialog-controls">
+            <label>Terjemahan:</label>
+            <button class="toggle-translation-btn" id="btn-toggle-translation">Tampilkan</button>
+            <button class="btn-play-all" id="btn-play-all">▶️ Play Semua</button>
+          </div>
+          <div class="dialog-lines" id="dialog-lines">
+            <!-- Rendered by JS -->
+          </div>
+          <div style="text-align:center; margin-top:1rem;">
+            <button class="btn btn-primary" id="btn-go-to-vocab">Lihat Kosakata →</button>
+          </div>
+        </div>
+
+        <!-- Vocab Panel -->
+        <div class="vocab-panel" id="panel-vocab">
+          <div class="vocab-list" id="vocab-list">
+            <!-- Rendered by JS -->
+          </div>
+          <div style="text-align:center; margin-top:1rem;">
+            <button class="btn btn-primary" id="btn-go-to-exercise">Mulai Latihan →</button>
+          </div>
+        </div>
+
+        <!-- Exercise Panel -->
+        <div class="exercise-panel" id="panel-exercise">
+
+          <!-- Start Screen -->
+          <div class="qf-start-screen" id="ex-start-screen">
+            <span class="qf-start-icon">✏️</span>
+            <h2 id="ex-start-title">Latihan Dialog</h2>
+            <p id="ex-start-desc">Uji pemahamanmu dengan soal-soal dari dialog ini.</p>
+            <div class="qf-start-info">
+              <div class="qf-start-info-item">
+                <div class="qf-start-info-val" id="ex-start-count">5</div>
+                <div class="qf-start-info-lbl">Soal</div>
+              </div>
+              <div class="qf-start-info-item">
+                <div class="qf-start-info-val">+3</div>
+                <div class="qf-start-info-lbl">XP / soal</div>
+              </div>
+              <div class="qf-start-info-item">
+                <div class="qf-start-info-val">+20</div>
+                <div class="qf-start-info-lbl">XP bonus 100%</div>
+              </div>
+            </div>
+            <button class="btn btn-primary" id="btn-start-exercise">Mulai Latihan</button>
+          </div>
+
+          <!-- Question Screen -->
+          <div class="qf-question-screen" id="ex-question-screen">
+            <div class="qf-progress-row">
+              <span class="qf-progress-text" id="ex-progress-text">Soal 1 dari 5</span>
+              <span class="qf-score-text" id="ex-score-text">Benar: 0</span>
+            </div>
+            <div class="qf-progress-bar">
+              <div class="qf-progress-fill" id="ex-progress-fill" style="width:0%"></div>
+            </div>
+
+            <div class="qf-card">
+              <div class="qf-category-label" id="ex-type-label">PILIHAN GANDA</div>
+              <div class="qf-question-text" id="ex-question-text">Pertanyaan</div>
+
+              <!-- MCQ -->
+              <div class="qf-options" id="ex-mcq-wrap"></div>
+
+              <!-- Fill -->
+              <div class="qf-fill-wrap" id="ex-fill-wrap" style="display:none;">
+                <input type="text" class="qf-fill-input" id="ex-fill-input" placeholder="Ketik jawaban..." autocomplete="off" autocorrect="off" spellcheck="false">
+              </div>
+
+              <div class="qf-feedback" id="ex-feedback"></div>
+            </div>
+
+            <div class="qf-actions">
+              <button class="btn-qf-check" id="ex-btn-check">Periksa Jawaban</button>
+              <button class="btn-qf-next" id="ex-btn-next">Soal Berikutnya →</button>
+            </div>
+          </div>
+
+          <!-- Result Screen -->
+          <div class="qf-result-screen" id="ex-result-screen">
+            <span class="qf-result-emoji" id="ex-result-emoji">🏆</span>
+            <div class="qf-result-score" id="ex-result-score">0/5</div>
+            <div class="qf-result-label" id="ex-result-label">Selesai!</div>
+            <div class="qf-result-xp" id="ex-result-xp">+0 XP</div>
+            <div class="qf-result-actions">
+              <button class="btn btn-outline" id="ex-btn-retry">Ulangi</button>
+              <button class="btn btn-primary" id="ex-btn-back-result">Kembali ke Dialog</button>
+            </div>
+          </div>
+
+        </div>
+        <!-- /panel-exercise -->
+
+      </div>
+      <!-- /detail-view -->
+
+    </div><!-- /page-content -->
+
+    <!-- Bottom Nav -->
+    <nav class="bottom-nav">
+      <a class="bottom-nav-item" href="../dashboard.html" data-page="dashboard">
+        <span class="bottom-nav-icon">🏠</span>
+        <span>Home</span>
+      </a>
+      <a class="bottom-nav-item active" href="dialog.html" data-page="foundation-dialog">
+        <span class="bottom-nav-icon">💬</span>
+        <span>Dialog</span>
+      </a>
+      <a class="bottom-nav-item" href="quiz.html" data-page="foundation-quiz">
+        <span class="bottom-nav-icon">⭐</span>
+        <span>Quiz</span>
+      </a>
+      <a class="bottom-nav-item" href="../profile.html" data-page="profile">
+        <span class="bottom-nav-icon">👤</span>
+        <span>Profil</span>
+      </a>
+    </nav>
+
+  </div><!-- /main-content -->
+</div><!-- /app-shell -->
+
+<!-- Scripts -->
+<script src="../../assets/js/core/storage.js"></script>
+<script src="../../assets/js/core/auth.js"></script>
+<script src="../../assets/js/core/router.js"></script>
+<script src="../../assets/js/core/app.js"></script>
+<script src="../../assets/js/modules/xp.js"></script>
+<script src="../../assets/js/modules/challenge.js"></script>
+<script src="../../assets/js/modules/badge.js"></script>
+<script src="../../assets/js/data/dialog-data.js"></script>
+<script src="../../assets/js/pages/dialog.js"></script>
+
+</body>
+</html>

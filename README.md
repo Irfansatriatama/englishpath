@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 0.7.0 |
-| **Fase Saat Ini** | FASE 6 ✅ — Foundation: Grammar A1–A2 |
-| **Fase Berikutnya** | FASE 7 — Foundation: Dialog & Quiz |
+| **Versi App** | 0.8.0 |
+| **Fase Saat Ini** | FASE 7 ✅ — Foundation: Dialog & Quiz |
+| **Fase Berikutnya** | FASE 8 — Intermediate: Vocabulary & Grammar B1–B2 |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -96,7 +96,7 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 
 ---
 
-## 5. Struktur Folder (Saat Ini — Fase 1)
+## 5. Struktur Folder (Saat Ini — Fase 7)
 
 ```
 englishpath/
@@ -111,15 +111,17 @@ englishpath/
 │   ├── login.html                      ✅ Login (2 kolom, hero kiri)
 │   ├── register.html                   ✅ Daftar akun → redirect onboarding
 │   ├── onboarding.html                 ✅ Wizard 5-step + Placement Test
-│   ├── dashboard.html                  ✅ Dashboard dasar → Fase 3 (lengkap)
+│   ├── dashboard.html                  ✅ Dashboard lengkap (Fase 3)
 │   ├── profile.html                    ✅ Edit profil + avatar picker
 │   ├── change-password.html            ✅ Ganti password
 │   ├── settings.html                   ✅ Pengaturan tema, font, radius
 │   ├── stats.html                      ✅ Placeholder → Fase 21 (lengkap)
-│   ├── foundation/                     🔲 Fase 4–7
-│   │   └── vocabulary.html             ✅ Halaman belajar vocab A1–A2 (Fase 4)
-│   │   └── pronunciation.html          ✅ Pronunciation & Phonetics (Fase 5)
-│   └── grammar.html                ✅ Grammar A1–A2 (Fase 6)
+│   ├── foundation/                     ✅ FASE 4–7 SELESAI
+│   │   ├── vocabulary.html             ✅ Vocab A1–A2: browse/flashcard/quiz/SRS (Fase 4)
+│   │   ├── pronunciation.html          ✅ Pronunciation & Phonetics (Fase 5)
+│   │   ├── grammar.html                ✅ Grammar A1–A2: 12 topik, 120+ soal (Fase 6)
+│   │   ├── dialog.html                 ✅ Dialog A1–A2: 9 scene, role-play, latihan (Fase 7)
+│   │   └── quiz.html                   ✅ Quiz Foundation: 6 paket, 60 soal (Fase 7)
 │   ├── intermediate/                   🔲 Fase 8–9
 │   ├── advanced/                       🔲 Fase 17–18
 │   ├── ielts/                          🔲 Fase 13
@@ -133,17 +135,20 @@ englishpath/
     │   ├── layout.css                  ✅ Sidebar, topbar, page shell, bottom nav
     │   ├── auth.css                    ✅ Login & register pages
     │   ├── onboarding.css              ✅ Wizard onboarding styles
-    │   └── dashboard.css               ✅ Dashboard styles lengkap (Fase 3)
-    │   └── vocabulary.css              ✅ Vocabulary page styles (Fase 4)
+    │   ├── dashboard.css               ✅ Dashboard styles lengkap (Fase 3)
+    │   ├── vocabulary.css              ✅ Vocabulary page styles (Fase 4)
+    │   ├── grammar.css                 ✅ Grammar page styles (Fase 6)
+    │   ├── dialog.css                  ✅ Dialog page styles (Fase 7)
+    │   └── quiz-foundation.css         ✅ Quiz Foundation styles (Fase 7)
     ├── icons/
     │   ├── icon-192.png               ✅
     │   └── icon-512.png               ✅
     └── js/
         ├── core/
-            ├── storage.js              ✅ localStorage wrapper (prefix ep_)
-            ├── auth.js                 ✅ Register, login, logout, session, streak
-            ├── router.js               ✅ guard(), guestOnly(), go(), setActiveNav()
-            └── app.js                  ✅ Toast, sidebar, theme, renderUserInfo, init()
+        │   ├── storage.js              ✅ localStorage wrapper (prefix ep_)
+        │   ├── auth.js                 ✅ Register, login, logout, session, streak
+        │   ├── router.js               ✅ guard(), guestOnly(), go(), setActiveNav()
+        │   └── app.js                  ✅ Toast, sidebar, theme, renderUserInfo, init()
         ├── modules/
         │   ├── xp.js                       ✅ XP system, level calculation, XP history
         │   ├── challenge.js                ✅ Daily Challenge system (Fase 3)
@@ -151,17 +156,18 @@ englishpath/
         │   └── srs.js                      ✅ SM-2 Spaced Repetition engine (Fase 4)
         ├── data/
         │   ├── placement-questions.js      ✅ 20 soal placement test A1–B2
-        │   └── vocabulary-data.js          ✅ 500+ kata A1–A2 (13 tema) — Fase 4
-        ├── data/
-        │   ├── placement-questions.js      ✅ 20 soal placement test A1–B2
         │   ├── vocabulary-data.js          ✅ 500+ kata A1–A2 (13 tema) — Fase 4
-        │   └── grammar-data.js             ✅ 12 topik grammar A1–A2 + 120 soal — Fase 6
+        │   ├── grammar-data.js             ✅ 12 topik grammar A1–A2 + 120 soal — Fase 6
+        │   ├── dialog-data.js              ✅ 9 scene dialog A1–A2 + 45 latihan — Fase 7
+        │   └── quiz-foundation-data.js     ✅ 6 paket quiz, 60 soal komprehensif — Fase 7
         └── pages/
             ├── onboarding.js               ✅ Wizard onboarding logic
             ├── dashboard.js                ✅ Dashboard page logic (Fase 3)
             ├── vocabulary.js               ✅ Vocab page: browse/flashcard/quiz/SRS (Fase 4)
             ├── pronunciation.js            ✅ Pronunciation page logic (Fase 5)
-            └── grammar.js                  ✅ Grammar page logic (Fase 6)
+            ├── grammar.js                  ✅ Grammar page logic (Fase 6)
+            ├── dialog.js                   ✅ Dialog page logic (Fase 7)
+            └── quiz-foundation.js          ✅ Quiz Foundation page logic (Fase 7)
 ```
 
 ---
@@ -258,6 +264,8 @@ Menghitung path relatif ke root berdasarkan kedalaman folder.
 | `challenge_log` | Array | tanggal challenge yang diselesaikan |
 | `srs_vocab_foundation` | Object | SM-2 data per word id — {repetitions, interval, ef, nextReview, lastReview} |
 | `grammar_foundation` | Object | {topicsStudied, quizResults{best,attempts,lastScore}, totalXP, quizzesDone} |
+| `dialog_foundation` | Object | {scenesRead, exerciseResults{best,attempts}, totalXP, exercisesDone} |
+| `quiz_foundation` | Object | {setResults{best,attempts,lastScore}, totalXP, attempts} |
 
 ---
 
@@ -479,9 +487,64 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 - ✅ localStorage key: `ep_user_{id}_grammar_foundation`
 - ✅ Topik dianggap "selesai" jika skor terbaik ≥ 7/10 (70%)
 
+### FASE 7 — Foundation: Dialog & Quiz ✅
+**Versi:** v0.8.0 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `assets/js/data/dialog-data.js` — 9 scene dialog A1–A2 (5 kategori) + 45 soal latihan
+- `assets/js/data/quiz-foundation-data.js` — 6 paket quiz komprehensif, 60 soal (vocab, grammar, dialog, mixed)
+- `assets/css/dialog.css` — Styles lengkap halaman dialog: chat bubble, filter, scene grid, exercise
+- `assets/css/quiz-foundation.css` — Styles halaman Quiz Foundation: set cards, quiz flow, result screen
+- `pages/foundation/dialog.html` — Halaman Dialog A1–A2
+- `pages/foundation/quiz.html` — Halaman Quiz Foundation
+- `assets/js/pages/dialog.js` — Logic dialog (IIFE module)
+- `assets/js/pages/quiz-foundation.js` — Logic quiz foundation (IIFE module)
+
+**Kategori Dialog yang Tersedia:**
+- 👋 Greetings & Introductions (2 scene: First Day at School, Meeting a Neighbour)
+- 🌅 Daily Life (3 scene: At the Café, At the Supermarket, Making Plans)
+- 💼 Work & School (2 scene: Job Interview, At the Office)
+- ✈️ Travel & Directions (2 scene: Asking for Directions, At the Airport)
+- 🏥 Health (1 scene: At the Doctor's)
+
+**Paket Quiz Foundation:**
+1. Vocabulary Challenge (A1–A2)
+2. Grammar Mastery (A1–A2)
+3. Dialog & Communication (A1–A2)
+4. Foundation A1 Review
+5. Foundation A2 Review
+6. Grand Final Quiz (A1–A2 semua topik)
+
+**Fitur yang Berfungsi:**
+
+*Halaman Dialog:*
+- ✅ 9 scene dialog A1–A2 dalam tampilan chat bubble realistis
+- ✅ Filter per kategori: Semua / Greetings / Daily / Work / Travel / Health
+- ✅ 3 mode per scene: Dialog (💬), Kosakata (📖), Latihan (✏️)
+- ✅ Toggle terjemahan per baris dialog
+- ✅ Tombol 🔊 per baris + tombol "Play Semua" (auto-play berurutan via Web Speech API)
+- ✅ Tab Kosakata: kata penting per scene + tombol dengarkan
+- ✅ Tab Latihan: MCQ + isi kosong, feedback per soal, skor, XP
+- ✅ XP Awards: +5 saat membuka dialog (1x/hari), +3 per soal benar latihan, +20 bonus sempurna
+- ✅ Challenge harian: onModuleVisit + onQuizComplete terhubung
+- ✅ localStorage key: `ep_user_{id}_dialog_foundation`
+
+*Halaman Quiz Foundation:*
+- ✅ 6 paket quiz (10 soal per paket) dengan tampilan kartu
+- ✅ Progress bar per paket berdasarkan skor terbaik
+- ✅ Tampilkan skor sebelumnya di start screen
+- ✅ Soal acak setiap percobaan (shuffle)
+- ✅ 2 tipe soal: MCQ + isi kosong (fill)
+- ✅ Hint untuk soal isi kosong
+- ✅ Feedback warna per soal (hijau benar / merah salah)
+- ✅ Result screen dengan emoji, skor, XP earned
+- ✅ XP Awards: +3 per soal benar, +20 bonus sempurna (100%)
+- ✅ Challenge harian terhubung
+- ✅ localStorage key: `ep_user_{id}_quiz_foundation`
+
 ---
 
-## 10. Roadmap Fase Mendatang
+
 
 | Fase | Nama | Versi | Status |
 |------|------|-------|--------|
@@ -490,7 +553,7 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **4** | Foundation: Vocabulary A1–A2 | v0.5.0 | ✅ |
 | **5** | Foundation: Pronunciation & Phonetics | v0.6.0 | ✅ |
 | **6** | Foundation: Grammar A1–A2 | v0.7.0 | ✅ |
-| **7** | Foundation: Dialog & Quiz | v0.8.0 | 🔲 |
+| **7** | Foundation: Dialog & Quiz | v0.8.0 | ✅ |
 | **8** | Intermediate: Vocabulary & Grammar B1–B2 | v1.0.0 | 🔲 |
 | **9** | Intermediate: Reading & Listening | v1.1.0 | 🔲 |
 | **10** | PWA, Profil & Settings | v1.2.0 | 🔲 |
@@ -583,7 +646,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v0.5.0 — Fase 4** | 2026-02-26 | Foundation Vocabulary A1–A2: 500+ kata, SRS SM-2, 4 mode belajar | ✅ |
 | **v0.6.0 — Fase 5** | 2026-02-26 | Foundation Pronunciation & Phonetics: IPA chart, minimal pairs, tongue twisters, word stress, quiz | ✅ |
 | **v0.7.0 — Fase 6** | 2026-02-26 | Foundation Grammar A1–A2: 12 topik, 120+ soal, 3 mode quiz | ✅ |
-| **v0.8.0 — Fase 7** | TBD | Foundation: Dialog & Quiz | 🔲 |
+| **v0.8.0 — Fase 7** | 2026-02-26 | Foundation Dialog & Quiz: 9 dialog scene, 6 quiz paket, 60 soal komprehensif | ✅ |
 | **v1.0.0 — Fase 8** | TBD | Intermediate: Vocabulary & Grammar B1–B2 | 🔲 |
 | **v1.1.0 — Fase 9** | TBD | Intermediate: Reading & Listening | 🔲 |
 | **v1.2.0 — Fase 10** | TBD | PWA, Profil & Settings | 🔲 |
@@ -603,7 +666,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 6 ✅ Foundation: Grammar A1–A2 → **Fase 7** 🔲 (berikutnya)
+> **Fase saat ini:** Fase 7 ✅ Foundation: Dialog & Quiz → **Fase 8** 🔲 (berikutnya)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >
