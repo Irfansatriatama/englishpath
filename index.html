@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EnglishPath — Belajar Bahasa Inggris</title>
+  <meta name="description" content="Belajar Bahasa Inggris dari A1 hingga persiapan IELTS, TOEIC, TOEFL, dan Cambridge. Offline-first, gratis, langsung di browser.">
+  <meta name="theme-color" content="#1a6cf0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="EnglishPath">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    body {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; background: var(--bg);
+    }
+    .splash {
+      text-align: center;
+      animation: fadeIn 0.5s var(--ease) both;
+    }
+    .splash-logo {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -1px;
+    }
+    .splash-tagline {
+      font-size: 0.9rem;
+      color: var(--text-3);
+      margin-top: 8px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .splash-flags {
+      font-size: 2rem;
+      margin-top: 16px;
+      letter-spacing: 8px;
+    }
+    .splash-loading {
+      margin-top: 32px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      color: var(--text-3); font-size: 0.85rem;
+    }
+    .loading-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      animation: pulse 1.2s var(--ease) infinite;
+    }
+    .loading-dot:nth-child(2) { animation-delay: 0.2s; }
+    .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+  </style>
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+      const fn = localStorage.getItem('ep_font');
+      if (fn) document.documentElement.setAttribute('data-font', fn);
+      const rd = localStorage.getItem('ep_radius');
+      if (rd) document.documentElement.setAttribute('data-radius', rd);
+    })();
+  </script>
+</head>
+<body>
+  <div class="splash">
+    <div class="splash-logo">EnglishPath</div>
+    <div class="splash-flags">🇬🇧 🇺🇸</div>
+    <div class="splash-tagline">From A1 to IELTS, one word at a time</div>
+    <div class="splash-loading">
+      <div class="loading-dot"></div>
+      <div class="loading-dot"></div>
+      <div class="loading-dot"></div>
+    </div>
+  </div>
+
+  <script src="assets/js/core/storage.js"></script>
+  <script src="assets/js/core/auth.js"></script>
+  <script src="assets/js/core/router.js"></script>
+  <script>
+    setTimeout(() => {
+      if (Auth.isLoggedIn()) {
+        window.location.href = 'pages/dashboard.html';
+      } else {
+        window.location.href = 'pages/login.html';
+      }
+    }, 800);
+  </script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengaturan — EnglishPath</title>
+  <meta name="theme-color" content="#1a6cf0">
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+      const fn = localStorage.getItem('ep_font');
+      if (fn) document.documentElement.setAttribute('data-font', fn);
+      const rd = localStorage.getItem('ep_radius');
+      if (rd) document.documentElement.setAttribute('data-radius', rd);
+    })();
+  </script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <style>
+    .settings-section { margin-bottom: 20px; }
+    .setting-row {
+      display: flex; align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      gap: 16px;
+    }
+    .setting-row:last-child { border-bottom: none; }
+    .setting-label { flex: 1; }
+    .setting-name  { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+    .setting-desc  { font-size: 0.78rem; color: var(--text-3); margin-top: 2px; }
+    /* Toggle switch */
+    .toggle-switch { position: relative; width: 48px; height: 26px; flex-shrink: 0; }
+    .toggle-switch input { opacity: 0; width: 0; height: 0; }
+    .toggle-track {
+      position: absolute; inset: 0; cursor: pointer;
+      background: var(--border-2); border-radius: 26px;
+      transition: background 0.2s;
+    }
+    .toggle-track::before {
+      content: '';
+      position: absolute; height: 20px; width: 20px;
+      left: 3px; bottom: 3px;
+      background: white; border-radius: 50%;
+      transition: transform 0.2s;
+    }
+    input:checked + .toggle-track { background: var(--primary); }
+    input:checked + .toggle-track::before { transform: translateX(22px); }
+    /* Color theme picker */
+    .color-theme-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+    .color-swatch {
+      width: 36px; height: 36px; border-radius: 50%;
+      cursor: pointer; border: 2px solid transparent;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .color-swatch.active { border-color: var(--text); transform: scale(1.15); }
+    /* Select style */
+    .setting-select {
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: var(--radius); padding: 6px 10px;
+      font-size: 0.85rem; color: var(--text);
+      cursor: pointer;
+    }
+    /* Danger zone */
+    .danger-btn {
+      background: #fee2e2; color: #991b1b; border: 1px solid #fecaca;
+      border-radius: var(--radius-lg); padding: 10px 20px;
+      font-size: 0.875rem; font-weight: 600; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .danger-btn:hover { background: #fecaca; }
+    [data-theme="dark"] .danger-btn { background: rgba(220,38,38,0.12); color: #fca5a5; border-color: rgba(220,38,38,0.3); }
+  </style>
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-main">EnglishPath</div>
+      <div class="logo-sub">A1 → C2 + IELTS · TOEIC · TOEFL</div>
+    </div>
+    <div class="sidebar-user">
+      <div class="avatar-circle" data-user-avatar>🇬🇧</div>
+      <div class="sidebar-user-info">
+        <div class="user-name" data-user-name>Pengguna</div>
+        <div class="user-level" data-user-email>—</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Umum</div>
+      <a class="nav-item" href="dashboard.html" data-page="dashboard"><span class="nav-icon">🏠</span>Dashboard</a>
+      <a class="nav-item" href="stats.html" data-page="stats"><span class="nav-icon">📊</span>Statistik</a>
+      <a class="nav-item" href="settings.html" data-page="settings"><span class="nav-icon">⚙️</span>Pengaturan</a>
+      <div class="nav-section-label">Foundation (A1–A2)</div>
+      <a class="nav-item" href="foundation/vocabulary.html" data-page="foundation-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="foundation/grammar.html" data-page="foundation-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="foundation/pronunciation.html" data-page="foundation-pronunciation"><span class="nav-icon">🔊</span>Pronunciation</a>
+      <a class="nav-item" href="foundation/dialog.html" data-page="foundation-dialog"><span class="nav-icon">💬</span>Dialog</a>
+      <a class="nav-item" href="foundation/quiz.html" data-page="foundation-quiz"><span class="nav-icon">⭐</span>Quiz Foundation</a>
+      <div class="nav-section-label">Intermediate (B1–B2)</div>
+      <a class="nav-item" href="intermediate/vocabulary.html" data-page="intermediate-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="intermediate/grammar.html" data-page="intermediate-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="intermediate/reading.html" data-page="intermediate-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="intermediate/listening.html" data-page="intermediate-listening"><span class="nav-icon">🎧</span>Listening</a>
+      <a class="nav-item" href="intermediate/quiz.html" data-page="intermediate-quiz"><span class="nav-icon">⭐</span>Quiz Intermediate</a>
+      <div class="nav-section-label">Advanced (C1–C2)</div>
+      <a class="nav-item" href="advanced/vocabulary.html" data-page="advanced-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="advanced/grammar.html" data-page="advanced-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="advanced/reading.html" data-page="advanced-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="advanced/quiz.html" data-page="advanced-quiz"><span class="nav-icon">⭐</span>Quiz Advanced</a>
+      <div class="nav-section-label">Persiapan Tes</div>
+      <a class="nav-item" href="ielts/overview.html" data-page="ielts"><span class="nav-icon">🎯</span>IELTS</a>
+      <a class="nav-item" href="toeic/overview.html" data-page="toeic"><span class="nav-icon">🎯</span>TOEIC</a>
+      <a class="nav-item" href="toefl/overview.html" data-page="toefl"><span class="nav-icon">🎯</span>TOEFL iBT</a>
+      <a class="nav-item" href="cambridge/overview.html" data-page="cambridge"><span class="nav-icon">🎯</span>Cambridge</a>
+      <div class="nav-section-label">Lainnya</div>
+      <a class="nav-item" href="planner.html" data-page="planner"><span class="nav-icon">📅</span>Study Planner</a>
+      <a class="nav-item" href="games.html" data-page="games"><span class="nav-icon">🎮</span>Mini Game</a>
+      <div class="nav-section-label">Akun</div>
+      <a class="nav-item" href="profile.html" data-page="profile"><span class="nav-icon">👤</span>Profil</a>
+      <a class="nav-item" href="change-password.html" data-page="change-password"><span class="nav-icon">🔒</span>Ganti Password</a>
+      <a class="nav-item" href="#" data-action="logout"><span class="nav-icon">🚪</span>Keluar</a>
+    </nav>
+  </nav>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <!-- Main content -->
+  <div class="main-content">
+
+    <div class="topbar">
+      <div class="topbar-title">Pengaturan</div>
+      <div class="topbar-actions">
+        <button class="theme-toggle-btn">🌙</button>
+      </div>
+    </div>
+
+    <div class="mobile-topbar">
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <div class="logo-main">EnglishPath</div>
+      <button class="theme-toggle-btn">🌙</button>
+    </div>
+
+    <div class="page-body">
+      <div style="max-width: 640px; margin: 0 auto;">
+
+        <!-- Tampilan -->
+        <div class="card fade-in settings-section">
+          <div class="card-title">🎨 Tampilan</div>
+
+          <div class="setting-row">
+            <div class="setting-label">
+              <div class="setting-name">Mode Gelap</div>
+              <div class="setting-desc">Aktifkan tampilan gelap untuk kenyamanan mata di malam hari</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="toggle-darkmode">
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+
+          <div class="setting-row" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+            <div class="setting-label">
+              <div class="setting-name">Tema Warna</div>
+              <div class="setting-desc">Pilih skema warna utama aplikasi</div>
+            </div>
+            <div class="color-theme-grid" id="color-theme-grid"></div>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-label">
+              <div class="setting-name">Font</div>
+              <div class="setting-desc">Ubah font teks aplikasi</div>
+            </div>
+            <select class="setting-select" id="font-select">
+              <option value="default">Default (DM Sans)</option>
+              <option value="serif">Serif (Georgia)</option>
+              <option value="mono">Mono (JetBrains)</option>
+            </select>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-label">
+              <div class="setting-name">Sudut Tombol</div>
+              <div class="setting-desc">Ubah kelengkungan sudut komponen UI</div>
+            </div>
+            <select class="setting-select" id="radius-select">
+              <option value="default">Default</option>
+              <option value="sharp">Sharp (Kotak)</option>
+              <option value="round">Round (Bulat)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Akun -->
+        <div class="card fade-in settings-section">
+          <div class="card-title">👤 Akun</div>
+
+          <div class="setting-row">
+            <div class="setting-label">
+              <div class="setting-name">Edit Profil</div>
+              <div class="setting-desc">Ubah nama, avatar, dan bio</div>
+            </div>
+            <a href="profile.html" style="
+              background: var(--primary-soft); color: var(--primary);
+              padding: 8px 16px; border-radius: var(--radius);
+              font-size: 0.8rem; font-weight: 700;
+            ">Edit →</a>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-label">
+              <div class="setting-name">Ganti Password</div>
+              <div class="setting-desc">Ubah kata sandi akunmu</div>
+            </div>
+            <a href="change-password.html" style="
+              background: var(--primary-soft); color: var(--primary);
+              padding: 8px 16px; border-radius: var(--radius);
+              font-size: 0.8rem; font-weight: 700;
+            ">Ganti →</a>
+          </div>
+        </div>
+
+        <!-- Danger zone -->
+        <div class="card fade-in settings-section">
+          <div class="card-title" style="color: #dc2626;">⚠️ Zona Bahaya</div>
+          <div class="setting-row">
+            <div class="setting-label">
+              <div class="setting-name">Keluar</div>
+              <div class="setting-desc">Keluar dari akun aktif</div>
+            </div>
+            <button class="danger-btn" data-action="logout">Keluar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="bottom-nav">
+      <div class="bottom-nav-inner">
+        <a class="bottom-nav-item" href="dashboard.html" data-page="dashboard"><span class="bnav-icon">🏠</span><span>Home</span></a>
+        <a class="bottom-nav-item" href="foundation/vocabulary.html" data-page="foundation-vocab"><span class="bnav-icon">📚</span><span>Belajar</span></a>
+        <a class="bottom-nav-item" href="stats.html" data-page="stats"><span class="bnav-icon">📊</span><span>Stats</span></a>
+        <a class="bottom-nav-item" href="profile.html" data-page="profile"><span class="bnav-icon">👤</span><span>Profil</span></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast-container"></div>
+
+<script src="../assets/js/core/storage.js"></script>
+<script src="../assets/js/core/auth.js"></script>
+<script src="../assets/js/core/router.js"></script>
+<script src="../assets/js/core/app.js"></script>
+<script>
+  Router.guard();
+  App.init('settings');
+
+  const session = Auth.getSession();
+  const userId  = session.userId;
+
+  // ── Color themes ──
+  const COLOR_THEMES = [
+    { id: 'ocean',  label: 'Ocean',   color: '#1a6cf0' },
+    { id: 'forest', label: 'Forest',  color: '#16a34a' },
+    { id: 'sunset', label: 'Sunset',  color: '#ef4444' },
+    { id: 'violet', label: 'Violet',  color: '#7c3aed' },
+  ];
+
+  const currentTheme = localStorage.getItem('ep_color_theme') || 'ocean';
+  const grid = document.getElementById('color-theme-grid');
+
+  COLOR_THEMES.forEach(t => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.title = t.label;
+    btn.className = 'color-swatch' + (t.id === currentTheme ? ' active' : '');
+    btn.style.background = t.color;
+    btn.setAttribute('data-theme-id', t.id);
+    btn.addEventListener('click', () => {
+      grid.querySelectorAll('.color-swatch').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      localStorage.setItem('ep_color_theme', t.id);
+      document.documentElement.setAttribute('data-color-theme', t.id);
+      Storage.mergeUser(userId, 'settings', { colorTheme: t.id });
+      App.toast('Tema ' + t.label + ' diterapkan', 'success');
+    });
+    grid.appendChild(btn);
+  });
+
+  // ── Dark mode toggle ──
+  const darkToggle = document.getElementById('toggle-darkmode');
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  darkToggle.checked = isDark;
+
+  darkToggle.addEventListener('change', () => {
+    App.toggleTheme();
+  });
+
+  // ── Font ──
+  const fontSelect = document.getElementById('font-select');
+  fontSelect.value = localStorage.getItem('ep_font') || 'default';
+  fontSelect.addEventListener('change', () => {
+    const val = fontSelect.value;
+    localStorage.setItem('ep_font', val);
+    if (val === 'default') {
+      document.documentElement.removeAttribute('data-font');
+    } else {
+      document.documentElement.setAttribute('data-font', val);
+    }
+    Storage.mergeUser(userId, 'settings', { font: val });
+    App.toast('Font diubah', 'success');
+  });
+
+  // ── Radius ──
+  const radiusSelect = document.getElementById('radius-select');
+  radiusSelect.value = localStorage.getItem('ep_radius') || 'default';
+  radiusSelect.addEventListener('change', () => {
+    const val = radiusSelect.value;
+    localStorage.setItem('ep_radius', val);
+    if (val === 'default') {
+      document.documentElement.removeAttribute('data-radius');
+    } else {
+      document.documentElement.setAttribute('data-radius', val);
+    }
+    Storage.mergeUser(userId, 'settings', { radius: val });
+    App.toast('Sudut tombol diubah', 'success');
+  });
+</script>
+</body>
+</html>

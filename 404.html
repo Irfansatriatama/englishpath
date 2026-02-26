@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Tidak Ditemukan — EnglishPath</title>
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+    .notfound { text-align: center; padding: 40px 20px; }
+    .notfound-code { font-size: 6rem; font-weight: 700; color: var(--primary); font-family: var(--font-display); line-height: 1; }
+    .notfound-title { font-size: 1.5rem; font-weight: 700; margin: 16px 0 8px; }
+    .notfound-sub { color: var(--text-3); margin-bottom: 32px; }
+    .btn-home {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--primary); color: #fff;
+      padding: 12px 28px; border-radius: var(--radius-lg);
+      font-weight: 600; font-size: 0.95rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-home:hover { background: var(--primary-dark); transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+  <div class="notfound">
+    <div class="notfound-code">404</div>
+    <div class="notfound-title">Halaman tidak ditemukan</div>
+    <p class="notfound-sub">Maaf, halaman yang kamu cari tidak ada atau sudah dipindahkan.</p>
+    <a href="index.html" class="btn-home">🏠 Kembali ke Beranda</a>
+  </div>
+</body>
+</html>

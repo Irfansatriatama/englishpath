@@ -1,0 +1,442 @@
+# EnglishPath — Belajar Bahasa Inggris dari Nol hingga Tes Internasional
+
+Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemula hingga persiapan dan simulasi tes IELTS, TOEIC, TOEFL, dan Cambridge.  
+**Offline-first · Pure localStorage · Tanpa server · Tanpa instalasi · PWA Ready**
+
+---
+
+## Daftar Isi
+
+1. [Status & Versi](#1-status--versi)
+2. [Deskripsi Proyek](#2-deskripsi-proyek)
+3. [Target Pengguna & Pendekatan Belajar](#3-target-pengguna--pendekatan-belajar)
+4. [Cara Menjalankan](#4-cara-menjalankan)
+5. [Struktur Folder (Target Akhir)](#5-struktur-folder-target-akhir)
+6. [Arsitektur & Pola Kode](#6-arsitektur--pola-kode)
+7. [localStorage Key Reference](#7-localstorage-key-reference)
+8. [Rencana Konten & Kurikulum](#8-rencana-konten--kurikulum)
+9. [Riwayat Fase](#9-riwayat-fase)
+10. [Roadmap Fase Mendatang](#10-roadmap-fase-mendatang)
+11. [Panduan untuk Claude Selanjutnya](#11-panduan-untuk-claude-selanjutnya)
+12. [Log Pengerjaan & Versi](#12-log-pengerjaan--versi)
+
+---
+
+## 1. Status & Versi
+
+| Info | Detail |
+|------|--------|
+| **Nama Proyek** | EnglishPath |
+| **Versi App** | 0.2.0 |
+| **Fase Saat Ini** | FASE 1 ✅ — Fondasi & Autentikasi |
+| **Fase Berikutnya** | FASE 2 — Onboarding & Placement Test |
+| **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
+| **Storage** | `localStorage` 100% — tanpa server, tanpa database |
+| **Target Bahasa** | Bahasa Inggris (British & American English) |
+| **Level** | A1 → A2 → B1 → B2 → C1 → C2 (CEFR) |
+| **Target Ujian** | IELTS, TOEIC, TOEFL iBT, Cambridge (B2 First, C1 Advanced) |
+| **PWA** | Direncanakan mulai Fase 10 |
+| **Deploy** | GitHub Pages / Netlify (butuh HTTPS untuk PWA penuh) |
+
+---
+
+## 2. Deskripsi Proyek
+
+**EnglishPath** adalah aplikasi web belajar Bahasa Inggris yang berjalan **100% di browser** tanpa server, database, atau koneksi internet setelah diunduh. Seluruh data user tersimpan di `localStorage`.
+
+### Keunggulan Utama
+
+- **Jalur terstruktur A1→C2** — Kurikulum linier yang jelas, tidak membingungkan pemula
+- **Persiapan tes internasional** — Simulasi nyata IELTS, TOEIC, TOEFL iBT, Cambridge
+- **Skill-based learning** — 4 skill (Reading, Listening, Speaking, Writing) dilatih secara merata
+- **Gamifikasi lengkap** — XP, Level, Badge, Streak, Challenge Harian, Mini Game
+- **Offline-first** — Belajar di mana saja tanpa khawatir koneksi
+
+---
+
+## 3. Target Pengguna & Pendekatan Belajar
+
+### Target Pengguna
+
+- **Usia:** 18–35 tahun
+- **Latar belakang:** Berbahasa Indonesia, ingin meningkatkan kemampuan bahasa Inggris
+- **Tujuan bervariasi:** Pemula A1, peningkatan grammar/vocab, English for Work, persiapan tes
+
+### Pendekatan Belajar
+
+| Prinsip | Implementasi |
+|---------|-------------|
+| **Input Comprehensible** | Materi selalu sedikit di atas level user (i+1) |
+| **Spaced Repetition** | Algoritma SM-2 untuk vocabulary dan grammar patterns |
+| **Active Recall** | Quiz multi-mode: pilihan ganda, isi kosong, ketik jawaban |
+| **Skill Integration** | Listening + Reading + Speaking + Writing dalam satu platform |
+| **Test-oriented Practice** | Format soal mirip ujian asli sejak B1 |
+| **Gamifikasi Intrinsik** | Reward berbasis progress nyata |
+
+---
+
+## 4. Cara Menjalankan
+
+### Lokal (tanpa server)
+
+```
+1. Ekstrak zip ke folder manapun
+2. Double klik index.html
+3. Daftar akun baru → langsung bisa digunakan
+4. Tidak perlu npm, pip, server, atau koneksi internet
+```
+
+### GitHub Pages / Netlify (untuk PWA penuh)
+
+```
+1. Upload folder ke repo GitHub
+2. Aktifkan GitHub Pages dari root
+3. Akses via HTTPS → PWA install prompt akan muncul (mulai Fase 10)
+```
+
+---
+
+## 5. Struktur Folder (Saat Ini — Fase 1)
+
+```
+englishpath/
+├── index.html                          ← Splash screen + redirect
+├── 404.html                            ← Halaman not found
+├── README.md                           ← Dokumentasi ini
+│
+├── components/
+│   └── sidebar.html                    ← Template referensi sidebar
+│
+├── pages/
+│   ├── login.html                      ✅ Login (2 kolom, hero kiri)
+│   ├── register.html                   ✅ Daftar akun → redirect onboarding
+│   ├── onboarding.html                 ✅ Placeholder → Fase 2
+│   ├── dashboard.html                  ✅ Dashboard dasar → Fase 3 (lengkap)
+│   ├── profile.html                    ✅ Edit profil + avatar picker
+│   ├── change-password.html            ✅ Ganti password
+│   ├── settings.html                   ✅ Pengaturan tema, font, radius
+│   ├── stats.html                      ✅ Placeholder → Fase 21 (lengkap)
+│   ├── foundation/                     🔲 Fase 4–7
+│   ├── intermediate/                   🔲 Fase 8–9
+│   ├── advanced/                       🔲 Fase 17–18
+│   ├── ielts/                          🔲 Fase 13
+│   ├── toeic/                          🔲 Fase 14
+│   ├── toefl/                          🔲 Fase 15
+│   └── cambridge/                      🔲 Fase 16
+│
+└── assets/
+    ├── css/
+    │   ├── main.css                    ✅ Variables, reset, dark mode, color themes
+    │   ├── layout.css                  ✅ Sidebar, topbar, page shell, bottom nav
+    │   └── auth.css                    ✅ Login & register pages
+    ├── icons/
+    │   ├── icon-192.png               ✅
+    │   └── icon-512.png               ✅
+    └── js/
+        └── core/
+            ├── storage.js              ✅ localStorage wrapper (prefix ep_)
+            ├── auth.js                 ✅ Register, login, logout, session, streak
+            ├── router.js               ✅ guard(), guestOnly(), go(), setActiveNav()
+            └── app.js                  ✅ Toast, sidebar, theme, renderUserInfo, init()
+```
+
+---
+
+## 6. Arsitektur & Pola Kode
+
+### Anti-FOUC (WAJIB di `<head>` setiap halaman)
+
+```html
+<script>
+  (function() {
+    const dm = localStorage.getItem('ep_dark_mode');
+    if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+    const ct = localStorage.getItem('ep_color_theme');
+    if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+    const fn = localStorage.getItem('ep_font');
+    if (fn) document.documentElement.setAttribute('data-font', fn);
+    const rd = localStorage.getItem('ep_radius');
+    if (rd) document.documentElement.setAttribute('data-radius', rd);
+  })();
+</script>
+```
+
+### Init Halaman Protected
+
+```javascript
+Router.guard();        // Redirect ke login jika tidak authenticated
+App.init('page-id'); // Init sidebar, toast, dark mode, theme
+```
+
+### Module Pattern
+
+```javascript
+const ModuleName = (function() {
+  let _private = null;
+  function _helper() {}
+  return {
+    init() {},
+    publicMethod() {},
+  };
+})();
+```
+
+### Script Load Order
+
+```html
+<script src="../assets/js/core/storage.js"></script>
+<script src="../assets/js/core/auth.js"></script>
+<script src="../assets/js/core/router.js"></script>
+<script src="../assets/js/core/app.js"></script>
+<!-- modul lain setelah ini -->
+```
+
+### getBase() Helper
+
+`getBase()` tersedia sebagai global function (didefinisikan di `auth.js`).
+Menghitung path relatif ke root berdasarkan kedalaman folder.
+
+---
+
+## 7. localStorage Key Reference
+
+### Prefix: `ep_`
+
+### Keys Global
+
+| Key | Deskripsi |
+|-----|-----------|
+| `ep_dark_mode` | `'true'` / `'false'` |
+| `ep_color_theme` | string tema aktif: `'ocean'` / `'forest'` / `'sunset'` / `'violet'` |
+| `ep_font` | string font: `'default'` / `'serif'` / `'mono'` |
+| `ep_radius` | string radius: `'default'` / `'sharp'` / `'round'` |
+| `ep_current_user` | userId yang sedang login |
+| `ep_users` | JSON array semua user terdaftar |
+
+### Keys Per-User (`ep_user_{id}_...`)
+
+| Suffix | Tipe | Isi |
+|--------|------|-----|
+| `profile` | Object | name, email, avatar, bio, createdAt |
+| `progress` | Object | progress semua modul |
+| `favorites` | Object | bookmark per modul |
+| `quiz_scores` | Array | riwayat skor quiz |
+| `xp` | Number | total XP |
+| `xp_history` | Array | {action, amount, label, date, totalAfter} |
+| `level` | Number | level saat ini |
+| `streak` | Number | hari berturut-turut |
+| `last_active` | ISO date string | `'YYYY-MM-DD'` |
+| `activity_log` | Array | {date, modules[]} |
+| `badges` | Array | badge yang diraih |
+| `settings` | Object | {darkMode, colorTheme, font, radius, ...} |
+| `onboarding` | Object | {completed, level, targetTest, dailyGoal} |
+
+---
+
+## 8. Rencana Konten & Kurikulum
+
+### Foundation (A1–A2)
+- Vocabulary: 500+ kata tema greetings, family, food, numbers, colors, body, time
+- Grammar: To Be, Simple Present, Simple Past, articles, prepositions
+- Pronunciation: IPA basics, vowel/consonant sounds, stress patterns
+- Dialog: 20+ situational dialogs (introducing yourself, shopping, directions)
+
+### Intermediate (B1–B2)
+- Vocabulary: 1000+ kata tema work, travel, news, environment, technology
+- Grammar: Conditionals, Passive Voice, Perfect Tenses, Reported Speech
+- Reading: articles, news excerpts, essays
+- Listening: dialogs, monologs, podcast-style content
+
+### Advanced (C1–C2)
+- Vocabulary: Idioms, phrasal verbs, collocations, Academic Word List
+- Grammar: Inversion, Cleft sentences, Nominal clauses
+- Reading/Listening: Academic texts, debates, native-speed content
+
+### Tes Internasional
+- IELTS: Academic & General Training, 4 skills, Band 0–9
+- TOEIC: Listening & Reading, Parts 1–7, score 10–990
+- TOEFL iBT: Reading, Listening, Speaking, Writing, score 0–120
+- Cambridge: B2 First & C1 Advanced
+
+---
+
+## 9. Riwayat Fase
+
+### FASE 0 — Perencanaan & README ✅
+**Versi:** v0.1.0 | **Tanggal:** 2026-02-26
+
+Dokumen perencanaan lengkap dengan 23 fase roadmap.
+
+---
+
+### FASE 1 — Fondasi & Autentikasi ✅
+**Versi:** v0.2.0 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `index.html` — Splash screen dengan loading animation, redirect ke login/dashboard
+- `404.html` — Custom 404 page
+- `assets/css/main.css` — Variables, reset, dark mode, 4 color themes, font, radius, toast
+- `assets/css/layout.css` — Sidebar, topbar, page shell, bottom nav mobile, responsive
+- `assets/css/auth.css` — Login & register pages, 2-column layout, form components
+- `assets/js/core/storage.js` — localStorage wrapper dengan prefix `ep_`, getUser/setUser/delUser
+- `assets/js/core/auth.js` — Register, login, logout, session, changePassword, updateProfile, streak
+- `assets/js/core/router.js` — guard(), guestOnly(), go(), setActiveNav()
+- `assets/js/core/app.js` — Toast, sidebar drawer, renderUserInfo, dark mode toggle, checkPasswordStrength
+- `pages/login.html` — Login dua kolom: panel kiri dekoratif + form kanan, live validation
+- `pages/register.html` — Register dengan password strength meter, live validation
+- `pages/onboarding.html` — Placeholder (konten lengkap di Fase 2)
+- `pages/dashboard.html` — Dashboard dengan welcome, stats dasar, CTA grid (konten penuh di Fase 3)
+- `pages/profile.html` — Edit profil, avatar picker (16 avatar emoji), bio
+- `pages/change-password.html` — Form ganti password dengan validasi lengkap
+- `pages/settings.html` — Dark mode toggle, color theme picker, font, radius
+- `pages/stats.html` — Stats ringkas (lengkap di Fase 21)
+- `components/sidebar.html` — Template referensi sidebar
+- `assets/icons/icon-192.png` & `icon-512.png` — App icons
+
+**Fitur yang berfungsi:**
+- ✅ Register akun baru (validasi nama, email, password)
+- ✅ Login dengan email + password
+- ✅ Logout
+- ✅ Auth guard (redirect ke login jika belum login)
+- ✅ Session management via `ep_current_user` di localStorage
+- ✅ Streak tracker (harian, auto-update saat login)
+- ✅ Edit profil + avatar picker
+- ✅ Ganti password
+- ✅ Dark mode toggle (persisten)
+- ✅ 4 color themes: Ocean, Forest, Sunset, Violet
+- ✅ Custom font & radius
+- ✅ Anti-FOUC (4 properties)
+- ✅ Sidebar + mobile drawer
+- ✅ Bottom navigation mobile
+- ✅ Toast notifications
+- ✅ Password strength meter
+- ✅ Responsive (mobile + desktop)
+
+---
+
+## 10. Roadmap Fase Mendatang
+
+| Fase | Nama | Versi | Status |
+|------|------|-------|--------|
+| **2** | Onboarding & Placement Test | v0.3.0 | 🔲 |
+| **3** | Dashboard & Gamifikasi Dasar | v0.4.0 | 🔲 |
+| **4** | Foundation: Vocabulary A1–A2 | v0.5.0 | 🔲 |
+| **5** | Foundation: Pronunciation & Phonetics | v0.6.0 | 🔲 |
+| **6** | Foundation: Grammar A1–A2 | v0.7.0 | 🔲 |
+| **7** | Foundation: Dialog & Quiz | v0.8.0 | 🔲 |
+| **8** | Intermediate: Vocabulary & Grammar B1–B2 | v1.0.0 | 🔲 |
+| **9** | Intermediate: Reading & Listening | v1.1.0 | 🔲 |
+| **10** | PWA, Profil & Settings | v1.2.0 | 🔲 |
+| **11** | Tema & Kustomisasi UI | v1.3.0 | 🔲 |
+| **12** | Study Planner | v1.4.0 | 🔲 |
+| **13** | IELTS: Practice & Simulasi | v2.0.0 | 🔲 |
+| **14** | TOEIC: Practice & Simulasi | v2.1.0 | 🔲 |
+| **15** | TOEFL iBT: Practice & Simulasi | v2.2.0 | 🔲 |
+| **16** | Cambridge: Practice & Simulasi | v2.3.0 | 🔲 |
+| **17** | Advanced: Vocabulary & Grammar C1–C2 | v2.4.0 | 🔲 |
+| **18** | Advanced: Reading & Listening | v2.5.0 | 🔲 |
+| **19** | Speaking & Writing Modules | v2.6.0 | 🔲 |
+| **20** | Mini Game (5 game) | v3.0.0 | 🔲 |
+| **21** | Statistik, Backup & Laporan | v3.1.0 | 🔲 |
+| **22** | Reminder & Notifikasi | v3.2.0 | 🔲 |
+| **23** | Polish, Bug Fix & Optimasi Final | v3.3.0 | 🔲 |
+
+---
+
+## 11. Panduan untuk Claude Selanjutnya
+
+### Konteks Penting
+
+Kamu sedang mengembangkan **EnglishPath** — aplikasi web belajar bahasa Inggris vanilla JS, 100% localStorage, tanpa framework/server/build step.
+
+Fase 1 sudah selesai. Fondasi tersedia:
+- Core JS: `storage.js`, `auth.js`, `router.js`, `app.js`
+- CSS: `main.css`, `layout.css`, `auth.css`
+- Halaman: login, register, onboarding (placeholder), dashboard (dasar), profile, change-password, settings, stats (placeholder)
+
+### Stack & Aturan
+
+- Vanilla HTML + CSS + JavaScript ES6+ — TIDAK ada framework
+- `ep_` prefix untuk semua localStorage keys
+- Gunakan `Storage.getUser()` / `Storage.setUser()` — JANGAN `localStorage` langsung
+- Gunakan `getBase()` untuk semua path relatif
+- Anti-FOUC 4-property di `<head>` setiap halaman baru
+- `Router.guard()` + `App.init('page-id')` di setiap halaman protected
+- IIFE module pattern untuk semua JS baru
+
+### Script Load Order (WAJIB)
+
+```html
+<script src="(base)assets/js/core/storage.js"></script>
+<script src="(base)assets/js/core/auth.js"></script>
+<script src="(base)assets/js/core/router.js"></script>
+<script src="(base)assets/js/core/app.js"></script>
+```
+
+### Sidebar
+
+Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar dari halaman yang sudah ada (dashboard.html, settings.html, dll). Path di href harus disesuaikan dengan kedalaman folder:
+- `/pages/*.html` → `href="dashboard.html"`
+- `/pages/foundation/*.html` → `href="../dashboard.html"`
+
+### Page IDs untuk `App.init()`
+
+| Halaman | Page ID |
+|---------|---------|
+| dashboard.html | `'dashboard'` |
+| profile.html | `'profile'` |
+| change-password.html | `'change-password'` |
+| settings.html | `'settings'` |
+| stats.html | `'stats'` |
+| onboarding.html | `'onboarding'` |
+| foundation/vocabulary.html | `'foundation-vocab'` |
+| (dst sesuai pattern) | |
+
+### Checklist Halaman Baru
+
+- [ ] Anti-FOUC 4-property di `<head>`
+- [ ] Load 4 core scripts sebelum `</body>`
+- [ ] `Router.guard()` + `App.init('page-id')`
+- [ ] Sidebar inline (copy dari halaman yang ada)
+- [ ] Bottom nav inline
+- [ ] `theme-toggle-btn` di topbar (desktop) dan mobile-topbar
+- [ ] `hamburger` button untuk mobile drawer
+
+---
+
+## 12. Log Pengerjaan & Versi
+
+| Versi / Fase | Tanggal | Yang Dikerjakan | Status |
+|---|---|---|---|
+| **v0.1.0 — Fase 0** | 2026-02-26 | Perencanaan proyek: README lengkap dengan 23 fase roadmap | ✅ |
+| **v0.2.0 — Fase 1** | 2026-02-26 | Fondasi & Autentikasi: core JS, CSS, halaman auth + protected | ✅ |
+| **v0.3.0 — Fase 2** | TBD | Onboarding & Placement Test | 🔲 |
+| **v0.4.0 — Fase 3** | TBD | Dashboard & Gamifikasi Dasar | 🔲 |
+| **v0.5.0 — Fase 4** | TBD | Foundation: Vocabulary A1–A2 | 🔲 |
+| **v0.6.0 — Fase 5** | TBD | Foundation: Pronunciation & Phonetics | 🔲 |
+| **v0.7.0 — Fase 6** | TBD | Foundation: Grammar A1–A2 | 🔲 |
+| **v0.8.0 — Fase 7** | TBD | Foundation: Dialog & Quiz | 🔲 |
+| **v1.0.0 — Fase 8** | TBD | Intermediate: Vocabulary & Grammar B1–B2 | 🔲 |
+| **v1.1.0 — Fase 9** | TBD | Intermediate: Reading & Listening | 🔲 |
+| **v1.2.0 — Fase 10** | TBD | PWA, Profil & Settings | 🔲 |
+| **v1.3.0 — Fase 11** | TBD | Tema & Kustomisasi UI | 🔲 |
+| **v1.4.0 — Fase 12** | TBD | Study Planner | 🔲 |
+| **v2.0.0 — Fase 13** | TBD | IELTS: Practice & Simulasi | 🔲 |
+| **v2.1.0 — Fase 14** | TBD | TOEIC: Practice & Simulasi | 🔲 |
+| **v2.2.0 — Fase 15** | TBD | TOEFL iBT: Practice & Simulasi | 🔲 |
+| **v2.3.0 — Fase 16** | TBD | Cambridge: Practice & Simulasi | 🔲 |
+| **v2.4.0 — Fase 17** | TBD | Advanced: Vocabulary & Grammar C1–C2 | 🔲 |
+| **v2.5.0 — Fase 18** | TBD | Advanced: Reading & Listening | 🔲 |
+| **v2.6.0 — Fase 19** | TBD | Speaking & Writing Modules | 🔲 |
+| **v3.0.0 — Fase 20** | TBD | Mini Game (5 game) | 🔲 |
+| **v3.1.0 — Fase 21** | TBD | Statistik, Backup & Laporan PDF | 🔲 |
+| **v3.2.0 — Fase 22** | TBD | Reminder & Notifikasi | 🔲 |
+| **v3.3.0 — Fase 23** | TBD | Polish, Bug Fix, Optimasi Final | 🔲 |
+
+---
+
+> **Fase saat ini:** Fase 1 ✅ Fondasi & Autentikasi → **Fase 2** 🔲 (berikutnya)
+>
+> *EnglishPath — From A1 to IELTS, one word at a time.*
+>
+> *Dokumen ini adalah sumber kebenaran tunggal untuk proyek EnglishPath. Perbarui setiap selesai fase.*

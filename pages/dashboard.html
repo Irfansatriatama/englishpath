@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — EnglishPath</title>
+  <meta name="theme-color" content="#1a6cf0">
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+      const fn = localStorage.getItem('ep_font');
+      if (fn) document.documentElement.setAttribute('data-font', fn);
+      const rd = localStorage.getItem('ep_radius');
+      if (rd) document.documentElement.setAttribute('data-radius', rd);
+    })();
+  </script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <style>
+    .welcome-section {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      color: #fff;
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .welcome-section::before {
+      content: '';
+      position: absolute; right: -20px; top: -20px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+    .welcome-title { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; }
+    .welcome-sub   { opacity: 0.85; font-size: 0.9rem; }
+    .stats-grid    { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 28px; }
+    .stat-card     { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; text-align: center; }
+    .stat-value    { font-size: 2rem; font-weight: 700; color: var(--primary); font-family: var(--font-display); }
+    .stat-label    { font-size: 0.8rem; color: var(--text-3); margin-top: 4px; }
+    .cta-grid      { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .cta-card      {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 20px;
+      display: flex; flex-direction: column; gap: 8px;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+    .cta-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 16px var(--shadow);
+      transform: translateY(-2px);
+    }
+    .cta-icon  { font-size: 2rem; }
+    .cta-title { font-weight: 700; color: var(--text); font-size: 0.95rem; }
+    .cta-sub   { font-size: 0.8rem; color: var(--text-3); }
+  </style>
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-main">EnglishPath</div>
+      <div class="logo-sub">A1 → C2 + IELTS · TOEIC · TOEFL</div>
+    </div>
+    <div class="sidebar-user">
+      <div class="avatar-circle" data-user-avatar>🇬🇧</div>
+      <div class="sidebar-user-info">
+        <div class="user-name" data-user-name>Pengguna</div>
+        <div class="user-level" data-user-email>—</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Umum</div>
+      <a class="nav-item" href="dashboard.html" data-page="dashboard"><span class="nav-icon">🏠</span>Dashboard</a>
+      <a class="nav-item" href="stats.html" data-page="stats"><span class="nav-icon">📊</span>Statistik</a>
+      <a class="nav-item" href="settings.html" data-page="settings"><span class="nav-icon">⚙️</span>Pengaturan</a>
+      <div class="nav-section-label">Foundation (A1–A2)</div>
+      <a class="nav-item" href="foundation/vocabulary.html" data-page="foundation-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="foundation/grammar.html" data-page="foundation-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="foundation/pronunciation.html" data-page="foundation-pronunciation"><span class="nav-icon">🔊</span>Pronunciation</a>
+      <a class="nav-item" href="foundation/dialog.html" data-page="foundation-dialog"><span class="nav-icon">💬</span>Dialog</a>
+      <a class="nav-item" href="foundation/quiz.html" data-page="foundation-quiz"><span class="nav-icon">⭐</span>Quiz Foundation</a>
+      <div class="nav-section-label">Intermediate (B1–B2)</div>
+      <a class="nav-item" href="intermediate/vocabulary.html" data-page="intermediate-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="intermediate/grammar.html" data-page="intermediate-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="intermediate/reading.html" data-page="intermediate-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="intermediate/listening.html" data-page="intermediate-listening"><span class="nav-icon">🎧</span>Listening</a>
+      <a class="nav-item" href="intermediate/quiz.html" data-page="intermediate-quiz"><span class="nav-icon">⭐</span>Quiz Intermediate</a>
+      <div class="nav-section-label">Advanced (C1–C2)</div>
+      <a class="nav-item" href="advanced/vocabulary.html" data-page="advanced-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="advanced/grammar.html" data-page="advanced-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="advanced/reading.html" data-page="advanced-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="advanced/quiz.html" data-page="advanced-quiz"><span class="nav-icon">⭐</span>Quiz Advanced</a>
+      <div class="nav-section-label">Persiapan Tes</div>
+      <a class="nav-item" href="ielts/overview.html" data-page="ielts"><span class="nav-icon">🎯</span>IELTS</a>
+      <a class="nav-item" href="toeic/overview.html" data-page="toeic"><span class="nav-icon">🎯</span>TOEIC</a>
+      <a class="nav-item" href="toefl/overview.html" data-page="toefl"><span class="nav-icon">🎯</span>TOEFL iBT</a>
+      <a class="nav-item" href="cambridge/overview.html" data-page="cambridge"><span class="nav-icon">🎯</span>Cambridge</a>
+      <div class="nav-section-label">Lainnya</div>
+      <a class="nav-item" href="planner.html" data-page="planner"><span class="nav-icon">📅</span>Study Planner</a>
+      <a class="nav-item" href="games.html" data-page="games"><span class="nav-icon">🎮</span>Mini Game</a>
+      <div class="nav-section-label">Akun</div>
+      <a class="nav-item" href="profile.html" data-page="profile"><span class="nav-icon">👤</span>Profil</a>
+      <a class="nav-item" href="change-password.html" data-page="change-password"><span class="nav-icon">🔒</span>Ganti Password</a>
+      <a class="nav-item" href="#" data-action="logout"><span class="nav-icon">🚪</span>Keluar</a>
+    </nav>
+  </nav>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <!-- Main content -->
+  <div class="main-content">
+
+    <!-- Desktop topbar -->
+    <div class="topbar">
+      <div class="topbar-title">Dashboard</div>
+      <div class="topbar-actions">
+        <button class="theme-toggle-btn" title="Ganti tema">🌙</button>
+      </div>
+    </div>
+
+    <!-- Mobile topbar -->
+    <div class="mobile-topbar">
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="logo-main">EnglishPath</div>
+      <button class="theme-toggle-btn" title="Ganti tema">🌙</button>
+    </div>
+
+    <!-- Page body -->
+    <div class="page-body">
+      <div class="welcome-section fade-in" id="welcome-section">
+        <div class="welcome-title" id="welcome-title">Halo, Pengguna! 👋</div>
+        <p class="welcome-sub">Selamat datang di EnglishPath. Mulai perjalanan belajar bahasa Inggrismu hari ini!</p>
+      </div>
+
+      <div class="stats-grid fade-in">
+        <div class="stat-card">
+          <div class="stat-value" id="stat-streak">0</div>
+          <div class="stat-label">🔥 Hari Streak</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-xp">0</div>
+          <div class="stat-label">⚡ Total XP</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-level">1</div>
+          <div class="stat-label">🏆 Level</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-badges">0</div>
+          <div class="stat-label">🎖️ Badge</div>
+        </div>
+      </div>
+
+      <div class="card fade-in" style="margin-bottom: 24px;">
+        <div class="card-title">🚀 Mulai Belajar</div>
+        <div class="cta-grid">
+          <a href="foundation/vocabulary.html" class="cta-card">
+            <div class="cta-icon">📚</div>
+            <div class="cta-title">Foundation A1–A2</div>
+            <div class="cta-sub">Vocabulary, Grammar, Pronunciation</div>
+          </a>
+          <a href="intermediate/vocabulary.html" class="cta-card">
+            <div class="cta-icon">📖</div>
+            <div class="cta-title">Intermediate B1–B2</div>
+            <div class="cta-sub">Reading, Listening, Grammar lanjut</div>
+          </a>
+          <a href="ielts/overview.html" class="cta-card">
+            <div class="cta-icon">🎯</div>
+            <div class="cta-title">Persiapan IELTS</div>
+            <div class="cta-sub">Practice & Simulasi tes lengkap</div>
+          </a>
+          <a href="toeic/overview.html" class="cta-card">
+            <div class="cta-icon">💼</div>
+            <div class="cta-title">Persiapan TOEIC</div>
+            <div class="cta-sub">Listening & Reading Parts</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <div class="card-title">📅 Progress Belajar</div>
+        <p style="color: var(--text-3); font-size: 0.9rem;">
+          Dashboard lengkap dengan streak calendar, SRS due items, dan challenge harian akan tersedia di Fase 3.
+          Untuk saat ini, gunakan menu di sidebar untuk mulai belajar!
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Bottom nav (mobile) -->
+    <div class="bottom-nav">
+      <div class="bottom-nav-inner">
+        <a class="bottom-nav-item active" href="dashboard.html" data-page="dashboard">
+          <span class="bnav-icon">🏠</span><span>Home</span>
+        </a>
+        <a class="bottom-nav-item" href="foundation/vocabulary.html" data-page="foundation-vocab">
+          <span class="bnav-icon">📚</span><span>Belajar</span>
+        </a>
+        <a class="bottom-nav-item" href="stats.html" data-page="stats">
+          <span class="bnav-icon">📊</span><span>Stats</span>
+        </a>
+        <a class="bottom-nav-item" href="profile.html" data-page="profile">
+          <span class="bnav-icon">👤</span><span>Profil</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast-container"></div>
+
+<script src="../assets/js/core/storage.js"></script>
+<script src="../assets/js/core/auth.js"></script>
+<script src="../assets/js/core/router.js"></script>
+<script src="../assets/js/core/app.js"></script>
+<script>
+  Router.guard();
+  App.init('dashboard');
+
+  // Render welcome & stats
+  (function() {
+    const user = Auth.getActiveUser();
+    if (!user) return;
+
+    const session = Auth.getSession();
+    const userId = session.userId;
+
+    // Welcome title
+    const hour = new Date().getHours();
+    let greeting = 'Halo';
+    if (hour < 12) greeting = 'Selamat Pagi';
+    else if (hour < 17) greeting = 'Selamat Siang';
+    else greeting = 'Selamat Malam';
+
+    document.getElementById('welcome-title').textContent =
+      greeting + ', ' + user.name + '! 👋';
+
+    // Stats
+    const streak = Storage.getUser(userId, 'streak', 0);
+    const xp     = Storage.getUser(userId, 'xp', 0);
+    const level  = Storage.getUser(userId, 'level', 1);
+    const badges = Storage.getUser(userId, 'badges', []);
+
+    document.getElementById('stat-streak').textContent = streak;
+    document.getElementById('stat-xp').textContent     = xp;
+    document.getElementById('stat-level').textContent  = level;
+    document.getElementById('stat-badges').textContent = badges.length;
+  })();
+</script>
+</body>
+</html>

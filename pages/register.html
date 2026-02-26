@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar — EnglishPath</title>
+  <meta name="theme-color" content="#1a6cf0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="EnglishPath">
+  <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+      const fn = localStorage.getItem('ep_font');
+      if (fn) document.documentElement.setAttribute('data-font', fn);
+      const rd = localStorage.getItem('ep_radius');
+      if (rd) document.documentElement.setAttribute('data-radius', rd);
+    })();
+  </script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/auth.css">
+</head>
+<body>
+<div class="auth-page">
+
+  <!-- ── Left decorative panel ── -->
+  <div class="auth-panel">
+    <span class="auth-panel-deco d1">B</span>
+    <span class="auth-panel-deco d2">E</span>
+    <span class="auth-panel-deco d3">G</span>
+
+    <div class="auth-panel-content">
+      <div class="auth-panel-logo">EnglishPath</div>
+      <div class="auth-panel-tagline">Mulai Perjalananmu</div>
+
+      <p class="auth-panel-sub">
+        Gratis, offline, dan selalu siap kapanpun<br>
+        kamu ingin belajar. Tanpa langganan.
+      </p>
+
+      <!-- Feature list -->
+      <div class="auth-features">
+        <div class="auth-feature-item">
+          <div class="auth-feature-check">✓</div>
+          <span>Jalur A1→C2 terstruktur + 4 skill (Reading, Listening, Speaking, Writing)</span>
+        </div>
+        <div class="auth-feature-item">
+          <div class="auth-feature-check">✓</div>
+          <span>Simulasi tes IELTS, TOEIC, TOEFL iBT, dan Cambridge</span>
+        </div>
+        <div class="auth-feature-item">
+          <div class="auth-feature-check">✓</div>
+          <span>XP, level, streak harian, badge pencapaian, dan mini game</span>
+        </div>
+        <div class="auth-feature-item">
+          <div class="auth-feature-check">✓</div>
+          <span>100% offline — data tersimpan di browser, tidak ke server</span>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="auth-panel-stats" style="margin-top: 32px;">
+        <div class="auth-stat-item">
+          <div class="auth-stat-num">6</div>
+          <div class="auth-stat-lbl">Level CEFR</div>
+        </div>
+        <div class="auth-stat-item">
+          <div class="auth-stat-num">4</div>
+          <div class="auth-stat-lbl">Tes Internasional</div>
+        </div>
+        <div class="auth-stat-item">
+          <div class="auth-stat-num">∞</div>
+          <div class="auth-stat-lbl">Gratis Selamanya</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Right form panel ── -->
+  <div class="auth-form-panel">
+    <div class="auth-form-box">
+
+      <!-- Mobile logo -->
+      <a class="auth-mobile-logo" href="../index.html">
+        <div class="auth-mobile-logo-mark">EP</div>
+        <span class="auth-mobile-logo-text">EnglishPath</span>
+      </a>
+
+      <!-- Heading -->
+      <div class="auth-heading-area">
+        <div class="auth-eyebrow">Mulai Gratis</div>
+        <h1 class="form-heading">Buat<br><span>Akun Baru</span></h1>
+        <p class="form-subheading">Daftar dalam 30 detik — tidak perlu email verifikasi.</p>
+      </div>
+
+      <!-- Accent -->
+      <div class="auth-accent">
+        <div class="auth-accent-line"></div>
+        <div class="auth-accent-dot"></div>
+        <div class="auth-accent-line"></div>
+      </div>
+
+      <!-- Form alert -->
+      <div class="form-alert alert-error" id="form-alert">
+        <span class="form-alert-icon">⚠️</span>
+        <span id="form-alert-msg"></span>
+      </div>
+
+      <!-- Form -->
+      <form id="register-form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="name">Nama Lengkap</label>
+          <div class="input-wrapper">
+            <span class="input-icon">👤</span>
+            <input
+              type="text" id="name" name="name"
+              class="form-control"
+              placeholder="Nama kamu"
+              autocomplete="name"
+              required>
+          </div>
+          <span class="form-error" id="name-error">⚠️ <span></span></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Alamat Email</label>
+          <div class="input-wrapper">
+            <span class="input-icon">✉️</span>
+            <input
+              type="email" id="email" name="email"
+              class="form-control"
+              placeholder="nama@email.com"
+              autocomplete="email"
+              required>
+          </div>
+          <span class="form-error" id="email-error">⚠️ <span></span></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <div class="input-wrapper">
+            <span class="input-icon">🔒</span>
+            <input
+              type="password" id="password" name="password"
+              class="form-control"
+              placeholder="Minimal 6 karakter"
+              autocomplete="new-password"
+              required>
+            <span class="input-toggle" id="toggle-pass" title="Tampilkan password">👁️</span>
+          </div>
+          <span class="form-error" id="pass-error">⚠️ <span></span></span>
+          <!-- Password strength indicator -->
+          <div class="password-strength" id="pass-strength">
+            <div class="strength-bars">
+              <div class="strength-bar" id="bar1"></div>
+              <div class="strength-bar" id="bar2"></div>
+              <div class="strength-bar" id="bar3"></div>
+            </div>
+            <span class="strength-label" id="strength-label">—</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password2">Konfirmasi Password</label>
+          <div class="input-wrapper">
+            <span class="input-icon">🔒</span>
+            <input
+              type="password" id="password2" name="password2"
+              class="form-control"
+              placeholder="Ulangi password"
+              autocomplete="new-password"
+              required>
+            <span class="input-toggle" id="toggle-pass2" title="Tampilkan password">👁️</span>
+          </div>
+          <span class="form-error" id="pass2-error">⚠️ <span></span></span>
+        </div>
+
+        <button type="submit" class="auth-submit-btn" id="register-btn">
+          Daftar Sekarang
+        </button>
+
+      </form>
+
+      <!-- Divider -->
+      <div class="auth-divider">
+        <div class="auth-divider-line"></div>
+        <span class="auth-divider-text">sudah punya akun?</span>
+        <div class="auth-divider-line"></div>
+      </div>
+
+      <div class="auth-footer-link">
+        <a href="login.html">&larr; Masuk ke Akunmu</a>
+      </div>
+
+      <!-- Local notice -->
+      <div class="auth-local-notice">
+        <span class="auth-local-notice-icon">🔐</span>
+        <span>Data kamu tersimpan secara lokal di browser ini. Tidak ada server, tidak ada cloud.</span>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div id="toast-container"></div>
+
+<script src="../assets/js/core/storage.js"></script>
+<script src="../assets/js/core/auth.js"></script>
+<script src="../assets/js/core/router.js"></script>
+<script src="../assets/js/core/app.js"></script>
+<script>
+  Router.guestOnly();
+
+  const form      = document.getElementById('register-form');
+  const nameEl    = document.getElementById('name');
+  const emailEl   = document.getElementById('email');
+  const passEl    = document.getElementById('password');
+  const pass2El   = document.getElementById('password2');
+  const nameErr   = document.getElementById('name-error');
+  const emailErr  = document.getElementById('email-error');
+  const passErr   = document.getElementById('pass-error');
+  const pass2Err  = document.getElementById('pass2-error');
+  const regBtn    = document.getElementById('register-btn');
+  const alertBox  = document.getElementById('form-alert');
+  const alertMsg  = document.getElementById('form-alert-msg');
+  const passStrength = document.getElementById('pass-strength');
+  const strengthLabel = document.getElementById('strength-label');
+
+  // ── Show / hide alert ──
+  function showAlert(msg) {
+    alertMsg.textContent = msg;
+    alertBox.classList.add('show');
+  }
+  function hideAlert() { alertBox.classList.remove('show'); }
+
+  // ── Field helpers ──
+  function showErr(input, errEl, msg) {
+    input.classList.add('error'); input.classList.remove('valid');
+    errEl.querySelector('span').textContent = msg;
+    errEl.classList.add('show');
+  }
+
+  function clearErr(input, errEl) {
+    input.classList.remove('error');
+    errEl.classList.remove('show');
+  }
+
+  function setValid(input) {
+    input.classList.remove('error');
+    input.classList.add('valid');
+  }
+
+  // ── Toggle password ──
+  document.getElementById('toggle-pass').addEventListener('click', () => {
+    const isPass = passEl.type === 'password';
+    passEl.type = isPass ? 'text' : 'password';
+    document.getElementById('toggle-pass').textContent = isPass ? '🙈' : '👁️';
+  });
+
+  document.getElementById('toggle-pass2').addEventListener('click', () => {
+    const isPass = pass2El.type === 'password';
+    pass2El.type = isPass ? 'text' : 'password';
+    document.getElementById('toggle-pass2').textContent = isPass ? '🙈' : '👁️';
+  });
+
+  // ── Live password strength ──
+  passEl.addEventListener('input', () => {
+    clearErr(passEl, passErr);
+    hideAlert();
+    const val = passEl.value;
+    if (val.length === 0) {
+      passStrength.classList.remove('visible');
+      return;
+    }
+    passStrength.classList.add('visible');
+    const result = App.checkPasswordStrength(val);
+    const bars = [
+      document.getElementById('bar1'),
+      document.getElementById('bar2'),
+      document.getElementById('bar3'),
+    ];
+    bars.forEach((b, i) => {
+      b.className = 'strength-bar';
+      if (i < result.score) b.classList.add(result.cls);
+    });
+    strengthLabel.textContent = result.label;
+  });
+
+  // ── Live validation ──
+  nameEl.addEventListener('input',  () => { clearErr(nameEl, nameErr); hideAlert(); });
+  emailEl.addEventListener('input', () => { clearErr(emailEl, emailErr); hideAlert(); });
+  pass2El.addEventListener('input', () => { clearErr(pass2El, pass2Err); hideAlert(); });
+
+  emailEl.addEventListener('blur', () => {
+    if (emailEl.value.trim() && !emailEl.value.includes('@')) {
+      showErr(emailEl, emailErr, 'Format email tidak valid.');
+    } else if (emailEl.value.trim()) {
+      setValid(emailEl); clearErr(emailEl, emailErr);
+    }
+  });
+
+  // ── Submit ──
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    hideAlert();
+    let hasError = false;
+
+    if (!nameEl.value.trim() || nameEl.value.trim().length < 2) {
+      showErr(nameEl, nameErr, 'Nama minimal 2 karakter.');
+      hasError = true;
+    }
+
+    if (!emailEl.value.trim()) {
+      showErr(emailEl, emailErr, 'Email wajib diisi.');
+      hasError = true;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) {
+      showErr(emailEl, emailErr, 'Format email tidak valid.');
+      hasError = true;
+    }
+
+    if (!passEl.value || passEl.value.length < 6) {
+      showErr(passEl, passErr, 'Password minimal 6 karakter.');
+      hasError = true;
+    }
+
+    if (passEl.value !== pass2El.value) {
+      showErr(pass2El, pass2Err, 'Password tidak cocok.');
+      hasError = true;
+    }
+
+    if (hasError) return;
+
+    regBtn.disabled = true;
+    regBtn.innerHTML = '<span class="spinner"></span>';
+
+    setTimeout(() => {
+      const result = Auth.register({
+        name:     nameEl.value.trim(),
+        email:    emailEl.value.trim(),
+        password: passEl.value,
+      });
+
+      if (result.ok) {
+        // Auto-login setelah register
+        Auth.login({ email: emailEl.value.trim(), password: passEl.value });
+        regBtn.innerHTML = '✓ Berhasil!';
+        regBtn.style.background = '#16a34a';
+        App.toast('Akun berhasil dibuat! Selamat datang 🎉', 'success', 4000);
+        setTimeout(() => Router.go('pages/onboarding.html'), 800);
+      } else {
+        showAlert(result.error || 'Gagal membuat akun.');
+        regBtn.disabled = false;
+        regBtn.innerHTML = 'Daftar Sekarang';
+      }
+    }, 350);
+  });
+</script>
+</body>
+</html>

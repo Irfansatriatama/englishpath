@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masuk — EnglishPath</title>
+  <meta name="theme-color" content="#1a6cf0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="EnglishPath">
+  <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+      const fn = localStorage.getItem('ep_font');
+      if (fn) document.documentElement.setAttribute('data-font', fn);
+      const rd = localStorage.getItem('ep_radius');
+      if (rd) document.documentElement.setAttribute('data-radius', rd);
+    })();
+  </script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/auth.css">
+</head>
+<body>
+<div class="auth-page">
+
+  <!-- ── Left decorative panel ── -->
+  <div class="auth-panel">
+    <span class="auth-panel-deco d1">A</span>
+    <span class="auth-panel-deco d2">Z</span>
+    <span class="auth-panel-deco d3">E</span>
+
+    <div class="auth-panel-content">
+      <div class="auth-panel-logo">EnglishPath</div>
+      <div class="auth-panel-tagline">Belajar Bahasa Inggris</div>
+
+      <p class="auth-panel-sub">
+        Dari A1 pemula hingga persiapan IELTS &amp; TOEIC —<br>
+        satu platform, offline, gratis selamanya.
+      </p>
+
+      <!-- 4 skills showcase -->
+      <div class="auth-panel-skills">
+        <div class="auth-skill-card">
+          <span class="skill-icon">📖</span>
+          <span class="skill-label">Reading</span>
+        </div>
+        <div class="auth-skill-card">
+          <span class="skill-icon">🎧</span>
+          <span class="skill-label">Listening</span>
+        </div>
+        <div class="auth-skill-card">
+          <span class="skill-icon">🎙️</span>
+          <span class="skill-label">Speaking</span>
+        </div>
+        <div class="auth-skill-card">
+          <span class="skill-icon">✍️</span>
+          <span class="skill-label">Writing</span>
+        </div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="auth-panel-stats">
+        <div class="auth-stat-item">
+          <div class="auth-stat-num">A1–C2</div>
+          <div class="auth-stat-lbl">6 Level CEFR</div>
+        </div>
+        <div class="auth-stat-item">
+          <div class="auth-stat-num">4</div>
+          <div class="auth-stat-lbl">Tes Internasional</div>
+        </div>
+        <div class="auth-stat-item">
+          <div class="auth-stat-num">100%</div>
+          <div class="auth-stat-lbl">Offline</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Right form panel ── -->
+  <div class="auth-form-panel">
+    <div class="auth-form-box">
+
+      <!-- Mobile logo -->
+      <a class="auth-mobile-logo" href="../index.html">
+        <div class="auth-mobile-logo-mark">EP</div>
+        <span class="auth-mobile-logo-text">EnglishPath</span>
+      </a>
+
+      <!-- Heading -->
+      <div class="auth-heading-area">
+        <div class="auth-eyebrow">Selamat Datang Kembali</div>
+        <h1 class="form-heading">Masuk ke<br><span>Akunmu</span></h1>
+        <p class="form-subheading">Lanjutkan perjalanan belajar dari terakhir kali.</p>
+      </div>
+
+      <!-- Accent -->
+      <div class="auth-accent">
+        <div class="auth-accent-line"></div>
+        <div class="auth-accent-dot"></div>
+        <div class="auth-accent-line"></div>
+      </div>
+
+      <!-- Form alert -->
+      <div class="form-alert alert-error" id="form-alert">
+        <span class="form-alert-icon">⚠️</span>
+        <span id="form-alert-msg"></span>
+      </div>
+
+      <!-- Form -->
+      <form id="login-form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Alamat Email</label>
+          <div class="input-wrapper">
+            <span class="input-icon">✉️</span>
+            <input
+              type="email" id="email" name="email"
+              class="form-control"
+              placeholder="nama@email.com"
+              autocomplete="email"
+              required>
+          </div>
+          <span class="form-error" id="email-error">⚠️ <span></span></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <div class="input-wrapper">
+            <span class="input-icon">🔒</span>
+            <input
+              type="password" id="password" name="password"
+              class="form-control"
+              placeholder="Password kamu"
+              autocomplete="current-password"
+              required>
+            <span class="input-toggle" id="toggle-pass" title="Tampilkan password">👁️</span>
+          </div>
+          <span class="form-error" id="pass-error">⚠️ <span></span></span>
+        </div>
+
+        <button type="submit" class="auth-submit-btn" id="login-btn">
+          Masuk
+        </button>
+
+      </form>
+
+      <!-- Divider -->
+      <div class="auth-divider">
+        <div class="auth-divider-line"></div>
+        <span class="auth-divider-text">belum punya akun?</span>
+        <div class="auth-divider-line"></div>
+      </div>
+
+      <div class="auth-footer-link">
+        <a href="register.html">Daftar Gratis Sekarang &rarr;</a>
+      </div>
+
+      <!-- Local notice -->
+      <div class="auth-local-notice">
+        <span class="auth-local-notice-icon">🔐</span>
+        <span>Data kamu tersimpan secara lokal di browser ini. Tidak ada server, tidak ada cloud.</span>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div id="toast-container"></div>
+
+<script src="../assets/js/core/storage.js"></script>
+<script src="../assets/js/core/auth.js"></script>
+<script src="../assets/js/core/router.js"></script>
+<script src="../assets/js/core/app.js"></script>
+<script>
+  Router.guestOnly();
+
+  const form     = document.getElementById('login-form');
+  const emailEl  = document.getElementById('email');
+  const passEl   = document.getElementById('password');
+  const emailErr = document.getElementById('email-error');
+  const passErr  = document.getElementById('pass-error');
+  const loginBtn = document.getElementById('login-btn');
+  const toggle   = document.getElementById('toggle-pass');
+  const alertBox = document.getElementById('form-alert');
+  const alertMsg = document.getElementById('form-alert-msg');
+
+  // ── Show / hide alert ──
+  function showAlert(msg) {
+    alertMsg.textContent = msg;
+    alertBox.classList.add('show');
+  }
+  function hideAlert() {
+    alertBox.classList.remove('show');
+  }
+
+  // ── Field error helpers ──
+  function showFieldError(input, errEl, msg) {
+    input.classList.add('error');
+    input.classList.remove('valid');
+    errEl.querySelector('span').textContent = msg;
+    errEl.classList.add('show');
+  }
+
+  function clearFieldError(input, errEl) {
+    input.classList.remove('error');
+    errEl.classList.remove('show');
+  }
+
+  function setValid(input) {
+    input.classList.remove('error');
+    input.classList.add('valid');
+  }
+
+  // ── Toggle password visibility ──
+  toggle.addEventListener('click', () => {
+    const isPass = passEl.type === 'password';
+    passEl.type  = isPass ? 'text' : 'password';
+    toggle.textContent = isPass ? '🙈' : '👁️';
+    toggle.title = isPass ? 'Sembunyikan password' : 'Tampilkan password';
+  });
+
+  // ── Live validation ──
+  emailEl.addEventListener('blur', () => {
+    if (emailEl.value.trim() && !emailEl.value.includes('@')) {
+      showFieldError(emailEl, emailErr, 'Format email tidak valid.');
+    } else if (emailEl.value.trim()) {
+      setValid(emailEl);
+      clearFieldError(emailEl, emailErr);
+    }
+  });
+
+  emailEl.addEventListener('input', () => { clearFieldError(emailEl, emailErr); hideAlert(); });
+  passEl.addEventListener('input',  () => { clearFieldError(passEl, passErr);   hideAlert(); });
+
+  // ── Submit ──
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    hideAlert();
+    let hasError = false;
+
+    if (!emailEl.value.trim()) {
+      showFieldError(emailEl, emailErr, 'Email wajib diisi.');
+      hasError = true;
+    }
+    if (!passEl.value) {
+      showFieldError(passEl, passErr, 'Password wajib diisi.');
+      hasError = true;
+    }
+    if (hasError) return;
+
+    loginBtn.disabled = true;
+    loginBtn.innerHTML = '<span class="spinner"></span>';
+
+    setTimeout(() => {
+      const result = Auth.login({
+        email:    emailEl.value.trim(),
+        password: passEl.value,
+      });
+
+      if (result.ok) {
+        loginBtn.innerHTML = '✓ Berhasil!';
+        loginBtn.style.background = '#16a34a';
+        App.toast('Selamat datang kembali!', 'success');
+        setTimeout(() => {
+          // Cek apakah onboarding sudah selesai
+          const session = Auth.getSession();
+          const onboarding = Storage.getUser(session.userId, 'onboarding', { completed: false });
+          if (!onboarding.completed) {
+            Router.go('pages/onboarding.html');
+          } else {
+            Router.go('pages/dashboard.html');
+          }
+        }, 600);
+      } else {
+        showAlert(result.error || 'Email atau password salah.');
+        loginBtn.disabled = false;
+        loginBtn.innerHTML = 'Masuk';
+      }
+    }, 350);
+  });
+</script>
+</body>
+</html>
