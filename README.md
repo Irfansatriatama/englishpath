@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 0.8.0 |
-| **Fase Saat Ini** | FASE 7 ✅ — Foundation: Dialog & Quiz |
-| **Fase Berikutnya** | FASE 8 — Intermediate: Vocabulary & Grammar B1–B2 |
+| **Versi App** | 0.9.1 |
+| **Fase Saat Ini** | FASE 8a ✅ — Intermediate: Vocabulary B1–B2 |
+| **Fase Berikutnya** | FASE 8b — Intermediate: Grammar B1–B2 |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -122,7 +122,8 @@ englishpath/
 │   │   ├── grammar.html                ✅ Grammar A1–A2: 12 topik, 120+ soal (Fase 6)
 │   │   ├── dialog.html                 ✅ Dialog A1–A2: 9 scene, role-play, latihan (Fase 7)
 │   │   └── quiz.html                   ✅ Quiz Foundation: 6 paket, 60 soal (Fase 7)
-│   ├── intermediate/                   🔲 Fase 8–9
+│   ├── intermediate/                   ✅ Fase 8a (sebagian)
+│   │   └── vocabulary.html             ✅ Vocab B1–B2: browse/flashcard/quiz/SRS/word families (Fase 8a)
 │   ├── advanced/                       🔲 Fase 17–18
 │   ├── ielts/                          🔲 Fase 13
 │   ├── toeic/                          🔲 Fase 14
@@ -140,6 +141,7 @@ englishpath/
     │   ├── grammar.css                 ✅ Grammar page styles (Fase 6)
     │   ├── dialog.css                  ✅ Dialog page styles (Fase 7)
     │   └── quiz-foundation.css         ✅ Quiz Foundation styles (Fase 7)
+│   └── vocab-intermediate.css      ✅ Vocabulary Intermediate styles (Fase 8a)
     ├── icons/
     │   ├── icon-192.png               ✅
     │   └── icon-512.png               ✅
@@ -160,6 +162,7 @@ englishpath/
         │   ├── grammar-data.js             ✅ 12 topik grammar A1–A2 + 120 soal — Fase 6
         │   ├── dialog-data.js              ✅ 9 scene dialog A1–A2 + 45 latihan — Fase 7
         │   └── quiz-foundation-data.js     ✅ 6 paket quiz, 60 soal komprehensif — Fase 7
+│   └── vocab-intermediate-data.js  ✅ 400+ kata B1–B2 (10 tema) + Word Families — Fase 8a
         └── pages/
             ├── onboarding.js               ✅ Wizard onboarding logic
             ├── dashboard.js                ✅ Dashboard page logic (Fase 3)
@@ -168,6 +171,7 @@ englishpath/
             ├── grammar.js                  ✅ Grammar page logic (Fase 6)
             ├── dialog.js                   ✅ Dialog page logic (Fase 7)
             └── quiz-foundation.js          ✅ Quiz Foundation page logic (Fase 7)
+            └── vocab-intermediate.js       ✅ Vocab Intermediate page logic (Fase 8a)
 ```
 
 ---
@@ -554,11 +558,12 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **5** | Foundation: Pronunciation & Phonetics | v0.6.0 | ✅ |
 | **6** | Foundation: Grammar A1–A2 | v0.7.0 | ✅ |
 | **7** | Foundation: Dialog & Quiz | v0.8.0 | ✅ |
-| **8** | Intermediate: Vocabulary & Grammar B1–B2 | v1.0.0 | 🔲 |
-| **9** | Intermediate: Reading & Listening | v1.1.0 | 🔲 |
-| **10** | PWA, Profil & Settings | v1.2.0 | 🔲 |
-| **11** | Tema & Kustomisasi UI | v1.3.0 | 🔲 |
-| **12** | Study Planner | v1.4.0 | 🔲 |
+| **8a** | Intermediate: Vocabulary B1–B2 | v0.9.1 | ✅ |
+| **8b** | Intermediate: Grammar B1–B2 | v0.9.2 | 🔲 |
+| **9** | Intermediate: Reading & Listening | v1.0.0 | 🔲 |
+| **10** | PWA, Profil & Settings | v1.1.0 | 🔲 |
+| **11** | Tema & Kustomisasi UI | v1.2.0 | 🔲 |
+| **12** | Study Planner | v1.3.0 | 🔲 |
 | **13** | IELTS: Practice & Simulasi | v2.0.0 | 🔲 |
 | **14** | TOEIC: Practice & Simulasi | v2.1.0 | 🔲 |
 | **15** | TOEFL iBT: Practice & Simulasi | v2.2.0 | 🔲 |
@@ -647,11 +652,12 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v0.6.0 — Fase 5** | 2026-02-26 | Foundation Pronunciation & Phonetics: IPA chart, minimal pairs, tongue twisters, word stress, quiz | ✅ |
 | **v0.7.0 — Fase 6** | 2026-02-26 | Foundation Grammar A1–A2: 12 topik, 120+ soal, 3 mode quiz | ✅ |
 | **v0.8.0 — Fase 7** | 2026-02-26 | Foundation Dialog & Quiz: 9 dialog scene, 6 quiz paket, 60 soal komprehensif | ✅ |
-| **v1.0.0 — Fase 8** | TBD | Intermediate: Vocabulary & Grammar B1–B2 | 🔲 |
-| **v1.1.0 — Fase 9** | TBD | Intermediate: Reading & Listening | 🔲 |
-| **v1.2.0 — Fase 10** | TBD | PWA, Profil & Settings | 🔲 |
-| **v1.3.0 — Fase 11** | TBD | Tema & Kustomisasi UI | 🔲 |
-| **v1.4.0 — Fase 12** | TBD | Study Planner | 🔲 |
+| **v0.9.1 — Fase 8a** | 2026-02-26 | Intermediate: Vocabulary B1–B2 (400+ kata, 10 tema, SRS, Word Families, 5 mode belajar) | ✅ |
+| **v0.9.2 — Fase 8b** | TBD | Intermediate: Grammar B1–B2 (12 topik, 120+ soal, 3 tipe quiz) | 🔲 |
+| **v1.0.0 — Fase 9** | TBD | Intermediate: Reading & Listening | 🔲 |
+| **v1.1.0 — Fase 10** | TBD | PWA, Profil & Settings | 🔲 |
+| **v1.2.0 — Fase 11** | TBD | Tema & Kustomisasi UI | 🔲 |
+| **v1.3.0 — Fase 12** | TBD | Study Planner | 🔲 |
 | **v2.0.0 — Fase 13** | TBD | IELTS: Practice & Simulasi | 🔲 |
 | **v2.1.0 — Fase 14** | TBD | TOEIC: Practice & Simulasi | 🔲 |
 | **v2.2.0 — Fase 15** | TBD | TOEFL iBT: Practice & Simulasi | 🔲 |
@@ -666,7 +672,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 7 ✅ Foundation: Dialog & Quiz → **Fase 8** 🔲 (berikutnya)
+> **Fase saat ini:** Fase 8a ✅ Intermediate: Vocabulary B1–B2 → **Fase 8b** 🔲 (berikutnya)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >

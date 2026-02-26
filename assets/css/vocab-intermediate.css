@@ -1,0 +1,206 @@
+/* ================================================================
+   EnglishPath — Vocabulary Intermediate Page Styles
+   B1–B2 Vocabulary Learning Interface + Word Families
+================================================================ */
+
+/* Re-use .vocab-* classes from vocabulary.css where possible.
+   This file adds styles unique to intermediate vocab (Word Families tab). */
+
+/* ── Word Family Badge ───────────────────────────────────────── */
+.word-family-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.wfb-verb      { background: #dbeafe; color: #1d4ed8; }
+.wfb-noun      { background: #dcfce7; color: #166534; }
+.wfb-adjective { background: #fef9c3; color: #854d0e; }
+.wfb-adverb    { background: #fce7f3; color: #9d174d; }
+
+[data-theme="dark"] .wfb-verb      { background: #1e3a5f; color: #93c5fd; }
+[data-theme="dark"] .wfb-noun      { background: #14532d; color: #86efac; }
+[data-theme="dark"] .wfb-adjective { background: #422006; color: #fde68a; }
+[data-theme="dark"] .wfb-adverb    { background: #4a044e; color: #f0abfc; }
+
+/* ── Word Families Grid ──────────────────────────────────────── */
+.family-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.family-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.family-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.15);
+  transform: translateY(-1px);
+}
+
+.family-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.family-card-root {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.family-card-translation {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.family-card-audio {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.family-card-audio:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.family-card-forms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.family-form-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.family-form-word {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+}
+
+.family-form-pos {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+/* ── Family Detail Modal ─────────────────────────────────────── */
+.family-modal-forms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+
+.family-modal-form-row {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+}
+
+.family-modal-pos {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.family-modal-word {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.family-modal-example {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg);
+  border-left: 3px solid var(--primary);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+/* ── Intermediate specific badge in word rows ────────────────── */
+.level-badge-b1 {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 10px;
+  font-weight: 700;
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+.level-badge-b2 {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 10px;
+  font-weight: 700;
+  background: #ede9fe;
+  color: #6d28d9;
+  border: 1px solid #c4b5fd;
+}
+[data-theme="dark"] .level-badge-b1 { background: #0c4a6e; color: #7dd3fc; border-color: #0369a1; }
+[data-theme="dark"] .level-badge-b2 { background: #3b0764; color: #c4b5fd; border-color: #6d28d9; }
+
+/* ── Flashcard family hint ───────────────────────────────────── */
+.card-family-hint {
+  margin-top: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: rgba(var(--primary-rgb), 0.08);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+}
+.card-family-hint strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .family-grid {
+    grid-template-columns: 1fr;
+  }
+  .family-modal-forms {
+    grid-template-columns: 1fr;
+  }
+  .vocab-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
