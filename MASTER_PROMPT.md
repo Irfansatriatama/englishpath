@@ -606,7 +606,7 @@ Jangan copy-paste kode dari Lingora secara membabi buta. Ambil **pola arsitektur
 - File baru: `cambridge-reading-data.js`, `cambridge-listening-data.js`, `cambridge-reading.js`, `cambridge-listening.js`
 - localStorage baru: `ep_user_{id}_cambridge_reading`, `ep_user_{id}_cambridge_listening`
 
-**Fase 16c-1 — Cambridge: Practice Writing & Speaking (v2.3.3)**
+**Fase 16c-1 — Cambridge: Practice Writing & Speaking (v2.3.3)** ✅ SELESAI 2026-02-26
 - Halaman practice Writing (`pages/cambridge/writing.html`) — Part 1 (essay compulsory, guided planning, word count tracker real-time, min 140/220 kata), Part 2 (pilihan: letter/email, report, review, article, story — per task: stimulus + prompt + planning prompts + writing area + word count + model answer + TTS), rubrik assessment criteria per task (Content, Communicative Achievement, Organisation, Language)
 - Halaman practice Speaking (`pages/cambridge/speaking.html`) — Part 1 (interview, 5 topik × 3 soal, TTS soal + model answer), Part 2 (individual long turn, compare 2 foto via teks deskripsi, timer 1 menit, model answer), Part 3 (collaborative task, 5 prompt diskusi + timer 3 menit), Part 4 (further discussion, 4 soal open-ended follow-up), self-assessment rubrik (Grammar & Vocabulary, Discourse Management, Pronunciation, Interactive Communication) skala 0–5
 - File baru: `cambridge-writing-data.js`, `cambridge-speaking-data.js`, `cambridge-writing.js`, `cambridge-speaking.js`

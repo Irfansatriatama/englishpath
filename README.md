@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 2.3.2 |
-| **Fase Saat Ini** | FASE 16b ✅ — Cambridge: Practice Reading & Use of English + Listening |
-| **Fase Berikutnya** | FASE 16c — Cambridge: Practice Writing & Speaking + Simulasi Full Test (v2.3.3) |
+| **Versi App** | 2.3.3 |
+| **Fase Saat Ini** | FASE 16c-1 ✅ — Cambridge: Practice Writing & Speaking |
+| **Fase Berikutnya** | FASE 16c-2 — Cambridge: Simulasi Full Test + Halaman Hasil (v2.3.4) |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -133,7 +133,7 @@ englishpath/
 │   ├── ielts/                          ✅ Fase 13a–13c-2 (Hub + Vocab + Reading + Listening + Speaking + Writing + Simulasi + Hasil)
 │   ├── toeic/                          ✅ Fase 14a–14c-2 SELESAI (Hub + Vocab + Listening + Reading + Simulasi + Hasil)
 │   ├── toefl/                          ✅ Fase 15a–15c-2 SELESAI (Hub + Vocab + Reading + Listening + Speaking + Writing + Simulasi + Hasil)
-│   └── cambridge/                      ✅ Fase 16a–16b (Hub + Vocabulary + Reading + Listening)
+│   └── cambridge/                      ✅ Fase 16a–16c-1 (Hub + Vocabulary + Reading + Listening + Writing + Speaking)
 │
 └── assets/
     ├── css/
@@ -318,6 +318,8 @@ Menghitung path relatif ke root berdasarkan kedalaman folder.
 | `cambridge_vocab` | Object | {wordId: {learnedAt}} per Cambridge advanced word |
 | `cambridge_reading` | Object | {results: {setId: {best, attempts, lastScore, lastDate}}, totalAttempts} |
 | `cambridge_listening` | Object | {results: {trackId: {best, attempts, lastScore, lastDate}}, totalAttempts} |
+| `cambridge_writing` | Object | {results: {taskId: {attempts, lastWordCount, lastSelfScore, lastDraft, lastDate}}, totalAttempts} — (Fase 16c-1) |
+| `cambridge_speaking` | Object | {results: {partId: {attempts, lastSelfScore, lastDate}}, totalAttempts} — (Fase 16c-1) |
 
 ---
 
@@ -691,8 +693,9 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **15c-1** | TOEFL iBT: Practice Speaking & Writing | v2.2.3 | ✅ |
 | **15c-2** | TOEFL iBT: Simulasi Full Test + Halaman Hasil | v2.2.4 | ✅ |
 | **16a** | Cambridge: Hub & Vocabulary | v2.3.1 | ✅ |
-| **16b** | Cambridge: Practice Reading & Use of English + Listening | v2.3.2 | 🔲 |
-| **16c** | Cambridge: Practice Writing & Speaking + Simulasi Full Test | v2.3.3 | 🔲 |
+| **16b** | Cambridge: Practice Reading & Use of English + Listening | v2.3.2 | ✅ |
+| **16c-1** | Cambridge: Practice Writing & Speaking | v2.3.3 | 🔲 |
+| **16c-2** | Cambridge: Simulasi Full Test + Halaman Hasil | v2.3.4 | 🔲 |
 | **17** | Advanced: Vocabulary & Grammar C1–C2 | v2.4.0 | 🔲 |
 | **18** | Advanced: Reading & Listening | v2.5.0 | 🔲 |
 | **19** | Speaking & Writing Modules | v2.6.0 | 🔲 |
@@ -808,13 +811,18 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 - File baru: `cambridge-reading-data.js`, `cambridge-listening-data.js`, `cambridge-reading.js`, `cambridge-listening.js`
 - localStorage baru: `ep_user_{id}_cambridge_reading`, `ep_user_{id}_cambridge_listening`
 
-**Fase 16c — Cambridge: Practice Writing & Speaking + Simulasi Full Test (v2.3.3)**
-- Halaman practice Writing (`pages/cambridge/writing.html`) — Part 1 (essay compulsory), Part 2 (letter/email, report, review, article, story), guided planning, sample answers, assessment criteria
-- Halaman practice Speaking (`pages/cambridge/speaking.html`) — Part 1 (interview), Part 2 (compare photos, long turn), Part 3 (collaborative task), Part 4 (further discussion), TTS prompts
-- Halaman simulasi full test (`pages/cambridge/simulation.html`) — Reading & Use of English (75 min) → Writing (80 min) → Listening (40 min) → Speaking prompts; pilihan level B2/C1
-- Halaman hasil (`pages/cambridge/result.html`) — score per paper, Cambridge Scale score, estimated grade A–U
-- Grade calculator: total mark → Cambridge Scale → Grade A/B/C/D/E/U; +100 XP, badge `cambridge_ready` jika grade ≥ C
-- File baru: `cambridge-writing-data.js`, `cambridge-speaking-data.js`, `cambridge-simulation-data.js`, `cambridge-writing.js`, `cambridge-speaking.js`, `cambridge-simulation.js`, `cambridge-result.js`
+**Fase 16c-1 — Cambridge: Practice Writing & Speaking (v2.3.3)**
+- Halaman practice Writing (`pages/cambridge/writing.html`) — Part 1 (essay compulsory, guided planning, word count tracker real-time, min 140/220 kata), Part 2 (pilihan: letter/email, report, review, article, story — per task: stimulus + prompt + planning prompts + writing area + word count + model answer + TTS), rubrik assessment criteria per task (Content, Communicative Achievement, Organisation, Language)
+- Halaman practice Speaking (`pages/cambridge/speaking.html`) — Part 1 (interview, 5 topik × 3 soal, TTS soal + model answer), Part 2 (individual long turn, compare 2 foto via teks deskripsi, timer 1 menit, model answer), Part 3 (collaborative task, 5 prompt diskusi + timer 3 menit), Part 4 (further discussion, 4 soal open-ended follow-up), self-assessment rubrik (Grammar & Vocabulary, Discourse Management, Pronunciation, Interactive Communication) skala 0–5
+- File baru: `cambridge-writing-data.js`, `cambridge-speaking-data.js`, `cambridge-writing.js`, `cambridge-speaking.js`
+- localStorage baru: `ep_user_{id}_cambridge_writing` — {results: {taskId: {attempts, lastWordCount, lastSelfScore, lastDraft, lastDate}}, totalAttempts}, `ep_user_{id}_cambridge_speaking` — {results: {partId: {attempts, lastSelfScore, lastDate}}, totalAttempts}
+
+**Fase 16c-2 — Cambridge: Simulasi Full Test + Halaman Hasil (v2.3.4)**
+- Halaman simulasi full test (`pages/cambridge/simulation.html`) — pilihan level B2/C1 di awal; flow 4 section timed: Reading & Use of English (75 min, Parts 1–4 Use of English + Part 5–7/8 Reading, soal subset) → Writing (80 min, Part 1 Essay wajib + Part 2 pilihan satu dari 3 opsi, word count tracker) → Listening (40 min, 4 parts TTS MCQ + sentence completion + matching) → Speaking (prompts self-paced, 4 parts dengan timer visual); navigasi antar section otomatis, progress bar overall, warning sebelum submit
+- Halaman hasil (`pages/cambridge/result.html`) — score per paper (Use of English raw, Reading raw, Writing self-score 1–5, Listening raw, Speaking self-score 1–5), konversi ke Cambridge Scale 80–230, estimated grade A/B/C/D/E/U, performa per skill dalam grafik bar teks, rekomendasi belajar per skill, riwayat 5 simulasi terakhir, +100 XP on complete, badge `cambridge_ready` jika estimated grade ≥ C
+- Grade calculator: Cambridge Scale → Grade (A: 193–230, B: 180–192, C: 169–179, D: 160–168, E: 142–159, U: <142)
+- File baru: `cambridge-simulation-data.js`, `cambridge-simulation.js`, `cambridge-result.js`
+- localStorage baru: tambah entry ke `ep_user_{id}_sim_results` — {testType:'cambridge', date, level:'B2'/'C1', scores:{reading, uoe, writing, listening, speaking}, cambridgeScale, grade, xpAwarded}
 
 ---
 
@@ -824,10 +832,15 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 
 Kamu sedang mengembangkan **EnglishPath** — aplikasi web belajar bahasa Inggris vanilla JS, 100% localStorage, tanpa framework/server/build step.
 
-Fase 1 sudah selesai. Fondasi tersedia:
-- Core JS: `storage.js`, `auth.js`, `router.js`, `app.js`
-- CSS: `main.css`, `layout.css`, `auth.css`
-- Halaman: login, register, onboarding (placeholder), dashboard (dasar), profile, change-password, settings, stats (placeholder)
+**Fase 16b sudah selesai.** Fondasi Cambridge tersedia di:
+- `pages/cambridge/index.html` — Hub Cambridge (sudah ada link ke writing.html, speaking.html, simulation.html)
+- `pages/cambridge/vocabulary.html`, `reading.html`, `listening.html` — ✅ selesai
+- `assets/js/pages/cambridge-reading.js`, `cambridge-listening.js`, `cambridge-vocab.js` — ✅ selesai
+- `assets/js/data/cambridge-reading-data.js`, `cambridge-listening-data.js`, `cambridge-vocab-data.js` — ✅ selesai
+- `assets/css/cambridge.css` — sudah ada, gunakan prefix CSS `crm-` (reading), `clt-` (listening)
+- Fase berikutnya: **Fase 16c-1** → `cambridge-writing.js` + `cambridge-speaking.js` (prefix CSS: `cwr-` dan `csp-`)
+- Setelah itu: **Fase 16c-2** → `cambridge-simulation.js` + `cambridge-result.js` (prefix CSS: `csim-` dan `cres-`)
+- SW cache: saat ini `englishpath-v16`, bump ke v17 di Fase 16c-1, v18 di Fase 16c-2
 
 ### Stack & Aturan
 
@@ -911,8 +924,9 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v2.2.3 — Fase 15c-1** | 2026-02-26 | TOEFL iBT: Practice Speaking (4 tasks: 4 independent prompts, 2 campus announcements, 2 academic concepts, 2 academic lectures; TTS, rubrik 0–4, model answers) + Writing (Task 1 Integrated read→listen→write 150–225 kata, Task 2 Academic Discussion 100+ kata; word count tracker, rubrik 0–5, model answers, SW v13) | ✅ |
 | **v2.2.4 — Fase 15c-2** | 2026-02-26 | TOEFL iBT: Simulasi Full Test + Halaman Hasil (4 section timed, score 0–120, badge toefl_ready) | ✅ |
 | **v2.3.1 — Fase 16a** | 2026-02-26 | Cambridge: Hub & Vocabulary (300+ advanced vocab: collocations, phrasal verbs, idioms, word formation, C1 academic; flashcard, SRS, quiz; cambridge.css, SW v15) | ✅ |
-| **v2.3.2 — Fase 16b** | TBD | Cambridge: Practice Reading & Use of English + Listening (Parts 1–7/8 + 4 Listening parts) | 🔲 |
-| **v2.3.3 — Fase 16c** | TBD | Cambridge: Practice Writing & Speaking + Simulasi Full Test (timed, grade A–U) | 🔲 |
+| **v2.3.2 — Fase 16b** | 2026-02-26 | Cambridge: Practice Reading & Use of English (Parts 1–7: MCQ Cloze, Open Cloze, Word Formation, KWT, Reading MC, Gapped Text, Multiple Matching) + Listening (4 parts: Short Extracts MCQ, Sentence Completion, Long Interview MCQ, Multiple Matching), TTS en-GB, timer, XP, SW v16 | ✅ |
+| **v2.3.3 — Fase 16c-1** | TBD | Cambridge: Practice Writing (Part 1 Essay + Part 2 pilihan: letter/email/report/review/article/story, guided planning, word count, model answers) + Speaking (4 parts, TTS prompts, timer, self-assessment rubrik 0–5) | 🔲 |
+| **v2.3.4 — Fase 16c-2** | TBD | Cambridge: Simulasi Full Test (B2/C1, 4 section timed: R&UoE 75min + Writing 80min + Listening 40min + Speaking) + Halaman Hasil (Cambridge Scale 80–230, grade A–U, +100 XP, badge cambridge_ready) | 🔲 |
 | **v2.4.0 — Fase 17** | TBD | Advanced: Vocabulary & Grammar C1–C2 | 🔲 |
 | **v2.5.0 — Fase 18** | TBD | Advanced: Reading & Listening | 🔲 |
 | **v2.6.0 — Fase 19** | TBD | Speaking & Writing Modules | 🔲 |
@@ -923,7 +937,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 16a ✅ Cambridge: Hub & Vocabulary → **Fase 16b** 🔲 (berikutnya: Cambridge: Practice Reading & Use of English + Listening)
+> **Fase saat ini:** Fase 16b ✅ Cambridge: Practice Reading & Use of English + Listening → **Fase 16c-1** 🔲 (berikutnya: Cambridge: Practice Writing & Speaking)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >
@@ -1364,6 +1378,80 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 **localStorage Baru:**
 - `ep_user_{id}_cambridge_reading` — {results: {setId: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts}
 - `ep_user_{id}_cambridge_listening` — {results: {trackId: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts}
+
+---
+
+### FASE 16c-1 — Cambridge: Practice Writing & Speaking ✅
+**Versi:** v2.3.3 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `pages/cambridge/writing.html` — Cambridge Writing Practice: tab Part 1 (Essay) & Part 2 (Optional Tasks), planning guide, real-time word count, timer, model answer + TTS, self-assessment 1–5, simpan ke localStorage
+- `pages/cambridge/speaking.html` — Cambridge Speaking Practice: navigasi 4 parts, TTS pertanyaan & model, timer (Part 2: 1 min, Part 3: 3 min), self-assessment 4 kriteria Cambridge
+- `assets/js/data/cambridge-writing-data.js` — Data Writing: 4 esai Part 1 (2×B2, 2×C1) + 6 tugas Part 2 (Letter formal, Email semi-formal, Report, Review, Article, Story) — masing-masing dengan stimulus, prompt, planningPrompts, rubrik 4 kriteria, dan model answer lengkap
+- `assets/js/data/cambridge-speaking-data.js` — Data Speaking: 5 topik Part 1 (×3 Q&A dengan model), 3 tugas Part 2 (foto descriptions + compare task + model), 3 tugas Part 3 (collaborative tasks + prompts), 2 set Part 4 (×4 discussion Q&A dengan model), rubrik 4 kriteria Cambridge
+- `assets/js/pages/cambridge-writing.js` — Logic Writing (IIFE): menu tabbed (Part 1/Part 2), Part 2 type filter (letter/report/review/article/story), writing area + real-time word count, countdown timer, submit → result screen, self-assessment 1–5, simpan attempt, XP award
+- `assets/js/pages/cambridge-speaking.js` — Logic Speaking (IIFE): navigasi 4 parts, Part 1 Q&A per question step, Part 2 foto compare + countdown 60s, Part 3 collaborative 5 prompts + countdown 180s, Part 4 discussion per question step, self-assessment 4 kriteria, simpan scores, XP award
+
+**File Diubah:**
+- `assets/css/cambridge.css` — Append styles: cwr-* (Writing: tabs, type-tabs, task grid, writing area, timer, word count, result, rubric, self-assess, model) + csp-* (Speaking: part nav, topic cards, question card, response area, photo compare, timer section, collaborative prompts, self-assessment rubric grid), responsive breakpoints
+- `sw.js` — Bump ke `englishpath-v17`, tambah cambridge-writing-data.js, cambridge-speaking-data.js, cambridge-writing.js, cambridge-speaking.js, pages/cambridge/writing.html, pages/cambridge/speaking.html
+- `README.md` — Update status fase, struktur folder, versi, localStorage key reference
+
+**Konten Writing:**
+
+**Part 1 — Compulsory Essay (4 esai):**
+- B2: *Technology and Social Interaction* (140–190 kata) — 3 notes (social media, face-to-face, time online)
+- B2: *Individual Action vs Environmental Change* (140–190 kata) — 3 notes (personal choices, government policies, corporate responsibility)
+- C1: *The Value of Higher Education* (220–260 kata) — graduate employment, alternative pathways, university relevance
+- C1: *Artificial Intelligence in Everyday Life* (220–260 kata) — economic benefits, ethical concerns, human identity
+
+**Part 2 — Optional Tasks (6 tugas):**
+- ✉️ Letter: Formal Complaint (laptop rusak, customer service gagal)
+- 📧 Email: Semi-formal ke kolega baru (tips kota + company culture)
+- 📊 Report: Community Facilities (parks, library, sports centre + rekomendasi)
+- ⭐ Review: Film Review "Past Lives" (deskripsi, penilaian, rekomendasi)
+- 📰 Article: "What Learning to Cook Taught Me About Failure" (skill + challenges + broader lessons)
+- 📖 Story: "The knock at the door came at exactly midnight..." (short story creative)
+
+**Konten Speaking:**
+
+**Part 1 — Interview (5 topik × 3 pertanyaan + model jawaban):**
+- Studies & Learning, Work & Future Plans, Technology & Daily Life, Environment & Travel, Arts & Entertainment
+
+**Part 2 — Individual Long Turn (3 tugas + model):**
+- Places to Study (library vs coffee shop)
+- Ways to Spend a Holiday (adventure hiking vs beach family)
+- Types of Performance (music festival vs jazz club)
+
+**Part 3 — Collaborative Task (3 tugas × 5 prompts):**
+- Improving a School (5 inisiatif wellbeing)
+- Improving a City (5 urban improvement proposals)
+- Skills for the Future (5 skill masa depan)
+
+**Part 4 — Further Discussion (2 set × 4 pertanyaan + model):**
+- Education and Learning (critical thinking, university relevance, teacher qualities)
+- Society and Values (individual vs state responsibility, social media, global inequality, cultural heritage)
+
+**Fitur yang Berfungsi:**
+- ✅ Writing Part 1: Tab B2/C1, 4 topik esai, planning guide 5 langkah, textarea + real-time word count, timer countdown 45 menit, submit → result (draft + rubrik 4 kriteria + self-assess 1–5 + model answer TTS)
+- ✅ Writing Part 2: Type filter (Letter/Email/Report/Review/Article/Story), 6 task cards, planning guide, timer 40 menit, submit flow identik Part 1
+- ✅ Word count indicator: hijau (dalam target), kuning (kurang), merah (lebih)
+- ✅ Model Answer TTS: toggle play/stop en-GB 0.88 rate
+- ✅ Speaking Part 1: Per-topic per-question flow, TTS baca pertanyaan, tombol tampilkan model + TTS model
+- ✅ Speaking Part 2: Deskripsi 2 foto teks, compare task, countdown timer 60 detik, follow-up question, model answer
+- ✅ Speaking Part 3: 5 prompt cards, task prompt, countdown timer 180 detik, follow-up question
+- ✅ Speaking Part 4: Per-question step, TTS pertanyaan, model jawaban mendalam
+- ✅ Self-Assessment Writing: skor 1–5 tombol lingkaran + indikator terpilih
+- ✅ Self-Assessment Speaking: 4 kriteria Cambridge (Grammar & Vocab, Discourse Management, Pronunciation, Interactive Communication) + skor 1–5 per kriteria
+- ✅ Simpan ke localStorage per taskId/partId, tampilkan score badge & last attempt di menu
+- ✅ XP Awards: Writing ≥4: +25XP, ≥3: +18XP, lainnya: +10XP; Speaking avg ≥4: +20XP, avg ≥3: +14XP, lainnya: +8XP
+- ✅ ChallengeSystem.onModuleVisit('cambridge') + onQuizComplete() terhubung
+- ✅ SW bump ke englishpath-v17
+- ✅ Cambridge hub (index.html) sudah memiliki link ke writing.html dan speaking.html sejak awal fase 16a
+
+**localStorage Baru:**
+- `ep_user_{id}_cambridge_writing` — {results: {taskId: {attempts, lastWordCount, lastSelfScore, lastDraft, lastDate}}, totalAttempts}
+- `ep_user_{id}_cambridge_speaking` — {results: {partId: {attempts, lastSelfScore, lastScores, lastDate}}, totalAttempts}
 
 ---
 
