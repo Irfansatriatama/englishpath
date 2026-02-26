@@ -464,7 +464,7 @@ Jangan copy-paste kode dari Lingora secara membabi buta. Ambil **pola arsitektur
 | **13b** | **IELTS: Practice per Skill (Reading & Listening)** | **v2.0.2** |
 | **13c-1** | **IELTS: Practice per Skill (Speaking & Writing)** | **v2.0.3** |
 | **13c-2** | **IELTS: Simulasi Full Test + Halaman Hasil** | **v2.0.4** |
-| **14a** | **TOEIC: Hub & Vocabulary** ✅ | **v2.1.1** |
+| **14a** | **TOEIC: Hub & Vocabulary** | **v2.1.1** |
 | **14b** | **TOEIC: Practice per Part (Listening Parts 1–4)** | **v2.1.2** |
 | **14c** | **TOEIC: Practice per Part (Reading Parts 5–7) + Simulasi Full Test** | **v2.1.3** |
 | **15a** | **TOEFL iBT: Hub & Vocabulary** | **v2.2.1** |

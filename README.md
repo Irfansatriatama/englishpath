@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 2.1.1 |
-| **Fase Saat Ini** | FASE 14a ✅ — TOEIC: Hub & Vocabulary |
-| **Fase Berikutnya** | FASE 14b — TOEIC: Practice Listening Parts 1–4 (v2.1.2) |
+| **Versi App** | 2.1.2 |
+| **Fase Saat Ini** | FASE 14b ✅ — TOEIC: Practice Listening Parts 1–4 |
+| **Fase Berikutnya** | FASE 14c — TOEIC: Practice Reading (Parts 5–7) + Simulasi Full Test (v2.1.3) |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -131,7 +131,7 @@ englishpath/
 │   │   └── listening.html              ✅ Listening B1–B2: 8 audio track TTS, transkrip, quiz (Fase 9)
 │   ├── advanced/                       🔲 Fase 17–18
 │   ├── ielts/                          ✅ Fase 13a–13c-2 (Hub + Vocab + Reading + Listening + Speaking + Writing + Simulasi + Hasil)
-│   ├── toeic/                          ✅ Fase 14a (Hub + Vocab) 🔲 14b–14c
+│   ├── toeic/                          ✅ Fase 14a (Hub + Vocab) ✅ 14b (Listening) 🔲 14c
 │   ├── toefl/                          🔲 Fase 15a–15b
 │   └── cambridge/                      🔲 Fase 16a–16b
 │
@@ -307,6 +307,7 @@ Menghitung path relatif ke root berdasarkan kedalaman folder.
 | `sim_results` | Array | [{testType, date, bands: {listening, reading, writing, speaking}, overallBand, xpAwarded}] |
 | `srs_toeic_vocab` | Object | SM-2 data per TOEIC word id — {repetitions, interval, ef, nextReview, lastReview} |
 | `toeic_vocab` | Object | {wordId: {learnedAt, mastered?}} per TOEIC Business word |
+| `toeic_listening` | Object | {results: {partN: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts} |
 
 ---
 
@@ -672,7 +673,7 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **13c-1** | IELTS: Practice Speaking & Writing | v2.0.3 | ✅ |
 | **13c-2** | IELTS: Simulasi Full Test + Halaman Hasil | v2.0.4 | ✅ |
 | **14a** | TOEIC: Hub & Vocabulary | v2.1.1 | ✅ |
-| **14b** | TOEIC: Practice Listening (Parts 1–4) | v2.1.2 | 🔲 |
+| **14b** | TOEIC: Practice Listening (Parts 1–4) | v2.1.2 | ✅ |
 | **14c** | TOEIC: Practice Reading (Parts 5–7) + Simulasi Full Test | v2.1.3 | 🔲 |
 | **15a** | TOEFL iBT: Hub & Vocabulary | v2.2.1 | 🔲 |
 | **15b** | TOEFL iBT: Practice Reading & Listening | v2.2.2 | 🔲 |
@@ -874,7 +875,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v2.0.3 — Fase 13c-1** | 2026-02-26 | IELTS: Practice Speaking & Writing (Speaking: 8 topik Part 1, 6 cue card Part 2, 6 topik Part 3, TTS, rubrik Band 1–9; Writing: 4 Task 1 Academic, 3 Task 1 General, 4 Task 2 Essay, word count real-time, model answers, scoring tips) | ✅ |
 | **v2.0.4 — Fase 13c-2** | 2026-02-26 | IELTS: Simulasi Full Test + Halaman Hasil (4 skill timed, Band calculator, riwayat 5 sim, +100 XP, badge ielts_ready, SW v6) | ✅ |
 | **v2.1.1 — Fase 14a** | 2026-02-26 | TOEIC: Hub & Vocabulary (300+ Business English, 8 domain, flashcard, SRS, quiz) | ✅ |
-| **v2.1.2 — Fase 14b** | TBD | TOEIC: Practice Listening Parts 1–4 (TTS, MCQ, form completion) | 🔲 |
+| **v2.1.2 — Fase 14b** | 2026-02-26 | TOEIC: Practice Listening Parts 1–4 (TTS, MCQ, form completion, SW v8) | ✅ |
 | **v2.1.3 — Fase 14c** | TBD | TOEIC: Practice Reading Parts 5–7 + Simulasi Full Test (LC 45 min + RC 75 min, score 10–990) | 🔲 |
 | **v2.2.1 — Fase 15a** | TBD | TOEFL iBT: Hub & Vocabulary (300+ AWL Tier 1–2, flashcard, SRS, quiz) | 🔲 |
 | **v2.2.2 — Fase 15b** | TBD | TOEFL iBT: Practice Reading & Listening (3 passage akademik + 2 lecture + 1 conversation) | 🔲 |
@@ -892,7 +893,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 14a ✅ TOEIC: Hub & Vocabulary → **Fase 14b** 🔲 (berikutnya: TOEIC Practice Listening Parts 1–4)
+> **Fase saat ini:** Fase 14b ✅ TOEIC: Practice Listening Parts 1–4 → **Fase 14c** 🔲 (berikutnya: TOEIC Practice Reading Parts 5–7 + Simulasi Full Test)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >
@@ -935,3 +936,40 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 **localStorage Baru:**
 - `ep_user_{id}_toeic_vocab` — {wordId: {learnedAt}} — progress vocabulary TOEIC
 - `ep_user_{id}_srs_toeic_vocab` — data SM-2 per word id
+
+---
+
+### FASE 14b — TOEIC: Practice Listening Parts 1–4 ✅
+**Versi:** v2.1.2 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `pages/toeic/listening.html` — Halaman TOEIC Listening Practice: menu 4 parts + dynamic practice area
+- `assets/js/data/toeic-listening-data.js` — Data Part 1 (6 foto), Part 2 (10 Q-R), Part 3 (4 percakapan × 3 Q), Part 4 (4 monolog × 3 Q)
+- `assets/js/pages/toeic-listening.js` — Logic lengkap (IIFE module)
+
+**File Diubah:**
+- `assets/css/toeic.css` — Tambah styles TOEIC Listening (menu, part cards, audio section, choices, transcript, result, review)
+- `sw.js` — Bump ke `englishpath-v8`, tambah listening.html, toeic-listening-data.js, toeic-listening.js
+
+**Konten Soal:**
+- **Part 1** — 6 set: foto bisnis (whiteboard, meja kerja, gudang, bandara, restoran, kantor) + 4 pilihan TTS
+- **Part 2** — 10 set: pertanyaan bisnis (when/who/could/have/why/where/how many/should/didn't/statement) + 3 respons TTS
+- **Part 3** — 4 percakapan bisnis (kunjungan klien, diskusi anggaran, pengiriman, wawancara) × 3 pertanyaan MCQ
+- **Part 4** — 4 monolog bisnis (pengumuman kantor, toko ritel, orientasi karyawan, pesan telepon) × 3 pertanyaan MCQ
+
+**Fitur yang Berfungsi:**
+- ✅ Menu Parts: 4 kartu dengan skor terbaik sebelumnya + tombol mulai
+- ✅ Part 1: Deskripsi foto, play TTS 4 statements (A–D), pilih jawaban, cek + penjelasan per soal
+- ✅ Part 2: Play TTS pertanyaan + 3 respons (A–C), transkrip muncul setelah play, pilih & cek jawaban
+- ✅ Part 3: Play TTS audio percakapan multi-speaker, transkrip otomatis muncul, 3 pertanyaan per set
+- ✅ Part 4: Play TTS monolog panjang, transkrip otomatis muncul, 3 pertanyaan per set
+- ✅ Timer aktif per sesi latihan
+- ✅ Progress bar soal saat ini / total
+- ✅ Tombol Play / Stop / Putar Ulang
+- ✅ Feedback jawaban benar/salah per soal (warna + penjelasan untuk Part 1 & 2)
+- ✅ Result screen: skor, XP earned, tips, review semua jawaban
+- ✅ XP Awards: +3 per soal benar, +20 bonus sempurna (100%)
+- ✅ ChallengeSystem.onModuleVisit + onQuizComplete terhubung
+
+**localStorage Baru:**
+- `ep_user_{id}_toeic_listening` — {results: {part1/part2/part3/part4: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts}
