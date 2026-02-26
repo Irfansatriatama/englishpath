@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 0.3.0 |
-| **Fase Saat Ini** | FASE 2 ✅ — Onboarding & Placement Test |
-| **Fase Berikutnya** | FASE 3 — Dashboard & Gamifikasi Dasar |
+| **Versi App** | 0.4.0 |
+| **Fase Saat Ini** | FASE 3 ✅ — Dashboard & Gamifikasi Dasar |
+| **Fase Berikutnya** | FASE 4 — Foundation: Vocabulary A1–A2 |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -129,7 +129,8 @@ englishpath/
     │   ├── main.css                    ✅ Variables, reset, dark mode, color themes
     │   ├── layout.css                  ✅ Sidebar, topbar, page shell, bottom nav
     │   ├── auth.css                    ✅ Login & register pages
-    │   └── onboarding.css              ✅ Wizard onboarding styles
+    │   ├── onboarding.css              ✅ Wizard onboarding styles
+    │   └── dashboard.css               ✅ Dashboard styles lengkap (Fase 3)
     ├── icons/
     │   ├── icon-192.png               ✅
     │   └── icon-512.png               ✅
@@ -140,11 +141,14 @@ englishpath/
             ├── router.js               ✅ guard(), guestOnly(), go(), setActiveNav()
             └── app.js                  ✅ Toast, sidebar, theme, renderUserInfo, init()
         ├── modules/
-        │   └── xp.js                       ✅ XP system, level calculation, XP history
+        │   ├── xp.js                       ✅ XP system, level calculation, XP history
+        │   ├── challenge.js                ✅ Daily Challenge system (Fase 3)
+        │   └── badge.js                    ✅ Badge system, 15 badge, auto-check (Fase 3)
         ├── data/
         │   └── placement-questions.js      ✅ 20 soal placement test A1–B2
         └── pages/
-            └── onboarding.js               ✅ Wizard onboarding logic
+            ├── onboarding.js               ✅ Wizard onboarding logic
+            └── dashboard.js                ✅ Dashboard page logic (Fase 3)
 ```
 
 ---
@@ -237,6 +241,8 @@ Menghitung path relatif ke root berdasarkan kedalaman folder.
 | `badges` | Array | badge yang diraih |
 | `settings` | Object | {darkMode, colorTheme, font, radius, ...} |
 | `onboarding` | Object | {completed, level, targetTest, dailyGoal, testCorrect, testTotal, completedAt} |
+| `challenge` | Object | {date, tasks[], completed, xpAwarded} |
+| `challenge_log` | Array | tanggal challenge yang diselesaikan |
 
 ---
 
@@ -350,12 +356,39 @@ Dokumen perencanaan lengkap dengan 23 fase roadmap.
 
 ---
 
+
+---
+
+### FASE 3 — Dashboard & Gamifikasi Dasar ✅
+**Versi:** v0.4.0 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `assets/css/dashboard.css` — Styles dashboard lengkap: welcome hero, stats grid, challenge, streak calendar, XP/level, badges, quick start
+- `assets/js/modules/challenge.js` — Daily Challenge system (generate 3 task per hari, track progress, award XP +50)
+- `assets/js/modules/badge.js` — Badge system (15 badge, auto-check & award, rarity tier)
+- `assets/js/pages/dashboard.js` — Dashboard page logic (IIFE module)
+
+**File Diubah:**
+- `pages/dashboard.html` — Dashboard lengkap dengan semua fitur gamifikasi
+
+**Fitur yang berfungsi:**
+- ✅ Welcome Hero: sapaan waktu, nama user, avatar, level progress bar
+- ✅ Stats Grid: streak, XP, level, jumlah badge
+- ✅ Motivational Quote harian (bergilir per tanggal)
+- ✅ Daily Challenge: 3 task harian bergilir per hari, progress tracker, +50 XP on complete
+- ✅ Streak Calendar: 21 hari terakhir, hari aktif disorot, hari ini ditandai emas
+- ✅ XP & Level card: level badge, nama level ID, progress bar, riwayat 5 XP terakhir
+- ✅ Badge System: 15 badge (common/rare/epic/legendary), auto-check on login, modal lihat semua
+- ✅ Quick Start grid: 6 shortcut ke modul belajar
+- ✅ Toast notifikasi badge baru saat diraih
+
+---
 ## 10. Roadmap Fase Mendatang
 
 | Fase | Nama | Versi | Status |
 |------|------|-------|--------|
 | **2** | Onboarding & Placement Test | v0.3.0 | ✅ |
-| **3** | Dashboard & Gamifikasi Dasar | v0.4.0 | 🔲 |
+| **3** | Dashboard & Gamifikasi Dasar | v0.4.0 | ✅ |
 | **4** | Foundation: Vocabulary A1–A2 | v0.5.0 | 🔲 |
 | **5** | Foundation: Pronunciation & Phonetics | v0.6.0 | 🔲 |
 | **6** | Foundation: Grammar A1–A2 | v0.7.0 | 🔲 |
@@ -447,7 +480,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v0.1.0 — Fase 0** | 2026-02-26 | Perencanaan proyek: README lengkap dengan 23 fase roadmap | ✅ |
 | **v0.2.0 — Fase 1** | 2026-02-26 | Fondasi & Autentikasi: core JS, CSS, halaman auth + protected | ✅ |
 | **v0.3.0 — Fase 2** | 2026-02-26 | Onboarding & Placement Test: wizard 5-step, XP system, 20 placement questions | ✅ |
-| **v0.4.0 — Fase 3** | TBD | Dashboard & Gamifikasi Dasar | 🔲 |
+| **v0.4.0 — Fase 3** | 2026-02-26 | Dashboard & Gamifikasi Dasar: challenge harian, badge system, streak calendar, XP progress | ✅ |
 | **v0.5.0 — Fase 4** | TBD | Foundation: Vocabulary A1–A2 | 🔲 |
 | **v0.6.0 — Fase 5** | TBD | Foundation: Pronunciation & Phonetics | 🔲 |
 | **v0.7.0 — Fase 6** | TBD | Foundation: Grammar A1–A2 | 🔲 |
@@ -471,7 +504,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 2 ✅ Onboarding & Placement Test → **Fase 3** 🔲 (berikutnya)
+> **Fase saat ini:** Fase 3 ✅ Dashboard & Gamifikasi Dasar → **Fase 4** 🔲 (berikutnya)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >
