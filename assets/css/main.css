@@ -304,13 +304,46 @@ html {
   --text-3:        #a3003a;
 }
 
+/* Teal */
+
+[data-color-theme="teal"] {
+  --primary:       #0d9488;
+  --primary-dark:  #0f766e;
+  --primary-light: #2dd4bf;
+  --primary-soft:  #ccfbf1;
+  --bg:            #f0fdfa;
+  --surface-2:     #e0faf4;
+  --border:        #99f6e4;
+  --border-2:      #5eead4;
+  --text:          #022c22;
+  --text-2:        #065f46;
+  --text-3:        #5eaf9a;
+}
+
+/* Midnight */
+[data-color-theme="midnight"] {
+  --primary:       #6366f1;
+  --primary-dark:  #4f46e5;
+  --primary-light: #818cf8;
+  --primary-soft:  #eef2ff;
+  --bg:            #f5f3ff;
+  --surface-2:     #eef2ff;
+  --border:        #e0e7ff;
+  --border-2:      #c7d2fe;
+  --text:          #1e1b4b;
+  --text-2:        #312e81;
+  --text-3:        #818cf8;
+}
+
 /* Dark + all themes: override surfaces */
 [data-theme="dark"][data-color-theme="ocean"],
 [data-theme="dark"][data-color-theme="forest"],
 [data-theme="dark"][data-color-theme="sunset"],
 [data-theme="dark"][data-color-theme="violet"],
 [data-theme="dark"][data-color-theme="amber"],
-[data-theme="dark"][data-color-theme="rose"] {
+[data-theme="dark"][data-color-theme="rose"],
+[data-theme="dark"][data-color-theme="teal"],
+[data-theme="dark"][data-color-theme="midnight"] {
   --bg:       #0d1117;
   --surface:  #161b22;
   --surface-2:#21262d;

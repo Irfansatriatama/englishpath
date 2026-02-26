@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 1.1.0 |
-| **Fase Saat Ini** | FASE 10 ✅ — PWA, Profil & Settings |
-| **Fase Berikutnya** | FASE 11 — Tema & Kustomisasi UI |
+| **Versi App** | 1.2.0 |
+| **Fase Saat Ini** | FASE 11 ✅ — Tema & Kustomisasi UI |
+| **Fase Berikutnya** | FASE 12 — Study Planner |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -115,6 +115,7 @@ englishpath/
 │   ├── profile.html                    ✅ Edit profil + avatar picker
 │   ├── change-password.html            ✅ Ganti password
 │   ├── settings.html                   ✅ Pengaturan tema, font, radius
+│   ├── theme.html                      ✅ Kustomisasi UI lengkap (Fase 11)
 │   ├── stats.html                      ✅ Placeholder → Fase 21 (lengkap)
 │   ├── foundation/                     ✅ FASE 4–7 SELESAI
 │   │   ├── vocabulary.html             ✅ Vocab A1–A2: browse/flashcard/quiz/SRS (Fase 4)
@@ -149,6 +150,7 @@ englishpath/
 │   └── reading-intermediate.css    ✅ Reading Intermediate styles (Fase 9)
 │   └── listening-intermediate.css  ✅ Listening Intermediate styles (Fase 9)
 │   └── profile.css                 ✅ Profile & Settings styles (Fase 10)
+│   └── theme.css                   ✅ Theme & Customization page styles (Fase 11)
     ├── icons/
     ├── manifest.json                   ✅ PWA manifest (Fase 10)
 ├── sw.js                           ✅ Service Worker (Fase 10)
@@ -288,6 +290,7 @@ Menghitung path relatif ke root berdasarkan kedalaman folder.
 | `listening_intermediate` | Object | {completed{trackId:true}, scores{trackId:pct}, totalListened} |
 | `dialog_foundation` | Object | {scenesRead, exerciseResults{best,attempts}, totalXP, exercisesDone} |
 | `quiz_foundation` | Object | {setResults{best,attempts,lastScore}, totalXP, attempts} |
+| `customization` | Object | {colorTheme, font, radius} — preferensi tampilan per user |
 
 ---
 
@@ -566,6 +569,39 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 
 ---
 
+### FASE 11 — Tema & Kustomisasi UI ✅
+**Versi:** v1.2.0 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `pages/theme.html` — Halaman kustomisasi UI dedicated dengan live preview, color picker, font, radius, dan preset
+- `assets/css/theme.css` — Styles lengkap: color grid, font cards, radius options, preset cards, live preview, settings summary
+
+**File Diubah:**
+- `assets/css/main.css` — Tambah 2 tema warna baru: Teal & Midnight; update dark mode combo selector
+- `assets/js/core/app.js` — Tambah `setColorTheme()`, `setFont()`, `setRadius()` sebagai public API
+- `pages/settings.html` — Tambah link ke theme.html, tambah 2 tema baru di picker, update versi 1.2.0
+- Semua 14 halaman authenticated — Update sidebar: tambah "🎨 Tema & Tampilan" di section Lainnya
+- `sw.js` — Bump ke `englishpath-v2`, tambah `theme.css` dan `theme.html`
+
+**Fitur yang Berfungsi:**
+- ✅ Halaman `/pages/theme.html` — kustomisasi UI lengkap dalam satu halaman
+- ✅ Live Preview: pratinjau tampilan langsung berubah saat pilih tema/font/radius
+- ✅ 8 tema warna: Ocean, Forest, Sunset, Violet, Amber, Rose, **Teal** (baru), **Midnight** (baru)
+- ✅ Setiap kartu tema menampilkan swatch primary, light, dan dark
+- ✅ 3 pilihan font: Default (DM Sans), Serif (Georgia), Mono (JetBrains)
+- ✅ 3 pilihan radius: Sharp, Default, Round — dengan demo visual
+- ✅ 6 preset siap pakai: Ocean Day, Ocean Night, Forest Soft, Midnight Pro, Warm Amber, Violet Night
+- ✅ Dark mode toggle terintegrasi di halaman tema
+- ✅ Reset ke Default: satu klik kembalikan semua ke setting awal
+- ✅ Settings Summary: ringkasan visual pengaturan aktif
+- ✅ Active badge: menampilkan tema & mode yang sedang aktif
+- ✅ App.setColorTheme(), App.setFont(), App.setRadius() — simpan ke localStorage + per-user settings + customization key
+- ✅ ep_user_{id}_customization tersimpan saat ganti tema
+- ✅ Anti-FOUC 4-property tetap berfungsi di semua halaman
+
+**localStorage Baru:**
+- `ep_user_{id}_customization` — {colorTheme, font, radius} — disimpan saat ganti via ThemePage atau settings
+
 
 
 | Fase | Nama | Versi | Status |
@@ -580,7 +616,7 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **8b** | Intermediate: Grammar B1–B2 | v0.9.2 | ✅ |
 | **9** | Intermediate: Reading & Listening | v1.0.0 | ✅ |
 | **10** | PWA, Profil & Settings | v1.1.0 | ✅ |
-| **11** | Tema & Kustomisasi UI | v1.2.0 | 🔲 |
+| **11** | Tema & Kustomisasi UI | v1.2.0 | ✅ |
 | **12** | Study Planner | v1.3.0 | 🔲 |
 | **13** | IELTS: Practice & Simulasi | v2.0.0 | 🔲 |
 | **14** | TOEIC: Practice & Simulasi | v2.1.0 | 🔲 |
@@ -674,7 +710,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v0.9.2 — Fase 8b** | 2026-02-26 | Intermediate: Grammar B1–B2 (12 topik B1+B2, 120 soal, 3 tipe quiz, progress tracker) | ✅ |
 | **v1.0.0 — Fase 9** | 2026-02-26 | Intermediate: Reading & Listening (8 artikel B1–B2 + 8 audio track B1–B2, comprehension quiz, TTS player) | ✅ |
 | **v1.1.0 — Fase 10** | 2026-02-26 | PWA (manifest.json + sw.js), Profile upgrade (stats, badges, XP bar), Settings upgrade (backup/restore, daily goal, color themes, reset progress, PWA install banner) | ✅ |
-| **v1.2.0 — Fase 11** | TBD | Tema & Kustomisasi UI | 🔲 |
+| **v1.2.0 — Fase 11** | 2026-02-26 | Tema & Kustomisasi UI: halaman theme.html dedicated, 8 tema warna (+ Teal & Midnight baru), live preview, font & radius picker, 6 preset siap pakai, App.setColorTheme/setFont/setRadius API, SW bump v2 | ✅ |
 | **v1.3.0 — Fase 12** | TBD | Study Planner | 🔲 |
 | **v2.0.0 — Fase 13** | TBD | IELTS: Practice & Simulasi | 🔲 |
 | **v2.1.0 — Fase 14** | TBD | TOEIC: Practice & Simulasi | 🔲 |
@@ -690,7 +726,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 10 ✅ PWA, Profil & Settings → **Fase 11** 🔲 (berikutnya)
+> **Fase saat ini:** Fase 11 ✅ Tema & Kustomisasi UI → **Fase 12** 🔲 (berikutnya)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >

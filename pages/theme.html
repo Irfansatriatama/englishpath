@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tema & Kustomisasi — EnglishPath</title>
+  <meta name="theme-color" content="#1a6cf0">
+  <link rel="manifest" href="../manifest.json">
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+      const fn = localStorage.getItem('ep_font');
+      if (fn) document.documentElement.setAttribute('data-font', fn);
+      const rd = localStorage.getItem('ep_radius');
+      if (rd) document.documentElement.setAttribute('data-radius', rd);
+    })();
+  </script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/theme.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-main">EnglishPath</div>
+      <div class="logo-sub">A1 → C2 + IELTS · TOEIC · TOEFL</div>
+    </div>
+    <div class="sidebar-user">
+      <div class="avatar-circle" data-user-avatar>🇬🇧</div>
+      <div class="sidebar-user-info">
+        <div class="user-name" data-user-name>Pengguna</div>
+        <div class="user-level" data-user-email>—</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Umum</div>
+      <a class="nav-item" href="dashboard.html" data-page="dashboard"><span class="nav-icon">🏠</span>Dashboard</a>
+      <a class="nav-item" href="stats.html" data-page="stats"><span class="nav-icon">📊</span>Statistik</a>
+      <a class="nav-item" href="settings.html" data-page="settings"><span class="nav-icon">⚙️</span>Pengaturan</a>
+      <div class="nav-section-label">Foundation (A1–A2)</div>
+      <a class="nav-item" href="foundation/vocabulary.html" data-page="foundation-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="foundation/grammar.html" data-page="foundation-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="foundation/pronunciation.html" data-page="foundation-pronunciation"><span class="nav-icon">🔊</span>Pronunciation</a>
+      <a class="nav-item" href="foundation/dialog.html" data-page="foundation-dialog"><span class="nav-icon">💬</span>Dialog</a>
+      <a class="nav-item" href="foundation/quiz.html" data-page="foundation-quiz"><span class="nav-icon">⭐</span>Quiz Foundation</a>
+      <div class="nav-section-label">Intermediate (B1–B2)</div>
+      <a class="nav-item" href="intermediate/vocabulary.html" data-page="intermediate-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="intermediate/grammar.html" data-page="intermediate-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="intermediate/reading.html" data-page="intermediate-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="intermediate/listening.html" data-page="intermediate-listening"><span class="nav-icon">🎧</span>Listening</a>
+      <a class="nav-item" href="intermediate/quiz.html" data-page="intermediate-quiz"><span class="nav-icon">⭐</span>Quiz Intermediate</a>
+      <div class="nav-section-label">Advanced (C1–C2)</div>
+      <a class="nav-item" href="advanced/vocabulary.html" data-page="advanced-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="advanced/grammar.html" data-page="advanced-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="advanced/reading.html" data-page="advanced-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="advanced/quiz.html" data-page="advanced-quiz"><span class="nav-icon">⭐</span>Quiz Advanced</a>
+      <div class="nav-section-label">Persiapan Tes</div>
+      <a class="nav-item" href="ielts/overview.html" data-page="ielts"><span class="nav-icon">🎯</span>IELTS</a>
+      <a class="nav-item" href="toeic/overview.html" data-page="toeic"><span class="nav-icon">🎯</span>TOEIC</a>
+      <a class="nav-item" href="toefl/overview.html" data-page="toefl"><span class="nav-icon">🎯</span>TOEFL iBT</a>
+      <a class="nav-item" href="cambridge/overview.html" data-page="cambridge"><span class="nav-icon">🎯</span>Cambridge</a>
+      <div class="nav-section-label">Lainnya</div>
+      <a class="nav-item" href="theme.html" data-page="theme"><span class="nav-icon">🎨</span>Tema & Tampilan</a>
+      <a class="nav-item" href="planner.html" data-page="planner"><span class="nav-icon">📅</span>Study Planner</a>
+      <a class="nav-item" href="games.html" data-page="games"><span class="nav-icon">🎮</span>Mini Game</a>
+      <div class="nav-section-label">Akun</div>
+      <a class="nav-item" href="profile.html" data-page="profile"><span class="nav-icon">👤</span>Profil</a>
+      <a class="nav-item" href="change-password.html" data-page="change-password"><span class="nav-icon">🔒</span>Ganti Password</a>
+      <a class="nav-item" href="#" data-action="logout"><span class="nav-icon">🚪</span>Keluar</a>
+    </nav>
+  </nav>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <!-- Main content -->
+  <div class="main-content">
+
+    <div class="topbar">
+      <div class="topbar-title">Tema & Kustomisasi</div>
+      <div class="topbar-actions">
+        <button class="theme-toggle-btn">🌙</button>
+      </div>
+    </div>
+
+    <div class="mobile-topbar">
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <div class="logo-main">EnglishPath</div>
+      <button class="theme-toggle-btn">🌙</button>
+    </div>
+
+    <div class="page-body">
+      <div style="max-width: 720px; margin: 0 auto;">
+
+        <!-- Page header -->
+        <div class="theme-page-header">
+          <h1>🎨 Tema & Kustomisasi</h1>
+          <p>Sesuaikan tampilan EnglishPath sesuai selera kamu</p>
+        </div>
+
+        <!-- Live Preview -->
+        <div class="theme-section">
+          <div class="theme-section-title">👁️ Pratinjau Langsung</div>
+          <div class="theme-preview-wrapper">
+            <div class="theme-preview-card" id="live-preview">
+              <div class="tp-topbar">
+                <div class="tp-logo">EnglishPath</div>
+                <div class="tp-icon">👤</div>
+              </div>
+              <div class="tp-hero">
+                <div class="tp-hero-title">Selamat Belajar! 🌟</div>
+                <div class="tp-hero-sub">Level A2 · Streak 7 Hari</div>
+              </div>
+              <div class="tp-cards-row">
+                <div class="tp-mini-card">
+                  <div class="tp-mini-val">42</div>
+                  <div class="tp-mini-lbl">Streak</div>
+                </div>
+                <div class="tp-mini-card">
+                  <div class="tp-mini-val">1.2k</div>
+                  <div class="tp-mini-lbl">XP</div>
+                </div>
+                <div class="tp-mini-card">
+                  <div class="tp-mini-val">8</div>
+                  <div class="tp-mini-lbl">Badge</div>
+                </div>
+              </div>
+              <div class="tp-buttons">
+                <div class="tp-btn-primary">Mulai Belajar</div>
+                <div class="tp-btn-outline">Statistik</div>
+              </div>
+            </div>
+            <div style="text-align:center;margin-top:8px;">
+              <span class="active-theme-badge" id="active-theme-badge">🎨 Ocean</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dark Mode -->
+        <div class="theme-section">
+          <div class="theme-section-title">🌙 Mode Tampilan</div>
+          <div class="dark-mode-row">
+            <div class="dark-mode-info">
+              <div class="dark-mode-label">Mode Gelap</div>
+              <div class="dark-mode-desc">Aktifkan tampilan gelap untuk kenyamanan mata di malam hari</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="toggle-darkmode">
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Color Themes -->
+        <div class="theme-section">
+          <div class="theme-section-title">🌈 Tema Warna</div>
+          <div class="theme-color-grid" id="color-theme-grid">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Font -->
+        <div class="theme-section">
+          <div class="theme-section-title">🔤 Tipografi</div>
+          <div class="font-options" id="font-options">
+            <div class="font-option-card" data-font="default">
+              <div class="font-preview">Aa</div>
+              <div class="font-option-name">Default</div>
+              <div class="font-option-desc">DM Sans — bersih & modern</div>
+            </div>
+            <div class="font-option-card" data-font="serif">
+              <div class="font-preview serif-font">Aa</div>
+              <div class="font-option-name">Serif</div>
+              <div class="font-option-desc">Georgia — elegan & klasik</div>
+            </div>
+            <div class="font-option-card" data-font="mono">
+              <div class="font-preview mono-font">Aa</div>
+              <div class="font-option-name">Mono</div>
+              <div class="font-option-desc">JetBrains Mono — teknikal</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Border Radius -->
+        <div class="theme-section">
+          <div class="theme-section-title">⬛ Sudut Tombol</div>
+          <div class="radius-options" id="radius-options">
+            <div class="radius-option-card" data-radius="sharp">
+              <div class="radius-demo sharp"></div>
+              <div class="radius-option-name">Sharp</div>
+              <div class="radius-option-desc">Kotak</div>
+            </div>
+            <div class="radius-option-card" data-radius="default">
+              <div class="radius-demo default"></div>
+              <div class="radius-option-name">Default</div>
+              <div class="radius-option-desc">Standar</div>
+            </div>
+            <div class="radius-option-card" data-radius="round">
+              <div class="radius-demo round"></div>
+              <div class="radius-option-name">Round</div>
+              <div class="radius-option-desc">Bulat</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Preset Combos -->
+        <div class="theme-section">
+          <div class="theme-section-title">✨ Preset Siap Pakai</div>
+          <div class="preset-grid" id="preset-grid">
+            <!-- Populated by JS -->
+          </div>
+          <div class="theme-actions" style="margin-top:16px;">
+            <button class="btn-reset-theme" id="btn-reset-theme">↺ Reset ke Default</button>
+          </div>
+        </div>
+
+        <!-- Current Settings Summary -->
+        <div class="theme-section">
+          <div class="theme-section-title">ℹ️ Pengaturan Aktif</div>
+          <div id="settings-summary" style="display:flex;flex-direction:column;gap:10px;"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="bottom-nav">
+      <div class="bottom-nav-inner">
+        <a class="bottom-nav-item" href="dashboard.html" data-page="dashboard"><span class="bnav-icon">🏠</span><span>Home</span></a>
+        <a class="bottom-nav-item" href="foundation/vocabulary.html" data-page="foundation-vocab"><span class="bnav-icon">📚</span><span>Belajar</span></a>
+        <a class="bottom-nav-item" href="stats.html" data-page="stats"><span class="bnav-icon">📊</span><span>Stats</span></a>
+        <a class="bottom-nav-item" href="profile.html" data-page="profile"><span class="bnav-icon">👤</span><span>Profil</span></a>
+      </div>
+    </div>
+
+  </div><!-- end main-content -->
+</div><!-- end app-shell -->
+
+<script src="../assets/js/core/storage.js"></script>
+<script src="../assets/js/core/auth.js"></script>
+<script src="../assets/js/core/router.js"></script>
+<script src="../assets/js/core/app.js"></script>
+<script>
+const ThemePage = (function() {
+
+  // ── Data ─────────────────────────────────────────────────
+
+  const COLOR_THEMES = [
+    { id: 'ocean',    label: 'Ocean',    color: '#1a6cf0', light: '#e8f0fe', dark: '#1254c0', emoji: '🌊' },
+    { id: 'forest',   label: 'Forest',   color: '#16a34a', light: '#dcfce7', dark: '#15803d', emoji: '🌿' },
+    { id: 'sunset',   label: 'Sunset',   color: '#ef4444', light: '#fee2e2', dark: '#dc2626', emoji: '🌅' },
+    { id: 'violet',   label: 'Violet',   color: '#7c3aed', light: '#ede9fe', dark: '#6d28d9', emoji: '💜' },
+    { id: 'amber',    label: 'Amber',    color: '#d97706', light: '#fef3c7', dark: '#b45309', emoji: '🌻' },
+    { id: 'rose',     label: 'Rose',     color: '#e11d48', light: '#ffe4e6', dark: '#be123c', emoji: '🌹' },
+    { id: 'teal',     label: 'Teal',     color: '#0d9488', light: '#ccfbf1', dark: '#0f766e', emoji: '🌊' },
+    { id: 'midnight', label: 'Midnight', color: '#6366f1', light: '#eef2ff', dark: '#4f46e5', emoji: '🌌' },
+  ];
+
+  const FONTS = [
+    { id: 'default', label: 'Default',  desc: 'DM Sans' },
+    { id: 'serif',   label: 'Serif',    desc: 'Georgia' },
+    { id: 'mono',    label: 'Mono',     desc: 'JetBrains' },
+  ];
+
+  const RADII = [
+    { id: 'sharp',   label: 'Sharp' },
+    { id: 'default', label: 'Default' },
+    { id: 'round',   label: 'Round' },
+  ];
+
+  const PRESETS = [
+    {
+      id: 'ocean-light',
+      name: 'Ocean Day',
+      desc: 'Segar & profesional',
+      color: '#1a6cf0', dark: false, font: 'default', radius: 'default',
+    },
+    {
+      id: 'ocean-dark',
+      name: 'Ocean Night',
+      desc: 'Dark mode elegan',
+      color: '#1a6cf0', dark: true, font: 'default', radius: 'default',
+    },
+    {
+      id: 'forest-round',
+      name: 'Forest Soft',
+      desc: 'Hijau & ramah',
+      color: '#16a34a', dark: false, font: 'serif', radius: 'round',
+    },
+    {
+      id: 'midnight-dark',
+      name: 'Midnight Pro',
+      desc: 'Fokus & minimalis',
+      color: '#6366f1', dark: true, font: 'mono', radius: 'sharp',
+    },
+    {
+      id: 'amber-warm',
+      name: 'Warm Amber',
+      desc: 'Hangat & nyaman',
+      color: '#d97706', dark: false, font: 'serif', radius: 'round',
+    },
+    {
+      id: 'violet-night',
+      name: 'Violet Night',
+      desc: 'Malam berwarna',
+      color: '#7c3aed', dark: true, font: 'default', radius: 'default',
+    },
+  ];
+
+  // ── State ─────────────────────────────────────────────────
+
+  let _colorTheme = localStorage.getItem('ep_color_theme') || 'ocean';
+  let _font       = localStorage.getItem('ep_font')        || 'default';
+  let _radius     = localStorage.getItem('ep_radius')      || 'default';
+  let _dark       = document.documentElement.getAttribute('data-theme') === 'dark';
+
+  // ── Helpers ───────────────────────────────────────────────
+
+  function _getThemeData(id) {
+    return COLOR_THEMES.find(t => t.id === id) || COLOR_THEMES[0];
+  }
+
+  function _updateActiveBadge() {
+    const td = _getThemeData(_colorTheme);
+    const badge = document.getElementById('active-theme-badge');
+    if (badge) badge.textContent = td.emoji + ' ' + td.label + (_dark ? ' · Dark' : ' · Light');
+  }
+
+  function _updateSummary() {
+    const el = document.getElementById('settings-summary');
+    if (!el) return;
+    const td = _getThemeData(_colorTheme);
+    el.innerHTML = [
+      { icon: '🎨', label: 'Tema Warna',    val: td.label },
+      { icon: '🌙', label: 'Mode',          val: _dark ? 'Mode Gelap' : 'Mode Terang' },
+      { icon: '🔤', label: 'Font',          val: FONTS.find(f => f.id === _font)?.label || 'Default' },
+      { icon: '⬛', label: 'Sudut Tombol',  val: RADII.find(r => r.id === _radius)?.label || 'Default' },
+    ].map(item => `
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);">
+        <span style="color:var(--text-2);font-size:0.875rem;">${item.icon} ${item.label}</span>
+        <span style="font-weight:600;font-size:0.875rem;color:var(--text);">${item.val}</span>
+      </div>
+    `).join('');
+  }
+
+  // ── Render Color Grid ─────────────────────────────────────
+
+  function _renderColorGrid() {
+    const grid = document.getElementById('color-theme-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    COLOR_THEMES.forEach(t => {
+      const card = document.createElement('div');
+      card.className = 'theme-color-card' + (t.id === _colorTheme ? ' active' : '');
+      card.setAttribute('data-theme-id', t.id);
+      card.innerHTML = `
+        <div class="theme-swatch-large" style="background:${t.color};"></div>
+        <div class="theme-swatch-row">
+          <div class="theme-swatch-mini" style="background:${t.light};border:1px solid ${t.color}22;"></div>
+          <div class="theme-swatch-mini" style="background:${t.dark};"></div>
+        </div>
+        <div class="theme-card-name">${t.emoji} ${t.label}</div>
+      `;
+      card.addEventListener('click', () => {
+        _colorTheme = t.id;
+        App.setColorTheme(t.id);
+        grid.querySelectorAll('.theme-color-card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+        _updateActiveBadge();
+        _updateSummary();
+        App.toast(t.emoji + ' Tema ' + t.label + ' diterapkan', 'success');
+      });
+      grid.appendChild(card);
+    });
+  }
+
+  // ── Render Font Options ───────────────────────────────────
+
+  function _renderFontOptions() {
+    document.querySelectorAll('#font-options .font-option-card').forEach(card => {
+      const fontId = card.getAttribute('data-font');
+      if (fontId === _font) card.classList.add('active');
+      card.addEventListener('click', () => {
+        _font = fontId;
+        App.setFont(fontId);
+        document.querySelectorAll('#font-options .font-option-card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+        _updateSummary();
+        App.toast('Font diubah ke ' + (FONTS.find(f => f.id === fontId)?.label || fontId), 'success');
+      });
+    });
+  }
+
+  // ── Render Radius Options ─────────────────────────────────
+
+  function _renderRadiusOptions() {
+    document.querySelectorAll('#radius-options .radius-option-card').forEach(card => {
+      const radiusId = card.getAttribute('data-radius');
+      if (radiusId === _radius) card.classList.add('active');
+      card.addEventListener('click', () => {
+        _radius = radiusId;
+        App.setRadius(radiusId);
+        document.querySelectorAll('#radius-options .radius-option-card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+        _updateSummary();
+        App.toast('Sudut tombol diubah', 'success');
+      });
+    });
+  }
+
+  // ── Render Presets ────────────────────────────────────────
+
+  function _renderPresets() {
+    const grid = document.getElementById('preset-grid');
+    if (!grid) return;
+    PRESETS.forEach(preset => {
+      const card = document.createElement('div');
+      card.className = 'preset-card';
+      card.innerHTML = `
+        <div class="preset-preview">
+          <div class="preset-sidebar-strip" style="background:${preset.color};"></div>
+          <div class="preset-main-strip" style="background:${preset.dark ? '#0d1117' : '#f4f6fb'};"></div>
+        </div>
+        <div class="preset-name">${preset.name}</div>
+        <div class="preset-desc">${preset.desc}</div>
+      `;
+      card.addEventListener('click', () => {
+        // Apply preset
+        _colorTheme = preset.color;
+        // Find matching theme id
+        const td = COLOR_THEMES.find(t => t.color === preset.color);
+        if (td) {
+          _colorTheme = td.id;
+          App.setColorTheme(td.id);
+        }
+        App.setFont(preset.font);
+        App.setRadius(preset.radius);
+        _font   = preset.font;
+        _radius = preset.radius;
+
+        // Handle dark mode
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (preset.dark !== isDark) {
+          App.toggleTheme();
+          _dark = preset.dark;
+        }
+
+        // Update UI
+        _renderColorGrid();
+        document.querySelectorAll('#font-options .font-option-card').forEach(c => {
+          c.classList.toggle('active', c.getAttribute('data-font') === _font);
+        });
+        document.querySelectorAll('#radius-options .radius-option-card').forEach(c => {
+          c.classList.toggle('active', c.getAttribute('data-radius') === _radius);
+        });
+        document.getElementById('toggle-darkmode').checked = _dark;
+        _updateActiveBadge();
+        _updateSummary();
+
+        // Active state on presets
+        grid.querySelectorAll('.preset-card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+
+        App.toast('✨ Preset ' + preset.name + ' diterapkan!', 'success');
+      });
+      grid.appendChild(card);
+    });
+  }
+
+  // ── Dark Mode Toggle ──────────────────────────────────────
+
+  function _initDarkToggle() {
+    const toggle = document.getElementById('toggle-darkmode');
+    if (!toggle) return;
+    toggle.checked = _dark;
+    toggle.addEventListener('change', () => {
+      App.toggleTheme();
+      _dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      _updateActiveBadge();
+      _updateSummary();
+    });
+  }
+
+  // ── Reset Button ──────────────────────────────────────────
+
+  function _initResetBtn() {
+    const btn = document.getElementById('btn-reset-theme');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      if (!confirm('Reset semua pengaturan tampilan ke default?')) return;
+
+      _colorTheme = 'ocean';
+      _font       = 'default';
+      _radius     = 'default';
+      _dark       = false;
+
+      App.setColorTheme('ocean');
+      App.setFont('default');
+      App.setRadius('default');
+
+      // Ensure light mode
+      if (document.documentElement.getAttribute('data-theme') === 'dark') {
+        App.toggleTheme();
+      }
+
+      // Re-render
+      _renderColorGrid();
+      document.querySelectorAll('#font-options .font-option-card').forEach(c => {
+        c.classList.toggle('active', c.getAttribute('data-font') === 'default');
+      });
+      document.querySelectorAll('#radius-options .radius-option-card').forEach(c => {
+        c.classList.toggle('active', c.getAttribute('data-radius') === 'default');
+      });
+      document.getElementById('toggle-darkmode').checked = false;
+      document.querySelectorAll('#preset-grid .preset-card').forEach(c => c.classList.remove('active'));
+      _updateActiveBadge();
+      _updateSummary();
+
+      App.toast('Tampilan direset ke default', 'success');
+    });
+  }
+
+  // ── Init ─────────────────────────────────────────────────
+
+  function init() {
+    Router.guard();
+    App.init('theme');
+
+    _renderColorGrid();
+    _renderFontOptions();
+    _renderRadiusOptions();
+    _renderPresets();
+    _initDarkToggle();
+    _initResetBtn();
+    _updateActiveBadge();
+    _updateSummary();
+  }
+
+  return { init };
+})();
+
+ThemePage.init();
+</script>
+</body>
+</html>

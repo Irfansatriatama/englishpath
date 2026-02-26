@@ -4,7 +4,7 @@
  * Bump CACHE_NAME version whenever files are added/changed.
  */
 
-const CACHE_NAME = 'englishpath-v1';
+const CACHE_NAME = 'englishpath-v2';
 
 const ASSETS_TO_CACHE = [
   './',
@@ -26,6 +26,7 @@ const ASSETS_TO_CACHE = [
   './assets/css/reading-intermediate.css',
   './assets/css/listening-intermediate.css',
   './assets/css/profile.css',
+  './assets/css/theme.css',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
   './assets/js/core/storage.js',
@@ -65,6 +66,7 @@ const ASSETS_TO_CACHE = [
   './pages/change-password.html',
   './pages/settings.html',
   './pages/stats.html',
+  './pages/theme.html',
   './pages/foundation/vocabulary.html',
   './pages/foundation/grammar.html',
   './pages/foundation/pronunciation.html',

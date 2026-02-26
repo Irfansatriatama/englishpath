@@ -66,6 +66,7 @@
       <a class="nav-item" href="toefl/overview.html" data-page="toefl"><span class="nav-icon">🎯</span>TOEFL iBT</a>
       <a class="nav-item" href="cambridge/overview.html" data-page="cambridge"><span class="nav-icon">🎯</span>Cambridge</a>
       <div class="nav-section-label">Lainnya</div>
+      <a class="nav-item" href="theme.html" data-page="theme"><span class="nav-icon">🎨</span>Tema &amp; Tampilan</a>
       <a class="nav-item" href="planner.html" data-page="planner"><span class="nav-icon">📅</span>Study Planner</a>
       <a class="nav-item" href="games.html" data-page="games"><span class="nav-icon">🎮</span>Mini Game</a>
       <div class="nav-section-label">Akun</div>
@@ -105,20 +106,7 @@
           <button class="pwa-btn" id="pwa-install-btn">Install</button>
         </div>
 
-        <!-- Tampilan -->
-        <div class="card fade-in settings-section">
-          <div class="card-title">🎨 Tampilan</div>
-
-          <div class="setting-row">
-            <div class="setting-label">
-              <div class="setting-name">Mode Gelap</div>
-              <div class="setting-desc">Aktifkan tampilan gelap untuk kenyamanan mata di malam hari</div>
-            </div>
-            <label class="toggle-switch">
-              <input type="checkbox" id="toggle-darkmode">
-              <span class="toggle-track"></span>
-            </label>
-          </div>
+        <!-- Tampilan -->\n        <div class=\"card fade-in settings-section\">\n          <div class=\"card-title\">🎨 Tampilan</div>\n\n          <div class=\"setting-row\">\n            <div class=\"setting-label\">\n              <div class=\"setting-name\">Tema &amp; Kustomisasi UI</div>\n              <div class=\"setting-desc\">Pilih tema warna, font, radius, dan preset tampilan lengkap</div>\n            </div>\n            <a href=\"theme.html\" style=\"background:var(--primary-soft);color:var(--primary);padding:8px 16px;border-radius:var(--radius);font-size:0.8rem;font-weight:700;\">Buka →</a>\n          </div>\n\n          <div class=\"setting-row\">\n            <div class=\"setting-label\">\n              <div class=\"setting-name\">Mode Gelap</div>\n              <div class=\"setting-desc\">Aktifkan tampilan gelap untuk kenyamanan mata di malam hari</div>\n            </div>\n            <label class=\"toggle-switch\">\n              <input type=\"checkbox\" id=\"toggle-darkmode\">\n              <span class=\"toggle-track\"></span>\n            </label>\n          </div>
 
           <div class="setting-row" style="flex-direction: column; align-items: flex-start; gap: 8px;">
             <div class="setting-label">
@@ -275,7 +263,7 @@
           <div class="setting-row">
             <div class="setting-label">
               <div class="setting-name">EnglishPath</div>
-              <div class="setting-desc">Versi 1.1.0 — Fase 10</div>
+              <div class="setting-desc">Versi 1.2.0 — Fase 11</div>
             </div>
           </div>
           <div class="setting-row">
@@ -322,6 +310,8 @@
     { id: 'violet', label: 'Violet', color: '#7c3aed' },
     { id: 'amber',  label: 'Amber',  color: '#d97706' },
     { id: 'rose',   label: 'Rose',   color: '#e11d48' },
+    { id: 'teal',   label: 'Teal',   color: '#0d9488' },
+    { id: 'midnight', label: 'Midnight', color: '#6366f1' },
   ];
 
   var currentTheme = localStorage.getItem('ep_color_theme') || 'ocean';

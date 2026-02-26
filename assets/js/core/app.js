@@ -222,9 +222,48 @@ const App = (() => {
     }
   }
 
+  // ── Set Color Theme ──────────────────────────────────────
+
+  function setColorTheme(themeId) {
+    try { localStorage.setItem('ep_color_theme', themeId); } catch(e) {}
+    document.documentElement.setAttribute('data-color-theme', themeId);
+    const user = Auth.getActiveUser();
+    if (user) {
+      Storage.mergeUser(user.id, 'settings', { colorTheme: themeId });
+      Storage.mergeUser(user.id, 'customization', { colorTheme: themeId });
+    }
+  }
+
+  // ── Set Font ─────────────────────────────────────────────
+
+  function setFont(fontId) {
+    try { localStorage.setItem('ep_font', fontId); } catch(e) {}
+    if (fontId === 'default') document.documentElement.removeAttribute('data-font');
+    else document.documentElement.setAttribute('data-font', fontId);
+    const user = Auth.getActiveUser();
+    if (user) {
+      Storage.mergeUser(user.id, 'settings', { font: fontId });
+      Storage.mergeUser(user.id, 'customization', { font: fontId });
+    }
+  }
+
+  // ── Set Radius ───────────────────────────────────────────
+
+  function setRadius(radiusId) {
+    try { localStorage.setItem('ep_radius', radiusId); } catch(e) {}
+    if (radiusId === 'default') document.documentElement.removeAttribute('data-radius');
+    else document.documentElement.setAttribute('data-radius', radiusId);
+    const user = Auth.getActiveUser();
+    if (user) {
+      Storage.mergeUser(user.id, 'settings', { radius: radiusId });
+      Storage.mergeUser(user.id, 'customization', { radius: radiusId });
+    }
+  }
+
   return {
     toast, toastXP, init,
     loadTheme, toggleTheme,
+    setColorTheme, setFont, setRadius,
     checkPasswordStrength,
     showError, clearError, setValid, clearAllErrors, showFormAlert,
     renderUserInfo,
