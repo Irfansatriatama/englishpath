@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 0.4.0 |
-| **Fase Saat Ini** | FASE 3 ✅ — Dashboard & Gamifikasi Dasar |
-| **Fase Berikutnya** | FASE 4 — Foundation: Vocabulary A1–A2 |
+| **Versi App** | 0.5.0 |
+| **Fase Saat Ini** | FASE 4 ✅ — Foundation: Vocabulary A1–A2 |
+| **Fase Berikutnya** | FASE 5 — Foundation: Pronunciation & Phonetics |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -117,6 +117,7 @@ englishpath/
 │   ├── settings.html                   ✅ Pengaturan tema, font, radius
 │   ├── stats.html                      ✅ Placeholder → Fase 21 (lengkap)
 │   ├── foundation/                     🔲 Fase 4–7
+│   │   └── vocabulary.html             ✅ Halaman belajar vocab A1–A2 (Fase 4)
 │   ├── intermediate/                   🔲 Fase 8–9
 │   ├── advanced/                       🔲 Fase 17–18
 │   ├── ielts/                          🔲 Fase 13
@@ -131,6 +132,7 @@ englishpath/
     │   ├── auth.css                    ✅ Login & register pages
     │   ├── onboarding.css              ✅ Wizard onboarding styles
     │   └── dashboard.css               ✅ Dashboard styles lengkap (Fase 3)
+    │   └── vocabulary.css              ✅ Vocabulary page styles (Fase 4)
     ├── icons/
     │   ├── icon-192.png               ✅
     │   └── icon-512.png               ✅
@@ -143,12 +145,15 @@ englishpath/
         ├── modules/
         │   ├── xp.js                       ✅ XP system, level calculation, XP history
         │   ├── challenge.js                ✅ Daily Challenge system (Fase 3)
-        │   └── badge.js                    ✅ Badge system, 15 badge, auto-check (Fase 3)
+        │   ├── badge.js                    ✅ Badge system, 15 badge, auto-check (Fase 3)
+        │   └── srs.js                      ✅ SM-2 Spaced Repetition engine (Fase 4)
         ├── data/
-        │   └── placement-questions.js      ✅ 20 soal placement test A1–B2
+        │   ├── placement-questions.js      ✅ 20 soal placement test A1–B2
+        │   └── vocabulary-data.js          ✅ 500+ kata A1–A2 (13 tema) — Fase 4
         └── pages/
             ├── onboarding.js               ✅ Wizard onboarding logic
-            └── dashboard.js                ✅ Dashboard page logic (Fase 3)
+            ├── dashboard.js                ✅ Dashboard page logic (Fase 3)
+            └── vocabulary.js               ✅ Vocab page: browse/flashcard/quiz/SRS (Fase 4)
 ```
 
 ---
@@ -243,6 +248,7 @@ Menghitung path relatif ke root berdasarkan kedalaman folder.
 | `onboarding` | Object | {completed, level, targetTest, dailyGoal, testCorrect, testTotal, completedAt} |
 | `challenge` | Object | {date, tasks[], completed, xpAwarded} |
 | `challenge_log` | Array | tanggal challenge yang diselesaikan |
+| `srs_vocab_foundation` | Object | SM-2 data per word id — {repetitions, interval, ef, nextReview, lastReview} |
 
 ---
 
@@ -383,13 +389,37 @@ Dokumen perencanaan lengkap dengan 23 fase roadmap.
 - ✅ Toast notifikasi badge baru saat diraih
 
 ---
+
+### FASE 4 — Foundation: Vocabulary A1–A2 ✅
+**Versi:** v0.5.0 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `assets/js/data/vocabulary-data.js` — 500+ kata A1–A2 dalam 13 tema (Greetings, Family, Numbers, Colors, Food, Body, Time, Home, Transport, School, Weather, Work, Shopping + Adjectives & Verbs)
+- `assets/js/modules/srs.js` — SRS engine SM-2 (Spaced Repetition): initCard, reviewCard, getDueCards, getStats, resetModule
+- `assets/css/vocabulary.css` — Styles lengkap: theme grid, word list/table, flashcard 3D flip, quiz pilihan ganda, SRS review, word modal
+- `pages/foundation/vocabulary.html` — Halaman belajar vocabulary dengan 4 mode
+- `assets/js/pages/vocabulary.js` — Logic lengkap (IIFE module)
+
+**Fitur yang berfungsi:**
+- ✅ Mode Jelajah: grid 13 tema + progress bar per tema, word list dengan search, status badge (Baru/Belajar/Hafal)
+- ✅ Mode Flashcard: 3D flip animation, pilih tema & jumlah kartu, tombol kualitas SM-2 (Susah/Ingat/Mudah)
+- ✅ Mode Quiz: pilihan ganda 4 opsi, feedback per soal + contoh kalimat, skor akhir + bonus XP
+- ✅ Mode SRS Review: review kartu yang jatuh tempo hari ini, kualitas 3 tombol
+- ✅ Word Detail Modal: klik kata untuk lihat detail + IPA + contoh + tombol audio
+- ✅ Web Speech API: tombol "Dengarkan" di setiap mode
+- ✅ XP Awards: +5 vocab baru, +2 SRS review, +3 quiz benar, +20 quiz sempurna
+- ✅ Challenge harian: onLearnItem, onSRSReview, onQuizComplete, onModuleVisit terhubung
+- ✅ Stats bar: total kata, dipelajari, review hari ini, hafal
+- ✅ SRS localStorage key: `ep_user_{id}_srs_vocab_foundation`
+
+---
 ## 10. Roadmap Fase Mendatang
 
 | Fase | Nama | Versi | Status |
 |------|------|-------|--------|
 | **2** | Onboarding & Placement Test | v0.3.0 | ✅ |
 | **3** | Dashboard & Gamifikasi Dasar | v0.4.0 | ✅ |
-| **4** | Foundation: Vocabulary A1–A2 | v0.5.0 | 🔲 |
+| **4** | Foundation: Vocabulary A1–A2 | v0.5.0 | ✅ |
 | **5** | Foundation: Pronunciation & Phonetics | v0.6.0 | 🔲 |
 | **6** | Foundation: Grammar A1–A2 | v0.7.0 | 🔲 |
 | **7** | Foundation: Dialog & Quiz | v0.8.0 | 🔲 |
@@ -481,7 +511,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v0.2.0 — Fase 1** | 2026-02-26 | Fondasi & Autentikasi: core JS, CSS, halaman auth + protected | ✅ |
 | **v0.3.0 — Fase 2** | 2026-02-26 | Onboarding & Placement Test: wizard 5-step, XP system, 20 placement questions | ✅ |
 | **v0.4.0 — Fase 3** | 2026-02-26 | Dashboard & Gamifikasi Dasar: challenge harian, badge system, streak calendar, XP progress | ✅ |
-| **v0.5.0 — Fase 4** | TBD | Foundation: Vocabulary A1–A2 | 🔲 |
+| **v0.5.0 — Fase 4** | 2026-02-26 | Foundation Vocabulary A1–A2: 500+ kata, SRS SM-2, 4 mode belajar | ✅ |
 | **v0.6.0 — Fase 5** | TBD | Foundation: Pronunciation & Phonetics | 🔲 |
 | **v0.7.0 — Fase 6** | TBD | Foundation: Grammar A1–A2 | 🔲 |
 | **v0.8.0 — Fase 7** | TBD | Foundation: Dialog & Quiz | 🔲 |
@@ -504,7 +534,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 3 ✅ Dashboard & Gamifikasi Dasar → **Fase 4** 🔲 (berikutnya)
+> **Fase saat ini:** Fase 4 ✅ Foundation: Vocabulary A1–A2 → **Fase 5** 🔲 (berikutnya)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >

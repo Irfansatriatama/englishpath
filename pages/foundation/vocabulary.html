@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vocabulary A1–A2 — EnglishPath</title>
+  <meta name="theme-color" content="#1a6cf0">
+  <script>
+    (function() {
+      const dm = localStorage.getItem('ep_dark_mode');
+      if (dm === 'true') document.documentElement.setAttribute('data-theme', 'dark');
+      const ct = localStorage.getItem('ep_color_theme');
+      if (ct) document.documentElement.setAttribute('data-color-theme', ct);
+      const fn = localStorage.getItem('ep_font');
+      if (fn) document.documentElement.setAttribute('data-font', fn);
+      const rd = localStorage.getItem('ep_radius');
+      if (rd) document.documentElement.setAttribute('data-radius', rd);
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/vocabulary.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-main">EnglishPath</div>
+      <div class="logo-sub">A1 → C2 + IELTS · TOEIC · TOEFL</div>
+    </div>
+    <div class="sidebar-user">
+      <div class="avatar-circle" data-user-avatar>🇬🇧</div>
+      <div class="sidebar-user-info">
+        <div class="user-name" data-user-name>Pengguna</div>
+        <div class="user-level" data-user-email>—</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Umum</div>
+      <a class="nav-item" href="../dashboard.html" data-page="dashboard"><span class="nav-icon">🏠</span>Dashboard</a>
+      <a class="nav-item" href="../stats.html" data-page="stats"><span class="nav-icon">📊</span>Statistik</a>
+      <a class="nav-item" href="../settings.html" data-page="settings"><span class="nav-icon">⚙️</span>Pengaturan</a>
+      <div class="nav-section-label">Foundation (A1–A2)</div>
+      <a class="nav-item" href="vocabulary.html" data-page="foundation-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="grammar.html" data-page="foundation-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="pronunciation.html" data-page="foundation-pronunciation"><span class="nav-icon">🔊</span>Pronunciation</a>
+      <a class="nav-item" href="dialog.html" data-page="foundation-dialog"><span class="nav-icon">💬</span>Dialog</a>
+      <a class="nav-item" href="quiz.html" data-page="foundation-quiz"><span class="nav-icon">⭐</span>Quiz Foundation</a>
+      <div class="nav-section-label">Intermediate (B1–B2)</div>
+      <a class="nav-item" href="../intermediate/vocabulary.html" data-page="intermediate-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../intermediate/grammar.html" data-page="intermediate-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../intermediate/reading.html" data-page="intermediate-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="../intermediate/listening.html" data-page="intermediate-listening"><span class="nav-icon">🎧</span>Listening</a>
+      <a class="nav-item" href="../intermediate/quiz.html" data-page="intermediate-quiz"><span class="nav-icon">⭐</span>Quiz Intermediate</a>
+      <div class="nav-section-label">Advanced (C1–C2)</div>
+      <a class="nav-item" href="../advanced/vocabulary.html" data-page="advanced-vocab"><span class="nav-icon">📚</span>Vocabulary</a>
+      <a class="nav-item" href="../advanced/grammar.html" data-page="advanced-grammar"><span class="nav-icon">📝</span>Grammar</a>
+      <a class="nav-item" href="../advanced/reading.html" data-page="advanced-reading"><span class="nav-icon">📖</span>Reading</a>
+      <a class="nav-item" href="../advanced/quiz.html" data-page="advanced-quiz"><span class="nav-icon">⭐</span>Quiz Advanced</a>
+      <div class="nav-section-label">Persiapan Tes</div>
+      <a class="nav-item" href="../ielts/overview.html" data-page="ielts"><span class="nav-icon">🎯</span>IELTS</a>
+      <a class="nav-item" href="../toeic/overview.html" data-page="toeic"><span class="nav-icon">🎯</span>TOEIC</a>
+      <a class="nav-item" href="../toefl/overview.html" data-page="toefl"><span class="nav-icon">🎯</span>TOEFL iBT</a>
+      <a class="nav-item" href="../cambridge/overview.html" data-page="cambridge"><span class="nav-icon">🎯</span>Cambridge</a>
+      <div class="nav-section-label">Lainnya</div>
+      <a class="nav-item" href="../planner.html" data-page="planner"><span class="nav-icon">📅</span>Study Planner</a>
+      <a class="nav-item" href="../games.html" data-page="games"><span class="nav-icon">🎮</span>Mini Game</a>
+      <div class="nav-section-label">Akun</div>
+      <a class="nav-item" href="../profile.html" data-page="profile"><span class="nav-icon">👤</span>Profil</a>
+      <a class="nav-item" href="../change-password.html" data-page="change-password"><span class="nav-icon">🔒</span>Ganti Password</a>
+      <a class="nav-item" href="#" data-action="logout"><span class="nav-icon">🚪</span>Keluar</a>
+    </nav>
+  </nav>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <!-- Main content -->
+  <div class="main-content">
+
+    <!-- Desktop topbar -->
+    <div class="topbar">
+      <div class="topbar-title">📚 Vocabulary A1–A2</div>
+      <div class="topbar-actions">
+        <button class="theme-toggle-btn" title="Ganti tema">🌙</button>
+      </div>
+    </div>
+
+    <!-- Mobile topbar -->
+    <div class="mobile-topbar">
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="logo-main">Vocabulary</div>
+      <button class="theme-toggle-btn" title="Ganti tema">🌙</button>
+    </div>
+
+    <!-- Page body -->
+    <div class="page-body">
+
+      <!-- Page Header -->
+      <div class="vocab-header">
+        <div class="vocab-header-icon">📚</div>
+        <div class="vocab-header-text">
+          <h1>Vocabulary Foundation A1–A2</h1>
+          <p>Kuasai 500+ kata dasar Bahasa Inggris dengan flashcard, quiz, dan spaced repetition</p>
+        </div>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="vocab-stats-bar">
+        <div class="vocab-stat-card">
+          <div class="vocab-stat-value" id="stat-total">—</div>
+          <div class="vocab-stat-label">Total Kata</div>
+        </div>
+        <div class="vocab-stat-card">
+          <div class="vocab-stat-value" id="stat-learned">0</div>
+          <div class="vocab-stat-label">Dipelajari</div>
+        </div>
+        <div class="vocab-stat-card">
+          <div class="vocab-stat-value" id="stat-due">0</div>
+          <div class="vocab-stat-label">Review Hari Ini</div>
+        </div>
+        <div class="vocab-stat-card">
+          <div class="vocab-stat-value" id="stat-mastered">0</div>
+          <div class="vocab-stat-label">Hafal</div>
+        </div>
+      </div>
+
+      <!-- Mode Tabs -->
+      <div class="vocab-mode-tabs">
+        <button class="vocab-mode-tab active" data-mode="browse">
+          🔍 Jelajah
+        </button>
+        <button class="vocab-mode-tab" data-mode="flashcard">
+          🃏 Flashcard
+        </button>
+        <button class="vocab-mode-tab" data-mode="quiz">
+          📝 Quiz
+        </button>
+        <button class="vocab-mode-tab" data-mode="srs">
+          ⟳ SRS Review
+        </button>
+      </div>
+
+      <!-- Dynamic content area -->
+      <div id="vocab-content"></div>
+
+    </div><!-- /page-body -->
+  </div><!-- /main-content -->
+</div><!-- /app-shell -->
+
+<!-- Word Detail Modal -->
+<div class="word-modal-overlay" id="word-modal-overlay">
+  <div class="word-modal" id="word-modal">
+    <!-- Filled by JS -->
+  </div>
+</div>
+
+<!-- Toast container injected by app.js -->
+
+<script src="../../assets/js/core/storage.js"></script>
+<script src="../../assets/js/core/auth.js"></script>
+<script src="../../assets/js/core/router.js"></script>
+<script src="../../assets/js/core/app.js"></script>
+<script src="../../assets/js/modules/xp.js"></script>
+<script src="../../assets/js/modules/challenge.js"></script>
+<script src="../../assets/js/modules/badge.js"></script>
+<script src="../../assets/js/modules/srs.js"></script>
+<script src="../../assets/js/data/vocabulary-data.js"></script>
+<script src="../../assets/js/pages/vocabulary.js"></script>
+</body>
+</html>
