@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 2.0.4 |
-| **Fase Saat Ini** | FASE 13c-2 ✅ — IELTS: Simulasi Full Test + Halaman Hasil |
-| **Fase Berikutnya** | FASE 14a — TOEIC: Hub & Vocabulary (v2.1.1) |
+| **Versi App** | 2.1.1 |
+| **Fase Saat Ini** | FASE 14a ✅ — TOEIC: Hub & Vocabulary |
+| **Fase Berikutnya** | FASE 14b — TOEIC: Practice Listening Parts 1–4 (v2.1.2) |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -131,7 +131,7 @@ englishpath/
 │   │   └── listening.html              ✅ Listening B1–B2: 8 audio track TTS, transkrip, quiz (Fase 9)
 │   ├── advanced/                       🔲 Fase 17–18
 │   ├── ielts/                          ✅ Fase 13a–13c-2 (Hub + Vocab + Reading + Listening + Speaking + Writing + Simulasi + Hasil)
-│   ├── toeic/                          🔲 Fase 14a–14b
+│   ├── toeic/                          ✅ Fase 14a (Hub + Vocab) 🔲 14b–14c
 │   ├── toefl/                          🔲 Fase 15a–15b
 │   └── cambridge/                      🔲 Fase 16a–16b
 │
@@ -305,6 +305,8 @@ Menghitung path relatif ke root berdasarkan kedalaman folder.
 | `ielts_speaking` | Object | {results: {part_itemId: {attempts, lastSelfBand, lastDate}}, totalAttempts} |
 | `ielts_writing` | Object | {results: {taskType_taskId: {attempts, lastWordCount, lastDate, lastDraft}}, totalAttempts} |
 | `sim_results` | Array | [{testType, date, bands: {listening, reading, writing, speaking}, overallBand, xpAwarded}] |
+| `srs_toeic_vocab` | Object | SM-2 data per TOEIC word id — {repetitions, interval, ef, nextReview, lastReview} |
+| `toeic_vocab` | Object | {wordId: {learnedAt, mastered?}} per TOEIC Business word |
 
 ---
 
@@ -669,7 +671,7 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **13b** | IELTS: Practice Reading & Listening | v2.0.2 | ✅ |
 | **13c-1** | IELTS: Practice Speaking & Writing | v2.0.3 | ✅ |
 | **13c-2** | IELTS: Simulasi Full Test + Halaman Hasil | v2.0.4 | ✅ |
-| **14a** | TOEIC: Hub & Vocabulary | v2.1.1 | 🔲 |
+| **14a** | TOEIC: Hub & Vocabulary | v2.1.1 | ✅ |
 | **14b** | TOEIC: Practice Listening (Parts 1–4) | v2.1.2 | 🔲 |
 | **14c** | TOEIC: Practice Reading (Parts 5–7) + Simulasi Full Test | v2.1.3 | 🔲 |
 | **15a** | TOEFL iBT: Hub & Vocabulary | v2.2.1 | 🔲 |
@@ -871,7 +873,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v2.0.2 — Fase 13b** | 2026-02-26 | IELTS: Practice Reading & Listening (4 Academic + 2 General Training passage, 4 Listening Sections TTS, MCQ, T/F/NG, form completion, timer, review jawaban) | ✅ |
 | **v2.0.3 — Fase 13c-1** | 2026-02-26 | IELTS: Practice Speaking & Writing (Speaking: 8 topik Part 1, 6 cue card Part 2, 6 topik Part 3, TTS, rubrik Band 1–9; Writing: 4 Task 1 Academic, 3 Task 1 General, 4 Task 2 Essay, word count real-time, model answers, scoring tips) | ✅ |
 | **v2.0.4 — Fase 13c-2** | 2026-02-26 | IELTS: Simulasi Full Test + Halaman Hasil (4 skill timed, Band calculator, riwayat 5 sim, +100 XP, badge ielts_ready, SW v6) | ✅ |
-| **v2.1.1 — Fase 14a** | TBD | TOEIC: Hub & Vocabulary (300+ Business English, flashcard, SRS, quiz) | 🔲 |
+| **v2.1.1 — Fase 14a** | 2026-02-26 | TOEIC: Hub & Vocabulary (300+ Business English, 8 domain, flashcard, SRS, quiz) | ✅ |
 | **v2.1.2 — Fase 14b** | TBD | TOEIC: Practice Listening Parts 1–4 (TTS, MCQ, form completion) | 🔲 |
 | **v2.1.3 — Fase 14c** | TBD | TOEIC: Practice Reading Parts 5–7 + Simulasi Full Test (LC 45 min + RC 75 min, score 10–990) | 🔲 |
 | **v2.2.1 — Fase 15a** | TBD | TOEFL iBT: Hub & Vocabulary (300+ AWL Tier 1–2, flashcard, SRS, quiz) | 🔲 |
@@ -890,8 +892,46 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 13c-2 ✅ IELTS: Simulasi Full Test + Halaman Hasil → **Fase 14a** 🔲 (berikutnya: TOEIC Hub & Vocabulary)
+> **Fase saat ini:** Fase 14a ✅ TOEIC: Hub & Vocabulary → **Fase 14b** 🔲 (berikutnya: TOEIC Practice Listening Parts 1–4)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >
 > *Dokumen ini adalah sumber kebenaran tunggal untuk proyek EnglishPath. Perbarui setiap selesai fase.*
+
+---
+
+### FASE 14a — TOEIC: Hub & Vocabulary ✅
+**Versi:** v2.1.1 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `pages/toeic/index.html` — TOEIC Hub: overview format, 7 parts structure, score chart 10–990, strategi per section
+- `pages/toeic/vocabulary.html` — TOEIC Vocabulary: 300+ Business English, 4 mode belajar
+- `assets/css/toeic.css` — TOEIC styles: hub hero, nav cards, parts grid, score chart, flashcard 3D, quiz, SRS, word modal
+- `assets/js/data/toeic-vocab-data.js` — 300+ kata Business English dalam 8 domain
+- `assets/js/pages/toeic-vocab.js` — Logic vocabulary page (IIFE module)
+
+**Domain Vocabulary:**
+1. 🤝 Meetings & Presentations (25 kata)
+2. 👥 Human Resources (25 kata)
+3. 💰 Finance & Accounting (25 kata)
+4. 🏢 Office & Administration (25 kata)
+5. ✈️ Travel & Transportation (25 kata)
+6. 📦 Logistics & Supply Chain (25 kata)
+7. 🎯 Customer Service (25 kata)
+8. 💼 General Business (30 kata)
+
+**Fitur yang Berfungsi:**
+- ✅ Hub TOEIC: overview, 7 parts detail (LC Parts 1–4 + RC Parts 5–7), score chart 10–990, strategi LC & RC
+- ✅ Mode Browse: domain grid dengan progress bar, word list dengan search, klik kata untuk modal detail + TTS
+- ✅ Mode Flashcard: pilih domain & jumlah kartu, 3D flip animation, SRS quality buttons (Susah/Ingat/Mudah)
+- ✅ Mode Quiz: 10 soal pilihan ganda, feedback per soal, skor + XP, bonus sempurna
+- ✅ Mode SRS Review: kartu yang jatuh tempo hari ini, reveal jawaban, quality rating
+- ✅ Word Modal: klik kata → detail lengkap (IPA, terjemahan, category, contoh kalimat), TTS
+- ✅ XP Awards: +5 vocab baru, +2 SRS review, +3 quiz benar, +20 quiz sempurna
+- ✅ ChallengeSystem.onLearnItem() + onModuleVisit() + onQuizComplete() terhubung
+- ✅ localStorage: `ep_user_{id}_toeic_vocab`, `ep_user_{id}_srs_toeic_vocab`
+- ✅ SW bump ke englishpath-v7
+
+**localStorage Baru:**
+- `ep_user_{id}_toeic_vocab` — {wordId: {learnedAt}} — progress vocabulary TOEIC
+- `ep_user_{id}_srs_toeic_vocab` — data SM-2 per word id
