@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 2.1.2 |
-| **Fase Saat Ini** | FASE 14b ✅ — TOEIC: Practice Listening Parts 1–4 |
-| **Fase Berikutnya** | FASE 14c — TOEIC: Practice Reading (Parts 5–7) + Simulasi Full Test (v2.1.3) |
+| **Versi App** | 2.1.3 |
+| **Fase Saat Ini** | FASE 14c-1 ✅ — TOEIC: Practice Reading Parts 5–7 |
+| **Fase Berikutnya** | FASE 14c-2 — TOEIC: Simulasi Full Test + Halaman Hasil (v2.1.4) |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -308,6 +308,7 @@ Menghitung path relatif ke root berdasarkan kedalaman folder.
 | `srs_toeic_vocab` | Object | SM-2 data per TOEIC word id — {repetitions, interval, ef, nextReview, lastReview} |
 | `toeic_vocab` | Object | {wordId: {learnedAt, mastered?}} per TOEIC Business word |
 | `toeic_listening` | Object | {results: {partN: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts} |
+| `toeic_reading` | Object | {results: {part5/part6/part7: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts} |
 
 ---
 
@@ -674,7 +675,8 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **13c-2** | IELTS: Simulasi Full Test + Halaman Hasil | v2.0.4 | ✅ |
 | **14a** | TOEIC: Hub & Vocabulary | v2.1.1 | ✅ |
 | **14b** | TOEIC: Practice Listening (Parts 1–4) | v2.1.2 | ✅ |
-| **14c** | TOEIC: Practice Reading (Parts 5–7) + Simulasi Full Test | v2.1.3 | 🔲 |
+| **14c-1** | TOEIC: Practice Reading (Parts 5–7) | v2.1.3 | ✅ |
+| **14c-2** | TOEIC: Simulasi Full Test + Halaman Hasil | v2.1.4 | 🔲 |
 | **15a** | TOEFL iBT: Hub & Vocabulary | v2.2.1 | 🔲 |
 | **15b** | TOEFL iBT: Practice Reading & Listening | v2.2.2 | 🔲 |
 | **15c** | TOEFL iBT: Practice Speaking & Writing + Simulasi Full Test | v2.2.3 | 🔲 |
@@ -733,12 +735,22 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 - File baru: `toeic-listening-data.js`, `toeic-listening.js`
 - localStorage baru: `ep_user_{id}_toeic_listening`
 
-**Fase 14c — TOEIC: Practice Reading Parts 5–7 + Simulasi Full Test (v2.1.3)**
-- Halaman practice Reading (`pages/toeic/reading.html`) — Part 5: Incomplete Sentences, Part 6: Text Completion, Part 7: Single & Double Passage Reading Comprehension
-- Halaman simulasi full test (`pages/toeic/simulation.html`) — Listening (45 menit, Parts 1–4) + Reading (75 menit, Parts 5–7), auto-advance antar section
-- Halaman hasil (`pages/toeic/result.html`) — score Listening + Reading + Total (10–990), performa per Part
-- +100 XP, badge `toeic_ready` jika total ≥ 700
-- File baru: `toeic-reading-data.js`, `toeic-simulation-data.js`, `toeic-reading.js`, `toeic-simulation.js`, `toeic-result.js`
+**Fase 14c-1 — TOEIC: Practice Reading Parts 5–7 (v2.1.3)**
+- Halaman practice Reading (`pages/toeic/reading.html`) — semua 3 Parts:
+  - Part 5: Incomplete Sentences (pilih kata/frasa yang tepat, 10 soal)
+  - Part 6: Text Completion (isi blank dalam paragraf pendek, 4 teks × 4 blanks)
+  - Part 7: Reading Comprehension (single + double passage, MCQ, 3 single + 2 double passage)
+- Timer per set latihan, feedback per soal, review jawaban di akhir
+- File baru: `toeic-reading-data.js`, `toeic-reading.js`
+- localStorage baru: `ep_user_{id}_toeic_reading`
+
+**Fase 14c-2 — TOEIC: Simulasi Full Test + Halaman Hasil (v2.1.4)**
+- Halaman simulasi full test (`pages/toeic/simulation.html`) — Listening Section (45 menit, Parts 1–4) + Reading Section (75 menit, Parts 5–7), auto-advance antar section
+- Halaman hasil (`pages/toeic/result.html`) — score Listening + Reading + Total (10–990), performa per Part, rekomendasi, riwayat 5 simulasi terakhir
+- Score converter: jumlah benar → skala TOEIC 10–990 (Listening 5–495, Reading 5–495)
+- +100 XP on complete simulasi, badge `toeic_ready` jika total ≥ 700
+- File baru: `toeic-simulation-data.js`, `toeic-simulation.js`, `toeic-result.js`
+- localStorage baru: tambah entry ke `ep_user_{id}_sim_results`
 
 ---
 
@@ -876,7 +888,8 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v2.0.4 — Fase 13c-2** | 2026-02-26 | IELTS: Simulasi Full Test + Halaman Hasil (4 skill timed, Band calculator, riwayat 5 sim, +100 XP, badge ielts_ready, SW v6) | ✅ |
 | **v2.1.1 — Fase 14a** | 2026-02-26 | TOEIC: Hub & Vocabulary (300+ Business English, 8 domain, flashcard, SRS, quiz) | ✅ |
 | **v2.1.2 — Fase 14b** | 2026-02-26 | TOEIC: Practice Listening Parts 1–4 (TTS, MCQ, form completion, SW v8) | ✅ |
-| **v2.1.3 — Fase 14c** | TBD | TOEIC: Practice Reading Parts 5–7 + Simulasi Full Test (LC 45 min + RC 75 min, score 10–990) | 🔲 |
+| **v2.1.3 — Fase 14c-1** | 2026-02-26 | TOEIC: Practice Reading Parts 5–7 (Part 5 Incomplete Sentences, Part 6 Text Completion, Part 7 Single & Double Passage) | ✅ |
+| **v2.1.4 — Fase 14c-2** | TBD | TOEIC: Simulasi Full Test (LC 45 min + RC 75 min) + Halaman Hasil (score 10–990, badge toeic_ready) | 🔲 |
 | **v2.2.1 — Fase 15a** | TBD | TOEFL iBT: Hub & Vocabulary (300+ AWL Tier 1–2, flashcard, SRS, quiz) | 🔲 |
 | **v2.2.2 — Fase 15b** | TBD | TOEFL iBT: Practice Reading & Listening (3 passage akademik + 2 lecture + 1 conversation) | 🔲 |
 | **v2.2.3 — Fase 15c** | TBD | TOEFL iBT: Practice Speaking & Writing + Simulasi Full Test (4 section timed, score 0–120) | 🔲 |
@@ -940,7 +953,6 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 ---
 
 ### FASE 14b — TOEIC: Practice Listening Parts 1–4 ✅
-**Versi:** v2.1.2 | **Tanggal:** 2026-02-26
 
 **File Dibuat:**
 - `pages/toeic/listening.html` — Halaman TOEIC Listening Practice: menu 4 parts + dynamic practice area
@@ -973,3 +985,40 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 **localStorage Baru:**
 - `ep_user_{id}_toeic_listening` — {results: {part1/part2/part3/part4: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts}
+
+---
+
+### FASE 14c-1 — TOEIC: Practice Reading Parts 5–7 ✅
+**Versi:** v2.1.3 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `pages/toeic/reading.html` — Halaman TOEIC Reading Practice: menu 3 parts + dynamic practice area
+- `assets/js/data/toeic-reading-data.js` — Data Part 5 (10 Incomplete Sentences), Part 6 (4 teks × 4 blanks), Part 7 (3 single passage + 2 double passage, total 19 soal)
+- `assets/js/pages/toeic-reading.js` — Logic lengkap (IIFE module)
+
+**File Diubah:**
+- `assets/css/toeic.css` — Tambah styles TOEIC Reading (menu, practice, passage box, blanks select, Part 6 results, Part 7 questions, result screen)
+- `sw.js` — Bump ke `englishpath-v9`, tambah reading.html, toeic-reading-data.js, toeic-reading.js
+- `README.md` — Update status fase, log pengerjaan, localStorage key reference
+- `MASTER_PROMPT.md` — Fase 14c dipecah menjadi 14c-1 (v2.1.3) dan 14c-2 (v2.1.4)
+
+**Konten Soal:**
+- **Part 5** — 10 soal Incomplete Sentences: grammar (modal verbs, prepositions, word form, relative clause) + vocabulary collocations
+- **Part 6** — 4 teks bisnis (memo HR, email customer service, notice renovasi, job posting) × 4 blanks per teks = 16 soal total
+- **Part 7 Single** — 3 single passage (email konfirmasi konferensi, memo parking policy, artikel remote work) × 3–4 soal = 10 soal
+- **Part 7 Double** — 2 double passage (job ad + application letter, product announcement + customer review) × 5 soal = 10 soal
+
+**Fitur yang Berfungsi:**
+- ✅ Menu Parts: 3 kartu (Part 5/6/7) dengan skor terbaik sebelumnya + tombol mulai
+- ✅ Tips box strategi per Part di halaman menu
+- ✅ Part 5: Tampilkan kalimat dengan blank highlight, 4 pilihan jawaban, cek per soal, penjelasan gramatikal lengkap
+- ✅ Part 6: Teks bisnis dengan dropdown select inline untuk setiap blank, cek semua sekaligus, feedback per blank dengan penjelasan
+- ✅ Part 7: Tampilkan passage (single/double) lengkap, jawab pertanyaan satu per satu dengan cek mandiri, penjelasan per soal
+- ✅ Progress bar per bagian (soal/teks/passage)
+- ✅ Timer aktif sepanjang sesi
+- ✅ Result screen: skor, feedback, waktu, tips per Part, tombol retry
+- ✅ XP Awards: +3 per soal benar, +20 bonus sempurna (100%)
+- ✅ ChallengeSystem.onModuleVisit + onQuizComplete terhubung
+
+**localStorage Baru:**
+- `ep_user_{id}_toeic_reading` — {results: {part5/part6/part7: {best, attempts, lastScore, lastCorrect, lastTotal, lastDate}}, totalAttempts}
