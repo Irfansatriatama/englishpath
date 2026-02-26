@@ -4,7 +4,7 @@
  * Bump CACHE_NAME version whenever files are added/changed.
  */
 
-const CACHE_NAME = 'englishpath-v4';
+const CACHE_NAME = 'englishpath-v5';
 
 const ASSETS_TO_CACHE = [
   './',
@@ -29,6 +29,7 @@ const ASSETS_TO_CACHE = [
   './assets/css/theme.css',
   './assets/css/planner.css',
   './assets/css/ielts.css',
+  './assets/css/ielts-skill.css',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
   './assets/js/core/storage.js',
@@ -53,6 +54,8 @@ const ASSETS_TO_CACHE = [
   './assets/js/data/ielts-vocab-data.js',
   './assets/js/data/ielts-reading-data.js',
   './assets/js/data/ielts-listening-data.js',
+  './assets/js/data/ielts-speaking-data.js',
+  './assets/js/data/ielts-writing-data.js',
   './assets/js/pages/dashboard.js',
   './assets/js/pages/onboarding.js',
   './assets/js/pages/vocabulary.js',
@@ -68,6 +71,8 @@ const ASSETS_TO_CACHE = [
   './assets/js/pages/ielts-vocab.js',
   './assets/js/pages/ielts-reading.js',
   './assets/js/pages/ielts-listening.js',
+  './assets/js/pages/ielts-speaking.js',
+  './assets/js/pages/ielts-writing.js',
   './pages/login.html',
   './pages/register.html',
   './pages/onboarding.html',
@@ -82,6 +87,8 @@ const ASSETS_TO_CACHE = [
   './pages/ielts/vocabulary.html',
   './pages/ielts/reading.html',
   './pages/ielts/listening.html',
+  './pages/ielts/speaking.html',
+  './pages/ielts/writing.html',
   './pages/foundation/vocabulary.html',
   './pages/foundation/grammar.html',
   './pages/foundation/pronunciation.html',

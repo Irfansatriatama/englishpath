@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 2.0.2 |
-| **Fase Saat Ini** | FASE 13b ✅ — IELTS: Practice Reading & Listening |
-| **Fase Berikutnya** | FASE 13c — IELTS: Practice Speaking & Writing + Simulasi Full Test (v2.0.3) |
+| **Versi App** | 2.0.3 |
+| **Fase Saat Ini** | FASE 13c-1 ✅ — IELTS: Practice Speaking & Writing |
+| **Fase Berikutnya** | FASE 13c-2 — IELTS: Simulasi Full Test + Halaman Hasil (v2.0.4) |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -130,7 +130,7 @@ englishpath/
 │   │   ├── reading.html                ✅ Reading B1–B2: 8 artikel, key vocab, comprehension quiz (Fase 9)
 │   │   └── listening.html              ✅ Listening B1–B2: 8 audio track TTS, transkrip, quiz (Fase 9)
 │   ├── advanced/                       🔲 Fase 17–18
-│   ├── ielts/                          ✅ Fase 13a (Hub + Vocabulary)
+│   ├── ielts/                          ✅ Fase 13a–13c-1 (Hub + Vocab + Reading + Listening + Speaking + Writing)
 │   ├── toeic/                          🔲 Fase 14a–14b
 │   ├── toefl/                          🔲 Fase 15a–15b
 │   └── cambridge/                      🔲 Fase 16a–16b
@@ -153,6 +153,8 @@ englishpath/
 │   └── profile.css                 ✅ Profile & Settings styles (Fase 10)
 │   └── theme.css                   ✅ Theme & Customization page styles (Fase 11)
 │   └── planner.css                 ✅ Study Planner styles (Fase 12)
+│   └── ielts.css                   ✅ IELTS Hub & Vocab styles (Fase 13a)
+│   └── ielts-skill.css             ✅ IELTS Speaking & Writing styles (Fase 13c-1)
     ├── icons/
     ├── manifest.json                   ✅ PWA manifest (Fase 10)
 ├── sw.js                           ✅ Service Worker (Fase 10)
@@ -300,6 +302,9 @@ Menghitung path relatif ke root berdasarkan kedalaman folder.
 | `ielts_vocab` | Object | {domains studied, quiz results, flashcard progress} |
 | `ielts_reading` | Object | {results: {passageId: {best, attempts, lastScore, lastDate}}, totalAttempts} |
 | `ielts_listening` | Object | {results: {sectionId: {best, attempts, lastScore, lastDate}}, totalAttempts} |
+| `ielts_speaking` | Object | {results: {part_itemId: {attempts, lastSelfBand, lastDate}}, totalAttempts} |
+| `ielts_writing` | Object | {results: {taskType_taskId: {attempts, lastWordCount, lastDate, lastDraft}}, totalAttempts} |
+| `sim_results` | Array | [{testType, date, bands: {listening, reading, writing, speaking}, overallBand, xpAwarded}] |
 
 ---
 
@@ -662,8 +667,8 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **12** | Study Planner | v1.3.0 | ✅ |
 | **13a** | IELTS: Hub & Vocabulary | v2.0.1 | ✅ |
 | **13b** | IELTS: Practice Reading & Listening | v2.0.2 | ✅ |
-
-| **13c** | IELTS: Practice Speaking & Writing + Simulasi Full Test | v2.0.3 | 🔲 |
+| **13c-1** | IELTS: Practice Speaking & Writing | v2.0.3 | ✅ |
+| **13c-2** | IELTS: Simulasi Full Test + Halaman Hasil | v2.0.4 | 🔲 |
 | **14a** | TOEIC: Hub & Vocabulary | v2.1.1 | 🔲 |
 | **14b** | TOEIC: Practice Listening (Parts 1–4) | v2.1.2 | 🔲 |
 | **14c** | TOEIC: Practice Reading (Parts 5–7) + Simulasi Full Test | v2.1.3 | 🔲 |
@@ -695,13 +700,19 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 - File baru: `ielts-reading-data.js`, `ielts-listening-data.js`, `ielts-reading.js`, `ielts-listening.js`
 - localStorage baru: `ep_user_{id}_ielts_reading`, `ep_user_{id}_ielts_listening`
 
-**Fase 13c — IELTS: Practice Speaking & Writing + Simulasi Full Test (v2.0.3)**
-- Halaman practice Speaking (`pages/ielts/speaking.html`) — Part 1 (short Q&A), Part 2 (long turn + cue card, timer 2 min), Part 3 (discussion prompts), TTS model answer, self-assessment rubrik
-- Halaman practice Writing (`pages/ielts/writing.html`) — Task 1 Academic (graph/chart/diagram), Task 1 General (letter), Task 2 Essay — guided planning, model answers, word count tracker
-- Halaman simulasi full test (`pages/ielts/simulation.html`) — flow 4 skill timed: Listening (30 min) → Reading (60 min) → Writing (60 min) → Speaking prompts
-- Halaman hasil (`pages/ielts/result.html`) — Band per section, estimated overall Band, rekomendasi, riwayat simulasi
-- Band Score calculator: raw score → Band 0–9; +100 XP, badge `ielts_ready` jika Band ≥ 6.0
-- File baru: `ielts-speaking-data.js`, `ielts-writing-data.js`, `ielts-simulation-data.js`, `ielts-speaking.js`, `ielts-writing.js`, `ielts-simulation.js`, `ielts-result.js`, `simulation.css`
+**Fase 13c-1 — IELTS: Practice Speaking & Writing (v2.0.3)**
+- Halaman practice Speaking (`pages/ielts/speaking.html`) — Part 1 (short Q&A, 8 topik, TTS soal), Part 2 (long turn + cue card + timer 2 menit countdown), Part 3 (discussion prompts), TTS model answer, self-assessment rubrik (Fluency, Vocabulary, Grammar, Pronunciation) skala 1–9
+- Halaman practice Writing (`pages/ielts/writing.html`) — Task 1 Academic (describe graph/chart/diagram, 150 kata min), Task 1 General Training (letter: formal/semi-formal/informal), Task 2 Essay (argument/discussion/opinion, 250 kata min) — guided planning, model answers, word count tracker real-time, rubric display
+- File baru: `ielts-speaking-data.js`, `ielts-writing-data.js`, `ielts-speaking.js`, `ielts-writing.js`, `ielts-skill.css`
+- localStorage baru: `ep_user_{id}_ielts_speaking`, `ep_user_{id}_ielts_writing`
+
+**Fase 13c-2 — IELTS: Simulasi Full Test + Halaman Hasil (v2.0.4)**
+- Halaman simulasi full test (`pages/ielts/simulation.html`) — flow 4 skill timed: Listening (30 min) → Reading (60 min) → Writing (60 min, Task 1+2) → Speaking (cue card prompts, timer 2 min); progress bar overall, auto-advance antar section
+- Halaman hasil (`pages/ielts/result.html`) — Band per section, estimated overall Band 0–9, rekomendasi belajar per skill, riwayat 5 simulasi terakhir
+- Band Score calculator: raw score → Band 0–9 sesuai tabel IELTS resmi
+- +100 XP on complete simulasi, badge `ielts_ready` jika estimated Band ≥ 6.0
+- File baru: `ielts-simulation-data.js`, `ielts-simulation.js`, `ielts-result.js`, `simulation.css`
+- localStorage baru: `ep_user_{id}_sim_results`
 
 ---
 
@@ -858,7 +869,8 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v1.3.0 — Fase 12** | 2026-02-26 | Study Planner: wizard setup, 5 target tes, countdown, progress ring, jadwal harian, milestone timeline, tips per skill, quote harian, XP terintegrasi, SW bump v3 | ✅ |
 | **v2.0.1 — Fase 13a** | 2026-02-26 | IELTS: Hub & Vocabulary (300+ AWL, flashcard, SRS, quiz) | ✅ |
 | **v2.0.2 — Fase 13b** | 2026-02-26 | IELTS: Practice Reading & Listening (4 Academic + 2 General Training passage, 4 Listening Sections TTS, MCQ, T/F/NG, form completion, timer, review jawaban) | ✅ |
-| **v2.0.3 — Fase 13c** | TBD | IELTS: Practice Speaking & Writing + Simulasi Full Test (4 skills timed, Band 0–9, hasil) | 🔲 |
+| **v2.0.3 — Fase 13c-1** | 2026-02-26 | IELTS: Practice Speaking & Writing (Speaking: 8 topik Part 1, 6 cue card Part 2, 6 topik Part 3, TTS, rubrik Band 1–9; Writing: 4 Task 1 Academic, 3 Task 1 General, 4 Task 2 Essay, word count real-time, model answers, scoring tips) | ✅ |
+| **v2.0.4 — Fase 13c-2** | TBD | IELTS: Simulasi Full Test + Halaman Hasil (4 skill timed, Band 0–9, riwayat) | 🔲 |
 | **v2.1.1 — Fase 14a** | TBD | TOEIC: Hub & Vocabulary (300+ Business English, flashcard, SRS, quiz) | 🔲 |
 | **v2.1.2 — Fase 14b** | TBD | TOEIC: Practice Listening Parts 1–4 (TTS, MCQ, form completion) | 🔲 |
 | **v2.1.3 — Fase 14c** | TBD | TOEIC: Practice Reading Parts 5–7 + Simulasi Full Test (LC 45 min + RC 75 min, score 10–990) | 🔲 |
@@ -878,7 +890,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 13b ✅ IELTS: Practice Reading & Listening → **Fase 13c** 🔲 (berikutnya: IELTS Practice Speaking & Writing + Simulasi Full Test)
+> **Fase saat ini:** Fase 13c-1 ✅ IELTS: Practice Speaking & Writing → **Fase 13c-2** 🔲 (berikutnya: IELTS Simulasi Full Test + Halaman Hasil)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >
