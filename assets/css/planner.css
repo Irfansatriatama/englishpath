@@ -1,0 +1,597 @@
+/* ============================================================
+   EnglishPath — Study Planner CSS  (Fase 12)
+   ============================================================ */
+
+/* ── Page Header ─────────────────────────────────────────── */
+.planner-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark, #1250b0) 100%);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.planner-header::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 180px; height: 180px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+}
+.planner-header-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.planner-header-text h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: .25rem;
+}
+.planner-header-text p {
+  font-size: .9rem;
+  opacity: .88;
+}
+
+/* ── Setup Wizard ────────────────────────────────────────── */
+.planner-setup {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.setup-step {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  margin-bottom: 1.25rem;
+  transition: border-color .2s;
+}
+.setup-step.active {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-subtle, rgba(26,108,240,.1));
+}
+.setup-step-header {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 1.25rem;
+}
+.step-number {
+  width: 2rem; height: 2rem;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  font-size: .875rem;
+  flex-shrink: 0;
+}
+.step-number.done {
+  background: var(--success, #10b981);
+}
+.setup-step-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Test cards grid */
+.test-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: .75rem;
+}
+.test-card {
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color .2s, background .2s, transform .15s;
+  background: var(--bg);
+}
+.test-card:hover { transform: translateY(-2px); border-color: var(--primary-light, #93b8ff); }
+.test-card.selected {
+  border-color: var(--primary);
+  background: var(--primary-subtle, rgba(26,108,240,.07));
+}
+.test-card-icon { font-size: 1.75rem; margin-bottom: .4rem; }
+.test-card-name { font-size: .875rem; font-weight: 600; }
+.test-card-desc { font-size: .75rem; color: var(--text-muted); margin-top: .2rem; }
+
+/* Score select */
+.score-select {
+  width: 100%;
+  padding: .625rem .875rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  color: var(--text);
+  font-size: .9rem;
+  cursor: pointer;
+}
+.score-select:focus { outline: none; border-color: var(--primary); }
+
+/* Date inputs */
+.date-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.date-field label {
+  display: block;
+  font-size: .8rem;
+  color: var(--text-muted);
+  margin-bottom: .35rem;
+  font-weight: 500;
+}
+.date-field input[type="date"] {
+  width: 100%;
+  padding: .625rem .875rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  color: var(--text);
+  font-size: .9rem;
+}
+.date-field input[type="date"]:focus { outline: none; border-color: var(--primary); }
+
+.rec-weeks {
+  margin-top: .75rem;
+  font-size: .82rem;
+  color: var(--text-muted);
+  padding: .5rem .875rem;
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--primary);
+}
+
+/* Setup action */
+.setup-actions {
+  display: flex;
+  gap: .75rem;
+  justify-content: flex-end;
+  margin-top: 1.25rem;
+}
+.btn-setup-primary {
+  padding: .625rem 1.5rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, opacity .2s;
+}
+.btn-setup-primary:disabled { opacity: .5; cursor: not-allowed; }
+.btn-setup-primary:not(:disabled):hover { background: var(--primary-dark, #1250b0); }
+.btn-setup-reset {
+  padding: .625rem 1.25rem;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: .875rem;
+  cursor: pointer;
+  transition: border-color .2s;
+}
+.btn-setup-reset:hover { border-color: var(--danger, #ef4444); color: var(--danger, #ef4444); }
+
+/* ── Active Planner Dashboard ─────────────────────────────── */
+.planner-dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 640px) { .planner-dashboard { grid-template-columns: 1fr; } }
+
+.planner-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+}
+.planner-card h3 {
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+/* Countdown card */
+.countdown-display {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.countdown-num {
+  text-align: center;
+  min-width: 56px;
+}
+.countdown-val {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+.countdown-label {
+  font-size: .72rem;
+  color: var(--text-muted);
+  margin-top: .2rem;
+}
+.countdown-divider {
+  font-size: 1.5rem;
+  color: var(--border);
+  font-weight: 300;
+  align-self: flex-start;
+  margin-top: .25rem;
+}
+.countdown-sub {
+  font-size: .8rem;
+  color: var(--text-muted);
+  margin-top: .5rem;
+}
+
+/* Progress card */
+.progress-ring-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.progress-ring-svg { flex-shrink: 0; }
+.progress-ring-track { fill: none; stroke: var(--border); stroke-width: 6; }
+.progress-ring-fill {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 6;
+  stroke-linecap: round;
+  transition: stroke-dashoffset .6s ease;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+.progress-ring-text {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--text);
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+.progress-ring-label {
+  font-size: 9px;
+  fill: var(--text-muted);
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+.progress-details .detail-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: .8rem;
+  margin-bottom: .35rem;
+  padding-bottom: .35rem;
+  border-bottom: 1px solid var(--border);
+}
+.progress-details .detail-row:last-child { border: none; margin: 0; padding: 0; }
+.detail-label { color: var(--text-muted); }
+.detail-value { font-weight: 600; }
+.detail-value.green { color: var(--success, #10b981); }
+.detail-value.blue { color: var(--primary); }
+
+/* ── Today's Schedule ────────────────────────────────────── */
+.today-schedule {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.today-schedule h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.schedule-day-label {
+  font-size: .8rem;
+  color: var(--text-muted);
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: .25rem .75rem;
+  display: inline-block;
+  margin-bottom: .75rem;
+  font-weight: 500;
+}
+.schedule-items {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.schedule-item {
+  display: flex;
+  align-items: center;
+  gap: .875rem;
+  padding: .75rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: background .15s;
+}
+.schedule-item.done {
+  opacity: .6;
+  text-decoration: line-through;
+}
+.schedule-item-time {
+  font-size: .75rem;
+  color: var(--text-muted);
+  min-width: 44px;
+  font-weight: 500;
+}
+.schedule-item-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.schedule-item-info { flex: 1; }
+.schedule-item-skill {
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: .1rem;
+}
+.schedule-item-activity { font-size: .85rem; }
+.schedule-item-duration {
+  font-size: .75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.schedule-check {
+  width: 20px; height: 20px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .15s, background .15s;
+  background: transparent;
+  font-size: .75rem;
+}
+.schedule-check:hover { border-color: var(--primary); }
+.schedule-check.checked {
+  background: var(--success, #10b981);
+  border-color: var(--success, #10b981);
+  color: #fff;
+}
+
+/* ── Milestone Timeline ──────────────────────────────────── */
+.milestone-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.milestone-section h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+.milestone-timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+.milestone-timeline::before {
+  content: '';
+  position: absolute;
+  left: 9px; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+.milestone-item {
+  position: relative;
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+.milestone-item:last-child { margin-bottom: 0; }
+.milestone-dot {
+  position: absolute;
+  left: -1.5rem;
+  top: 4px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .65rem;
+  transition: background .2s, border-color .2s;
+}
+.milestone-dot.current {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+.milestone-dot.completed {
+  border-color: var(--success, #10b981);
+  background: var(--success, #10b981);
+  color: #fff;
+}
+.milestone-dot.upcoming { border-color: var(--border); }
+.milestone-week-badge {
+  font-size: .72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: .2rem;
+}
+.milestone-week-badge.current { color: var(--primary); }
+.milestone-title {
+  font-size: .9rem;
+  font-weight: 600;
+  margin-bottom: .15rem;
+}
+.milestone-desc {
+  font-size: .8rem;
+  color: var(--text-muted);
+  margin-bottom: .25rem;
+}
+.milestone-target {
+  font-size: .75rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+.milestone-date-range {
+  font-size: .72rem;
+  color: var(--text-muted);
+  margin-top: .2rem;
+}
+.milestone-check-btn {
+  margin-top: .5rem;
+  padding: .25rem .875rem;
+  font-size: .78rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  cursor: pointer;
+  font-weight: 500;
+  transition: background .15s;
+}
+.milestone-check-btn:hover { background: var(--primary); color: #fff; }
+.milestone-check-btn.done {
+  border-color: var(--success, #10b981);
+  color: var(--success, #10b981);
+}
+.milestone-check-btn.done:hover { background: var(--success, #10b981); color: #fff; }
+
+/* ── Tips Section ────────────────────────────────────────── */
+.tips-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.tips-section h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.tips-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
+.tip-tab {
+  padding: .3rem .875rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: .8rem;
+  cursor: pointer;
+  background: var(--bg);
+  color: var(--text-muted);
+  transition: border-color .15s, color .15s, background .15s;
+}
+.tip-tab.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+.tips-list {
+  display: flex;
+  flex-direction: column;
+  gap: .625rem;
+}
+.tip-item {
+  display: flex;
+  gap: .75rem;
+  padding: .75rem 1rem;
+  background: var(--bg);
+  border-radius: var(--radius-md);
+  font-size: .875rem;
+  align-items: flex-start;
+}
+.tip-item::before {
+  content: '💡';
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+/* ── Quote Card ──────────────────────────────────────────── */
+.planner-quote {
+  background: linear-gradient(135deg, var(--primary-subtle, rgba(26,108,240,.07)) 0%, transparent 100%);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.planner-quote blockquote {
+  font-size: .95rem;
+  font-style: italic;
+  color: var(--text);
+  margin-bottom: .35rem;
+}
+.planner-quote cite {
+  font-size: .8rem;
+  color: var(--text-muted);
+  font-style: normal;
+}
+
+/* ── Reset Planner ───────────────────────────────────────── */
+.planner-reset-section {
+  text-align: center;
+  padding: 1rem;
+}
+.btn-reset-planner {
+  padding: .5rem 1.25rem;
+  background: transparent;
+  color: var(--danger, #ef4444);
+  border: 1px solid var(--danger, #ef4444);
+  border-radius: var(--radius-md);
+  font-size: .85rem;
+  cursor: pointer;
+  transition: background .15s;
+}
+.btn-reset-planner:hover {
+  background: var(--danger, #ef4444);
+  color: #fff;
+}
+
+/* ── Empty / no plan state ────────────────────────────────── */
+.planner-empty {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--text-muted);
+}
+.planner-empty-icon { font-size: 3rem; margin-bottom: .75rem; }
+.planner-empty h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: .5rem; color: var(--text); }
+.planner-empty p { font-size: .875rem; }
+
+/* ── Weekly progress bar ─────────────────────────────────── */
+.week-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: .5rem;
+}
+.week-progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 999px;
+  transition: width .4s ease;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .test-cards { grid-template-columns: repeat(2, 1fr); }
+  .date-row { grid-template-columns: 1fr; }
+  .planner-header { flex-direction: column; gap: .75rem; }
+  .planner-header-icon { font-size: 2rem; }
+}

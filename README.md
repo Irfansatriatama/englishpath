@@ -27,9 +27,9 @@ Aplikasi web interaktif untuk mempelajari Bahasa Inggris — dari level A1 pemul
 | Info | Detail |
 |------|--------|
 | **Nama Proyek** | EnglishPath |
-| **Versi App** | 1.2.0 |
-| **Fase Saat Ini** | FASE 11 ✅ — Tema & Kustomisasi UI |
-| **Fase Berikutnya** | FASE 12 — Study Planner |
+| **Versi App** | 1.3.0 |
+| **Fase Saat Ini** | FASE 12 ✅ — Study Planner |
+| **Fase Berikutnya** | FASE 13 — IELTS: Practice & Simulasi |
 | **Tech Stack** | HTML5 + CSS3 + JavaScript ES6+ (Vanilla, no framework) |
 | **Storage** | `localStorage` 100% — tanpa server, tanpa database |
 | **Target Bahasa** | Bahasa Inggris (British & American English) |
@@ -116,6 +116,7 @@ englishpath/
 │   ├── change-password.html            ✅ Ganti password
 │   ├── settings.html                   ✅ Pengaturan tema, font, radius
 │   ├── theme.html                      ✅ Kustomisasi UI lengkap (Fase 11)
+│   ├── planner.html                    ✅ Study Planner (Fase 12)
 │   ├── stats.html                      ✅ Placeholder → Fase 21 (lengkap)
 │   ├── foundation/                     ✅ FASE 4–7 SELESAI
 │   │   ├── vocabulary.html             ✅ Vocab A1–A2: browse/flashcard/quiz/SRS (Fase 4)
@@ -151,6 +152,7 @@ englishpath/
 │   └── listening-intermediate.css  ✅ Listening Intermediate styles (Fase 9)
 │   └── profile.css                 ✅ Profile & Settings styles (Fase 10)
 │   └── theme.css                   ✅ Theme & Customization page styles (Fase 11)
+│   └── planner.css                 ✅ Study Planner styles (Fase 12)
     ├── icons/
     ├── manifest.json                   ✅ PWA manifest (Fase 10)
 ├── sw.js                           ✅ Service Worker (Fase 10)
@@ -177,6 +179,7 @@ englishpath/
         │   └── grammar-intermediate-data.js ✅ 12 topik grammar B1–B2 + 120 soal — Fase 8b
         │   └── reading-intermediate-data.js ✅ 8 artikel B1–B2 + kosakata + 40 soal quiz — Fase 9
         │   └── listening-intermediate-data.js ✅ 8 audio track B1–B2 + frasa + 40 soal quiz — Fase 9
+        │   └── planner-data.js             ✅ Study Planner: 5 tes, milestone, jadwal harian, tips (Fase 12)
         └── pages/
             ├── onboarding.js               ✅ Wizard onboarding logic
             ├── dashboard.js                ✅ Dashboard page logic (Fase 3)
@@ -189,6 +192,7 @@ englishpath/
             ├── grammar-intermediate.js     ✅ Grammar Intermediate page logic (Fase 8b)
             ├── reading-intermediate.js     ✅ Reading Intermediate page logic (Fase 9)
             └── listening-intermediate.js   ✅ Listening Intermediate page logic (Fase 9)
+            └── planner.js                  ✅ Study Planner page logic (Fase 12)
 ```
 
 ---
@@ -291,6 +295,7 @@ Menghitung path relatif ke root berdasarkan kedalaman folder.
 | `dialog_foundation` | Object | {scenesRead, exerciseResults{best,attempts}, totalXP, exercisesDone} |
 | `quiz_foundation` | Object | {setResults{best,attempts,lastScore}, totalXP, attempts} |
 | `customization` | Object | {colorTheme, font, radius} — preferensi tampilan per user |
+| `planner_plan` | Object | {testId, targetScore, startDate, targetDate, weeklyPlan[], dailyChecks{}, milestoneCompleted{}, createdAt} |
 
 ---
 
@@ -604,6 +609,39 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 
 
 
+### FASE 12 — Study Planner ✅
+**Versi:** v1.3.0 | **Tanggal:** 2026-02-26
+
+**File Dibuat:**
+- `pages/planner.html` — Halaman Study Planner dengan setup wizard & dashboard aktif
+- `assets/css/planner.css` — Styles lengkap: header, wizard setup, countdown, progress ring, jadwal harian, milestone timeline, tips, quote
+- `assets/js/data/planner-data.js` — Data 5 target tes, milestone per tes, jadwal harian weekday/weekend, tips per skill, motivational quotes
+- `assets/js/pages/planner.js` — Logic planner lengkap (IIFE module)
+
+**File Diubah:**
+- `sw.js` — Bump ke `englishpath-v3`, tambah planner.css, planner-data.js, planner.js, planner.html
+
+**Fitur yang Berfungsi:**
+- ✅ Setup Wizard 3 langkah: pilih target tes → pilih skor target → tentukan tanggal mulai & ujian
+- ✅ 5 pilihan target: IELTS, TOEIC, TOEFL iBT, Cambridge, Bahasa Inggris Umum
+- ✅ Rekomendasi durasi belajar berdasarkan tes dan skor yang dipilih
+- ✅ Validasi tanggal: ujian harus setelah mulai
+- ✅ Countdown ke ujian: hari/minggu/bulan tersisa
+- ✅ Progress ring SVG: persentase waktu yang telah berlalu
+- ✅ Jadwal harian otomatis: weekday vs weekend berbeda, per target tes
+- ✅ Checklist jadwal harian: centang aktivitas selesai, +2 XP per item
+- ✅ Timeline milestone mingguan: current/completed/upcoming dengan visual indicator
+- ✅ Tandai milestone selesai: +20 XP per milestone
+- ✅ Tips belajar per skill dengan tab filter
+- ✅ Motivational quote harian (7 kutipan berganti per tanggal)
+- ✅ Reset planner: hapus plan dan buat baru
+- ✅ XP terintegrasi: checklist harian (+2 XP), milestone (+20 XP)
+- ✅ ChallengeSystem.onModuleVisit terhubung
+
+**localStorage Baru:**
+- `ep_user_{id}_planner_plan` — Objek lengkap plan: testId, targetScore, startDate, targetDate, weeklyPlan[], dailyChecks{}, milestoneCompleted{}, createdAt
+
+
 | Fase | Nama | Versi | Status |
 |------|------|-------|--------|
 | **2** | Onboarding & Placement Test | v0.3.0 | ✅ |
@@ -617,7 +655,7 @@ A2: Adjectives (comparative/superlative), Modal Verbs (can/must/should/may), Pre
 | **9** | Intermediate: Reading & Listening | v1.0.0 | ✅ |
 | **10** | PWA, Profil & Settings | v1.1.0 | ✅ |
 | **11** | Tema & Kustomisasi UI | v1.2.0 | ✅ |
-| **12** | Study Planner | v1.3.0 | 🔲 |
+| **12** | Study Planner | v1.3.0 | ✅ |
 | **13** | IELTS: Practice & Simulasi | v2.0.0 | 🔲 |
 | **14** | TOEIC: Practice & Simulasi | v2.1.0 | 🔲 |
 | **15** | TOEFL iBT: Practice & Simulasi | v2.2.0 | 🔲 |
@@ -711,7 +749,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 | **v1.0.0 — Fase 9** | 2026-02-26 | Intermediate: Reading & Listening (8 artikel B1–B2 + 8 audio track B1–B2, comprehension quiz, TTS player) | ✅ |
 | **v1.1.0 — Fase 10** | 2026-02-26 | PWA (manifest.json + sw.js), Profile upgrade (stats, badges, XP bar), Settings upgrade (backup/restore, daily goal, color themes, reset progress, PWA install banner) | ✅ |
 | **v1.2.0 — Fase 11** | 2026-02-26 | Tema & Kustomisasi UI: halaman theme.html dedicated, 8 tema warna (+ Teal & Midnight baru), live preview, font & radius picker, 6 preset siap pakai, App.setColorTheme/setFont/setRadius API, SW bump v2 | ✅ |
-| **v1.3.0 — Fase 12** | TBD | Study Planner | 🔲 |
+| **v1.3.0 — Fase 12** | 2026-02-26 | Study Planner: wizard setup, 5 target tes, countdown, progress ring, jadwal harian, milestone timeline, tips per skill, quote harian, XP terintegrasi, SW bump v3 | ✅ |
 | **v2.0.0 — Fase 13** | TBD | IELTS: Practice & Simulasi | 🔲 |
 | **v2.1.0 — Fase 14** | TBD | TOEIC: Practice & Simulasi | 🔲 |
 | **v2.2.0 — Fase 15** | TBD | TOEFL iBT: Practice & Simulasi | 🔲 |
@@ -726,7 +764,7 @@ Sidebar **harus inline** di setiap halaman (tidak di-fetch). Salin pola sidebar 
 
 ---
 
-> **Fase saat ini:** Fase 11 ✅ Tema & Kustomisasi UI → **Fase 12** 🔲 (berikutnya)
+> **Fase saat ini:** Fase 12 ✅ Study Planner → **Fase 13** 🔲 (berikutnya)
 >
 > *EnglishPath — From A1 to IELTS, one word at a time.*
 >
